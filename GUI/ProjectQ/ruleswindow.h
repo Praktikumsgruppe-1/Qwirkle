@@ -1,3 +1,8 @@
+/**********************************************************************/
+// Datei: ruleswindow.h
+// Die Klasse rulesWindow, beinhaltet die Inhalte für das Widget-Fenster
+// rulesWindow, wo die Regeln angezeigt werden.
+/**********************************************************************/
 #ifndef RULESWINDOW_H
 #define RULESWINDOW_H
 

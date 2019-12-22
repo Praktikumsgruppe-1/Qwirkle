@@ -1,3 +1,8 @@
+/**********************************************************************/
+// Datei: Einstellungen.h
+// Die Klasse Einstellungen, beinhaltet die Inhalte für das Widget-Fenster
+// Einstellungen, wo später noch Einstelungsmöglichkeiten hinkommen.
+/**********************************************************************/
 #ifndef EINSTELLUNGEN_H
 #define EINSTELLUNGEN_H
 
@@ -7,8 +12,7 @@ namespace Ui {
 class Einstellungen;
 }
 
-class Einstellungen : public QWidget
-{
+class Einstellungen : public QWidget {
     Q_OBJECT
 
 public:

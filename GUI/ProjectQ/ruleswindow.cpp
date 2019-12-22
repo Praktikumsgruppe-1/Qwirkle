@@ -1,27 +1,33 @@
+/**********************************************************************/
+// Datei: ruleswindow.cpp
+// Die Klasse rulesWindow, beinhaltet die Inhalte für das Widget-Fenster
+// rulesWindow, wo die Regeln angezeigt werden.
+/**********************************************************************/
 #include "ruleswindow.h"
 #include "ui_ruleswindow.h"
 
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 
+// Konstruktor
 rulesWindow::rulesWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::rulesWindow)
-{
+    ui(new Ui::rulesWindow) {
     ui->setupUi(this);
 }
 
-rulesWindow::~rulesWindow()
-{
+// Destruktor
+rulesWindow::~rulesWindow() {
     delete ui;
 }
 
-void rulesWindow::on_pushButton_clicked()
-{
+// Wenn auf den Button "Beenden" drauf geklickt wird, wird diese Funktion
+// aufgerufen, die bewirkt dass das Fenster geschlossen wird.
+void rulesWindow::on_pushButton_clicked() {
     close();
 }
 
-// ruft ein Fenster auf, in dem die Regeln abgebildet sind
+// ruft ein Fenster auf, in dem die Regeln abgebildet werden
 void rulesWindow::showRules(){
 
     rulesWindow *pRulesWidget = new rulesWindow;
