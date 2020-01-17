@@ -17,6 +17,7 @@
 #include <time.h>
 #include <QRandomGenerator>
 #include <QtWidgets>
+#include "undo.h"
 
 #include <QGlobal.h>
 #include <QTime>
@@ -78,6 +79,16 @@ void Spielfeld::dropEvent(QDropEvent *event)
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
+        /*QLabel *IconKopie = new QLabel(this);
+        IconKopie->setPixmap(pixmap);
+        IconKopie->move(event->pos() - offset);
+        IconKopie->setAttribute(Qt::WA_DeleteOnClose);
+
+        undoClass::undoStack.push( IconKopie );*/
+        undoClass::undoStack.push( newIcon );
+        undoClass::undoCoordNewX.push( newIcon->x() );
+        undoClass::undoCoordNewY.push( newIcon->y() );
+
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
@@ -115,9 +126,14 @@ void Spielfeld::mousePressEvent(QMouseEvent *event)
     painter.fillRect(pixmap.rect(), QColor(127, 127, 127, 127));
     painter.end();
 
+    undoClass::undoParent.push( this );
+    undoClass::undoCoordOldX.push( child->geometry().x() );
+    undoClass::undoCoordOldY.push( child->geometry().y() );
+    undoClass::undoPixmap.push( *(child->pixmap()) );
+
     child->setPixmap(tempPixmap);
 
-    if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction) {
+    if (drag->exec(Qt::MoveAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction) {
         child->close();
     } else {
         child->show();

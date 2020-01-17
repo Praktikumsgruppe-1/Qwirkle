@@ -1,4 +1,5 @@
 #include "spielfeld.h"
+#include "undo.h"
 
 #include <QApplication>
 #include <QLabel>
@@ -78,6 +79,10 @@ void Spielfeld::dropEvent(QDropEvent *event)
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
+        undoClass::undoStack.push( newIcon );
+        undoClass::undoCoordNewX.push( newIcon->x() );
+        undoClass::undoCoordNewY.push( newIcon->y() );
+
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
@@ -116,6 +121,11 @@ void Spielfeld::mousePressEvent(QMouseEvent *event)
     painter.end();
 
     child->setPixmap(tempPixmap);
+
+    undoClass::undoParent.push( this );
+    undoClass::undoCoordOldX.push( child->geometry().x() );
+    undoClass::undoCoordOldY.push( child->geometry().y() );
+    undoClass::undoPixmap.push( *(child->pixmap()) );
 
     if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction) {
         child->close();

@@ -23,7 +23,9 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     ruleswindow.cpp \
-    spielfeld.cpp
+    spielfeld.cpp \
+    tauschen.cpp \
+    undo.cpp
 
 HEADERS += \
     benutzerhand.h \
@@ -32,7 +34,9 @@ HEADERS += \
     lobbyerst.h \
     mainwindow.h \
     ruleswindow.h \
-    spielfeld.h
+    spielfeld.h \
+    tauschen.h \
+    undo.h
 
 FORMS += \
     einstellungen.ui \

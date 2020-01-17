@@ -180,7 +180,7 @@
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Undo</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_7">
@@ -268,7 +268,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="Spielfeld" name="frame">
+  <widget class="Tauschen" name="frame">
    <property name="geometry">
     <rect>
      <x>1070</x>
@@ -279,6 +279,9 @@
    </property>
    <property name="acceptDrops">
     <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(162, 162, 162);</string>
    </property>
   </widget>
  </widget>
@@ -293,6 +296,12 @@
    <class>Benutzerhand</class>
    <extends>QFrame</extends>
    <header location="global">benutzerhand.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Tauschen</class>
+   <extends>QFrame</extends>
+   <header location="global">tauschen.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

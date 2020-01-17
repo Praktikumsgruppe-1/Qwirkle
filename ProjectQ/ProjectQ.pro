@@ -17,22 +17,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     benutzerhand.cpp \
+    einstellungen.cpp \
     game.cpp \
     lobbyerst.cpp \
     main.cpp \
     mainwindow.cpp \
     ruleswindow.cpp \
-    spielfeld.cpp
+    spielfeld.cpp \
+    tauschen.cpp \
+    undo.cpp
 
 HEADERS += \
     benutzerhand.h \
+    einstellungen.h \
     game.h \
     lobbyerst.h \
     mainwindow.h \
     ruleswindow.h \
-    spielfeld.h
+    spielfeld.h \
+    tauschen.h \
+    undo.h
 
 FORMS += \
+    einstellungen.ui \
     game.ui \
     lobbyerst.ui \
     mainwindow.ui \

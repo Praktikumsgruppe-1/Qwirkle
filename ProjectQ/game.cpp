@@ -33,3 +33,21 @@ void Game::on_pushButton_2_clicked()
     pRules->show();
 
 }
+
+// aktualisiert alle Frames in dem ui des Games
+void Game::updateFrames()
+{
+    ui->frame->update();
+    ui->frame_2->update();
+}
+
+Ui::Game* Game::getUi()
+{
+    return Game::ui;
+}
+
+void Game::on_pushButton_6_clicked()
+{
+    undoClass uC;
+    uC.undoMove();
+}

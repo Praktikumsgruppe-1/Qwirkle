@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QPixmap>
+#include "undo.h"
 //#include <QLabel>
 
 QT_BEGIN_NAMESPACE
@@ -14,6 +15,8 @@ class Spielfeld : public QFrame
 {
 public:
     explicit Spielfeld(QWidget *parent = nullptr);
+
+    friend class undoClass;
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

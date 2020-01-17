@@ -1,4 +1,5 @@
 #include "benutzerhand.h"
+#include "undo.h"
 
 #include <QtWidgets>
 #include <QApplication>
@@ -18,6 +19,7 @@
 #include <time.h>
 #include <QRandomGenerator>
 
+#include <QTextStream>
 
 #include <QGlobal.h>
 #include <QTime>
@@ -89,11 +91,13 @@ Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
     stein1Icon->move(2, 2);
     stein1Icon->show();
     stein1Icon->setAttribute(Qt::WA_DeleteOnClose);
-
 }
 
 void Benutzerhand::dragEnterEvent(QDragEnterEvent *event)
 {
+    QTextStream out(stdout);
+    out<<QString("dragEnterEvent");
+
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
@@ -108,6 +112,9 @@ void Benutzerhand::dragEnterEvent(QDragEnterEvent *event)
 
 void Benutzerhand::dragMoveEvent(QDragMoveEvent *event)
 {
+    QTextStream out(stdout);
+    out<<QString("dragMoveEvent");
+
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
@@ -136,6 +143,12 @@ void Benutzerhand::dropEvent(QDropEvent *event)
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
+        undoClass::undoStack.push( newIcon );
+        undoClass::undoCoordNewX.push( newIcon->x() );
+        undoClass::undoCoordNewY.push( newIcon->y() );
+
+        //if
+
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
@@ -159,13 +172,18 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
     QDataStream dataStream(&itemData, QIODevice::WriteOnly);
     dataStream << pixmap << QPoint(event->pos() - child->pos());
 
-    QMimeData *mimeData = new QMimeData;
+    QMimeData *mimeData = new QMimeData();
     mimeData->setData("application/x-dnditemdata", itemData);
 
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData);
     drag->setPixmap(pixmap);
     drag->setHotSpot(event->pos() - child->pos());
+
+    undoClass::undoParent.push( this );
+    undoClass::undoCoordOldX.push( child->geometry().x() );
+    undoClass::undoCoordOldY.push( child->geometry().y() );
+    undoClass::undoPixmap.push( *(child->pixmap()) );
 
     QPixmap tempPixmap = pixmap;
     QPainter painter;
@@ -175,7 +193,7 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
 
     child->setPixmap(tempPixmap);
 
-    if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction) {
+    if (drag->exec(Qt::MoveAction)) {
         child->close();
     } else {
         child->show();

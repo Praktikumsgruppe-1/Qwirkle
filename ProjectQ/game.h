@@ -2,6 +2,8 @@
 #define GAME_H
 
 #include <QWidget>
+#include "tauschen.h"
+#include "undo.h"
 
 namespace Ui {
 class Game;
@@ -15,10 +17,16 @@ public:
     explicit Game(QWidget *parent = nullptr);
     ~Game();
 
+    Ui::Game* getUi();
+    // aktualisiert alle Frames in dem ui des Games
+    void updateFrames();
+
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
+
+    void on_pushButton_6_clicked();
 
 private:
     Ui::Game *ui;

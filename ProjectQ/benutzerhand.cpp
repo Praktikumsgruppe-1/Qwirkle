@@ -1,4 +1,5 @@
 #include "benutzerhand.h"
+#include "undo.h"
 
 #include <QtWidgets>
 #include <QApplication>
@@ -24,6 +25,7 @@
 
 Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
     : QFrame(parent)
+{
     setMinimumSize(20, 20);
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
@@ -135,6 +137,10 @@ void Benutzerhand::dropEvent(QDropEvent *event)
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
+        undoClass::undoStack.push( newIcon );
+        undoClass::undoCoordNewX.push( newIcon->x() );
+        undoClass::undoCoordNewY.push( newIcon->y() );
+
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
@@ -173,6 +179,12 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
     painter.end();
 
     child->setPixmap(tempPixmap);
+
+    undoClass::undoParent.push( this );
+    undoClass::undoCoordOldX.push( child->geometry().x() );
+    undoClass::undoCoordOldY.push( child->geometry().y() );
+    undoClass::undoPixmap.push( *(child->pixmap()) );
+
 
     if (drag->exec(Qt::MoveAction) == Qt::MoveAction) {
         child->close();

@@ -1,0 +1,17 @@
+release/benutzerhand.o
+release/einstellungen.o
+release/game.o
+release/lobbyerst.o
+release/main.o
+release/mainwindow.o
+release/ruleswindow.o
+release/spielfeld.o
+release/tauschen.o
+release/undo.o
+release/qrc_Images.o
+release/moc_einstellungen.o
+release/moc_game.o
+release/moc_lobbyerst.o
+release/moc_mainwindow.o
+release/moc_ruleswindow.o
+release/moc_undo.o
