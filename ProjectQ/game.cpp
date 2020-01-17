@@ -5,6 +5,7 @@
 #include "ruleswindow.h"
 #include <QPixmap>
 #include <QFrame>
+#include <QHBoxLayout>
 
 Game::Game(QWidget *parent) :
     QWidget(parent),
@@ -12,9 +13,29 @@ Game::Game(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //ui->swap = new QFrame(QPixmap("/images/retry.png"))
+    /*
+    QWidget *hand = new QWidget;
+    ui->lhand = new QHBoxLayout(hand);
     //ui->hand
-    //ui->frame_2 =  new Benutzerhand(ui->hand,3,4);
+    ui->frame_2 =  new Benutzerhand(hand,3,4);
+    ui->lhand->addWidget(ui->frame_2);
+    */
+
+    QHBoxLayout *lhand = new QHBoxLayout(ui->hand);
+    Benutzerhand *icon1 = new Benutzerhand(ui->hand,3,4);
+    Benutzerhand *icon2 = new Benutzerhand(ui->hand,1,4);
+    Benutzerhand *icon3 = new Benutzerhand(ui->hand,3,5);
+    Benutzerhand *icon4 = new Benutzerhand(ui->hand,2,1);
+    Benutzerhand *icon5 = new Benutzerhand(ui->hand,5,4);
+    Benutzerhand *icon6 = new Benutzerhand(ui->hand,3,4);
+
+    lhand->addWidget(icon1);
+    lhand->addWidget(icon2);
+    lhand->addWidget(icon3);
+    lhand->addWidget(icon4);
+    lhand->addWidget(icon5);
+    lhand->addWidget(icon6);
+
 }
 
 Game::~Game()
