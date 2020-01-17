@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>rulesImages/Spielanleitung_Qwirkle_1.PNG</file>
-        <file>rulesImages/Spielanleitung_Qwirkle_2.PNG</file>
-        <file>rulesImages/Spielanleitung_Qwirkle_3.PNG</file>
-    </qresource>
-</RCC>
