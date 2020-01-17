@@ -21,7 +21,6 @@ Game::Game(QWidget *parent) :
     ui->lhand->addWidget(ui->frame_2);
     */
 
-    QHBoxLayout *lhand = new QHBoxLayout(ui->hand);
     Benutzerhand *icon1 = new Benutzerhand(ui->hand,3,4);
     Benutzerhand *icon2 = new Benutzerhand(ui->hand,1,4);
     Benutzerhand *icon3 = new Benutzerhand(ui->hand,3,5);
@@ -29,12 +28,12 @@ Game::Game(QWidget *parent) :
     Benutzerhand *icon5 = new Benutzerhand(ui->hand,5,4);
     Benutzerhand *icon6 = new Benutzerhand(ui->hand,3,4);
 
-    lhand->addWidget(icon1);
-    lhand->addWidget(icon2);
-    lhand->addWidget(icon3);
-    lhand->addWidget(icon4);
-    lhand->addWidget(icon5);
-    lhand->addWidget(icon6);
+    ui->lhand->addWidget(icon1);
+    ui->lhand->addWidget(icon2);
+    ui->lhand->addWidget(icon3);
+    ui->lhand->addWidget(icon4);
+    ui->lhand->addWidget(icon5);
+    ui->lhand->addWidget(icon6);
 
 }
 
@@ -59,7 +58,7 @@ void Game::on_pushButton_2_clicked()
 void Game::updateFrames()
 {
     ui->frame->update();
-    ui->frame_2->update();
+    ui->hand->update();
 }
 
 Ui::Game* Game::getUi()

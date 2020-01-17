@@ -180,7 +180,7 @@
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Undo</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_7">
@@ -196,7 +196,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="Spielfeld" name="frame">
+  <widget class="Tauschen" name="frame">
    <property name="geometry">
     <rect>
      <x>1070</x>
@@ -207,6 +207,9 @@
    </property>
    <property name="acceptDrops">
     <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(158, 158, 158);</string>
    </property>
   </widget>
   <widget class="QWidget" name="hand" native="true">
@@ -224,6 +227,21 @@
    <property name="toolTipDuration">
     <number>-1</number>
    </property>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>621</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="lhand">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <customwidgets>
@@ -231,6 +249,12 @@
    <class>Spielfeld</class>
    <extends>QFrame</extends>
    <header location="global">spielfeld.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Tauschen</class>
+   <extends>QFrame</extends>
+   <header location="global">tauschen.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

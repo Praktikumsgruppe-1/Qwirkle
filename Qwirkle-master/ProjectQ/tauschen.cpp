@@ -4,25 +4,24 @@
 #include "ui_game.h"
 #include <QDropEvent>
 #include <QMimeData>
+#include <QDrag>
+#include <QPainter>
 
+// Konstruktor der Klasse Tauschen
 Tauschen::Tauschen(QWidget *parent)
     : QFrame(parent)
 {
-    //setMinimumSize(75, 75);
-    //setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
-
 }
 
+// Das Drop Event der Klasse Tauschen
 void Tauschen::dropEvent(QDropEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
         QDataStream dataStream(&itemData, QIODevice::ReadOnly);
 
-        QPixmap pixmap;
-        QPoint offset;
-        dataStream >> pixmap >> offset;
+        SteinTauschen();
 
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
@@ -35,19 +34,32 @@ void Tauschen::dropEvent(QDropEvent *event)
     }
 }
 
-void Tauschen::SteinTauschen()
-{
+// Es wird ein Stein getauscht, indem der fallengelassene Stein gelöscht und ein neuer
+// Stein erstellt wird
+void Tauschen::SteinTauschen(){
     Game* pframe2 = new Game();
-    Benutzerhand* hand = pframe2->getUi()->frame_2;
-    //Benutzerhand* hand = undoClass::undoParent.top();
+    QLabel *newIcon = new QLabel( );
 
-    int r,g;
-    r = randInt(0,5);
-    g = randInt(0,5);
-    Benutzerhand* hand4 = new Benutzerhand(hand, r , g);
-    hand4-> setGeometry(undoClass::undoCoordOldX.top(),undoClass::undoCoordOldY.top(),75,75);
+    newIcon->setParent( undoClass::undoParent.top() );
+    newIcon->setPixmap( getPixmap( randInt(0, 5), randInt(0, 5) ) );
+    newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+    newIcon->show();
+    newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-    //******Alten Stein loeschen**************************
-    undoClass::undoStack.top()->close();
+    //undoClass::undoStack.top()->close();
     pframe2->updateFrames();
+}
+
+// Das DragEnterEvent der Klasse Tauschen
+void Tauschen::dragEnterEvent(QDragEnterEvent *event){
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
 }

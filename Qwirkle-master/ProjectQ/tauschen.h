@@ -12,8 +12,8 @@ public:
     void SteinTauschen();
 
 protected:
+    void dragEnterEvent(QDragEnterEvent *event) override;
     void dropEvent(QDropEvent *event) override;
-
 };
 
 #endif // TAUSCHEN_H
