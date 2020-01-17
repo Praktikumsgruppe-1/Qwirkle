@@ -24,6 +24,7 @@
 
 Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
     : QFrame(parent)
+{
     setMinimumSize(20, 20);
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
     setAcceptDrops(true);
