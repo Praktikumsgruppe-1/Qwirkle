@@ -14,9 +14,9 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextBrowser>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 #include <spielfeld.h>
 #include <tauschen.h>
@@ -29,8 +29,6 @@ public:
     QPushButton *pushButton;
     Spielfeld *frame;
     QLabel *label;
-    QTextBrowser *textBrowser;
-    QTextEdit *textEdit;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
@@ -42,6 +40,8 @@ public:
     QWidget *hand;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *lhand;
+    QLineEdit *messageEdit;
+    QListView *chatView;
 
     void setupUi(QWidget *Game)
     {
@@ -68,12 +68,6 @@ public:
         font1.setFamily(QString::fromUtf8("Candara Light"));
         font1.setPointSize(11);
         label->setFont(font1);
-        textBrowser = new QTextBrowser(Game);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(640, 640, 411, 121));
-        textEdit = new QTextEdit(Game);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(640, 760, 411, 41));
         pushButton_2 = new QPushButton(Game);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
         pushButton_2->setGeometry(QRect(10, 760, 101, 41));
@@ -121,6 +115,12 @@ public:
         lhand->setObjectName(QString::fromUtf8("lhand"));
         lhand->setSizeConstraint(QLayout::SetMaximumSize);
         lhand->setContentsMargins(0, 0, 0, 0);
+        messageEdit = new QLineEdit(Game);
+        messageEdit->setObjectName(QString::fromUtf8("messageEdit"));
+        messageEdit->setGeometry(QRect(640, 760, 411, 27));
+        chatView = new QListView(Game);
+        chatView->setObjectName(QString::fromUtf8("chatView"));
+        chatView->setGeometry(QRect(640, 640, 411, 121));
 
         retranslateUi(Game);
 
@@ -136,7 +136,7 @@ public:
         pushButton_3->setText(QString());
         pushButton_4->setText(QCoreApplication::translate("Game", "New Game", nullptr));
         label_2->setText(QCoreApplication::translate("Game", "Punktestand", nullptr));
-        pushButton_6->setText(QString());
+        pushButton_6->setText(QCoreApplication::translate("Game", "Undo", nullptr));
         pushButton_7->setText(QString());
     } // retranslateUi
 
