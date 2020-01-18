@@ -127,7 +127,7 @@ void Spielfeld::mousePressEvent(QMouseEvent *event)
     undoClass::undoCoordOldY.push( child->geometry().y() );
     undoClass::undoPixmap.push( *(child->pixmap()) );
 
-    if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction) {
+    if (drag->exec(Qt::MoveAction) == Qt::MoveAction) {
         child->close();
     } else {
         child->show();
