@@ -51,26 +51,6 @@
     <string>Benutzerhand</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="textBrowser">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>640</y>
-     <width>411</width>
-     <height>121</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="textEdit">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>760</y>
-     <width>411</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
@@ -223,6 +203,26 @@
      </property>
     </layout>
    </widget>
+  </widget>
+  <widget class="QLineEdit" name="messageEdit">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>760</y>
+     <width>411</width>
+     <height>27</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QListView" name="chatView">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>640</y>
+     <width>411</width>
+     <height>121</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <customwidgets>

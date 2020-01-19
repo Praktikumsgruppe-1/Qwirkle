@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,23 +18,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     benutzerhand.cpp \
+    chatclient.cpp \
+    chatserver.cpp \
     einstellungen.cpp \
     game.cpp \
-    lobbyerst.cpp \
     main.cpp \
     mainwindow.cpp \
     ruleswindow.cpp \
+    serverworker.cpp \
     spielfeld.cpp \
     tauschen.cpp \
     undo.cpp
 
 HEADERS += \
     benutzerhand.h \
+    chatclient.h \
+    chatserver.h \
     einstellungen.h \
     game.h \
-    lobbyerst.h \
     mainwindow.h \
     ruleswindow.h \
+    serverworker.h \
     spielfeld.h \
     tauschen.h \
     undo.h
@@ -42,7 +47,6 @@ FORMS += \
     einstellungen.ui \
     game.ui \
     game.ui \
-    lobbyerst.ui \
     mainwindow.ui \
     ruleswindow.ui
 
