@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <QWidget>
+#include <QScrollArea>
 #include "tauschen.h"
 #include "undo.h"
 
@@ -30,6 +31,8 @@ private slots:
 
 private:
     Ui::Game *ui;
+    QLabel *imageLabel;
+    QScrollArea *scrollArea;
 };
 
 #endif // GAME_H

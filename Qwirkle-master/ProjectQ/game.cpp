@@ -13,6 +13,10 @@ Game::Game(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //QImage image("/images/hintergrund.jpg");
+    //ui->imageLabel->setPixmap(QPixmap::fromImage(image));
+
+
     /*
     QWidget *hand = new QWidget;
     ui->lhand = new QHBoxLayout(hand);
@@ -34,6 +38,47 @@ Game::Game(QWidget *parent) :
     ui->lhand->addWidget(icon4);
     ui->lhand->addWidget(icon5);
     ui->lhand->addWidget(icon6);
+
+    /*
+    Spielfeld *feld01 = new Spielfeld(ui->feld);
+    Spielfeld *feld02 = new Spielfeld(ui->feld);
+    Spielfeld *feld03 = new Spielfeld(ui->feld);
+    Spielfeld *feld04 = new Spielfeld(ui->feld);
+    Spielfeld *feld05 = new Spielfeld(ui->feld);
+    Spielfeld *feld06 = new Spielfeld(ui->feld);
+    Spielfeld *feld07 = new Spielfeld(ui->feld);
+    Spielfeld *feld08 = new Spielfeld(ui->feld);
+    Spielfeld *feld09 = new Spielfeld(ui->feld);
+    Spielfeld *feld10 = new Spielfeld(ui->feld);
+    Spielfeld *feld11 = new Spielfeld(ui->feld);
+    Spielfeld *feld12 = new Spielfeld(ui->feld);
+    Spielfeld *feld13 = new Spielfeld(ui->feld);
+    Spielfeld *feld14 = new Spielfeld(ui->feld);
+    Spielfeld *feld15 = new Spielfeld(ui->feld);
+    Spielfeld *feld16 = new Spielfeld(ui->feld);
+    Spielfeld *feld17 = new Spielfeld(ui->feld);
+    Spielfeld *feld18 = new Spielfeld(ui->feld);
+
+
+    ui->lfeld2->addWidget(feld01);
+    ui->lfeld2->addWidget(feld02);
+    ui->lfeld2->addWidget(feld03);
+    ui->lfeld2->addWidget(feld04);
+    ui->lfeld2->addWidget(feld05);
+    ui->lfeld2->addWidget(feld06);
+    ui->lfeld2->addWidget(feld07);
+    ui->lfeld2->addWidget(feld08);
+    ui->lfeld2->addWidget(feld09);
+    ui->lfeld2->addWidget(feld10);
+    ui->lfeld2->addWidget(feld11);
+    ui->lfeld2->addWidget(feld12);
+    ui->lfeld2->addWidget(feld13);
+    ui->lfeld2->addWidget(feld14);
+    ui->lfeld2->addWidget(feld15);
+    ui->lfeld2->addWidget(feld16);
+    ui->lfeld2->addWidget(feld17);
+    ui->lfeld2->addWidget(feld18);
+    */
 
 }
 

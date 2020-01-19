@@ -30,7 +30,8 @@ Spielfeld::Spielfeld(QWidget *parent)
     : QFrame(parent)
 {
     setMinimumSize(75, 75);
-    setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
+    setFrameStyle(QFrame::Box | QFrame::Sunken);
+    setLineWidth(2);
     setAcceptDrops(true);
 
 }
