@@ -31,8 +31,6 @@ private slots:
 
 private:
     Ui::Game *ui;
-    QLabel *imageLabel;
-    QScrollArea *scrollArea;
 };
 
 #endif // GAME_H

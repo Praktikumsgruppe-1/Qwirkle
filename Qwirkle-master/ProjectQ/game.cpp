@@ -13,10 +13,6 @@ Game::Game(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //QImage image("/images/hintergrund.jpg");
-    //ui->imageLabel->setPixmap(QPixmap::fromImage(image));
-
-
     /*
     QWidget *hand = new QWidget;
     ui->lhand = new QHBoxLayout(hand);
