@@ -45,6 +45,8 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lhand->addWidget(icon6);
 
 
+// Katharinas Ansatz für Spielfeld
+    /******************************************/
     /*QGridLayout *gridLayout = new QGridLayout();
     for ( int i = 0; i < 181; i++ )
     {
@@ -55,6 +57,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
         }
     }
     ui->frame_2->setLayout( gridLayout );*/
+    /******************************************/
 
 
     /*
@@ -97,6 +100,88 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lfeld2->addWidget(feld17);
     ui->lfeld2->addWidget(feld18);
     */
+
+    ui->scrollArea->setMinimumSize(20,20);
+    //ui->scrollArea->setMaximumSize(1600,900);
+
+    ui->scrollAreaWidgetContents->setMinimumSize(20,20);
+    ui->scrollAreaWidgetContents->setMaximumSize(1600,900);
+
+    ui->hintern->setMinimumSize(20,20);
+    ui->hintern->setMaximumSize(4000,4000);
+
+    QVBoxLayout *vlfeld = new QVBoxLayout(ui->feld);
+
+    //ab hier müsste man das denke ich auch in einer for-schleife machen können, an der sitze ich gerade, wegen der Benennung harkt es noch ein bisschen
+
+    QHBoxLayout *h1lfeld = new QHBoxLayout;
+    QHBoxLayout *h2lfeld = new QHBoxLayout;
+    QHBoxLayout *h3lfeld = new QHBoxLayout;
+
+    vlfeld->addLayout(h1lfeld);
+    vlfeld->addLayout(h2lfeld);
+    vlfeld->addLayout(h3lfeld);
+
+    Spielfeld *feld01 = new Spielfeld;
+    Spielfeld *feld02 = new Spielfeld;
+    Spielfeld *feld03 = new Spielfeld;
+    Spielfeld *feld04 = new Spielfeld;
+    Spielfeld *feld05 = new Spielfeld;
+    Spielfeld *feld06 = new Spielfeld;
+    Spielfeld *feld07 = new Spielfeld;
+    Spielfeld *feld08 = new Spielfeld;
+    Spielfeld *feld09 = new Spielfeld;
+
+    h1lfeld->addWidget(feld01);
+    h1lfeld->addWidget(feld02);
+    h1lfeld->addWidget(feld03);
+
+    h2lfeld->addWidget(feld04);
+    h2lfeld->addWidget(feld05);
+    h2lfeld->addWidget(feld06);
+
+    h3lfeld->addWidget(feld07);
+    h3lfeld->addWidget(feld08);
+    h3lfeld->addWidget(feld09);
+
+/* hier mein erster Versuch für die for-Schleifen
+
+//die  181 "Reihen" unseres Raster werden erstellt
+
+for (i=0;i>181;i++)
+{
+    QHBoxLayout *(pointer i oder so) = new QHBoxLayout;
+}
+
+//in das große QVBoxlayout werden die 181 "Reihen" eingefügt
+
+for (i=0;i>181;i++)
+{
+    vlfeld->addLayout(h(nummer des HBoxLayout));
+}
+
+//es werden 181x181 Spielfelder erzeugt
+
+for (i=0;i>181;i++)
+{
+    for (j=0;j>181;j++)
+    {
+        Spielfeld *(pointer auf i und j oder so, für eine ordentliche indexbenennung) = new Spielfeld;
+        (wahrscheinlich noch Size einstellen)
+    }
+}
+
+//in jede der 181 "Reihen" werden 181 Spielfelder eingefügt
+
+for (i=0;i>181;i++)
+{
+    for (j=0;j>181;i++)
+    {
+        h(HBoxlayout*nummer)feld->addWidget(feld(indexbenennung));
+    }
+}
+
+*/
 
     if ( beforeWindow != nullptr ){
         m_chatServer = beforeWindow->getServerAdress();
