@@ -17,6 +17,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QWidget>
 #include <spielfeld.h>
 #include <tauschen.h>
@@ -27,7 +28,6 @@ class Ui_Game
 {
 public:
     QPushButton *pushButton;
-    Spielfeld *frame;
     QLabel *label;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
@@ -36,12 +36,16 @@ public:
     QLabel *label_2;
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
-    Tauschen *frame1;
+    Tauschen *frame;
     QWidget *hand;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *lhand;
     QLineEdit *messageEdit;
     QListView *chatView;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QLabel *label_3;
+    Spielfeld *frame_2;
 
     void setupUi(QWidget *Game)
     {
@@ -55,12 +59,6 @@ public:
         font.setFamily(QString::fromUtf8("Candara Light"));
         font.setPointSize(18);
         pushButton->setFont(font);
-        frame = new Spielfeld(Game);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(10, 10, 1491, 621));
-        frame->setFrameShape(QFrame::Box);
-        frame->setFrameShadow(QFrame::Sunken);
-        frame->setLineWidth(3);
         label = new QLabel(Game);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 710, 351, 21));
@@ -98,11 +96,11 @@ public:
         pushButton_7 = new QPushButton(Game);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
         pushButton_7->setGeometry(QRect(1270, 650, 81, 71));
-        frame1 = new Tauschen(Game);
-        frame1->setObjectName(QString::fromUtf8("frame1"));
-        frame1->setGeometry(QRect(1070, 650, 81, 71));
-        frame1->setAcceptDrops(true);
-        frame1->setStyleSheet(QString::fromUtf8("background-color: rgb(158, 158, 158);"));
+        frame = new Tauschen(Game);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(1070, 650, 81, 71));
+        frame->setAcceptDrops(true);
+        frame->setStyleSheet(QString::fromUtf8("background-color: rgb(158, 158, 158);"));
         hand = new QWidget(Game);
         hand->setObjectName(QString::fromUtf8("hand"));
         hand->setGeometry(QRect(9, 639, 621, 71));
@@ -121,6 +119,29 @@ public:
         chatView = new QListView(Game);
         chatView->setObjectName(QString::fromUtf8("chatView"));
         chatView->setGeometry(QRect(640, 640, 411, 121));
+        scrollArea = new QScrollArea(Game);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setGeometry(QRect(10, 10, 1491, 621));
+        scrollArea->setFrameShape(QFrame::Box);
+        scrollArea->setLineWidth(2);
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1483, 613));
+        label_3 = new QLabel(scrollAreaWidgetContents);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(-10, -10, 1491, 621));
+        label_3->setAcceptDrops(true);
+        label_3->setAutoFillBackground(true);
+        label_3->setPixmap(QPixmap(QString::fromUtf8(":/images/hintergrund.jpg")));
+        label_3->setScaledContents(true);
+        frame_2 = new Spielfeld(scrollAreaWidgetContents);
+        frame_2->setObjectName(QString::fromUtf8("frame_2"));
+        frame_2->setGeometry(QRect(-1, -1, 1481, 611));
+        frame_2->setAcceptDrops(true);
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        scrollArea->setWidget(scrollAreaWidgetContents);
 
         retranslateUi(Game);
 
@@ -138,6 +159,7 @@ public:
         label_2->setText(QCoreApplication::translate("Game", "Punktestand", nullptr));
         pushButton_6->setText(QCoreApplication::translate("Game", "Undo", nullptr));
         pushButton_7->setText(QString());
+        label_3->setText(QString());
     } // retranslateUi
 
 };

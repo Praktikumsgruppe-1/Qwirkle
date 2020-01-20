@@ -76,7 +76,8 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
         QLabel *newIcon = new QLabel(this);
         newIcon->setPixmap(pixmap);
-        newIcon->move(event->pos() - offset);
+        //newIcon->move(event->pos() - offset);
+        newIcon->move( this->x() + this->width()/2, this->y() + this->height()/2 );
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 

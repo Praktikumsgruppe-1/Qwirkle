@@ -44,6 +44,19 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lhand->addWidget(icon5);
     ui->lhand->addWidget(icon6);
 
+
+    /*QGridLayout *gridLayout = new QGridLayout();
+    for ( int i = 0; i < 181; i++ )
+    {
+        for ( int j = 0; j < 181; j++ )
+        {
+            Spielfeld *frame = new Spielfeld();
+            gridLayout->addWidget( frame, i, j );
+        }
+    }
+    ui->frame_2->setLayout( gridLayout );*/
+
+
     /*
     Spielfeld *feld01 = new Spielfeld(ui->feld);
     Spielfeld *feld02 = new Spielfeld(ui->feld);
