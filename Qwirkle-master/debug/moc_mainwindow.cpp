@@ -125,7 +125,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->disconnectedFromServer(); break;
         case 9: _t->error((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
         case 10: _t->on_pushButton_3_clicked(); break;
-        case 11: _t->on_startStopButton_clicked(); break;
+        //case 11: _t->on_startStopButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {

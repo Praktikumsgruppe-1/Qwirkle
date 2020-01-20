@@ -44,10 +44,48 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lhand->addWidget(icon5);
     ui->lhand->addWidget(icon6);
 
+    ui->scrollArea->setMinimumSize(20,20);
+    //ui->scrollArea->setMaximumSize(1600,900);
+
+    ui->hintern->setMinimumSize(20,20);
+    ui->hintern->setMaximumSize(4000,4000);
+
+    QVBoxLayout *vlfeld = new QVBoxLayout(ui->feld);
+
+    //ab hier müsste man das denke ich auch in einer for-schleife machen können, an der sitze ich gerade, wegen der Benennung harkt es noch ein bisschen
+
+    QHBoxLayout *h1lfeld = new QHBoxLayout;
+    QHBoxLayout *h2lfeld = new QHBoxLayout;
+    QHBoxLayout *h3lfeld = new QHBoxLayout;
+
+    vlfeld->addLayout(h1lfeld);
+    vlfeld->addLayout(h2lfeld);
+    vlfeld->addLayout(h3lfeld);
+
+    Spielfeld *feld01 = new Spielfeld;
+    Spielfeld *feld02 = new Spielfeld;
+    Spielfeld *feld03 = new Spielfeld;
+    Spielfeld *feld04 = new Spielfeld;
+    Spielfeld *feld05 = new Spielfeld;
+    Spielfeld *feld06 = new Spielfeld;
+    Spielfeld *feld07 = new Spielfeld;
+    Spielfeld *feld08 = new Spielfeld;
+    Spielfeld *feld09 = new Spielfeld;
+
+    h1lfeld->addWidget(feld01);
+    h1lfeld->addWidget(feld02);
+    h1lfeld->addWidget(feld03);
+
+    h2lfeld->addWidget(feld04);
+    h2lfeld->addWidget(feld05);
+    h2lfeld->addWidget(feld06);
+
+    h3lfeld->addWidget(feld07);
+    h3lfeld->addWidget(feld08);
+    h3lfeld->addWidget(feld09);
+
+
     /*
-    Spielfeld *feld01 = new Spielfeld(ui->feld);
-    Spielfeld *feld02 = new Spielfeld(ui->feld);
-    Spielfeld *feld03 = new Spielfeld(ui->feld);
     Spielfeld *feld04 = new Spielfeld(ui->feld);
     Spielfeld *feld05 = new Spielfeld(ui->feld);
     Spielfeld *feld06 = new Spielfeld(ui->feld);
