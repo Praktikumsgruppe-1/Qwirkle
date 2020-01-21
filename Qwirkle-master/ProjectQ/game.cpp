@@ -55,13 +55,13 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 
 // Katharinas Ansatz für Spielfeld
     /******************************************/
-    for ( int i = 0; i < 50; i++ )
+    for ( int i = 0; i < 181; i++ )
     {
         ui->lfeld->setRowMinimumHeight( i, 75 );
         ui->lfeld->setColumnMinimumWidth( i, 75 );
-        for ( int j = 0; j < 50; j++ )
+        for ( int j = 0; j < 181; j++ )
         {
-            Spielfeld *frame = new Spielfeld();
+            Spielfeld *frame = new Spielfeld;
             ui->lfeld->addWidget( frame, i, j );
         }
     }

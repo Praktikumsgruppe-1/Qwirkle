@@ -259,8 +259,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1469</width>
-      <height>599</height>
+      <width>1466</width>
+      <height>596</height>
      </rect>
     </property>
     <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -276,6 +276,9 @@
       <item>
        <widget class="QLabel" name="hintern">
         <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="acceptDrops">
          <bool>true</bool>
         </property>
         <property name="autoFillBackground">
@@ -303,13 +306,16 @@
        <height>611</height>
       </rect>
      </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>9</x>
-        <y>-1</y>
-        <width>1491</width>
-        <height>621</height>
+        <x>10</x>
+        <y>0</y>
+        <width>1471</width>
+        <height>601</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="lfeld" rowminimumheight="0">
