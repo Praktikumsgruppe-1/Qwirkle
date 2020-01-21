@@ -122,25 +122,28 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     Spielfeld *feld003x002 = new Spielfeld;
     Spielfeld *feld003x003 = new Spielfeld;
 
-    Spielfeld felda[3][3] =
+    //ich denke mit der Spielelogik ist es am einfachsten wenn wir das auch in einem array so speichern, ich kann nur nicht auf die Elemente zugreifen
+
+    Spielfeld *felda[3][3] =
     {
        {feld001x001,feld001x002,feld001x003},
        {feld002x001,feld002x002,feld002x003},
        {feld003x001,feld003x002,feld003x003},
     };
 
-    int i=0, j=0;
+    //diese for-Schleife funktioniert noch nicht
 
-    for (i=1;i>3;i++)
+    for (int i=0;i>3;i++)
     {
-        for (j=1;j>3;j++)
+        for (int j=0;j>3;j++)
         {
-            ui->lfeld->addWidget(felda(i,j),i,j,1,1);
+            ui->lfeld->addWidget(felda[i][j],i,j);
         }
     }
 
-    /*
-    ui->lfeld->addWidget(feld001x001,1,1,1,1);
+
+    /* das hier funktioniert so
+    ui->lfeld->addWidget(felda[1][1],1,1,1,1);
     ui->lfeld->addWidget(feld001x002,1,2,1,1);
     ui->lfeld->addWidget(feld001x003,1,3,1,1);
     ui->lfeld->addWidget(feld002x001,2,1,1,1);
