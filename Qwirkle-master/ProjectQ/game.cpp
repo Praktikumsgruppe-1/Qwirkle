@@ -53,39 +53,46 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->hintern->setMinimumSize(20,20);
     ui->hintern->setMaximumSize(4000,4000);
 
-    QVBoxLayout *vlfeld = new QVBoxLayout(ui->feld);
-
     //ab hier müsste man das denke ich auch in einer for-schleife machen können, an der sitze ich gerade, wegen der Benennung harkt es noch ein bisschen
 
-    QHBoxLayout *h1lfeld = new QHBoxLayout;
-    QHBoxLayout *h2lfeld = new QHBoxLayout;
-    QHBoxLayout *h3lfeld = new QHBoxLayout;
+    Spielfeld *feld001x001 = new Spielfeld;
+    Spielfeld *feld001x002 = new Spielfeld;
+    Spielfeld *feld001x003 = new Spielfeld;
+    Spielfeld *feld002x001 = new Spielfeld;
+    Spielfeld *feld002x002 = new Spielfeld;
+    Spielfeld *feld002x003 = new Spielfeld;
+    Spielfeld *feld003x001 = new Spielfeld;
+    Spielfeld *feld003x002 = new Spielfeld;
+    Spielfeld *feld003x003 = new Spielfeld;
 
-    vlfeld->addLayout(h1lfeld);
-    vlfeld->addLayout(h2lfeld);
-    vlfeld->addLayout(h3lfeld);
+    Spielfeld felda[3][3] =
+    {
+       {feld001x001,feld001x002,feld001x003},
+       {feld002x001,feld002x002,feld002x003},
+       {feld003x001,feld003x002,feld003x003},
+    };
 
-    Spielfeld *feld01 = new Spielfeld;
-    Spielfeld *feld02 = new Spielfeld;
-    Spielfeld *feld03 = new Spielfeld;
-    Spielfeld *feld04 = new Spielfeld;
-    Spielfeld *feld05 = new Spielfeld;
-    Spielfeld *feld06 = new Spielfeld;
-    Spielfeld *feld07 = new Spielfeld;
-    Spielfeld *feld08 = new Spielfeld;
-    Spielfeld *feld09 = new Spielfeld;
+    int i=0, j=0;
 
-    h1lfeld->addWidget(feld01);
-    h1lfeld->addWidget(feld02);
-    h1lfeld->addWidget(feld03);
+    for (i=1;i>3;i++)
+    {
+        for (j=1;j>3;j++)
+        {
+            ui->lfeld->addWidget(felda(i,j));
+        }
+    }
 
-    h2lfeld->addWidget(feld04);
-    h2lfeld->addWidget(feld05);
-    h2lfeld->addWidget(feld06);
-
-    h3lfeld->addWidget(feld07);
-    h3lfeld->addWidget(feld08);
-    h3lfeld->addWidget(feld09);
+    /*
+    ui->lfeld->addWidget(feld001x001,1,1,1,1);
+    ui->lfeld->addWidget(feld001x002,1,2,1,1);
+    ui->lfeld->addWidget(feld001x003,1,3,1,1);
+    ui->lfeld->addWidget(feld002x001,2,1,1,1);
+    ui->lfeld->addWidget(feld002x002,2,2,1,1);
+    ui->lfeld->addWidget(feld002x003,2,3,1,1);
+    ui->lfeld->addWidget(feld003x001,3,1,1,1);
+    ui->lfeld->addWidget(feld003x002,3,2,1,1);
+    ui->lfeld->addWidget(feld003x003,3,3,1,1);
+    */
 
 /* hier mein erster Versuch für die for-Schleifen
 

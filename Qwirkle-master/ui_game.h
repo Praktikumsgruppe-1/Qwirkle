@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
@@ -47,6 +48,9 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *hintern;
     QWidget *feld;
+    QWidget *gridLayoutWidget;
+    QGridLayout *lfeld;
+    QLabel *label_3;
 
     void setupUi(QWidget *Game)
     {
@@ -146,7 +150,17 @@ public:
         feld = new QWidget(scrollAreaWidgetContents);
         feld->setObjectName(QString::fromUtf8("feld"));
         feld->setGeometry(QRect(-11, -1, 1501, 611));
+        gridLayoutWidget = new QWidget(feld);
+        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(9, -1, 1491, 621));
+        lfeld = new QGridLayout(gridLayoutWidget);
+        lfeld->setObjectName(QString::fromUtf8("lfeld"));
+        lfeld->setContentsMargins(0, 0, 0, 0);
         scrollArea->setWidget(scrollAreaWidgetContents);
+        label_3 = new QLabel(Game);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(1076, 723, 71, 20));
+        label_3->setFont(font3);
 
         retranslateUi(Game);
 
@@ -165,6 +179,7 @@ public:
         pushButton_6->setText(QCoreApplication::translate("Game", "Undo", nullptr));
         pushButton_7->setText(QString());
         hintern->setText(QString());
+        label_3->setText(QCoreApplication::translate("Game", "Tauschen", nullptr));
     } // retranslateUi
 
 };
