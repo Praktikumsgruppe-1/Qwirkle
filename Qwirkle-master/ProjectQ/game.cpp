@@ -135,7 +135,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     {
         for (j=1;j>3;j++)
         {
-            ui->lfeld->addWidget(felda(i,j));
+            ui->lfeld->addWidget(felda(i,j),i,j,1,1);
         }
     }
 
