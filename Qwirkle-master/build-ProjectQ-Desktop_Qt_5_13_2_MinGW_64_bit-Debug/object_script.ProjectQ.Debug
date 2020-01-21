@@ -1,3 +1,5 @@
+debug/Punkte.o
+debug/Regeln.o
 debug/benutzerhand.o
 debug/chatclient.o
 debug/chatserver.o

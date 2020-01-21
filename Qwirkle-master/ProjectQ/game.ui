@@ -239,16 +239,28 @@
    <property name="lineWidth">
     <number>2</number>
    </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
    <property name="widgetResizable">
     <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
    <widget class="QWidget" name="scrollAreaWidgetContents">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1483</width>
-      <height>613</height>
+      <width>1469</width>
+      <height>599</height>
      </rect>
     </property>
     <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -256,13 +268,16 @@
       <rect>
        <x>-1</x>
        <y>-1</y>
-       <width>2562</width>
+       <width>2578</width>
        <height>1602</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="hintern">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="autoFillBackground">
          <bool>true</bool>
         </property>
@@ -297,7 +312,14 @@
         <height>621</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="lfeld"/>
+      <layout class="QGridLayout" name="lfeld" rowminimumheight="0">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinimumSize</enum>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+      </layout>
      </widget>
     </widget>
    </widget>

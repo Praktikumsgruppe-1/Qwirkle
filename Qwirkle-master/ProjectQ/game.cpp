@@ -44,19 +44,28 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lhand->addWidget(icon5);
     ui->lhand->addWidget(icon6);
 
+    ui->scrollArea->setMinimumSize(20,20);
+    ui->scrollArea->setMaximumSize(1600,900);
+
+    ui->scrollAreaWidgetContents->setMinimumSize(20,20);
+    ui->scrollAreaWidgetContents->setMaximumSize(1600,900);
+
+    ui->hintern->setMinimumSize(20,20);
+    ui->hintern->setMaximumSize(4000,4000);
 
 // Katharinas Ansatz für Spielfeld
     /******************************************/
-    /*QGridLayout *gridLayout = new QGridLayout();
-    for ( int i = 0; i < 181; i++ )
+    for ( int i = 0; i < 50; i++ )
     {
-        for ( int j = 0; j < 181; j++ )
+        ui->lfeld->setRowMinimumHeight( i, 75 );
+        ui->lfeld->setColumnMinimumWidth( i, 75 );
+        for ( int j = 0; j < 50; j++ )
         {
             Spielfeld *frame = new Spielfeld();
-            gridLayout->addWidget( frame, i, j );
+            ui->lfeld->addWidget( frame, i, j );
         }
     }
-    ui->frame_2->setLayout( gridLayout );*/
+
     /******************************************/
 
 
@@ -101,17 +110,10 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lfeld2->addWidget(feld18);
     */
 
-    ui->scrollArea->setMinimumSize(20,20);
-    //ui->scrollArea->setMaximumSize(1600,900);
 
-    ui->scrollAreaWidgetContents->setMinimumSize(20,20);
-    ui->scrollAreaWidgetContents->setMaximumSize(1600,900);
-
-    ui->hintern->setMinimumSize(20,20);
-    ui->hintern->setMaximumSize(4000,4000);
 
     //ab hier müsste man das denke ich auch in einer for-schleife machen können, an der sitze ich gerade, wegen der Benennung harkt es noch ein bisschen
-
+/*
     Spielfeld *feld001x001 = new Spielfeld;
     Spielfeld *feld001x002 = new Spielfeld;
     Spielfeld *feld001x003 = new Spielfeld;
@@ -140,7 +142,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
             ui->lfeld->addWidget(felda[i][j],i,j);
         }
     }
-
+*/
 
     /* das hier funktioniert so
     ui->lfeld->addWidget(felda[1][1],1,1,1,1);

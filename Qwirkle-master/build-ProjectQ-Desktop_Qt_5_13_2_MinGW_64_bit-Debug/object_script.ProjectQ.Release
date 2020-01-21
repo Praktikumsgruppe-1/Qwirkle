@@ -1,3 +1,5 @@
+release/Punkte.o
+release/Regeln.o
 release/benutzerhand.o
 release/chatclient.o
 release/chatserver.o

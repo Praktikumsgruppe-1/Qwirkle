@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 using namespace std;
 
@@ -358,3 +359,4 @@ int main() {
   cout << calc(25,52) << endl;
   cout << field[24][53][2];
 }
+*/

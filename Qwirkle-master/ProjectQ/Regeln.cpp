@@ -1,3 +1,4 @@
+/*
 //#include <studio.h>
 #include <iostream>
 using namespace std;
@@ -276,3 +277,4 @@ int main() {
   cout << field[all][all][1] << endl;
   return 0;
 }
+*/
