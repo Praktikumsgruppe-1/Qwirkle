@@ -1,4 +1,4 @@
-/*
+
 #include <iostream>
 using namespace std;
 
@@ -330,6 +330,7 @@ int calc(int xCoord,int yCoord){
   return finalcounter;
 }
 
+/*
 int main() {
   field[22][52][1]=2;
   field[22][52][2]=6;

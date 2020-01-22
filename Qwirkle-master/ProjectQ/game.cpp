@@ -52,15 +52,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 
     ui->scrollArea->setMinimumSize(20,20);
     ui->scrollArea->setMaximumSize(1600,900);
-    ui->scrollAreaWidgetContents->setMinimumSize(20,20);
     ui->scrollAreaWidgetContents->setMaximumSize(4000,4000);
-
-
-    ui->hintern->setMinimumSize(20,20);
-    ui->hintern->setMaximumSize(4000,4000);
-
-// Katharinas Ansatz für Spielfeld
-    /******************************************/
 
     Spielfeld *frame[108][108];
     for ( int i = 0; i < 108; i++ )
@@ -70,95 +62,10 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
         ui->lfeld->setColumnMinimumWidth( i, 75 );
         for ( int j = 0; j < 108; j++ )
         {
-            //Spielfeld *frame = new Spielfeld;
-            //ui->lfeld->addWidget( frame, i, j );
             frame[i][j] = new Spielfeld;
             ui->lfeld->addWidget( frame[i][j], i, j );
         }
     }
-
-
-
-//ab hier müsste man das denke ich auch in einer for-schleife machen können, an der sitze ich gerade, wegen der Benennung harkt es noch ein bisschen
-/*
-    Spielfeld *feld001x001 = new Spielfeld;
-    Spielfeld *feld001x002 = new Spielfeld;
-    Spielfeld *feld001x003 = new Spielfeld;
-    Spielfeld *feld002x001 = new Spielfeld;
-    Spielfeld *feld002x002 = new Spielfeld;
-    Spielfeld *feld002x003 = new Spielfeld;
-    Spielfeld *feld003x001 = new Spielfeld;
-    Spielfeld *feld003x002 = new Spielfeld;
-    Spielfeld *feld003x003 = new Spielfeld;
-
-    //ich denke mit der Spielelogik ist es am einfachsten wenn wir das auch in einem array so speichern, ich kann nur nicht auf die Elemente zugreifen
-
-    Spielfeld *felda[3][3] =
-    {
-       {feld001x001,feld001x002,feld001x003},
-       {feld002x001,feld002x002,feld002x003},
-       {feld003x001,feld003x002,feld003x003},
-    };
-
-    //diese for-Schleife funktioniert noch nicht
-
-    for (int i=0;i>3;i++)
-    {
-        for (int j=0;j>3;j++)
-        {
-            ui->lfeld->addWidget(felda[i][j],i,j);
-        }
-    }
-*/
-
-    /* das hier funktioniert so
-    ui->lfeld->addWidget(felda[1][1],1,1,1,1);
-    ui->lfeld->addWidget(feld001x002,1,2,1,1);
-    ui->lfeld->addWidget(feld001x003,1,3,1,1);
-    ui->lfeld->addWidget(feld002x001,2,1,1,1);
-    ui->lfeld->addWidget(feld002x002,2,2,1,1);
-    ui->lfeld->addWidget(feld002x003,2,3,1,1);
-    ui->lfeld->addWidget(feld003x001,3,1,1,1);
-    ui->lfeld->addWidget(feld003x002,3,2,1,1);
-    ui->lfeld->addWidget(feld003x003,3,3,1,1);
-    */
-
-/* hier mein erster Versuch für die for-Schleifen
-
-//die  181 "Reihen" unseres Raster werden erstellt
-
-for (i=0;i>181;i++)
-{
-    QHBoxLayout *(pointer i oder so) = new QHBoxLayout;
-}
-
-//in das große QVBoxlayout werden die 181 "Reihen" eingefügt
-
-for (i=0;i>181;i++)
-{
-    vlfeld->addLayout(h(nummer des HBoxLayout));
-}
-
-//es werden 181x181 Spielfelder erzeugt
-
-for (i=0;i>181;i++)
-{
-    for (j=0;j>181;j++)
-    {
-        Spielfeld *(pointer auf i und j oder so, für eine ordentliche indexbenennung) = new Spielfeld;
-        (wahrscheinlich noch Size einstellen)
-    }
-}
-
-//in jede der 181 "Reihen" werden 181 Spielfelder eingefügt
-
-for (i=0;i>181;i++)
-{
-    for (j=0;j>181;i++)
-    {
-        h(HBoxlayout*nummer)feld->addWidget(feld(indexbenennung));
-    }
-}
 
     ui->scrollAreaWidgetContents->setLayout( ui->lfeld );
     ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
