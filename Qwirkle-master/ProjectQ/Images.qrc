@@ -43,7 +43,41 @@
         <file>rulesImages/Spielanleitung_Qwirkle_2.PNG</file>
         <file>rulesImages/Spielanleitung_Qwirkle_3.PNG</file>
         <file>images/hintergrund.jpg</file>
-        <file>images/blau_eckig1.svg</file>
         <file>images/blau_eckig2.svg</file>
+        <file>images/gruen_raute1.svg</file>
+        <file>images/blau_kreuz1.svg</file>
+        <file>images/blau_raute1.svg</file>
+        <file>images/blau_rund1.svg</file>
+        <file>images/blau_sonne1.svg</file>
+        <file>images/blau_stern1.svg</file>
+        <file>images/gelb_eckig1.svg</file>
+        <file>images/gelb_kreuz1.svg</file>
+        <file>images/gelb_raute1.svg</file>
+        <file>images/gelb_rund1.svg</file>
+        <file>images/gelb_sonne1.svg</file>
+        <file>images/gelb_stern1.svg</file>
+        <file>images/gruen_eckig1.svg</file>
+        <file>images/gruen_kreuz1.svg</file>
+        <file>images/gruen_rund1.svg</file>
+        <file>images/gruen_sonne1.svg</file>
+        <file>images/gruen_stern1.svg</file>
+        <file>images/lila_eckig1.svg</file>
+        <file>images/lila_kreuz1.svg</file>
+        <file>images/lila_raute1.svg</file>
+        <file>images/lila_rund1.svg</file>
+        <file>images/lila_sonne1.svg</file>
+        <file>images/lila_stern1.svg</file>
+        <file>images/orange_eckig1.svg</file>
+        <file>images/orange_kreuz1.svg</file>
+        <file>images/orange_raute1.svg</file>
+        <file>images/orange_rund1.svg</file>
+        <file>images/orange_sonne1.svg</file>
+        <file>images/orange_stern1.svg</file>
+        <file>images/rot_eckig1.svg</file>
+        <file>images/rot_kreuz1.svg</file>
+        <file>images/rot_raute1.svg</file>
+        <file>images/rot_rund1.svg</file>
+        <file>images/rot_sonne1.svg</file>
+        <file>images/rot_stern1.svg</file>
     </qresource>
 </RCC>

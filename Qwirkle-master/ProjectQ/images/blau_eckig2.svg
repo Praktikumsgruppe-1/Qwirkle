@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="75"
+   height="75"
+   viewBox="0 0 19.84375 19.843751"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="blau_eckig.svg">
+   sodipodi:docname="blau_eckig2.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="12.114285"
-     inkscape:cx="29.980934"
+     inkscape:cx="15.947914"
      inkscape:cy="26.179256"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -37,7 +37,8 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     showborder="false" />
+     showborder="false"
+     units="px" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -53,7 +54,8 @@
   <g
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(0,-277.15623)">
     <g
        id="g4555"
        transform="matrix(1.0714285,0,0,1.0714288,-10.637265,-23.714865)">
