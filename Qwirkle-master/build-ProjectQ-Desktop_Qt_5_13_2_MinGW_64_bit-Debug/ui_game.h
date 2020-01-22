@@ -44,10 +44,6 @@ public:
     QListView *chatView;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QWidget *horizontalLayoutWidget_2;
-    QHBoxLayout *horizontalLayout;
-    QLabel *hintern;
-    QWidget *feld;
     QWidget *gridLayoutWidget;
     QGridLayout *lfeld;
     QLabel *label_3;
@@ -127,6 +123,11 @@ public:
         scrollArea = new QScrollArea(Game);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setGeometry(QRect(10, 10, 1491, 621));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(scrollArea->sizePolicy().hasHeightForWidth());
+        scrollArea->setSizePolicy(sizePolicy);
         scrollArea->setFrameShape(QFrame::Box);
         scrollArea->setLineWidth(2);
         scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -137,27 +138,11 @@ public:
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1469, 599));
-        horizontalLayoutWidget_2 = new QWidget(scrollAreaWidgetContents);
-        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(-1, -1, 2578, 1602));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget_2);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        hintern = new QLabel(horizontalLayoutWidget_2);
-        hintern->setObjectName(QString::fromUtf8("hintern"));
-        hintern->setEnabled(true);
-        hintern->setAutoFillBackground(true);
-        hintern->setPixmap(QPixmap(QString::fromUtf8(":/images/hintergrund.jpg")));
-        hintern->setScaledContents(true);
-
-        horizontalLayout->addWidget(hintern);
-
-        feld = new QWidget(scrollAreaWidgetContents);
-        feld->setObjectName(QString::fromUtf8("feld"));
-        feld->setGeometry(QRect(-11, -1, 1501, 611));
-        gridLayoutWidget = new QWidget(feld);
+        sizePolicy.setHeightForWidth(scrollAreaWidgetContents->sizePolicy().hasHeightForWidth());
+        scrollAreaWidgetContents->setSizePolicy(sizePolicy);
+        gridLayoutWidget = new QWidget(scrollAreaWidgetContents);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(9, -1, 1491, 621));
+        gridLayoutWidget->setGeometry(QRect(0, 0, 1471, 601));
         lfeld = new QGridLayout(gridLayoutWidget);
         lfeld->setSpacing(0);
         lfeld->setObjectName(QString::fromUtf8("lfeld"));
@@ -185,7 +170,6 @@ public:
         label_2->setText(QCoreApplication::translate("Game", "Punktestand", nullptr));
         pushButton_6->setText(QCoreApplication::translate("Game", "Undo", nullptr));
         pushButton_7->setText(QString());
-        hintern->setText(QString());
         label_3->setText(QCoreApplication::translate("Game", "Tauschen", nullptr));
     } // retranslateUi
 

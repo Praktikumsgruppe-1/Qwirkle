@@ -233,6 +233,12 @@
      <height>621</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="frameShape">
     <enum>QFrame::Box</enum>
    </property>
@@ -259,74 +265,33 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1466</width>
-      <height>596</height>
+      <width>1469</width>
+      <height>599</height>
      </rect>
     </property>
-    <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>-1</x>
-       <y>-1</y>
-       <width>2578</width>
-       <height>1602</height>
+       <x>0</x>
+       <y>0</y>
+       <width>1471</width>
+       <height>601</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="hintern">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="acceptDrops">
-         <bool>true</bool>
-        </property>
-        <property name="autoFillBackground">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="Images.qrc">:/images/hintergrund.jpg</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="feld" native="true">
-     <property name="geometry">
-      <rect>
-       <x>-11</x>
-       <y>-1</y>
-       <width>1501</width>
-       <height>611</height>
-      </rect>
-     </property>
-     <property name="acceptDrops">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="gridLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>1471</width>
-        <height>601</height>
-       </rect>
+     <layout class="QGridLayout" name="lfeld">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMinimumSize</enum>
       </property>
-      <layout class="QGridLayout" name="lfeld" rowminimumheight="0">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetMinimumSize</enum>
-       </property>
-       <property name="spacing">
-        <number>0</number>
-       </property>
-      </layout>
-     </widget>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+     </layout>
     </widget>
    </widget>
   </widget>
@@ -358,8 +323,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="Images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

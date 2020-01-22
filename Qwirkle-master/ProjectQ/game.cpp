@@ -30,6 +30,9 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lhand->addWidget(ui->frame_2);
     */
 
+     /****************************************************************************/
+    // Benutzerhand wird initialisiert
+
     Benutzerhand *icon1 = new Benutzerhand(ui->hand,3,4);
     Benutzerhand *icon2 = new Benutzerhand(ui->hand,1,4);
     Benutzerhand *icon3 = new Benutzerhand(ui->hand,3,5);
@@ -44,23 +47,28 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lhand->addWidget(icon5);
     ui->lhand->addWidget(icon6);
 
+    /****************************************************************************/
+    // Spielfeld 108 x 108 wird aufgebaut und die kleinen Spielfelder eingefügt
+
     ui->scrollArea->setMinimumSize(20,20);
     ui->scrollArea->setMaximumSize(1600,900);
-
     ui->scrollAreaWidgetContents->setMinimumSize(20,20);
-    ui->scrollAreaWidgetContents->setMaximumSize(1600,900);
+    ui->scrollAreaWidgetContents->setMaximumSize(4000,4000);
+
 
     ui->hintern->setMinimumSize(20,20);
     ui->hintern->setMaximumSize(4000,4000);
 
 // Katharinas Ansatz für Spielfeld
     /******************************************/
-    Spielfeld *frame[50][50];
-    for ( int i = 0; i < 50; i++ )
+
+    Spielfeld *frame[108][108];
+    for ( int i = 0; i < 108; i++ )
+
     {
         ui->lfeld->setRowMinimumHeight( i, 75 );
         ui->lfeld->setColumnMinimumWidth( i, 75 );
-        for ( int j = 0; j < 50; j++ )
+        for ( int j = 0; j < 108; j++ )
         {
             //Spielfeld *frame = new Spielfeld;
             //ui->lfeld->addWidget( frame, i, j );
@@ -68,7 +76,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
             ui->lfeld->addWidget( frame[i][j], i, j );
         }
     }
-    /******************************************/
+
 
 
 //ab hier müsste man das denke ich auch in einer for-schleife machen können, an der sitze ich gerade, wegen der Benennung harkt es noch ein bisschen
@@ -152,7 +160,12 @@ for (i=0;i>181;i++)
     }
 }
 
-*/
+    ui->scrollAreaWidgetContents->setLayout( ui->lfeld );
+    ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
+
+
+     /****************************************************************************/
+    // Netzwerkaufbau
 
     if ( beforeWindow != nullptr ){
         m_chatServer = beforeWindow->getServerAdress();
