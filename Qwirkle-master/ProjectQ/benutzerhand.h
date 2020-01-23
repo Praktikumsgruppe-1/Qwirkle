@@ -6,7 +6,7 @@
 class Benutzerhand : public QFrame
 {
 public:
-    explicit Benutzerhand(QWidget *parent = nullptr, int a = 0, int b = 0);
+    explicit Benutzerhand(QWidget *parent = nullptr);
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

@@ -23,7 +23,7 @@
 #include <QGlobal.h>
 #include <QTime>
 
-Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
+Benutzerhand::Benutzerhand(QWidget *parent)
     : QFrame(parent)
 {
     setMinimumSize(20, 20);

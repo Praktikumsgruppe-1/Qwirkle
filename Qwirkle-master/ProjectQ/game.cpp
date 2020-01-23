@@ -7,6 +7,7 @@
 #include "chatserver.h"
 #include "serverworker.h"
 #include "ruleswindow.h"
+
 #include <QPixmap>
 #include <QFrame>
 #include <QHBoxLayout>
@@ -21,6 +22,24 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     , ui(new Ui::Game)
 {
     ui->setupUi(this);
+    setMinimumSize(1510,805);
+
+    //versuche das Fenster dynamisch größenanpassbar zu machen
+    QVBoxLayout *fenster = new QVBoxLayout(this);
+    QFrame *unten = new QFrame;
+    QHBoxLayout *lunten = new QHBoxLayout(unten);
+
+    lunten->addWidget(ui->unten_links);
+    lunten->addWidget(ui->unten_mitte);
+    lunten->addWidget(ui->unten_rechts);
+
+    fenster->addWidget(ui->scrollArea);
+    fenster->addWidget(unten);
+
+
+
+    ui->einstellungen->setIcon(QPixmap(":/images/einstellungen"));
+    ui->pushButton_7->setIcon(QPixmap(":/images/right1"));
 
     /*
     QWidget *hand = new QWidget;
@@ -33,12 +52,13 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
      /****************************************************************************/
     // Benutzerhand wird initialisiert
 
-    Benutzerhand *icon1 = new Benutzerhand(ui->hand,3,4);
-    Benutzerhand *icon2 = new Benutzerhand(ui->hand,1,2);
-    Benutzerhand *icon3 = new Benutzerhand(ui->hand,3,5);
-    Benutzerhand *icon4 = new Benutzerhand(ui->hand,2,1);
-    Benutzerhand *icon5 = new Benutzerhand(ui->hand,5,3);
-    Benutzerhand *icon6 = new Benutzerhand(ui->hand,3,3);
+    Benutzerhand *icon1 = new Benutzerhand;
+    Benutzerhand *icon2 = new Benutzerhand;
+    Benutzerhand *icon3 = new Benutzerhand;
+    Benutzerhand *icon4 = new Benutzerhand;
+    Benutzerhand *icon5 = new Benutzerhand;
+    Benutzerhand *icon6 = new Benutzerhand;
+
 
     ui->lhand->addWidget(icon1);
     ui->lhand->addWidget(icon2);
@@ -48,6 +68,10 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lhand->addWidget(icon6);
 
     /****************************************************************************/
+
+    //Versuch das Holz-Hintergrundbild zu vergrößern
+    ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::Link);
+
     // Spielfeld 108 x 108 wird aufgebaut und die kleinen Spielfelder eingefügt
 
     ui->scrollArea->setMinimumSize(20,20);

@@ -79,5 +79,6 @@
         <file>images/rot_rund1.svg</file>
         <file>images/rot_sonne1.svg</file>
         <file>images/rot_stern1.svg</file>
+        <file>images/right1.svg</file>
     </qresource>
 </RCC>
