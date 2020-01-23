@@ -21,6 +21,21 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     , ui(new Ui::Game)
 {
     ui->setupUi(this);
+    setMinimumSize(1510,805);
+
+    //versuche das Fenster dynamisch größenanpassbar zu machen
+    QVBoxLayout *fenster = new QVBoxLayout(this);
+    QFrame *unten = new QFrame;
+    QHBoxLayout *lunten = new QHBoxLayout(unten);
+
+    lunten->addWidget(ui->unten_links);
+    lunten->addWidget(ui->unten_mitte);
+    lunten->addWidget(ui->unten_rechts);
+
+    fenster->addWidget(ui->scrollArea);
+    fenster->addWidget(unten);
+
+
 
     ui->einstellungen->setIcon(QPixmap(":/images/einstellungen"));
     ui->pushButton_7->setIcon(QPixmap(":/images/right"));
