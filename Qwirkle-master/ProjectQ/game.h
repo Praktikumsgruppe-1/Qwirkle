@@ -32,6 +32,8 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void on_pushButton_6_clicked();
+    void scrollToHCenter(int, int );
+    void scrollToVCenter(int, int );
 
     void messageReceived(const QString &sender, const QString &text);
     void sendMessage();
@@ -42,6 +44,8 @@ private slots:
 
 private:
     Ui::Game *ui;
+    int scrollBarHMax = 0;
+    int scrollBarVMax = 0;
 
     ChatServer *m_chatServer;
     ChatClient *m_chatClient;

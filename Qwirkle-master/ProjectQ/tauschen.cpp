@@ -52,6 +52,11 @@ void Tauschen::dropEvent(QDropEvent *event)
 
         SteinTauschen();
 
+        undoClass::undoParent.pop();
+        undoClass::undoPixmap.pop();
+        undoClass::undoCoordOldX.pop();
+        undoClass::undoCoordOldY.pop();
+
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
             event->accept();

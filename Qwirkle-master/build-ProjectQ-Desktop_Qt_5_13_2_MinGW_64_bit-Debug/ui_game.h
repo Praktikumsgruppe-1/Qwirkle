@@ -55,7 +55,7 @@ public:
         Game->resize(1508, 803);
         pushButton = new QPushButton(Game);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(1370, 770, 131, 31));
+        pushButton->setGeometry(QRect(1340, 760, 161, 41));
         QFont font;
         font.setFamily(QString::fromUtf8("Candara Light"));
         font.setPointSize(18);
@@ -123,11 +123,12 @@ public:
         scrollArea = new QScrollArea(Game);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setGeometry(QRect(10, 10, 1491, 621));
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(scrollArea->sizePolicy().hasHeightForWidth());
         scrollArea->setSizePolicy(sizePolicy);
+        scrollArea->setAutoFillBackground(false);
         scrollArea->setFrameShape(QFrame::Box);
         scrollArea->setLineWidth(2);
         scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -137,7 +138,7 @@ public:
         scrollArea->setAlignment(Qt::AlignCenter);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1469, 599));
+        scrollAreaWidgetContents->setGeometry(QRect(723, 288, 16, 16));
         sizePolicy.setHeightForWidth(scrollAreaWidgetContents->sizePolicy().hasHeightForWidth());
         scrollAreaWidgetContents->setSizePolicy(sizePolicy);
         gridLayoutWidget = new QWidget(scrollAreaWidgetContents);
@@ -146,7 +147,7 @@ public:
         lfeld = new QGridLayout(gridLayoutWidget);
         lfeld->setSpacing(0);
         lfeld->setObjectName(QString::fromUtf8("lfeld"));
-        lfeld->setSizeConstraint(QLayout::SetMinimumSize);
+        lfeld->setSizeConstraint(QLayout::SetMinAndMaxSize);
         lfeld->setContentsMargins(0, 0, 0, 0);
         scrollArea->setWidget(scrollAreaWidgetContents);
         label_3 = new QLabel(Game);

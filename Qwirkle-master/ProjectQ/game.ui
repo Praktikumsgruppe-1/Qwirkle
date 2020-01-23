@@ -16,10 +16,10 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>1370</x>
-     <y>770</y>
-     <width>131</width>
-     <height>31</height>
+     <x>1340</x>
+     <y>760</y>
+     <width>161</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -234,10 +234,13 @@
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
    </property>
    <property name="frameShape">
     <enum>QFrame::Box</enum>
@@ -263,14 +266,14 @@
    <widget class="QWidget" name="scrollAreaWidgetContents">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1469</width>
-      <height>599</height>
+      <x>723</x>
+      <y>288</y>
+      <width>16</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="sizePolicy">
-     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
@@ -286,7 +289,7 @@
      </property>
      <layout class="QGridLayout" name="lfeld">
       <property name="sizeConstraint">
-       <enum>QLayout::SetMinimumSize</enum>
+       <enum>QLayout::SetMinAndMaxSize</enum>
       </property>
       <property name="spacing">
        <number>0</number>

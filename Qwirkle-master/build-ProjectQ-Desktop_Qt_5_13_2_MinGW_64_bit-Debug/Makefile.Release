@@ -189,6 +189,7 @@ release/qrc_Images.cpp: ../ProjectQ/Images.qrc \
 		../ProjectQ/images/gelb_sonne.png \
 		../ProjectQ/images/lila_sonne.png \
 		../ProjectQ/images/orange_stern.png \
+		../ProjectQ/images/blau_eckig2.svg \
 		../ProjectQ/images/einstellungen.png \
 		../ProjectQ/images/orange_eckig.png \
 		../ProjectQ/images/blau_stern.png \
@@ -468,7 +469,7 @@ release/moc_einstellungen.cpp: ../ProjectQ/einstellungen.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/qfiledevice.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qvector2d.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qtouchdevice.h \
-		ui_einstellungen.h \
+		../ProjectQ/ui_einstellungen.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qapplication.h \
@@ -2113,7 +2114,7 @@ release/einstellungen.o: ../ProjectQ/einstellungen.cpp ../ProjectQ/einstellungen
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/qfiledevice.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qvector2d.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qtouchdevice.h \
-		ui_einstellungen.h \
+		../ProjectQ/ui_einstellungen.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qapplication.h \
@@ -2263,7 +2264,7 @@ release/game.o: ../ProjectQ/game.cpp ../ProjectQ/game.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qicon.h \
-		ui_game.h \
+		../ProjectQ/ui_game.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qapplication.h \
@@ -2556,7 +2557,7 @@ release/mainwindow.o: ../ProjectQ/mainwindow.cpp ../ProjectQ/mainwindow.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtNetwork/qabstractsocket.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtNetwork/qtnetworkglobal.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtNetwork/qtnetwork-config.h \
-		ui_mainwindow.h \
+		../ProjectQ/ui_mainwindow.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qapplication.h \
@@ -2611,7 +2612,7 @@ release/mainwindow.o: ../ProjectQ/mainwindow.cpp ../ProjectQ/mainwindow.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/QPixmap \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QUndoCommand \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qundostack.h \
-		ui_game.h \
+		../ProjectQ/ui_game.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QGridLayout \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QLCDNumber \
@@ -2754,7 +2755,7 @@ release/ruleswindow.o: ../ProjectQ/ruleswindow.cpp ../ProjectQ/ruleswindow.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/qfiledevice.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qvector2d.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qtouchdevice.h \
-		ui_ruleswindow.h \
+		../ProjectQ/ui_ruleswindow.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qapplication.h \
@@ -3488,7 +3489,7 @@ release/tauschen.o: ../ProjectQ/tauschen.cpp ../ProjectQ/tauschen.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/QPixmap \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QUndoCommand \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qundostack.h \
-		ui_game.h \
+		../ProjectQ/ui_game.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qapplication.h \
@@ -3665,7 +3666,7 @@ release/undo.o: ../ProjectQ/undo.cpp ../ProjectQ/undo.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/QPixmap \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QUndoCommand \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qundostack.h \
-		ui_game.h \
+		../ProjectQ/ui_game.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/QVariant \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qapplication.h \

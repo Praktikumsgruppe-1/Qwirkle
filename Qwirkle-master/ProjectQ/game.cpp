@@ -14,6 +14,7 @@
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QHostAddress>
+#include <QScrollBar>
 
 
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
@@ -54,6 +55,9 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->scrollArea->setMaximumSize(1600,900);
     ui->scrollAreaWidgetContents->setMaximumSize(4000,4000);
 
+    QObject::connect(ui->scrollArea->verticalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(scrollToVCenter(int,int)));
+    QObject::connect(ui->scrollArea->horizontalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(scrollToHCenter(int,int)));
+
     Spielfeld *frame[108][108];
     for ( int i = 0; i < 108; i++ )
 
@@ -69,7 +73,6 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 
     ui->scrollAreaWidgetContents->setLayout( ui->lfeld );
     ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
-
 
      /****************************************************************************/
     // Netzwerkaufbau
@@ -116,6 +119,7 @@ void Game::updateFrames()
     ui->hand->update();
 }
 
+// gibt einen Zeiger auf ui zurück
 Ui::Game* Game::getUi()
 {
     return Game::ui;
@@ -126,6 +130,27 @@ void Game::on_pushButton_6_clicked()
     undoClass uC;
     uC.undoMove();
 }
+
+// scrollt zur horizontalen Mitte des Spielfeldes
+void Game::scrollToHCenter(int min, int max)
+{
+    (void) min;
+    if (max > scrollBarHMax)
+        ui->scrollArea->horizontalScrollBar()->setValue( ui->scrollArea->horizontalScrollBar()->maximum() / 2 );
+    scrollBarHMax = max;
+}
+
+// scrollt zur vertikalen Mitte des Spielfeldes
+void Game::scrollToVCenter(int min, int max)
+{
+    (void) min;
+    if (max > scrollBarVMax)
+        ui->scrollArea->verticalScrollBar()->setValue( ui->scrollArea->verticalScrollBar()->maximum() / 2 );
+    scrollBarVMax = max;
+}
+
+/************************************************************************************************/
+// Netzwerkfunktionen
 
 void Game::sendMessage()
 {
