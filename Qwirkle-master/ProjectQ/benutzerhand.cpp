@@ -23,7 +23,7 @@
 #include <QGlobal.h>
 #include <QTime>
 
-Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
+Benutzerhand::Benutzerhand(QWidget *parent)
     : QFrame(parent)
 {
     setMinimumSize(20, 20);
@@ -147,47 +147,47 @@ extern int randInt(int low, int high)
 
 extern QPixmap getPixmap( int a, int b )
 {
-    QPixmap blau_eckig (QPixmap(":/images/blau_eckig2.svg"));
-    QPixmap blau_kreuz (QPixmap(":/images/blau_kreuz.png"));
-    QPixmap blau_raute (QPixmap(":/images/blau_raute.png"));
-    QPixmap blau_rund (QPixmap(":/images/blau_rund.png"));
-    QPixmap blau_sonne (QPixmap(":/images/blau_sonne.png"));
-    QPixmap blau_stern (QPixmap(":/images/blau_stern.png"));
+    QPixmap blau_kreuz (QPixmap(":/images/blau_kreuz1.svg"));
+    QPixmap blau_raute (QPixmap(":/images/blau_raute1.svg"));
+    QPixmap blau_rund (QPixmap(":/images/blau_rund1.svg"));
+    QPixmap blau_sonne (QPixmap(":/images/blau_sonne1.svg"));
+    QPixmap blau_stern (QPixmap(":/images/blau_stern1.svg"));
 
-    QPixmap gelb_eckig (QPixmap(":/images/gelb_eckig.png"));
-    QPixmap gelb_kreuz (QPixmap(":/images/gelb_kreuz.png"));
-    QPixmap gelb_raute (QPixmap(":/images/gelb_raute.png"));
-    QPixmap gelb_rund (QPixmap(":/images/gelb_rund.png"));
-    QPixmap gelb_sonne (QPixmap(":/images/gelb_sonne.png"));
-    QPixmap gelb_stern (QPixmap(":/images/gelb_stern.png"));
+    QPixmap gelb_eckig (QPixmap(":/images/gelb_eckig1.svg"));
+    QPixmap gelb_kreuz (QPixmap(":/images/gelb_kreuz1.svg"));
+    QPixmap gelb_raute (QPixmap(":/images/gelb_raute1.svg"));
+    QPixmap gelb_rund (QPixmap(":/images/gelb_rund1.svg"));
+    QPixmap gelb_sonne (QPixmap(":/images/gelb_sonne1.svg"));
+    QPixmap gelb_stern (QPixmap(":/images/gelb_stern1.svg"));
 
-    QPixmap gruen_eckig (QPixmap(":/images/gruen_eckig.png"));
-    QPixmap gruen_kreuz (QPixmap(":/images/gruen_kreuz.png"));
-    QPixmap gruen_raute (QPixmap(":/images/gruen_raute.png"));
-    QPixmap gruen_sonne (QPixmap(":/images/gruen_sonne.png"));
-    QPixmap gruen_rund (QPixmap(":/images/gruen_rund.png"));
-    QPixmap gruen_stern (QPixmap(":/images/gruen_stern.png"));
+    QPixmap gruen_eckig (QPixmap(":/images/gruen_eckig1.svg"));
+    QPixmap gruen_kreuz (QPixmap(":/images/gruen_kreuz1.svg"));
+    QPixmap gruen_raute (QPixmap(":/images/gruen_raute1.svg"));
+    QPixmap gruen_sonne (QPixmap(":/images/gruen_sonne1.svg"));
+    QPixmap gruen_rund (QPixmap(":/images/gruen_rund1.svg"));
+    QPixmap gruen_stern (QPixmap(":/images/gruen_stern1.svg"));
 
-    QPixmap lila_eckig (QPixmap(":/images/lila_eckig.png"));
-    QPixmap lila_kreuz (QPixmap(":/images/lila_kreuz.png"));
-    QPixmap lila_raute (QPixmap(":/images/lila_raute.png"));
-    QPixmap lila_rund (QPixmap(":/images/lila_rund.png"));
-    QPixmap lila_sonne (QPixmap(":/images/lila_sonne.png"));
-    QPixmap lila_stern (QPixmap(":/images/lila_stern.png"));
+    QPixmap lila_eckig (QPixmap(":/images/lila_eckig1.svg"));
+    QPixmap lila_kreuz (QPixmap(":/images/lila_kreuz1.svg"));
+    QPixmap lila_raute (QPixmap(":/images/lila_raute1.svg"));
+    QPixmap lila_rund (QPixmap(":/images/lila_rund1.svg"));
+    QPixmap lila_sonne (QPixmap(":/images/lila_sonne1.svg"));
+    QPixmap lila_stern (QPixmap(":/images/lila_stern1.svg"));
 
-    QPixmap orange_eckig (QPixmap(":/images/orange_eckig.png"));
-    QPixmap orange_kreuz (QPixmap(":/images/orange_kreuz.png"));
-    QPixmap orange_raute (QPixmap(":/images/orange_raute.png"));
-    QPixmap orange_rund (QPixmap(":/images/orange_rund.png"));
-    QPixmap orange_sonne (QPixmap(":/images/orange_sonne.png"));
-    QPixmap orange_stern (QPixmap(":/images/orange_stern.png"));
+    QPixmap orange_eckig (QPixmap(":/images/orange_eckig1.svg"));
+    QPixmap orange_kreuz (QPixmap(":/images/orange_kreuz1.svg"));
+    QPixmap orange_raute (QPixmap(":/images/orange_raute1.svg"));
+    QPixmap orange_rund (QPixmap(":/images/orange_rund1.svg"));
+    QPixmap orange_sonne (QPixmap(":/images/orange_sonn1e.svg"));
+    QPixmap orange_stern (QPixmap(":/images/orange_stern1.svg"));
 
-    QPixmap rot_eckig (QPixmap(":/images/rot_eckig.png"));
-    QPixmap rot_kreuz (QPixmap(":/images/rot_kreuz.png"));
-    QPixmap rot_raute (QPixmap(":/images/rot_raute.png"));
-    QPixmap rot_rund (QPixmap(":/images/rot_rund.png"));
-    QPixmap rot_sonne (QPixmap(":/images/rot_sonne.png"));
-    QPixmap rot_stern (QPixmap(":/images/rot_stern.png"));
+    QPixmap rot_eckig (QPixmap(":/images/rot_eckig1.svg"));
+    QPixmap rot_kreuz (QPixmap(":/images/rot_kreuz1.svg"));
+    QPixmap rot_raute (QPixmap(":/images/rot_raute1.svg"));
+    QPixmap rot_rund (QPixmap(":/images/rot_rund1.svg"));
+    QPixmap rot_sonne (QPixmap(":/images/rot_sonne1.svg"));
+    QPixmap rot_stern (QPixmap(":/images/rot_stern1.svg"));
+
 
     QPixmap stein[6][6] =
     {
