@@ -23,6 +23,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 {
     ui->setupUi(this);
     setMinimumSize(1510,805);
+    setBackgroundRole(QPalette::Highlight);
 
     //versuche das Fenster dynamisch größenanpassbar zu machen
     QVBoxLayout *fenster = new QVBoxLayout(this);
