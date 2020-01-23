@@ -34,11 +34,11 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     // Benutzerhand wird initialisiert
 
     Benutzerhand *icon1 = new Benutzerhand(ui->hand,3,4);
-    Benutzerhand *icon2 = new Benutzerhand(ui->hand,1,4);
+    Benutzerhand *icon2 = new Benutzerhand(ui->hand,1,2);
     Benutzerhand *icon3 = new Benutzerhand(ui->hand,3,5);
     Benutzerhand *icon4 = new Benutzerhand(ui->hand,2,1);
-    Benutzerhand *icon5 = new Benutzerhand(ui->hand,5,4);
-    Benutzerhand *icon6 = new Benutzerhand(ui->hand,3,4);
+    Benutzerhand *icon5 = new Benutzerhand(ui->hand,5,3);
+    Benutzerhand *icon6 = new Benutzerhand(ui->hand,3,3);
 
     ui->lhand->addWidget(icon1);
     ui->lhand->addWidget(icon2);
