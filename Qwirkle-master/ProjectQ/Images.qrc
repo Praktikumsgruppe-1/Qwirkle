@@ -1,48 +1,10 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/blau_eckig.png</file>
-        <file>images/blau_kreuz.png</file>
-        <file>images/blau_raute.png</file>
-        <file>images/blau_rund.png</file>
-        <file>images/blau_sonne.png</file>
-        <file>images/blau_stern.png</file>
-        <file>images/einstellungen.png</file>
-        <file>images/gelb_eckig.png</file>
-        <file>images/gelb_kreuz.png</file>
-        <file>images/gelb_raute.png</file>
-        <file>images/gelb_rund.png</file>
-        <file>images/gelb_sonne.png</file>
-        <file>images/gelb_stern.png</file>
-        <file>images/gruen_eckig.png</file>
-        <file>images/gruen_kreuz.png</file>
-        <file>images/gruen_raute.png</file>
-        <file>images/gruen_rund.png</file>
-        <file>images/gruen_sonne.png</file>
-        <file>images/gruen_stern.png</file>
-        <file>images/lila_eckig.png</file>
-        <file>images/lila_kreuz.png</file>
-        <file>images/lila_raute.png</file>
-        <file>images/lila_rund.png</file>
-        <file>images/lila_sonne.png</file>
-        <file>images/lila_stern.png</file>
-        <file>images/orange_eckig.png</file>
-        <file>images/orange_kreuz.png</file>
-        <file>images/orange_raute.png</file>
-        <file>images/orange_rund.png</file>
-        <file>images/orange_sonne.png</file>
-        <file>images/orange_stern.png</file>
         <file>images/retry.png</file>
         <file>images/right.png</file>
-        <file>images/rot_eckig.png</file>
-        <file>images/rot_kreuz.png</file>
-        <file>images/rot_raute.png</file>
-        <file>images/rot_rund.png</file>
-        <file>images/rot_sonne.png</file>
-        <file>images/rot_stern.png</file>
         <file>rulesImages/Spielanleitung_Qwirkle_1.PNG</file>
         <file>rulesImages/Spielanleitung_Qwirkle_2.PNG</file>
         <file>rulesImages/Spielanleitung_Qwirkle_3.PNG</file>
-        <file>images/hintergrund.jpg</file>
         <file>images/blau_eckig2.svg</file>
         <file>images/gruen_raute1.svg</file>
         <file>images/blau_kreuz1.svg</file>

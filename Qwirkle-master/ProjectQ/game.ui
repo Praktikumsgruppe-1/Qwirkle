@@ -244,6 +244,7 @@
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
+   </property>
    <property name="minimumSize">
     <size>
      <width>1491</width>

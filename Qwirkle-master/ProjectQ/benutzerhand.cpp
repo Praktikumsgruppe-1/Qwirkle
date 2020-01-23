@@ -147,6 +147,7 @@ extern int randInt(int low, int high)
 
 extern QPixmap getPixmap( int a, int b )
 {
+    QPixmap blau_eckig (QPixmap(":/images/blau_eckig1.svg"));
     QPixmap blau_kreuz (QPixmap(":/images/blau_kreuz1.svg"));
     QPixmap blau_raute (QPixmap(":/images/blau_raute1.svg"));
     QPixmap blau_rund (QPixmap(":/images/blau_rund1.svg"));

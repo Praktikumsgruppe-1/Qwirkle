@@ -161,47 +161,45 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_Images.cpp
 debug/qrc_Images.cpp: ../ProjectQ/Images.qrc \
 		C:/Qt/5.13.2/mingw73_64/bin/rcc.exe \
-		../ProjectQ/images/gelb_raute.png \
-		../ProjectQ/images/lila_raute.png \
-		../ProjectQ/images/gruen_rund.png \
-		../ProjectQ/images/blau_kreuz.png \
-		../ProjectQ/images/gruen_kreuz.png \
-		../ProjectQ/images/orange_rund.png \
-		../ProjectQ/images/gruen_raute.png \
-		../ProjectQ/images/hintergrund.jpg \
-		../ProjectQ/images/gelb_stern.png \
-		../ProjectQ/images/lila_stern.png \
-		../ProjectQ/images/rot_raute.png \
-		../ProjectQ/images/orange_sonne.png \
-		../ProjectQ/images/gelb_eckig.png \
-		../ProjectQ/images/lila_eckig.png \
-		../ProjectQ/images/gelb_rund.png \
-		../ProjectQ/images/gruen_stern.png \
-		../ProjectQ/images/gruen_eckig.png \
-		../ProjectQ/images/gelb_kreuz.png \
-		../ProjectQ/images/orange_kreuz.png \
-		../ProjectQ/images/rot_sonne.png \
-		../ProjectQ/images/rot_eckig.png \
-		../ProjectQ/images/orange_raute.png \
-		../ProjectQ/images/blau_raute.png \
-		../ProjectQ/images/rot_kreuz.png \
+		../ProjectQ/images/orange_sonne1.svg \
+		../ProjectQ/images/blau_raute1.svg \
+		../ProjectQ/images/rot_sonne1.svg \
+		../ProjectQ/images/blau_kreuz1.svg \
+		../ProjectQ/images/lila_eckig1.svg \
+		../ProjectQ/images/gelb_raute1.svg \
+		../ProjectQ/images/blau_sonne1.svg \
+		../ProjectQ/images/gelb_kreuz1.svg \
+		../ProjectQ/images/rot_rund1.svg \
+		../ProjectQ/images/lila_stern1.svg \
+		../ProjectQ/images/gruen_eckig1.svg \
+		../ProjectQ/images/gelb_sonne1.svg \
+		../ProjectQ/images/gruen_raute1.svg \
+		../ProjectQ/images/orange_stern1.svg \
+		../ProjectQ/images/gruen_kreuz1.svg \
+		../ProjectQ/images/rot_stern1.svg \
+		../ProjectQ/images/right1.svg \
+		../ProjectQ/images/gruen_sonne1.svg \
+		../ProjectQ/images/lila_rund1.svg \
+		../ProjectQ/images/gelb_eckig1.svg \
+		../ProjectQ/images/gelb_stern1.svg \
+		../ProjectQ/images/blau_rund1.svg \
+		../ProjectQ/images/gruen_rund1.svg \
+		../ProjectQ/images/lila_raute1.svg \
+		../ProjectQ/images/gruen_stern1.svg \
 		../ProjectQ/images/right.png \
-		../ProjectQ/images/gelb_sonne.png \
-		../ProjectQ/images/lila_sonne.png \
-		../ProjectQ/images/orange_stern.png \
+		../ProjectQ/images/lila_kreuz1.svg \
+		../ProjectQ/images/orange_eckig1.svg \
 		../ProjectQ/images/blau_eckig2.svg \
-		../ProjectQ/images/einstellungen.png \
-		../ProjectQ/images/orange_eckig.png \
-		../ProjectQ/images/blau_stern.png \
-		../ProjectQ/images/blau_sonne.png \
-		../ProjectQ/images/rot_rund.png \
+		../ProjectQ/images/rot_eckig1.svg \
+		../ProjectQ/images/lila_sonne1.svg \
 		../ProjectQ/images/retry.png \
-		../ProjectQ/images/blau_rund.png \
-		../ProjectQ/images/lila_rund.png \
-		../ProjectQ/images/blau_eckig.png \
-		../ProjectQ/images/gruen_sonne.png \
-		../ProjectQ/images/lila_kreuz.png \
-		../ProjectQ/images/rot_stern.png \
+		../ProjectQ/images/orange_raute1.svg \
+		../ProjectQ/images/gelb_rund1.svg \
+		../ProjectQ/images/orange_kreuz1.svg \
+		../ProjectQ/images/rot_raute1.svg \
+		../ProjectQ/images/orange_rund1.svg \
+		../ProjectQ/images/blau_stern1.svg \
+		../ProjectQ/images/rot_kreuz1.svg \
 		../ProjectQ/rulesImages/Spielanleitung_Qwirkle_3.PNG \
 		../ProjectQ/rulesImages/Spielanleitung_Qwirkle_2.PNG \
 		../ProjectQ/rulesImages/Spielanleitung_Qwirkle_1.PNG
@@ -2323,7 +2321,9 @@ debug/game.o: ../ProjectQ/game.cpp ../ProjectQ/game.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qdialog.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/5.13.2/mingw73_64/include/QtNetwork/QHostAddress
+		C:/Qt/5.13.2/mingw73_64/include/QtNetwork/QHostAddress \
+		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/QScrollBar \
+		C:/Qt/5.13.2/mingw73_64/include/QtWidgets/qscrollbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\game.o ..\ProjectQ\game.cpp
 
 debug/main.o: ../ProjectQ/main.cpp ../ProjectQ/mainwindow.h \
