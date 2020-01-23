@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -70,7 +73,7 @@
     <string>Regeln</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="einstellungen">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -172,6 +175,12 @@
    <property name="styleSheet">
     <string notr="true">background-color: rgb(158, 158, 158);</string>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
   </widget>
   <widget class="QWidget" name="hand" native="true">
    <property name="geometry">
@@ -265,8 +274,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1469</width>
-      <height>599</height>
+      <width>1462</width>
+      <height>592</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -293,15 +302,36 @@
       </property>
      </layout>
     </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>-6</x>
+       <y>-5</y>
+       <width>1491</width>
+       <height>621</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="Images.qrc">:/images/hintergrund.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>label_4</zorder>
+    <zorder>gridLayoutWidget</zorder>
    </widget>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>1076</x>
-     <y>723</y>
-     <width>71</width>
-     <height>20</height>
+     <x>1070</x>
+     <y>720</y>
+     <width>91</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -311,7 +341,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Tauschen</string>
+    <string>tauschen</string>
    </property>
   </widget>
  </widget>
@@ -323,6 +353,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="Images.qrc"/>
+ </resources>
  <connections/>
 </ui>

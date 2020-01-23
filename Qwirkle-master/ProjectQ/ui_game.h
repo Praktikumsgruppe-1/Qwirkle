@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'game.ui'
 **
-** Created by: Qt User Interface Compiler version 5.13.2
+** Created by: Qt User Interface Compiler version 5.13.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -30,7 +30,7 @@ public:
     QPushButton *pushButton;
     QLabel *label;
     QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QPushButton *einstellungen;
     QPushButton *pushButton_4;
     QLCDNumber *lcdNumber;
     QLabel *label_2;
@@ -46,6 +46,7 @@ public:
     QWidget *scrollAreaWidgetContents;
     QWidget *gridLayoutWidget;
     QGridLayout *lfeld;
+    QLabel *label_4;
     QLabel *label_3;
 
     void setupUi(QWidget *Game)
@@ -53,6 +54,7 @@ public:
         if (Game->objectName().isEmpty())
             Game->setObjectName(QString::fromUtf8("Game"));
         Game->resize(1508, 803);
+        Game->setAutoFillBackground(false);
         pushButton = new QPushButton(Game);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(1370, 770, 131, 31));
@@ -74,9 +76,9 @@ public:
         font2.setFamily(QString::fromUtf8("Candara Light"));
         font2.setPointSize(16);
         pushButton_2->setFont(font2);
-        pushButton_3 = new QPushButton(Game);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(130, 760, 101, 41));
+        einstellungen = new QPushButton(Game);
+        einstellungen->setObjectName(QString::fromUtf8("einstellungen"));
+        einstellungen->setGeometry(QRect(130, 760, 101, 41));
         pushButton_4 = new QPushButton(Game);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
         pushButton_4->setGeometry(QRect(250, 760, 101, 41));
@@ -102,6 +104,8 @@ public:
         frame->setGeometry(QRect(1070, 650, 81, 71));
         frame->setAcceptDrops(true);
         frame->setStyleSheet(QString::fromUtf8("background-color: rgb(158, 158, 158);"));
+        frame->setFrameShape(QFrame::Box);
+        frame->setFrameShadow(QFrame::Sunken);
         hand = new QWidget(Game);
         hand->setObjectName(QString::fromUtf8("hand"));
         hand->setGeometry(QRect(9, 639, 621, 71));
@@ -137,7 +141,7 @@ public:
         scrollArea->setAlignment(Qt::AlignCenter);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1469, 599));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1462, 592));
         sizePolicy.setHeightForWidth(scrollAreaWidgetContents->sizePolicy().hasHeightForWidth());
         scrollAreaWidgetContents->setSizePolicy(sizePolicy);
         gridLayoutWidget = new QWidget(scrollAreaWidgetContents);
@@ -148,10 +152,17 @@ public:
         lfeld->setObjectName(QString::fromUtf8("lfeld"));
         lfeld->setSizeConstraint(QLayout::SetMinimumSize);
         lfeld->setContentsMargins(0, 0, 0, 0);
+        label_4 = new QLabel(scrollAreaWidgetContents);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(-6, -5, 1491, 621));
+        label_4->setPixmap(QPixmap(QString::fromUtf8(":/images/hintergrund.jpg")));
+        label_4->setScaledContents(true);
         scrollArea->setWidget(scrollAreaWidgetContents);
+        label_4->raise();
+        gridLayoutWidget->raise();
         label_3 = new QLabel(Game);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(1076, 723, 71, 20));
+        label_3->setGeometry(QRect(1070, 720, 91, 21));
         label_3->setFont(font3);
 
         retranslateUi(Game);
@@ -165,12 +176,13 @@ public:
         pushButton->setText(QCoreApplication::translate("Game", "Beenden", nullptr));
         label->setText(QCoreApplication::translate("Game", "Benutzerhand", nullptr));
         pushButton_2->setText(QCoreApplication::translate("Game", "Regeln", nullptr));
-        pushButton_3->setText(QString());
+        einstellungen->setText(QString());
         pushButton_4->setText(QCoreApplication::translate("Game", "New Game", nullptr));
         label_2->setText(QCoreApplication::translate("Game", "Punktestand", nullptr));
         pushButton_6->setText(QCoreApplication::translate("Game", "Undo", nullptr));
         pushButton_7->setText(QString());
-        label_3->setText(QCoreApplication::translate("Game", "Tauschen", nullptr));
+        label_4->setText(QString());
+        label_3->setText(QCoreApplication::translate("Game", "tauschen", nullptr));
     } // retranslateUi
 
 };

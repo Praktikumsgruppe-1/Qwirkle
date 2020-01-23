@@ -22,6 +22,9 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 {
     ui->setupUi(this);
 
+    ui->einstellungen->setIcon(QPixmap(":/images/einstellungen"));
+    ui->pushButton_7->setIcon(QPixmap(":/images/right"));
+
     /*
     QWidget *hand = new QWidget;
     ui->lhand = new QHBoxLayout(hand);
