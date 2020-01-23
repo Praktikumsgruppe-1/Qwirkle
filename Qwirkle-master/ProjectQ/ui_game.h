@@ -32,7 +32,6 @@ public:
     QWidget *scrollAreaWidgetContents;
     QWidget *gridLayoutWidget;
     QGridLayout *lfeld;
-    QLabel *label_4;
     QFrame *unten_links;
     QWidget *hand;
     QWidget *horizontalLayoutWidget;
@@ -88,14 +87,7 @@ public:
         lfeld->setObjectName(QString::fromUtf8("lfeld"));
         lfeld->setSizeConstraint(QLayout::SetMinimumSize);
         lfeld->setContentsMargins(0, 0, 0, 0);
-        label_4 = new QLabel(scrollAreaWidgetContents);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(-6, -5, 1491, 621));
-        label_4->setPixmap(QPixmap(QString::fromUtf8(":/images/hintergrund.jpg")));
-        label_4->setScaledContents(true);
         scrollArea->setWidget(scrollAreaWidgetContents);
-        label_4->raise();
-        gridLayoutWidget->raise();
         unten_links = new QFrame(Game);
         unten_links->setObjectName(QString::fromUtf8("unten_links"));
         unten_links->setGeometry(QRect(0, 640, 641, 161));
@@ -196,7 +188,6 @@ public:
     void retranslateUi(QWidget *Game)
     {
         Game->setWindowTitle(QCoreApplication::translate("Game", "Qwirkel", nullptr));
-        label_4->setText(QString());
         label->setText(QCoreApplication::translate("Game", "Benutzerhand", nullptr));
         label_2->setText(QCoreApplication::translate("Game", "Punktestand", nullptr));
         pushButton_2->setText(QCoreApplication::translate("Game", "Regeln", nullptr));

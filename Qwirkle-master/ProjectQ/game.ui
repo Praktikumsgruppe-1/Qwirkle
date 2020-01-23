@@ -91,27 +91,6 @@
       </property>
      </layout>
     </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>-6</x>
-       <y>-5</y>
-       <width>1491</width>
-       <height>621</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="Images.qrc">:/images/hintergrund.jpg</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <zorder>label_4</zorder>
-    <zorder>gridLayoutWidget</zorder>
    </widget>
   </widget>
   <widget class="QFrame" name="unten_links">
@@ -425,8 +404,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="Images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
