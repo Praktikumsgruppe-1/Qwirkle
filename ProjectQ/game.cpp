@@ -7,6 +7,7 @@
 #include "chatserver.h"
 #include "serverworker.h"
 #include "ruleswindow.h"
+#include "punkte.h"
 
 #include <QPixmap>
 #include <QFrame>
@@ -40,6 +41,8 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 
     ui->einstellungen->setIcon(QPixmap(":/images/einstellungen"));
     ui->pushButton_7->setIcon(QPixmap(":/images/right1"));
+
+
 
     /*
     QWidget *hand = new QWidget;
@@ -81,7 +84,6 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     QObject::connect(ui->scrollArea->verticalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(scrollToVCenter(int,int)));
     QObject::connect(ui->scrollArea->horizontalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(scrollToHCenter(int,int)));
 
-    Spielfeld *frame[108][108];
     for ( int i = 0; i < 108; i++ )
 
     {
@@ -109,6 +111,18 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
         }
     }
 
+    //feldarray wird mit den Startwerten zum Spielbeginn initialisiert
+    for ( int i = 0; i < 6; i++ )
+    {
+        for ( int j = 0; j < 6; j++)
+        {
+          *(feldarray[i][j][0]) = 0;
+          *(feldarray[i][j][1]) = 9;
+          *(feldarray[i][j][2]) = 9;
+          *(feldarray[i][j][3]) = 0;
+          *(feldarray[i][j][4]) = 0;
+        }
+    }
 
      /****************************************************************************/
     // Netzwerkaufbau
@@ -302,4 +316,11 @@ void Game::error(QAbstractSocket::SocketError socketError)
     ui->messageEdit->setEnabled(false);
     ui->chatView->setEnabled(false);
     m_lastUserName.clear();
+}
+
+void Game::on_pushButton_7_clicked()
+{
+    Punkte *points = new Punkte;
+    points->calc();
+
 }
