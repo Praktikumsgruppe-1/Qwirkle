@@ -29,9 +29,9 @@ void rulesWindow::showRules(){
     QGraphicsScene* scene = new QGraphicsScene();
     QGraphicsView *graphicsView = new QGraphicsView();
 
-    QGraphicsPixmapItem *pixmapItem1 = scene->addPixmap(QPixmap(":/rulesImages/Spielanleitung_Qwirkle_1.png"));
-    QGraphicsPixmapItem *pixmapItem2 = scene->addPixmap(QPixmap(":/rulesImages/Spielanleitung_Qwirkle_2.png"));
-    QGraphicsPixmapItem *pixmapItem3 = scene->addPixmap(QPixmap(":/rulesImages/Spielanleitung_Qwirkle_3.png"));
+    QGraphicsPixmapItem *pixmapItem1 = scene->addPixmap(QPixmap(":/rulesImages/Spielanleitung_Qwirkle_1.PNG"));
+    QGraphicsPixmapItem *pixmapItem2 = scene->addPixmap(QPixmap(":/rulesImages/Spielanleitung_Qwirkle_2.PNG"));
+    QGraphicsPixmapItem *pixmapItem3 = scene->addPixmap(QPixmap(":/rulesImages/Spielanleitung_Qwirkle_3.PNG"));
 
     pixmapItem2->moveBy(0, 795);
     pixmapItem3->moveBy(0, 1590);

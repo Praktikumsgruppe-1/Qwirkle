@@ -30,7 +30,6 @@ SOURCES += \
     ruleswindow.cpp \
     serverworker.cpp \
     spielfeld.cpp \
-    stein.cpp \
     tauschen.cpp \
     undo.cpp
 
@@ -46,7 +45,6 @@ HEADERS += \
     ruleswindow.h \
     serverworker.h \
     spielfeld.h \
-    stein.h \
     tauschen.h \
     undo.h
 

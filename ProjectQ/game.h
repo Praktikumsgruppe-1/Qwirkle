@@ -8,6 +8,7 @@
 #include "tauschen.h"
 #include "undo.h"
 #include "mainwindow.h"
+#include "spielfeld.h"
 
 class ChatServer;
 class ChatClient;
@@ -65,6 +66,7 @@ private:
     QString m_lastUserName;
 
     friend class MainWindow;
+    friend class Spielfeld;
 };
 
 extern int *feldarray [108][108][5];                                   //startwerte: 0,9,9,0,?

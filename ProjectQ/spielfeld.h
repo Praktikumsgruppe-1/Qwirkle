@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QPixmap>
 #include "undo.h"
+#include "game.h"
 //#include <QLabel>
 
 QT_BEGIN_NAMESPACE

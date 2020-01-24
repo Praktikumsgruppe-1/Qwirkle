@@ -42,7 +42,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->einstellungen->setIcon(QPixmap(":/images/einstellungen"));
     ui->pushButton_7->setIcon(QPixmap(":/images/right1"));
 
-
+    ui->lcdNumber->display(spielerpunkte);
 
     /*
     QWidget *hand = new QWidget;
@@ -321,7 +321,15 @@ void Game::error(QAbstractSocket::SocketError socketError)
 void Game::on_pushButton_7_clicked()
 {
     Punkte *points = new Punkte;
-    points->calc();
+
+    for ( int i = 0; i <108; i++)
+    {
+        for (int j = 0; j <108; j++)
+        {
+            if(*(feldarray[i][j][3])==1)
+                spielerpunkte = spielerpunkte + points->calc(i,j);
+        }
+    }
 
     // undo Funktion zurücksetzen
     while( undoClass::undoStack.empty() == false )
