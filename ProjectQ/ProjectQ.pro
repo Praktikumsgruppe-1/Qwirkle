@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Regeln.cpp \
     benutzerhand.cpp \
     chatclient.cpp \
     chatserver.cpp \
@@ -25,9 +26,11 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     regeln.cpp \
+    punkte.cpp \
     ruleswindow.cpp \
     serverworker.cpp \
     spielfeld.cpp \
+    stein.cpp \
     tauschen.cpp \
     undo.cpp
 
@@ -39,9 +42,11 @@ HEADERS += \
     game.h \
     mainwindow.h \
     regeln.h \
+    punkte.h \
     ruleswindow.h \
     serverworker.h \
     spielfeld.h \
+    stein.h \
     tauschen.h \
     undo.h
 

@@ -24,7 +24,6 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 {
     ui->setupUi(this);
     setMinimumSize(1510,805);
-    setBackgroundRole(QPalette::Highlight);
 
     //versuche das Fenster dynamisch größenanpassbar zu machen
     QVBoxLayout *fenster = new QVBoxLayout(this);
@@ -34,11 +33,10 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     lunten->addWidget(ui->unten_links);
     lunten->addWidget(ui->unten_mitte);
     lunten->addWidget(ui->unten_rechts);
+    unten->setLayout(lunten);
 
     fenster->addWidget(ui->scrollArea);
     fenster->addWidget(unten);
-
-
 
     ui->einstellungen->setIcon(QPixmap(":/images/einstellungen"));
     ui->pushButton_7->setIcon(QPixmap(":/images/right1"));
@@ -77,8 +75,8 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     // Spielfeld 108 x 108 wird aufgebaut und die kleinen Spielfelder eingefügt
 
     ui->scrollArea->setMinimumSize(20,20);
-    ui->scrollArea->setMaximumSize(1600,900);
-    ui->scrollAreaWidgetContents->setMaximumSize(4000,4000);
+    ui->scrollArea->setMaximumSize(4000,4000);
+    ui->scrollAreaWidgetContents->setMaximumSize(8000,8000);
 
     QObject::connect(ui->scrollArea->verticalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(scrollToVCenter(int,int)));
     QObject::connect(ui->scrollArea->horizontalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(scrollToHCenter(int,int)));
@@ -98,6 +96,18 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 
     ui->scrollAreaWidgetContents->setLayout( ui->lfeld );
     ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
+
+    //der beutel-inhalt wird auf wahr initialisiert zum Spielbeginn
+    for ( int i = 0; i < 6; i++ )
+    {
+        for ( int j = 0; j < 6; j++)
+        {
+            for (int h = 0; h < 3; h++)
+            {
+                *(beutel[i][j][h]) = true;
+            }
+        }
+    }
 
 
      /****************************************************************************/

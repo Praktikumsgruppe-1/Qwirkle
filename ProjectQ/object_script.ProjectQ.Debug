@@ -1,4 +1,3 @@
-debug/Punkte.o
 debug/Regeln.o
 debug/benutzerhand.o
 debug/chatclient.o
@@ -7,6 +6,8 @@ debug/einstellungen.o
 debug/game.o
 debug/main.o
 debug/mainwindow.o
+debug/punkte.o
+debug/punkte.o
 debug/ruleswindow.o
 debug/serverworker.o
 debug/spielfeld.o

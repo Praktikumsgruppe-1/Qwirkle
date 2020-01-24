@@ -27,12 +27,12 @@ Benutzerhand::Benutzerhand(QWidget *parent)
     : QFrame(parent)
 {
     setMinimumSize(20, 20);
-    setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
+    setFrameStyle(QFrame::Raised | QFrame::Box);
     setAcceptDrops(true);
 
     QLabel *stein1Icon = new QLabel(this);
     stein1Icon->setPixmap( getPixmap( randInt(0, 5), randInt(0, 5) ) );
-    stein1Icon->move(2, 2);
+    //stein1Icon->move(2, 2);
     stein1Icon->show();
     stein1Icon->setAttribute(Qt::WA_DeleteOnClose);
 }
