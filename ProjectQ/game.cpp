@@ -97,6 +97,18 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->scrollAreaWidgetContents->setLayout( ui->lfeld );
     ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
 
+    //der beutel-inhalt wird auf wahr initialisiert zum Spielbeginn
+    for ( int i = 0; i < 6; i++ )
+    {
+        for ( int j = 0; j < 6; j++)
+        {
+            for (int h = 0; h < 3; h++)
+            {
+                *(beutel[i][j][h]) = true;
+            }
+        }
+    }
+
 
      /****************************************************************************/
     // Netzwerkaufbau
