@@ -30,6 +30,7 @@ private:
     friend class Benutzerhand;
     friend class Spielfeld;
     friend class Tauschen;
+    friend class Game;
 
 public slots:
     void undoMove();                                // macht eine Bewegung eines Spielsteins rückgängig

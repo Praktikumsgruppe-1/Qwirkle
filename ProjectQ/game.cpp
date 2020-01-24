@@ -323,4 +323,37 @@ void Game::on_pushButton_7_clicked()
     Punkte *points = new Punkte;
     points->calc();
 
+    // undo Funktion zurücksetzen
+    while( undoClass::undoStack.empty() == false )
+    {
+        undoClass::undoStack.pop();
+        undoClass::undoParent.pop();
+        undoClass::undoCoordOldX.pop();
+        undoClass::undoCoordOldY.pop();
+        undoClass::undoCoordNewX.pop();
+        undoClass::undoCoordNewY.pop();
+    }
+    // Spielsteine zählen, die bewegt wurden
+    int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
+    for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
+    {
+        for( yKoordSchleife = 0; yKoordSchleife < 108; yKoordSchleife++ )
+        {
+            if( *(feldarray[xKoordSchleife][yKoordSchleife][3]) == 1 )
+                bewegteSteine++;
+        }
+    }
+    // Spielsteine hinzufügen
+    int a = 0, b = 0, c = 0;
+    for( int i = 0; i < bewegteSteine; i++ )
+    {
+        {
+            a = randInt( 0, 5 );
+            b = randInt( 0, 5);
+            c = randInt( 0, 2 );
+        } while ( *(beutel[a][b][c]) == false );
+
+        Benutzerhand *icon = new Benutzerhand();
+        Game::ui->lhand->addWidget(icon);
+    }
 }
