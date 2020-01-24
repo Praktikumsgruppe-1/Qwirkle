@@ -8,9 +8,9 @@ class Regeln
 public:
     Regeln();
 
-    int check1(int xCoord, int yCoord, int colour, int symbol);
-    int check2(int xCoord, int yCoord, int colour, int symbol);
-    void check(int xCoord, int yCoord, int colour, int symbol);
+    bool check1(int xCoord, int yCoord, int colour, int symbol);
+    bool check2(int xCoord, int yCoord, int colour, int symbol);
+    bool check(int xCoord, int yCoord, int colour, int symbol);
 
 private:
     // Spielfeld mit 4 Einträgen pro Feld für Farbe und Form des Steins

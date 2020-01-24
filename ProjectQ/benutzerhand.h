@@ -17,5 +17,7 @@ protected:
 
 extern int randInt(int low, int high);
 extern QPixmap getPixmap( int a, int b);
+extern int getFarbePixmap( QPixmap );
+extern int getFormPixmap( QPixmap );
 
 #endif // BENUTZERHAND_H
