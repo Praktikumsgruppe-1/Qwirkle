@@ -1,5 +1,3 @@
-release/Punkte.o
-release/Regeln.o
 release/benutzerhand.o
 release/chatclient.o
 release/chatserver.o
@@ -7,6 +5,7 @@ release/einstellungen.o
 release/game.o
 release/main.o
 release/mainwindow.o
+release/regeln.o
 release/ruleswindow.o
 release/serverworker.o
 release/spielfeld.o

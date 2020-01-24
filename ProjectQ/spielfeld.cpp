@@ -75,6 +75,29 @@ void Spielfeld::dropEvent(QDropEvent *event)
         QPoint offset;
         dataStream >> pixmap >> offset;
 
+        // prüfen, darf der Stein hier legen
+        Game* pGame;
+        if ( this->childAt( 10, 10 ) != nullptr )          // prüfen liegt hier schon ein Stein
+        {
+            Game* pframe = new Game();
+            QLabel *newIcon = new QLabel( );
+
+            newIcon->setParent( undoClass::undoParent.top() );
+            newIcon->setPixmap( pixmap );
+            newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+            newIcon->show();
+            newIcon->setAttribute(Qt::WA_DeleteOnClose);
+
+            /*****Stack updaten***********************************/
+            undoClass::undoParent.pop();
+            undoClass::undoCoordOldX.pop();
+            undoClass::undoCoordOldY.pop();
+            undoClass::undoPixmap.pop();
+
+            pframe->update();
+            return;
+        }
+
         QLabel *newIcon = new QLabel(this);
         newIcon->setPixmap(pixmap);
         newIcon->move( 0, 0 );

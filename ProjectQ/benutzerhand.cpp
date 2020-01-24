@@ -179,7 +179,7 @@ extern QPixmap getPixmap( int a, int b )
     QPixmap orange_kreuz (QPixmap(":/images/orange_kreuz1.svg"));
     QPixmap orange_raute (QPixmap(":/images/orange_raute1.svg"));
     QPixmap orange_rund (QPixmap(":/images/orange_rund1.svg"));
-    QPixmap orange_sonne (QPixmap(":/images/orange_sonn1e.svg"));
+    QPixmap orange_sonne (QPixmap(":/images/orange_sonne1.svg"));
     QPixmap orange_stern (QPixmap(":/images/orange_stern1.svg"));
 
     QPixmap rot_eckig (QPixmap(":/images/rot_eckig1.svg"));
