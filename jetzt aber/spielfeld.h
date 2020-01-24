@@ -13,7 +13,9 @@ QT_END_NAMESPACE
 class Spielfeld : public QFrame
 {
 public:
-    explicit Spielfeld(QWidget *parent = nullptr);
+    explicit Spielfeld(QWidget *parent = nullptr, int spalteX = 0, int reiheY = 0 );
+    int reihe;
+    int spalte;
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

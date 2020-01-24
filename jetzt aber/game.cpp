@@ -23,7 +23,7 @@
 #include <QHostAddress>
 #include <QScrollBar>
 
-Spielfeld frame[108][108];
+
 int feldarray [108][108][5];
 
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
@@ -99,8 +99,8 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
         ui->lfeld->setColumnMinimumWidth( i, 75 );
         for ( int j = 0; j < 108; j++ )
         {
-            //frame[i][j] = new Spielfeld;
-            ui->lfeld->addWidget( &(frame[i][j]), i, j );
+            frame[i][j] = new Spielfeld( nullptr, i, j );
+            ui->lfeld->addWidget( frame[i][j], i, j );
         }
     }
 
@@ -158,6 +158,13 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 Game::~Game()
 {
     delete ui;
+    for( int i = 0; i < 108; i++ )
+    {
+        for (int j = 0; j < 108; j++) {
+            delete &(frame[i][j]);
+        }
+    }
+
 }
 
 void Game::on_pushButton_clicked()

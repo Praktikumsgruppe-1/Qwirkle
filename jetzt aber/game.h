@@ -22,7 +22,7 @@ class Game : public QWidget
 public:
     explicit Game(QWidget *parent = nullptr, MainWindow *beforeWindow = nullptr);
     ~Game();
-
+    Ui::Game *ui;
     Ui::Game* getUi();
     void updateFrames();
 
@@ -30,6 +30,7 @@ public:
     //0 : die Farbe
     //1 : die Form
     //2 : die Kopie
+    Spielfeld *frame[108][108];
 
 private slots:
     void on_pushButton_clicked();
@@ -48,7 +49,7 @@ private slots:
     void on_pushButton_7_clicked();
 
 private:
-    Ui::Game *ui;
+
     int scrollBarHMax = 0;
     int scrollBarVMax = 0;
 
@@ -69,6 +70,5 @@ extern int feldarray [108][108][5];                                   //startwer
 //2 : die Form
 //3 : markiert ob der Stein in der Runde des Spielers neu gelegt wurde
 //?4 : welche Kopie von dem Stein ist es (es gibt immer 3)
-extern Spielfeld frame[108][108];
 
 #endif // GAME_H

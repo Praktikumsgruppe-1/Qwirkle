@@ -29,15 +29,14 @@
 // Spielfeld ist die Klasse für ein drag widget, aber ohne das darin Steine mit drin sind, beim aufrufen
 // es ist das normale Spielfeld, aber noch nicht mit den festen Punkten
 
-Spielfeld::Spielfeld(QWidget *parent)
-    : QFrame(parent)
+Spielfeld::Spielfeld(QWidget *parent, int spalteX, int reiheY )
+    : QFrame(parent), reihe( reiheY ), spalte( spalteX )
 {
     setMinimumSize(75, 75);
     setMaximumSize(200,200);
     setFrameStyle(QFrame::Box | QFrame::Sunken);
     setLineWidth(2);
     setAcceptDrops(true);
-
 }
 
 void Spielfeld::dragEnterEvent(QDragEnterEvent *event)
@@ -78,25 +77,13 @@ void Spielfeld::dropEvent(QDropEvent *event)
         QPoint offset;
         dataStream >> pixmap >> offset;
 
-        Regeln *pRegeln;    void check(int xCoord, int yCoord, int colour, int symbol);
-        Game* pGame;
+        Regeln *pRegeln;
+        Game* pGame = new Game();
         int xKoord, yKoord;
-
-        // Koordinaten des Spielfeldes herausfinden
-        for( xKoord = 0; xKoord < 108; xKoord++ )
-        {
-            for( yKoord = 0; yKoord < 108; yKoord++ )
-            {
-                if ( &(frame[xKoord][yKoord]) == this )
-                    break;
-            }
-            if ( &(frame[xKoord][yKoord]) == this )
-                break;
-        }
 
         // Es wird geprüft, liegt hier schon ein Stein und darf hier ein Stein legen
         // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
-        if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( xKoord, yKoord, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+        if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( spalte, reihe, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
         {
             Game* pframe = new Game();
             QLabel *newIcon = new QLabel( );
