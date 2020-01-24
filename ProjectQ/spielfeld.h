@@ -22,6 +22,8 @@ protected:
     void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
+
+    friend class Game;
 };
 
 #endif // SPIELFELD_H

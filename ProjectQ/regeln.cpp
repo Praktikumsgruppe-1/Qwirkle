@@ -1,8 +1,6 @@
 #include "regeln.h"
+#include "game.h"
 //#include <studio.h>
-#include <iostream>
-
-using namespace std;
 
 Regeln::Regeln()
 {

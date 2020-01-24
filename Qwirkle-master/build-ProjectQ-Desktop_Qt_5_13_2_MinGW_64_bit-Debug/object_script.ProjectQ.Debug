@@ -11,7 +11,6 @@ debug/punkte.o
 debug/ruleswindow.o
 debug/serverworker.o
 debug/spielfeld.o
-debug/stein.o
 debug/tauschen.o
 debug/undo.o
 debug/qrc_Images.o

@@ -8,6 +8,7 @@
 #include "serverworker.h"
 #include "ruleswindow.h"
 #include "punkte.h"
+#include "regeln.h"
 
 #include <QPixmap>
 #include <QFrame>

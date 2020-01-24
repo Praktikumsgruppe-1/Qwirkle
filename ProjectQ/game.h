@@ -14,6 +14,8 @@ class ChatServer;
 class ChatClient;
 class QStandardItemModel;
 
+class Spielfeld;
+
 namespace Ui {
 class Game;
 }
@@ -28,8 +30,6 @@ public:
 
     Ui::Game* getUi();
     void updateFrames();
-
-    Spielfeld *frame[108][108];
 
     bool *beutel [6][6][3];
     //0 : die Farbe
@@ -75,6 +75,6 @@ extern int *feldarray [108][108][5];                                   //startwe
 //2 : die Form
 //3 : markiert ob der Stein in der Runde des Spielers neu gelegt wurde
 //?4 : welche Kopie von dem Stein ist es (es gibt immer 3)
-
+extern Spielfeld *frame[108][108];
 
 #endif // GAME_H

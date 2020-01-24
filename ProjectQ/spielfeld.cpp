@@ -2,6 +2,7 @@
 #include "undo.h"
 #include "regeln.h"
 #include "benutzerhand.h"
+#include "game.h"
 
 #include <QApplication>
 #include <QLabel>
@@ -95,7 +96,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
         // Es wird geprüft, liegt hier schon ein Stein und darf hier ein Stein legen
         // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
-        if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( xKoord, j, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+        if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( xKoord, yKoord, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
         {
             Game* pframe = new Game();
             QLabel *newIcon = new QLabel( );
@@ -118,10 +119,10 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
         // feldarray mit Werten initialisieren
         if ( undoClass::undoStack.empty() == true )
-            feldarray[xKoord][yKoord][0] = 1;
-        feldarray[xKoord][yKoord][1] = getFarbePixmap(pixmap);
-        feldarray[xKoord][yKoord][2] = getFormPixmap(pixmap);
-        feldarray[xKoord][yKoord][3] = 1;
+            *(feldarray[xKoord][yKoord][0]) = 1;
+        *(feldarray[xKoord][yKoord][1]) = getFarbePixmap(pixmap);
+        *(feldarray[xKoord][yKoord][2]) = getFormPixmap(pixmap);
+        *(feldarray[xKoord][yKoord][3]) = 1;
 
         QLabel *newIcon = new QLabel(this);
         newIcon->setPixmap(pixmap);
