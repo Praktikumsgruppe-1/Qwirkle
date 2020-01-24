@@ -87,10 +87,10 @@ void Spielfeld::dropEvent(QDropEvent *event)
         {
             for( yKoord = 0; yKoord < 108; yKoord++ )
             {
-                if ( frame[xKoord][yKoord] == this )
+                if ( &(frame[xKoord][yKoord]) == this )
                     break;
             }
-            if ( frame[xKoord][yKoord] == this )
+            if ( &(frame[xKoord][yKoord]) == this )
                 break;
         }
 
@@ -119,10 +119,10 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
         // feldarray mit Werten initialisieren
         if ( undoClass::undoStack.empty() == true )
-            *(feldarray[xKoord][yKoord][0]) = 1;
-        *(feldarray[xKoord][yKoord][1]) = getFarbePixmap(pixmap);
-        *(feldarray[xKoord][yKoord][2]) = getFormPixmap(pixmap);
-        *(feldarray[xKoord][yKoord][3]) = 1;
+            feldarray[xKoord][yKoord][0] = 1;
+        feldarray[xKoord][yKoord][1] = getFarbePixmap(pixmap);
+        feldarray[xKoord][yKoord][2] = getFormPixmap(pixmap);
+        feldarray[xKoord][yKoord][3] = 1;
 
         QLabel *newIcon = new QLabel(this);
         newIcon->setPixmap(pixmap);

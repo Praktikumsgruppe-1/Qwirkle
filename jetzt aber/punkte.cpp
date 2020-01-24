@@ -28,13 +28,13 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
 
     //hier das ganze wie oben nur mit dem anderen Attribut was verglichen wird
     note=xCoord-1;
-    while(feldarray[note][yCoord][2])==feldarray[xCoord][yCoord][2]))
+    while(feldarray[note][yCoord][2]==feldarray[xCoord][yCoord][2])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][yCoord][2])==feldarray[xCoord][yCoord][2]))
+    while(feldarray[note][yCoord][2]==feldarray[xCoord][yCoord][2])
     {
       rowcounter=rowcounter+1;
       note=note+1;
@@ -58,13 +58,13 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
     {
       //es wird nach oben unten auf Attribut 1 verglichen
       note=yCoord-1;
-      while(feldarray[rowcheck][note][1])==feldarray[rowcheck][yCoord][1]))
+      while(feldarray[rowcheck][note][1]==feldarray[rowcheck][yCoord][1])
       {
         rowcounter=rowcounter+1;
         note=note-1;
       }
       note=yCoord+1;
-      while(feldarray[rowcheck][note][1])==feldarray[rowcheck][yCoord][1]))
+      while(feldarray[rowcheck][note][1]==feldarray[rowcheck][yCoord][1])
       {
         rowcounter=rowcounter+1;
         note=note+1;
@@ -72,13 +72,13 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
 
       //es wird nach oben und unten auf Attribut 2 verglichen
       note=yCoord-1;
-      while(feldarray[rowcheck][note][2])==feldarray[rowcheck][yCoord][2]))
+      while(feldarray[rowcheck][note][2]==feldarray[rowcheck][yCoord][2])
       {
         rowcounter=rowcounter+1;
         note=note-1;
       }
       note=yCoord+1;
-      while(feldarray[rowcheck][note][2])==feldarray[rowcheck][yCoord][2]))
+      while(feldarray[rowcheck][note][2]==feldarray[rowcheck][yCoord][2])
       {
         rowcounter=rowcounter+1;
         note=note+1;
@@ -100,33 +100,33 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
       rowcheck=rowcheck+1;
     }
 
-    while(feldarray[rowcheck][yCoord][3])==1);
+    while(feldarray[rowcheck][yCoord][3]==1);
   }
 
 
   rowcheck=xCoord-1;                                            //es wird einen nach links gegangen
   
-  if(feldarray[rowcheck][yCoord][3])==1)
+  if(feldarray[rowcheck][yCoord][3]==1)
   {
     note=xCoord-1;
-    while(feldarray[note][yCoord][1])==feldarray[xCoord][yCoord][1]))
+    while(feldarray[note][yCoord][1]==feldarray[xCoord][yCoord][1])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][yCoord][1])==feldarray[xCoord][yCoord][1]))
+    while(feldarray[note][yCoord][1]==feldarray[xCoord][yCoord][1])
     {
       rowcounter=rowcounter+1;
       note=note+1;
     }
     note=xCoord-1;
-    while(feldarray[note][yCoord][2])==feldarray[xCoord][yCoord][2])){
+    while(feldarray[note][yCoord][2]==feldarray[xCoord][yCoord][2]){
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][yCoord][2])==feldarray[xCoord][yCoord][2]))
+    while(feldarray[note][yCoord][2]==feldarray[xCoord][yCoord][2])
     {
       rowcounter=rowcounter+1;
       note=note+1;
@@ -145,25 +145,25 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
     do
     {
       note=yCoord-1;
-      while(feldarray[rowcheck][note][1])==feldarray[rowcheck][yCoord][1]))
+      while(feldarray[rowcheck][note][1]==feldarray[rowcheck][yCoord][1])
       {
         rowcounter=rowcounter+1;
         note=note-1;
       }
       note=yCoord+1;
-      while(feldarray[rowcheck][note][1])==feldarray[rowcheck][yCoord][1]))
+      while(feldarray[rowcheck][note][1]==feldarray[rowcheck][yCoord][1])
       {
         rowcounter=rowcounter+1;
         note=note+1;
       }
       note=yCoord-1;
-      while(feldarray[rowcheck][note][2])==feldarray[rowcheck][yCoord][2]))
+      while(feldarray[rowcheck][note][2]==feldarray[rowcheck][yCoord][2])
       {
         rowcounter=rowcounter+1;
         note=note-1;
       }
       note=yCoord+1;
-      while(feldarray[rowcheck][note][2])==feldarray[rowcheck][yCoord][2]))
+      while(feldarray[rowcheck][note][2]==feldarray[rowcheck][yCoord][2])
       {
         rowcounter=rowcounter+1;
         note=note+1;
@@ -179,32 +179,32 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
       }
       rowcheck=rowcheck-1;
     }
-    while(feldarray[rowcheck][yCoord][3])==1);
+    while(feldarray[rowcheck][yCoord][3]==1);
   }
 
   rowcheck=yCoord+1;
-  if(feldarray[xCoord][rowcheck][3])==1){
+  if(feldarray[xCoord][rowcheck][3]==1){
   note=yCoord-1;
-  while(feldarray[xCoord][note][1])==feldarray[xCoord][yCoord][1]))
+  while(feldarray[xCoord][note][1]==feldarray[xCoord][yCoord][1])
   {
     rowcounter=rowcounter+1;
     note=note-1;
   }
 
   note=yCoord+1;
-  while(feldarray[xCoord][note][1])==feldarray[xCoord][yCoord][1]))
+  while(feldarray[xCoord][note][1]==feldarray[xCoord][yCoord][1])
   {
     rowcounter=rowcounter+1;
     note=note+1;
   }
   note=yCoord-1;
-  while(feldarray[xCoord][note][2])==feldarray[xCoord][yCoord][2]))
+  while(feldarray[xCoord][note][2]==feldarray[xCoord][yCoord][2])
   {
     rowcounter=rowcounter+1;
     note=note-1;
   }
   note=yCoord+1;
-  while(feldarray[xCoord][note][2])==feldarray[xCoord][yCoord][2]))
+  while(feldarray[xCoord][note][2]==feldarray[xCoord][yCoord][2])
   {
     rowcounter=rowcounter+1;
     note=note+1;
@@ -223,25 +223,25 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
   do
   {
     note=xCoord-1;
-    while(feldarray[note][rowcheck][1])==feldarray[xCoord][rowcheck][1]))
+    while(feldarray[note][rowcheck][1]==feldarray[xCoord][rowcheck][1])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][rowcheck][1])==feldarray[xCoord][rowcheck][1]))
+    while(feldarray[note][rowcheck][1]==feldarray[xCoord][rowcheck][1])
     {
       rowcounter=rowcounter+1;
       note=note+1;
     }
     note=xCoord-1;
-    while(feldarray[note][rowcheck][2])==feldarray[xCoord][rowcheck][2]))
+    while(feldarray[note][rowcheck][2]==feldarray[xCoord][rowcheck][2])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][rowcheck][2])==feldarray[xCoord][rowcheck][2]))
+    while(feldarray[note][rowcheck][2]==feldarray[xCoord][rowcheck][2])
     {
       rowcounter=rowcounter+1;
       note=note+1;
@@ -255,30 +255,30 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
       rowcounter=0;
     }
     rowcheck=rowcheck+1;
-  }while(feldarray[xCoord][rowcheck][3])==1);
+  }while(feldarray[xCoord][rowcheck][3]==1);
 }
   rowcheck=yCoord-1;
-  if(feldarray[xCoord][rowcheck][3])==1){
+  if(feldarray[xCoord][rowcheck][3]==1){
   note=yCoord-1;
-  while(feldarray[xCoord][note][1])==feldarray[xCoord][yCoord][1]))
+  while(feldarray[xCoord][note][1]==feldarray[xCoord][yCoord][1])
   {
     rowcounter=rowcounter+1;
     note=note-1;
   }
   note=yCoord+1;
-  while(feldarray[xCoord][note][1])==feldarray[xCoord][yCoord][1]))
+  while(feldarray[xCoord][note][1]==feldarray[xCoord][yCoord][1])
   {
     rowcounter=rowcounter+1;
     note=note+1;
   }
   note=yCoord-1;
-  while(feldarray[xCoord][note][2])==feldarray[xCoord][yCoord][2]))
+  while(feldarray[xCoord][note][2]==feldarray[xCoord][yCoord][2])
   {
     rowcounter=rowcounter+1;
     note=note-1;
   }
   note=yCoord+1;
-  while(feldarray[xCoord][note][2])==feldarray[xCoord][yCoord][2])){
+  while(feldarray[xCoord][note][2]==feldarray[xCoord][yCoord][2]){
     rowcounter=rowcounter+1;
     note=note+1;
   }
@@ -295,25 +295,25 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
   do
   {
     note=xCoord-1;
-    while(feldarray[note][rowcheck][1])==feldarray[xCoord][rowcheck][1]))
+    while(feldarray[note][rowcheck][1]==feldarray[xCoord][rowcheck][1])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][rowcheck][1])==feldarray[xCoord][rowcheck][1]))
+    while(feldarray[note][rowcheck][1]==feldarray[xCoord][rowcheck][1])
     {
       rowcounter=rowcounter+1;
       note=note+1;
     }
     note=xCoord-1;
-    while(feldarray[note][rowcheck][2])==feldarray[xCoord][rowcheck][2]))
+    while(feldarray[note][rowcheck][2]==feldarray[xCoord][rowcheck][2])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][rowcheck][2])==feldarray[xCoord][rowcheck][2]))
+    while(feldarray[note][rowcheck][2]==feldarray[xCoord][rowcheck][2])
     {
       rowcounter=rowcounter+1;
       note=note+1;
@@ -327,29 +327,29 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
       rowcounter=0;
     }
     rowcheck=rowcheck-1;
-  }while(feldarray[xCoord][rowcheck][3])==1);
+  }while(feldarray[xCoord][rowcheck][3]==1);
 }
   if(finalcounter==0){
     note=yCoord-1;
-    while(feldarray[xCoord][note][1])==feldarray[xCoord][yCoord][1]))
+    while(feldarray[xCoord][note][1]==feldarray[xCoord][yCoord][1])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=yCoord+1;
-    while(feldarray[xCoord][note][1])==feldarray[xCoord][yCoord][1]))
+    while(feldarray[xCoord][note][1]==feldarray[xCoord][yCoord][1])
     {
       rowcounter=rowcounter+1;
       note=note+1;
     }
     note=yCoord-1;
-    while(feldarray[xCoord][note][2])==feldarray[xCoord][yCoord][2]))
+    while(feldarray[xCoord][note][2]==feldarray[xCoord][yCoord][2])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=yCoord+1;
-    while(feldarray[xCoord][note][2])==feldarray[xCoord][yCoord][2]))
+    while(feldarray[xCoord][note][2]==feldarray[xCoord][yCoord][2])
     {
       rowcounter=rowcounter+1;
       note=note+1;
@@ -363,25 +363,25 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
       rowcounter=0;
     }
     note=xCoord-1;
-    while(feldarray[note][yCoord][1])==feldarray[xCoord][yCoord][1]))
+    while(feldarray[note][yCoord][1]==feldarray[xCoord][yCoord][1])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][yCoord][1])==feldarray[xCoord][yCoord][1]))
+    while(feldarray[note][yCoord][1]==feldarray[xCoord][yCoord][1])
     {
       rowcounter=rowcounter+1;
       note=note+1;
     }
     note=xCoord-1;
-    while(feldarray[note][yCoord][2])==feldarray[xCoord][yCoord][2]))
+    while(feldarray[note][yCoord][2]==feldarray[xCoord][yCoord][2])
     {
       rowcounter=rowcounter+1;
       note=note-1;
     }
     note=xCoord+1;
-    while(feldarray[note][yCoord][2])==feldarray[xCoord][yCoord][2]))
+    while(feldarray[note][yCoord][2]==feldarray[xCoord][yCoord][2])
     {
       rowcounter=rowcounter+1;
       note=note+1;

@@ -335,7 +335,7 @@ void Game::on_pushButton_7_clicked()
     {
         for (int j = 0; j <108; j++)
         {
-            if(*(feldarray[i][j][3])==1)
+            if(feldarray[i][j][3]==1)
                 spielerpunkte = spielerpunkte + points->calc(i,j);
         }
     }
@@ -356,7 +356,7 @@ void Game::on_pushButton_7_clicked()
     {
         for( yKoordSchleife = 0; yKoordSchleife < 108; yKoordSchleife++ )
         {
-            if( *(feldarray[xKoordSchleife][yKoordSchleife][3]) == 1 )
+            if( feldarray[xKoordSchleife][yKoordSchleife][3] == 1 )
                 bewegteSteine++;
         }
     }
@@ -368,7 +368,7 @@ void Game::on_pushButton_7_clicked()
             a = randInt( 0, 5 );
             b = randInt( 0, 5);
             c = randInt( 0, 2 );
-        } while ( *(beutel[a][b][c]) == false );
+        } while ( beutel[a][b][c] == false );
 
         Benutzerhand *icon = new Benutzerhand();
         Game::ui->lhand->addWidget(icon);
