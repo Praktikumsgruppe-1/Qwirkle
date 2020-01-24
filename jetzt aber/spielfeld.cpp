@@ -1,0 +1,187 @@
+#include "spielfeld.h"
+#include "undo.h"
+#include "regeln.h"
+#include "benutzerhand.h"
+#include "game.h"
+
+#include <QApplication>
+#include <QLabel>
+#include <QPushButton>
+#include <QLayout>
+#include <QFrame>
+#include <QPicture>
+#include <QPixmap>
+#include <QDrag>
+#include <QMimeData>
+#include <QMouseEvent>
+#include <string>
+#include <random>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <QRandomGenerator>
+#include <QtWidgets>
+
+#include <QGlobal.h>
+#include <QTime>
+
+
+// Spielfeld ist die Klasse für ein drag widget, aber ohne das darin Steine mit drin sind, beim aufrufen
+// es ist das normale Spielfeld, aber noch nicht mit den festen Punkten
+
+Spielfeld::Spielfeld(QWidget *parent)
+    : QFrame(parent)
+{
+    setMinimumSize(75, 75);
+    setMaximumSize(200,200);
+    setFrameStyle(QFrame::Box | QFrame::Sunken);
+    setLineWidth(2);
+    setAcceptDrops(true);
+
+}
+
+void Spielfeld::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void Spielfeld::dragMoveEvent(QDragMoveEvent *event)
+{
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void Spielfeld::dropEvent(QDropEvent *event)
+{
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
+        QDataStream dataStream(&itemData, QIODevice::ReadOnly);
+
+        QPixmap pixmap;
+        QPoint offset;
+        dataStream >> pixmap >> offset;
+
+        Regeln *pRegeln;    void check(int xCoord, int yCoord, int colour, int symbol);
+        Game* pGame;
+        int xKoord, yKoord;
+
+        // Koordinaten des Spielfeldes herausfinden
+        for( xKoord = 0; xKoord < 108; xKoord++ )
+        {
+            for( yKoord = 0; yKoord < 108; yKoord++ )
+            {
+                if ( frame[xKoord][yKoord] == this )
+                    break;
+            }
+            if ( frame[xKoord][yKoord] == this )
+                break;
+        }
+
+        // Es wird geprüft, liegt hier schon ein Stein und darf hier ein Stein legen
+        // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
+        if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( xKoord, yKoord, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+        {
+            Game* pframe = new Game();
+            QLabel *newIcon = new QLabel( );
+
+            newIcon->setParent( undoClass::undoParent.top() );
+            newIcon->setPixmap( pixmap );
+            newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+            newIcon->show();
+            newIcon->setAttribute(Qt::WA_DeleteOnClose);
+
+            /*****Stack updaten***********************************/
+            undoClass::undoParent.pop();
+            undoClass::undoCoordOldX.pop();
+            undoClass::undoCoordOldY.pop();
+            undoClass::undoPixmap.pop();
+
+            pframe->update();
+            return;
+        }
+
+        // feldarray mit Werten initialisieren
+        if ( undoClass::undoStack.empty() == true )
+            *(feldarray[xKoord][yKoord][0]) = 1;
+        *(feldarray[xKoord][yKoord][1]) = getFarbePixmap(pixmap);
+        *(feldarray[xKoord][yKoord][2]) = getFormPixmap(pixmap);
+        *(feldarray[xKoord][yKoord][3]) = 1;
+
+        QLabel *newIcon = new QLabel(this);
+        newIcon->setPixmap(pixmap);
+        newIcon->move( 0, 0 );
+        newIcon->show();
+        newIcon->setAttribute(Qt::WA_DeleteOnClose);
+
+        undoClass::undoStack.push( newIcon );
+        undoClass::undoCoordNewX.push( newIcon->x() );
+        undoClass::undoCoordNewY.push( newIcon->y() );
+
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void Spielfeld::mousePressEvent(QMouseEvent *event)
+{
+    QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
+    if (!child)
+        return;
+
+    QPixmap pixmap = *child->pixmap();
+
+    QByteArray itemData;
+    QDataStream dataStream(&itemData, QIODevice::WriteOnly);
+    dataStream << pixmap << QPoint(event->pos() - child->pos());
+
+    QMimeData *mimeData = new QMimeData;
+    mimeData->setData("application/x-dnditemdata", itemData);
+
+    QDrag *drag = new QDrag(this);
+    drag->setMimeData(mimeData);
+    drag->setPixmap(pixmap);
+    drag->setHotSpot(event->pos() - child->pos());
+
+    QPixmap tempPixmap = pixmap;
+    QPainter painter;
+    painter.begin(&tempPixmap);
+    painter.fillRect(pixmap.rect(), QColor(127, 127, 127, 127));
+    painter.end();
+
+    child->setPixmap(tempPixmap);
+
+    undoClass::undoParent.push( this );
+    undoClass::undoCoordOldX.push( child->geometry().x() );
+    undoClass::undoCoordOldY.push( child->geometry().y() );
+    undoClass::undoPixmap.push( *(child->pixmap()) );
+
+    if (drag->exec(Qt::MoveAction) == Qt::MoveAction) {
+        child->close();
+    } else {
+        child->show();
+        child->setPixmap(pixmap);
+    }
+}
