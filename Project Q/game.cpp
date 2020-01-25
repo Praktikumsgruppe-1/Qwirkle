@@ -26,6 +26,7 @@
 
 
 int feldarray [108][108][5];
+bool beutel [6][6][3];
 
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     QWidget(parent)
@@ -310,7 +311,8 @@ void Game::on_pushButton_7_clicked()
             a = randInt( 0, 5 );
             b = randInt( 0, 5);
             c = randInt( 0, 2 );
-        } while ( beutel[a][b][c] == false );
+        }
+        while ( beutel[a][b][c] == false );
         beutel[a][b][c] = false;
 
         Game* pframe2 = new Game();
