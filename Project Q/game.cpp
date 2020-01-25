@@ -27,7 +27,7 @@
 
 
 int feldarray [108][108][5];
-bool beutel [6][6][3];
+//bool beutel [6][6][3];
 
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     QWidget(parent)
@@ -53,14 +53,6 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->pushButton_7->setIcon(QPixmap(":/images/right1"));
 
     ui->lcdNumber->display(spielerpunkte);
-
-    /*
-    QWidget *hand = new QWidget;
-    ui->lhand = new QHBoxLayout(hand);
-    //ui->hand
-    ui->frame_2 =  new Benutzerhand(hand,3,4);
-    ui->lhand->addWidget(ui->frame_2);
-    */
 
     /****************************************************************************/
 
@@ -92,93 +84,58 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->scrollAreaWidgetContents->setLayout( ui->lfeld );
     ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
 
-    //der beutel-inhalt wird auf wahr initialisiert zum Spielbeginn
+    /*************Beutel erstellen***************************************/
+    // alle möglichen werte werden in die Beutel geschrieben
     for ( int i = 0; i < 6; i++ )
     {
-        for ( int j = 0; j < 6; j++)
+        for( int j = 0; j < 6; j++ )
         {
-            for (int h = 0; h < 3; h++)
+            for( int k = 0; k < 3; k++ )
             {
-                beutel[i][j][h] = true;
+                Game::beutelStackForm.push_back( i );
+                Game::beutelStackFarbe.push_back( j );
+                Game::beutelStackKopie.push_back( k );
             }
         }
     }
 
-    /****************************************************************************/
-    //funktion für den beutel und die benutzerhand
+    // Beutelinhalt zufällig hineintuen
+    Game::beutelMischen();
 
-    int r,g ;
+    /****************Benutzerhand initialisieren**************************************/
 
-    do
-    {
-        r= randInt(0,5);
-        g= randInt(0,5);
+    Benutzerhand *icon1 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+    ui->lhand->addWidget(icon1);
+    Game::beutelStackForm.pop_back();
+    Game::beutelStackFarbe.pop_back();
 
-        Benutzerhand *icon1 = new Benutzerhand(ui->hand, r,g);
-        ui->lhand->addWidget(icon1);
-    }
+    Benutzerhand *icon2 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+    ui->lhand->addWidget(icon2);
+    Game::beutelStackForm.pop_back();
+    Game::beutelStackFarbe.pop_back();
 
-    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
+    Benutzerhand *icon3 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+    ui->lhand->addWidget(icon3);
+    Game::beutelStackForm.pop_back();
+    Game::beutelStackFarbe.pop_back();
 
-    do
-    {
-        r= randInt(0,5);
-        g= randInt(0,5);
+    Benutzerhand *icon4 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+    ui->lhand->addWidget(icon4);
+    Game::beutelStackForm.pop_back();
+    Game::beutelStackFarbe.pop_back();
 
-        Benutzerhand *icon2 = new Benutzerhand(ui->hand, r,g);
-        ui->lhand->addWidget(icon2);
-    }
+    Benutzerhand *icon5 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+    ui->lhand->addWidget(icon5);
+    Game::beutelStackForm.pop_back();
+    Game::beutelStackFarbe.pop_back();
 
-    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
-
-    do
-    {
-        r= randInt(0,5);
-        g= randInt(0,5);
-
-        Benutzerhand *icon3 = new Benutzerhand(ui->hand, r,g);
-        ui->lhand->addWidget(icon3);
-    }
-
-    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
-
-    do
-    {
-        r= randInt(0,5);
-        g= randInt(0,5);
-
-        Benutzerhand *icon4 = new Benutzerhand(ui->hand, r,g);
-        ui->lhand->addWidget(icon4);
-    }
-
-    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
-
-    do
-    {
-        r= randInt(0,5);
-        g= randInt(0,5);
-
-        Benutzerhand *icon5 = new Benutzerhand(ui->hand, r,g);
-        ui->lhand->addWidget(icon5);
-    }
-
-    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
-
-    do
-    {
-        r= randInt(0,5);
-        g= randInt(0,5);
-
-        Benutzerhand *icon6 = new Benutzerhand(ui->hand, r,g);
-        ui->lhand->addWidget(icon6);
-    }
-
-    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
+    Benutzerhand *icon6 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+    ui->lhand->addWidget(icon6);
+    Game::beutelStackForm.pop_back();
+    Game::beutelStackFarbe.pop_back();
 
 
-
-
-    //feldarray wird mit den Startwerten zum Spielbeginn initialisiert
+    /********feldarray wird mit den Startwerten zum Spielbeginn initialisiert***************/
     for ( int i = 0; i < 108; i++ )
     {
         for ( int j = 0; j < 108; j++)
@@ -304,28 +261,24 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
-    // Spielsteine hinzufügen
-    int a = 0, b = 0, c = 0;
+    /***************Spielsteine hinzufügen***************************/
     for( int i = 0; i < bewegteSteine; i++ )
     {
-        {                                               // neuen Stein generieren, der noch im Beutel ist
-            a = randInt( 0, 5 );
-            b = randInt( 0, 5);
-            c = randInt( 0, 2 );
-        }
-        while ( beutel[a][b][c] == false );
-        beutel[a][b][c] = false;
-
         Game* pframe2 = new Game();
         QLabel *newIcon = new QLabel( );
 
         newIcon->setParent( undoClass::undoParent.top() );
-        newIcon->setPixmap( getPixmap( a, b ) );
+        newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ) );
         newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
         pframe2->updateFrames();
+
+        /*******Stacks updaten***********************/
+        Game::beutelStackForm.pop_back();
+        Game::beutelStackFarbe.pop_back();
+        Game::beutelStackKopie.pop_back();
 
         undoClass::undoStack.pop();                     // Undo Stack um eine UndoMove Objekt kleiner machen
         undoClass::undoParent.pop();
@@ -336,7 +289,7 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoPixmap.pop();
     }
 
-    // undo Funktion zurücksetzen
+    /*************undo Funktion zurücksetzen*******************************/
     while( undoClass::undoStack.empty() == false )
     {
         undoClass::undoStack.pop();
@@ -348,7 +301,7 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoPixmap.pop();
     }
 
-    // feldarray aktualisieren
+    /************feldarray aktualisieren**************************************/
     int i, j;
     for ( i = 0; i < 108; i++ )
     {
@@ -357,6 +310,45 @@ void Game::on_pushButton_7_clicked()
             feldarray[i][j][0] = 0;
             feldarray[i][j][3] = 0;
         }
+    }
+}
+
+std::vector< int > Game::beutelStackFarbe;
+std::vector< int > Game::beutelStackForm;
+std::vector< int > Game::beutelStackKopie;
+
+
+void Game::beutelMischen()
+{
+    std::vector< int > neuerBeutelStackFarbe;
+    std::vector< int > neuerBeutelStackForm;
+    std::vector< int > neuerBeutelStackKopie;
+
+    int a = 0;
+
+    // neuem Beutel die Sachen zufällig übergeben
+    while( !Game::beutelStackFarbe.empty() )
+    {
+        a = randInt( 0, Game::beutelStackFarbe.size() - 1 );
+        neuerBeutelStackFarbe.push_back( Game::beutelStackFarbe[a] );
+        neuerBeutelStackForm.push_back( Game::beutelStackForm[a] );
+        neuerBeutelStackKopie.push_back( Game::beutelStackKopie[a] );
+
+        Game::beutelStackForm.erase( Game::beutelStackForm.begin() + a - 1 );
+        Game::beutelStackFarbe.erase( Game::beutelStackFarbe.begin() + a - 1 );
+        Game::beutelStackKopie.erase( Game::beutelStackKopie.begin() + a - 1 );
+    }
+
+    // in alten Stack kopieren
+    while( !neuerBeutelStackForm.empty() )
+    {
+        Game::beutelStackForm.push_back( neuerBeutelStackForm.back() );
+        Game::beutelStackFarbe.push_back( neuerBeutelStackFarbe.back() );
+        Game::beutelStackKopie.push_back( neuerBeutelStackKopie.back() );
+
+        neuerBeutelStackForm.pop_back();
+        neuerBeutelStackFarbe.pop_back();
+        neuerBeutelStackKopie.pop_back();
     }
 }
 

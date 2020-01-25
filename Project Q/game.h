@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QScrollArea>
 #include <QAbstractSocket>
+#include <vector>
 
 class ChatServer;
 class ChatClient;
@@ -30,6 +31,11 @@ public:
 
     //Game( const Game &game);
 
+    static std::vector< int > beutelStackFarbe;
+    static std::vector< int > beutelStackForm;
+    static std::vector< int > beutelStackKopie;
+    static void beutelMischen();
+
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
@@ -47,6 +53,8 @@ private slots:
     void on_pushButton_7_clicked();
 
     void on_einstellungen_clicked();
+
+
 
 private:
 
@@ -72,7 +80,7 @@ extern int feldarray [108][108][5];                                   //startwer
 //3 : markiert ob der Stein in der Runde des Spielers neu gelegt wurde
 //?4 : welche Kopie von dem Stein ist es (es gibt immer 3)
 
-extern bool beutel [6][6][3];
+//extern bool beutel [6][6][3];
 //0 : die Farbe
 //1 : die Form
 //2 : die Kopie
