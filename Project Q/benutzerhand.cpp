@@ -231,13 +231,9 @@ extern int getFarbePixmap( QPixmap pixmap )
         for( j = 0; j < 6; j++ )
         {
             if( pixmap == stein[i][j] )
-                break;
+                return i;
         }
-        if( pixmap == stein[i][j] )
-            break;
-    }
-
-    return i;
+    }    
 }
 
 extern int getFormPixmap( QPixmap pixmap )

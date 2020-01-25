@@ -66,8 +66,7 @@ void Tauschen::dropEvent(QDropEvent *event)
         QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
         QDataStream dataStream(&itemData, QIODevice::ReadOnly);
 
-/**************************************************************************************************************************************/
-        SteinTauschen();           // wie könnten wir hier ein Game* übergeben????
+        SteinTauschen();
 
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
