@@ -27,7 +27,8 @@ void undoClass::undoMove(){
     if ( !undoClass::undoStack.empty() ) {
 
         qDebug("*******Neuen Stein erstellen und platzieren**********");
-        Game* pframe = new Game();
+        //Game* pframe = new Game();
+
         QLabel *newIcon = new QLabel( );
 
         newIcon->setParent( undoClass::undoParent.top() );
@@ -38,7 +39,7 @@ void undoClass::undoMove(){
 
         //******Alten Stein loeschen**************************
         undoClass::undoStack.top()->close();
-        pframe->updateFrames();
+        //pframe->updateFrames();
 
         /*****feldarray aktualisieren****************************/
         feldarray[ undoClass::undoReihe.top() ][ undoSpalte.top() ][ 0 ] = 0;
