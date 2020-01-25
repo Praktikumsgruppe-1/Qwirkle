@@ -57,6 +57,9 @@ void undoClass::undoMove(){
         undoClass::undoPixmap.pop();
         undoClass::undoReihe.pop();
         undoClass::undoSpalte.pop();
+
+        if( undoClass::undoStack.empty() )
+            SteinImFeld = 0;
     }
     return;
 }

@@ -11,9 +11,12 @@ public:
     explicit Tauschen(QWidget *parent = nullptr);
     void SteinTauschen();
 
+    static std::vector< int >getauschteSteine;
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
     void dropEvent(QDropEvent *event) override;
 };
+
+
 
 #endif // TAUSCHEN_H

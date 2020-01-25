@@ -27,5 +27,6 @@ protected:
 
     friend class Game;
 };
+
 extern int SteinImFeld;
 #endif // SPIELFELD_H

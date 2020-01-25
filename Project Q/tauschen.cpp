@@ -8,6 +8,9 @@
 #include <QMimeData>
 #include <QDrag>
 #include <QPainter>
+#include <QHBoxLayout>
+
+std::vector< int >Tauschen::getauschteSteine;
 
 // Konstruktor der Klasse Tauschen
 Tauschen::Tauschen(QWidget *parent)
@@ -19,49 +22,73 @@ Tauschen::Tauschen(QWidget *parent)
 // Es wird ein Stein getauscht, indem der fallengelassene Stein gelöscht und ein neuer
 // Stein erstellt wird
 void Tauschen::SteinTauschen(){
-    QLabel *newIcon = new QLabel( );
-
-    int atest = Game::beutelStackFarbe.back();
-    int btest = Game::beutelStackForm.back();
-
-    newIcon->setParent( undoClass::undoParent.top() );
-    newIcon->setPixmap( getPixmap( atest, btest ));
-    newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
-    newIcon->show();
-    newIcon->setAttribute(Qt::WA_DeleteOnClose);
-
-    //pgame->updateFrames();
-
-    Game::beutelStackForm.pop_back();
-    Game::beutelStackFarbe.pop_back();
-    Game::beutelStackKopie.pop_back();
-
-    int form = getFormPixmap( undoClass::undoPixmap.top() );
-    int farbe = getFarbePixmap( undoClass::undoPixmap.top() );
-
-    Game::beutelStackForm.push_back( form );
-    Game::beutelStackFarbe.push_back( farbe );
-
-    // freie Kopie herausfinden
-    for( int i = 0; i < 108; i++ )
+    bool istGleich = false;
+    for( int x = 0; x < 6 && !Tauschen::getauschteSteine.empty() ; x++ )
     {
-        if( Game::beutelStackForm[ i ] == form && Game::beutelStackFarbe[ i ] == farbe )
-        {
-            if( Game::beutelStackKopie[ i ] != 0 )
-                Game::beutelStackKopie.push_back( 0 );
-            else if( Game::beutelStackKopie[ i ] != 1 )
-                Game::beutelStackKopie.push_back( 1 );
-            else
-                Game::beutelStackKopie.push_back( 2 );
-        }
+        if ( Tauschen::getauschteSteine[ x ] == undoClass::undoCoordOldX.top() )
+            istGleich = true;
     }
 
-    Game::beutelMischen();
+    if( istGleich == false )
+    {
+        QLabel *newIcon = new QLabel( );
 
-    undoClass::undoParent.pop();
-    undoClass::undoCoordOldX.pop();
-    undoClass::undoCoordOldY.pop();
-    undoClass::undoPixmap.pop();
+        int atest = Game::beutelStackFarbe.back();
+        int btest = Game::beutelStackForm.back();
+
+        newIcon->setParent( undoClass::undoParent.top() );
+        newIcon->setPixmap( getPixmap( atest, btest ));
+        newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+        newIcon->show();
+        newIcon->setAttribute(Qt::WA_DeleteOnClose);
+
+        //pgame->updateFrames();
+
+        Game::beutelStackForm.pop_back();
+        Game::beutelStackFarbe.pop_back();
+        Game::beutelStackKopie.pop_back();
+
+        int form = getFormPixmap( undoClass::undoPixmap.top() );
+        int farbe = getFarbePixmap( undoClass::undoPixmap.top() );
+
+        Game::beutelStackForm.push_back( form );
+        Game::beutelStackFarbe.push_back( farbe );
+
+        // freie Kopie herausfinden
+        for( int i = 0; i < 108; i++ )
+        {
+            if( Game::beutelStackForm[ i ] == form && Game::beutelStackFarbe[ i ] == farbe )
+            {
+                if( Game::beutelStackKopie[ i ] != 0 )
+                    Game::beutelStackKopie.push_back( 0 );
+                else if( Game::beutelStackKopie[ i ] != 1 )
+                    Game::beutelStackKopie.push_back( 1 );
+                else
+                    Game::beutelStackKopie.push_back( 2 );
+            }
+        }
+
+        Game::beutelMischen();
+
+        Tauschen::getauschteSteine.push_back( undoClass::undoCoordOldX.top() );
+
+        undoClass::undoParent.pop();
+        undoClass::undoCoordOldX.pop();
+        undoClass::undoCoordOldY.pop();
+        undoClass::undoPixmap.pop();
+    }
+    else
+    {
+        QWidget *errorFenster = new QWidget();
+        QLabel *labelFenster = new QLabel();
+        QHBoxLayout *layoutFenster = new QHBoxLayout();
+
+        labelFenster->setText("Error. Du hast den Stein schonmal getauft.");
+        layoutFenster->addWidget( labelFenster );
+        errorFenster->setLayout( layoutFenster );
+
+        errorFenster->show();
+    }
 }
 
 // Das DragEnterEvent der Klasse Tauschen

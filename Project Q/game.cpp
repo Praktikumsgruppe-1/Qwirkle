@@ -332,6 +332,8 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
+    SteinImFeld = 0;
+
 }
 
 std::vector< int > Game::beutelStackFarbe;
