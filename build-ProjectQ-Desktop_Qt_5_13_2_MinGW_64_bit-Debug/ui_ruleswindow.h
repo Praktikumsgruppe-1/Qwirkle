@@ -11,10 +11,9 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGraphicsView>
-#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -23,11 +22,13 @@ QT_BEGIN_NAMESPACE
 class Ui_rulesWindow
 {
 public:
-    QWidget *layoutWidget;
-    QVBoxLayout *verticalLayout;
-    QGraphicsView *graphicsView;
-    QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *lregel;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label;
     QPushButton *pushButton;
 
     void setupUi(QWidget *rulesWindow)
@@ -36,35 +37,49 @@ public:
             rulesWindow->setObjectName(QString::fromUtf8("rulesWindow"));
         rulesWindow->resize(840, 865);
         rulesWindow->setMinimumSize(QSize(840, 865));
-        layoutWidget = new QWidget(rulesWindow);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 10, 822, 846));
-        verticalLayout = new QVBoxLayout(layoutWidget);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        graphicsView = new QGraphicsView(layoutWidget);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setMinimumSize(QSize(820, 795));
-        graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-        graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        graphicsView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        scrollArea = new QScrollArea(rulesWindow);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setGeometry(QRect(-1, -1, 841, 831));
+        scrollArea->setMinimumSize(QSize(841, 831));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 839, 829));
+        verticalLayoutWidget = new QWidget(scrollAreaWidgetContents);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(-1, -1, 841, 2399));
+        lregel = new QVBoxLayout(verticalLayoutWidget);
+        lregel->setObjectName(QString::fromUtf8("lregel"));
+        lregel->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(verticalLayoutWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setMinimumSize(QSize(839, 795));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/rulesImages/Spielanleitung_Qwirkle_1.PNG")));
 
-        verticalLayout->addWidget(graphicsView);
+        lregel->addWidget(label_2);
 
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(738, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        label_3 = new QLabel(verticalLayoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setMinimumSize(QSize(839, 795));
+        label_3->setPixmap(QPixmap(QString::fromUtf8(":/rulesImages/Spielanleitung_Qwirkle_2.PNG")));
 
-        horizontalLayout->addItem(horizontalSpacer);
+        lregel->addWidget(label_3);
 
-        pushButton = new QPushButton(layoutWidget);
+        label = new QLabel(verticalLayoutWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setMinimumSize(QSize(839, 795));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/rulesImages/Spielanleitung_Qwirkle_3.PNG")));
+
+        lregel->addWidget(label);
+
+        scrollArea->setWidget(scrollAreaWidgetContents);
+        pushButton = new QPushButton(rulesWindow);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        horizontalLayout->addWidget(pushButton);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
+        pushButton->setGeometry(QRect(720, 830, 111, 31));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Candara Light"));
+        font.setPointSize(18);
+        pushButton->setFont(font);
 
         retranslateUi(rulesWindow);
 
@@ -73,10 +88,10 @@ public:
 
     void retranslateUi(QWidget *rulesWindow)
     {
-        rulesWindow->setWindowTitle(QCoreApplication::translate("rulesWindow", "Form", nullptr));
-#if QT_CONFIG(tooltip)
-        graphicsView->setToolTip(QString());
-#endif // QT_CONFIG(tooltip)
+        rulesWindow->setWindowTitle(QCoreApplication::translate("rulesWindow", "Regeln", nullptr));
+        label_2->setText(QString());
+        label_3->setText(QString());
+        label->setText(QString());
         pushButton->setText(QCoreApplication::translate("rulesWindow", "Beenden", nullptr));
     } // retranslateUi
 
