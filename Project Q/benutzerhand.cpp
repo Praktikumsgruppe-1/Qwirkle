@@ -261,13 +261,19 @@ extern int getFarbePixmap( QPixmap pixmap )
     {
         for( j = 0; j < 6; j++ )
         {
-            if( pixmap == stein[i][j] )
+            if( pixmap- == stein[i][j] )
+            {
+                qDebug() << i << j << pixmap << stein[i][j];
                 break;
+            }
         }
         if( pixmap == stein[i][j] )
+        {
+            qDebug() << i << j << pixmap << stein[i][j];
             break;
+        }
     }
-
+    qDebug() << "getFarbePixmap: " << pixmap << stein[i][j] << i << j;
     return i;
 }
 
