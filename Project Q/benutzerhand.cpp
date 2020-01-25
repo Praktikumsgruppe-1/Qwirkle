@@ -230,26 +230,26 @@ extern int getFarbePixmap( QPixmap pixmap )
 
     int i=0, j=0;
     bool pixmapsgleich = true;
-    for( i = 0; ((i < 6)||(pixmapsgleich == false)); i++ )
+    for( i = 0; (i < 6); i++ )
     {
-        do
+        for( int j = 0; j < 6; j++ )
         {
-                for(int x = 0; x >75; x++)
+            for(int x = 0; x < 75; x++)
+            {
+                for(int y = 0; y < 75; y++)
                 {
-                    for(int y = 0; y >75; y++)
+                    if ( stein[i][j].toImage().pixel(x, y) != ( pixmap.toImage().pixel(x , y) ) )       // Vergleich der Pixel
                     {
-                        if ( stein[i][j].toImage().pixel(x, y) != ( pixmap.toImage().pixel(x , y) ) )
-                        {
-                            pixmapsgleich = false;
-                            return pixmapsgleich;
-                        }
+                        //qDebug() << i << j << x << y;
+                        pixmapsgleich = false;
                     }
                 }
-                j++;
+            }
+            if( pixmapsgleich == true )
+                return i;
+            pixmapsgleich = true;
         }
-        while( ( pixmapsgleich == true ) && (j<6));
     }
-
     return i;
 }
 
