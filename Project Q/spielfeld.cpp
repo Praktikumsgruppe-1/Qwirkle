@@ -88,8 +88,8 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 {
                     if( feldarray[i][j][1] != 9 )        // Spielstein im Spielfeld bereits drinnen
                     {
-                            SteinImFeld = 1;
-                            qDebug("1. stein schleife");
+                         SteinImFeld = 1;
+                         qDebug("1. stein schleife");
                     }
                 }
             }

@@ -21,8 +21,11 @@ Tauschen::Tauschen(QWidget *parent)
 void Tauschen::SteinTauschen(){
     QLabel *newIcon = new QLabel( );
 
+    int atest = Game::beutelStackFarbe.back();
+    int btest = Game::beutelStackForm.back();
+
     newIcon->setParent( undoClass::undoParent.top() );
-    newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ));
+    newIcon->setPixmap( getPixmap( atest, btest ));
     newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
     newIcon->show();
     newIcon->setAttribute(Qt::WA_DeleteOnClose);
@@ -52,6 +55,8 @@ void Tauschen::SteinTauschen(){
                 Game::beutelStackKopie.push_back( 2 );
         }
     }
+
+    Game::beutelMischen();
 
     undoClass::undoParent.pop();
     undoClass::undoCoordOldX.pop();
