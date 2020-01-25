@@ -85,68 +85,80 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
 
     /*************Beutel erstellen***************************************/
-    // alle möglichen werte werden in die Beutel geschrieben
-    for ( int i = 0; i < 6; i++ )
+    // folgendes nur ausführen, wenn es noch nie ausgeführt wurde
+    if( Game::beutelStackForm.empty() )
     {
-        for( int j = 0; j < 6; j++ )
+        // alle möglichen werte werden in die Beutel geschrieben
+        for ( int i = 0; i < 6; i++ )
         {
-            for( int k = 0; k < 3; k++ )
+            for( int j = 0; j < 6; j++ )
             {
-                Game::beutelStackForm.push_back( i );
-                Game::beutelStackFarbe.push_back( j );
-                Game::beutelStackKopie.push_back( k );
+                for( int k = 0; k < 3; k++ )
+                {
+                    Game::beutelStackForm.push_back( i );
+                    Game::beutelStackFarbe.push_back( j );
+                    Game::beutelStackKopie.push_back( k );
+                }
+            }
+        }
+
+        // Beutelinhalt zufällig hineintuen
+        Game::beutelMischen();
+
+        /********feldarray wird mit den Startwerten zum Spielbeginn initialisiert***************/
+        for ( int i = 0; i < 108; i++ )
+        {
+            for ( int j = 0; j < 108; j++)
+            {
+              feldarray[i][j][0] = 0;
+              feldarray[i][j][1] = 9;
+              feldarray[i][j][2] = 9;
+              feldarray[i][j][3] = 0;
+              feldarray[i][j][4] = 0;
             }
         }
     }
 
-    // Beutelinhalt zufällig hineintuen
-    Game::beutelMischen();
-
     /****************Benutzerhand initialisieren**************************************/
 
-    Benutzerhand *icon1 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+    int a = Game::beutelStackFarbe.back();
+    int b = Game::beutelStackForm.back();
+
+    Benutzerhand *icon1 = new Benutzerhand(ui->hand, a, b);
     ui->lhand->addWidget(icon1);
     Game::beutelStackForm.pop_back();
     Game::beutelStackFarbe.pop_back();
+    Game::beutelStackKopie.pop_back();
 
     Benutzerhand *icon2 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
     ui->lhand->addWidget(icon2);
     Game::beutelStackForm.pop_back();
     Game::beutelStackFarbe.pop_back();
+    Game::beutelStackKopie.pop_back();
 
     Benutzerhand *icon3 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
     ui->lhand->addWidget(icon3);
     Game::beutelStackForm.pop_back();
     Game::beutelStackFarbe.pop_back();
+    Game::beutelStackKopie.pop_back();
 
     Benutzerhand *icon4 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
     ui->lhand->addWidget(icon4);
     Game::beutelStackForm.pop_back();
     Game::beutelStackFarbe.pop_back();
+    Game::beutelStackKopie.pop_back();
 
     Benutzerhand *icon5 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
     ui->lhand->addWidget(icon5);
     Game::beutelStackForm.pop_back();
     Game::beutelStackFarbe.pop_back();
+    Game::beutelStackKopie.pop_back();
 
     Benutzerhand *icon6 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
     ui->lhand->addWidget(icon6);
     Game::beutelStackForm.pop_back();
     Game::beutelStackFarbe.pop_back();
-
-
-    /********feldarray wird mit den Startwerten zum Spielbeginn initialisiert***************/
-    for ( int i = 0; i < 108; i++ )
-    {
-        for ( int j = 0; j < 108; j++)
-        {
-          feldarray[i][j][0] = 0;
-          feldarray[i][j][1] = 9;
-          feldarray[i][j][2] = 9;
-          feldarray[i][j][3] = 0;
-          feldarray[i][j][4] = 0;
-        }
-    }
+    Game::beutelStackKopie.pop_back();
 
      /****************************************************************************/
     // Netzwerkaufbau
