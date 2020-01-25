@@ -352,6 +352,17 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoCoordNewY.pop();
         undoClass::undoPixmap.pop();
     }
+
+    // feldarray aktualisieren
+    int i, j;
+    for ( i = 0; i < 180; i++ )
+    {
+        for( j = 0; j < 180; j++ )
+        {
+            feldarray[i][j][0] = 0;
+            feldarray[i][j][3] = 0;
+        }
+    }
 }
 
 /************************************************************************************************/
