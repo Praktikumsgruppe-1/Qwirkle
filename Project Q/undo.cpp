@@ -26,7 +26,7 @@ void undoClass::undoMove(){
 
     if ( !undoClass::undoStack.empty() ) {
 
-        //*******Neuen Stein erstellen und platzieren**********
+        qDebug("*******Neuen Stein erstellen und platzieren**********");
         Game* pframe = new Game();
         QLabel *newIcon = new QLabel( );
 
@@ -41,11 +41,12 @@ void undoClass::undoMove(){
         pframe->updateFrames();
 
         /*****feldarray aktualisieren****************************/
-        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 0 ] = 0;
-        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 1 ] = 9;
-        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 2 ] = 9;
-        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 3 ] = 0;
-        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 4 ] = 0;
+        feldarray[ undoClass::undoReihe.top() ][ undoSpalte.top() ][ 0 ] = 0;
+        feldarray[ undoClass::undoReihe.top() ][ undoSpalte.top() ][ 1 ] = 9;
+        feldarray[ undoClass::undoReihe.top() ][ undoSpalte.top() ][ 2 ] = 9;
+        feldarray[ undoClass::undoReihe.top() ][ undoSpalte.top() ][ 3 ] = 0;
+        feldarray[ undoClass::undoReihe.top() ][ undoSpalte.top() ][ 4 ] = 0;
+        qDebug() << feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 0 ] << feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 1 ] <<feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 2 ] << feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 4 ] << undoClass::undoSpalte.top() << undoClass::undoReihe.top() ;
 
         /*****Stack updaten***********************************/
         undoClass::undoStack.pop();

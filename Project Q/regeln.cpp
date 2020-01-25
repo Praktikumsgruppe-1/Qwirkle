@@ -170,7 +170,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   note=xCoord+1;
   while (feldarray[note][yCoord][3]==1)
   {
-      qDebug() << "Zeile: 174" << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3]<< "Koordinanten:" << xCoord << yCoord;
+      qDebug() << "Zeile: 174" << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3]<< "Koordinanten:" << note << yCoord;
       qDebug("rechts daneben liegt ein schon gelegter stein");
     if (feldarray[note][yCoord][0]==1)
     {
@@ -182,7 +182,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   note=xCoord-1;
   while (feldarray[note][yCoord][3]==1)
   {
-      qDebug() << "Zeile: 186 "<< feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3]<< "Koordinanten:" << xCoord << yCoord;
+      qDebug() << "Zeile: 186 "<< feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3]<< "Koordinanten:" << note<< yCoord;
       qDebug("der stein links daneben ist ein schon gelegter stein");
     if (feldarray[note][yCoord][0]==1)
     {
@@ -194,7 +194,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   note=yCoord+1;
   while (feldarray[xCoord][note][3]==1)
   {
-       qDebug() << "Zeile: 198" << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3]<< "Koordinanten:" << xCoord << yCoord;
+       qDebug() << "Zeile: 198" << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3]<< "Koordinanten:" << xCoord << note;
       qDebug("der stein darüber ist schon gelegt worden");
     if (feldarray[xCoord][note][0]==1)
     {
@@ -206,7 +206,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   note=yCoord-1;
   while (feldarray[xCoord][note][3]==1)
   {
-      qDebug() << "Zeile: 210"  << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3]<< "Koordinanten:" << xCoord << yCoord;
+      qDebug() << "Zeile: 210"  << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3]<< "Koordinanten:" << xCoord << note;
       qDebug("der stein darunter ist schon gelegt worden");
     if (feldarray[xCoord][note][0]==1)
     {
@@ -268,7 +268,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
         note=note+1;
         qDebug() << note;
       }
-        while(feldarray[note][yCoord][1]>0);
+        while(feldarray[note][yCoord][1]!=9);
         qDebug("solange nach rechts gehen wie steine liegen");
     }
     else if(feldarray[note][yCoord][2]==symbol)
@@ -379,7 +379,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
     feldarray[xCoord][yCoord][1]=colour;
     feldarray[xCoord][yCoord][2]=symbol;
     feldarray[xCoord][yCoord][3]=1;
-    qDebug() << "Werte nach den regeln in den regeln" << colour << symbol << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][3];
+    qDebug() << "Werte nach den regeln in den regeln" << feldarray[xCoord][yCoord][0] << colour << symbol  << feldarray[xCoord][yCoord][3];
     return true;
 }
 
