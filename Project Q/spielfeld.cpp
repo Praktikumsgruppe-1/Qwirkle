@@ -100,11 +100,19 @@ void Spielfeld::dropEvent(QDropEvent *event)
         feldarray[spalte][reihe][2] = getFormPixmap(pixmap);
         feldarray[spalte][reihe][3] = 1;
 
+        // feldarray mit Werten initialisieren
+        if ( undoClass::undoStack.empty() == true )
+            feldarray[spalte][reihe][0] = 1;
+        feldarray[spalte][reihe][1] = getFarbePixmap(pixmap);
+        feldarray[spalte][reihe][2] = getFormPixmap(pixmap);
+        feldarray[spalte][reihe][3] = 1;
+
         if( SteinImFeld == 1 )
         {
                             qDebug("anfang_2.stein schleife");
             // soll ausgeführt werden, wenn er nicht gelegt werden darf
             if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( reihe, spalte, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+
             {
                 qDebug("falsch_schleife");
                 Game* pframe = new Game();
