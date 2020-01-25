@@ -134,7 +134,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
             }
         }
 
-        qDebug("Nach den if schleifen");
+        //qDebug("Nach den if schleifen");
 
         // feldarray mit Werten initialisieren
         if ( undoClass::undoStack.empty() == true )
