@@ -16,6 +16,7 @@ public:
     explicit Spielfeld(QWidget *parent = nullptr, int spalteX = 0, int reiheY = 0 );
     int reihe;
     int spalte;
+    int SteinImFeld = 0;
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

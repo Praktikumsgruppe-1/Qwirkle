@@ -22,7 +22,7 @@
 #include <QRandomGenerator>
 #include <QtWidgets>
 
-#include <QGlobal.h>
+#include <qglobal.h>
 #include <QTime>
 
 
@@ -84,21 +84,27 @@ void Spielfeld::dropEvent(QDropEvent *event)
         /************************************************************************************************************************************/
 
         // prüfen ob allererster Stein
-        int i, j, SteinImFeld = 0;
-        for( i = 0; i < 108; i++ )
+        int i, j;
+        if(SteinImFeld == 0)
         {
-            for( j = 0; j < 108; j++ )
+            for( i = 0; i < 108; i++ )
             {
-                if( feldarray[i][j][1] != 9 )        // Spielstein im Spielfeld bereits drinnen
-                   SteinImFeld = 1;
+                for( j = 0; j < 108; j++ )
+                {
+                    if( feldarray[i][j][1] != 9 )        // Spielstein im Spielfeld bereits drinnen
+                       SteinImFeld = 1;
+                }
+                                qDebug("1.Stein_Schleife");
             }
         }
 
         if( SteinImFeld == 1 )
         {
+                            qDebug("anfang_2.stein schleife");
             // soll ausgeführt werden, wenn er nicht gelegt werden darf
             if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( spalte, reihe, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
             {
+                qDebug("falsch_schleife");
                 Game* pframe = new Game();
                 QLabel *newIcon = new QLabel( );
 
@@ -123,10 +129,12 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 feldarray[spalte][reihe][3] = 0;
                 feldarray[spalte][reihe][4] = 0;
                 */
-                pframe->update();
+                pframe->update();                
                 return;
             }
         }
+
+        qDebug("Nach den if schleifen");
 
         // feldarray mit Werten initialisieren
         if ( undoClass::undoStack.empty() == true )
@@ -148,6 +156,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
+            qDebug("Drop_Action");
         } else {
             event->acceptProposedAction();
         }

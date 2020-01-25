@@ -255,11 +255,14 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol){
     return true;
 }
 
-bool Regeln::check(int xCoord, int yCoord, int colour, int symbol){
-  if (checkcounter==0){
+bool Regeln::check(int xCoord, int yCoord, int colour, int symbol)
+{
+  if (checkcounter==0)
+  {
     return check1(xCoord, yCoord, colour, symbol);
   }
-  else if(checkcounter==1){
+  else if(checkcounter==1)
+  {
     return check2(xCoord, yCoord, colour, symbol);
   }
 }
