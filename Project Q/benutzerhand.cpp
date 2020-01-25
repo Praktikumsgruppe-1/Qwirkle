@@ -65,37 +65,6 @@ void Benutzerhand::dragMoveEvent(QDragMoveEvent *event)
     }
 }
 
-/*void Benutzerhand::dropEvent(QDropEvent *event)
-{
-    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
-        QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
-        QDataStream dataStream(&itemData, QIODevice::ReadOnly);
-
-        QPixmap pixmap;
-        QPoint offset;
-        dataStream >> pixmap >> offset;
-
-        QLabel *newIcon = new QLabel(this);
-        newIcon->setPixmap(pixmap);
-        newIcon->move(event->pos() - offset);
-        newIcon->show();
-        newIcon->setAttribute(Qt::WA_DeleteOnClose);
-
-        undoClass::undoStack.push( newIcon );
-        undoClass::undoCoordNewX.push( newIcon->x() );
-        undoClass::undoCoordNewY.push( newIcon->y() );
-
-        if (event->source() == this) {
-            event->setDropAction(Qt::MoveAction);
-            event->accept();
-        } else {
-            event->acceptProposedAction();
-        }
-    } else {
-        event->ignore();
-    }
-}*/
-
 void Benutzerhand::mousePressEvent(QMouseEvent *event)
 {
     QLabel *child = static_cast<QLabel*>(childAt(event->pos()));

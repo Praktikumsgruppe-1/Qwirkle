@@ -331,8 +331,8 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
         undoClass::undoCoordOldY.pop();
-        undoClass::undoCoordNewX.pop();
-        undoClass::undoCoordNewY.pop();
+        undoClass::undoReihe.pop();
+        undoClass::undoSpalte.pop();
         undoClass::undoPixmap.pop();
     }
 
@@ -343,8 +343,8 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
         undoClass::undoCoordOldY.pop();
-        undoClass::undoCoordNewX.pop();
-        undoClass::undoCoordNewY.pop();
+        undoClass::undoReihe.pop();
+        undoClass::undoSpalte.pop();
         undoClass::undoPixmap.pop();
     }
 

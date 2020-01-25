@@ -20,10 +20,10 @@ private:
     static std::stack< QLabel* > undoStack;      // Stack mit Zeiger auf den Spielstein, der bewegt wird
     static std::stack< int > undoCoordOldX;            // Stack mit Koordinaten auf die ursprüngliche Position, bevor der Stein bewegt wird
     static std::stack< int > undoCoordOldY;            // Stack mit Koordinaten auf die ursprüngliche Position, bevor der Stein bewegt wird
-    static std::stack< int > undoCoordNewX;            // Stack mit Koordinaten auf die ursprüngliche Position, bevor der Stein bewegt wird
-    static std::stack< int > undoCoordNewY;
     static std::stack< QFrame* > undoParent;
     static std::stack< QPixmap > undoPixmap;
+    static std::stack< int > undoReihe;
+    static std::stack< int > undoSpalte;
 
     friend class Benutzerhand;
     friend class Spielfeld;

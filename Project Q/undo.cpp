@@ -41,15 +41,21 @@ void undoClass::undoMove(){
         undoClass::undoStack.top()->close();
         pframe->updateFrames();
 
+        /*****feldarray aktualisieren****************************/
+        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 0 ] = 0;
+        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 1 ] = 9;
+        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 2 ] = 9;
+        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 3 ] = 0;
+        feldarray[ undoClass::undoSpalte.top() ][ undoClass::undoReihe.top() ][ 4 ] = 0;
+
         /*****Stack updaten***********************************/
         undoClass::undoStack.pop();
         undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
         undoClass::undoCoordOldY.pop();
-        undoClass::undoCoordNewX.pop();
-        undoClass::undoCoordNewY.pop();
         undoClass::undoPixmap.pop();
-
+        undoClass::undoReihe.pop();
+        undoClass::undoSpalte.pop();
     }
     return;
 }
@@ -57,7 +63,7 @@ void undoClass::undoMove(){
 std::stack<QLabel*> undoClass::undoStack;
 std::stack< int > undoClass::undoCoordOldX;
 std::stack< int > undoClass::undoCoordOldY;
-std::stack< int > undoClass::undoCoordNewX;
-std::stack< int > undoClass::undoCoordNewY;
 std::stack< QFrame* > undoClass::undoParent;
 std::stack< QPixmap > undoClass::undoPixmap;
+std::stack< int > undoClass::undoReihe;
+std::stack< int > undoClass::undoSpalte;
