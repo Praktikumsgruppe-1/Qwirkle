@@ -82,6 +82,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                     if( feldarray[i][j][1] != 9 )        // Spielstein im Spielfeld bereits drinnen
                        SteinImFeld = 1;
                 }
+                qDebug("1. stein-schleife");
             }
         }
 
@@ -89,7 +90,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
         {
                             qDebug("anfang_2.stein schleife");
             // soll ausgeführt werden, wenn er nicht gelegt werden darf
-            if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( spalte, reihe, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+            if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check2( reihe, spalte, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
             {
                 qDebug("falsch_schleife");
                 Game* pframe = new Game();
@@ -123,6 +124,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
         feldarray[spalte][reihe][1] = getFarbePixmap(pixmap);
         feldarray[spalte][reihe][2] = getFormPixmap(pixmap);
         feldarray[spalte][reihe][3] = 1;
+                    qDebug("feldarray wird aktualisiert");
 
         QLabel *newIcon = new QLabel(this);
         newIcon->setPixmap(pixmap);

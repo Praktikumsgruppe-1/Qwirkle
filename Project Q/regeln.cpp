@@ -1,6 +1,7 @@
 #include "regeln.h"
 #include "game.h"
 #include "spielfeld.h"
+#include <QString>
 //#include <studio.h>
 
 Regeln::Regeln()
@@ -22,17 +23,23 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
   int note;
   if(feldarray[xCoord][yCoord][1]>0)
   {     //Feld belegt?
+      qDebug("hier ist der fehler");
       return false;
   }
   note=xCoord+1;
-  if(feldarray[note][yCoord][1]==0){        // Feld im nichts?
+  if(feldarray[note][yCoord][1]==0)
+  {        // Feld im nichts?
     note=xCoord-1;
-    if(feldarray[note][yCoord][1]==0){
+    if(feldarray[note][yCoord][1]==0)
+    {
       note=yCoord+1;
-      if(feldarray[xCoord][note][1]==0){
+      if(feldarray[xCoord][note][1]==0)
+      {
         note=yCoord-1;
-        if(feldarray[xCoord][note][1]==0){
-          return false;
+        if(feldarray[xCoord][note][1]==0)
+        {
+          qDebug("hier sollte er nicht sein");
+            return false;
         }
       }
     }
@@ -132,9 +139,10 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
 // Regeln ab dem 2. Stein
 bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
 {
-            qDebug("2. stein regeln");
+    qDebug() << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3] << "Koordinanten:" << xCoord << yCoord;
+    qDebug("2. stein regeln");
   int note, notetwo;
-  if(feldarray[xCoord][yCoord][1]>0)
+  if(feldarray[xCoord][yCoord][1]==7)
   {
               qDebug("im feld liegt eine Farbe");
     return false;
@@ -143,6 +151,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   note=xCoord+1;
   while (feldarray[note][yCoord][3]==1)
   {
+      qDebug() << "Zeile 154" << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3];
       qDebug("rechts daneben liegt ein schon gelegter stein");
     if (feldarray[note][yCoord][0]==1)
     {
@@ -154,6 +163,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   note=xCoord-1;
   while (feldarray[note][yCoord][3]==1)
   {
+      qDebug() << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3];
       qDebug("der stein links daneben ist ein schon gelegter stein");
     if (feldarray[note][yCoord][0]==1)
     {
@@ -165,17 +175,20 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   note=yCoord+1;
   while (feldarray[xCoord][note][3]==1)
   {
+      qDebug() << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3];
       qDebug("der stein darüber ist schon gelegt worden");
     if (feldarray[xCoord][note][0]==1)
     {
         qDebug("der stein darüber ist der 1. im zug");
       notetwo=1;
     }
+
     note=note+1;
   }
   note=yCoord-1;
   while (feldarray[xCoord][note][3]==1)
   {
+      qDebug() << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3];
       qDebug("der stein darunter ist schon gelegt worden");
     if (feldarray[xCoord][note][0]==1)
     {
@@ -186,24 +199,28 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   }
   if (notetwo==0)
   {
-    qDebug("ein stein drumherum war der 1. im zug");
+        qDebug() << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3];
+      qDebug("kein stein drumherum war der 1. im zug");
       return false;
   }
   note=xCoord+1;
   if((feldarray[note][yCoord][1]>0)&&(feldarray[note][yCoord][1]!=colour)&&(feldarray[note][yCoord][2]!=symbol))
   {
-    qDebug("stein hat die falsche farbe und das falsche symbol, rechts");
+    qDebug() << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3];
+      qDebug("stein hat die falsche farbe und das falsche symbol, rechts");
       return false;
   }
   note=xCoord-1;
   if((feldarray[note][yCoord][1]>0)&&(feldarray[note][yCoord][1]!=colour)&&(feldarray[note][yCoord][2]!=symbol))
   {
-    qDebug("stein hat die falsche farbe und das falsche symbol, links");
+    qDebug() << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3];
+      qDebug("stein hat die falsche farbe und das falsche symbol, links");
       return false;
   }
   note=yCoord+1;
   if((feldarray[xCoord][note][1]>0)&&(feldarray[xCoord][note][1]!=colour)&&(feldarray[xCoord][note][2]!=symbol))
   {
+     qDebug() << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3];
       qDebug("stein hat die falsche farbe und das falsche symbol, drüber");
     return false;
   }
