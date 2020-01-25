@@ -53,6 +53,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->pushButton_7->setIcon(QPixmap(":/images/right1"));
 
     ui->lcdNumber->display(spielerpunkte);
+    ui->lcdNumber->update();
 
     /****************************************************************************/
 
@@ -258,9 +259,15 @@ void Game::on_pushButton_7_clicked()
         for (int j = 0; j <108; j++)
         {
             if(feldarray[i][j][3]==1)
+            {
                 spielerpunkte = spielerpunkte + points->calc(i,j);
+                qDebug("Punkte werden berechnet");
+            }
         }
     }
+    qDebug() << spielerpunkte;
+    ui->lcdNumber->display(spielerpunkte);
+    ui->lcdNumber->update();
 
     // Spielsteine zählen, die bewegt wurden
     int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
@@ -321,8 +328,10 @@ void Game::on_pushButton_7_clicked()
         {
             feldarray[i][j][0] = 0;
             feldarray[i][j][3] = 0;
+            //qDebug("feldarray wurde aktualisiert");
         }
     }
+
 }
 
 std::vector< int > Game::beutelStackFarbe;
