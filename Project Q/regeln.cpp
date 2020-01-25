@@ -159,7 +159,7 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
 bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
 {
             qDebug("2. stein regeln");
-            qDebug() << "Zeile: 163" << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3] << "Koordinanten:" << xCoord << yCoord;
+            qDebug() << "Zeile: 162" << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3] << "Koordinanten:" << xCoord << yCoord;
   int note, notetwo;
   if(feldarray[xCoord][yCoord][1]==7)
   {
@@ -217,34 +217,40 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   }
   if (notetwo==0)
   {
-      qDebug()<< "Zeile: 221" << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3];
+      qDebug()<< "Zeile: 220" << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3];
     qDebug("kein stein drumherum war der 1. im zug");
       return false;
   }
   note=xCoord+1;
   if((feldarray[note][yCoord][1]>0)&&(feldarray[note][yCoord][1]!=colour)&&(feldarray[note][yCoord][2]!=symbol))
   {
-    qDebug() << "Zeile: 228" << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3];
+    qDebug() << "Zeile: 227" << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3];
       qDebug("stein hat die falsche farbe und das falsche symbol, rechts");
+      qDebug() << note << yCoord << colour << symbol << feldarray[note][yCoord][1] << feldarray[note][yCoord][2];
       return false;
   }
   note=xCoord-1;
-  if((feldarray[note][yCoord][1]>0)&&(feldarray[note][yCoord][1]!=colour)&&(feldarray[note][yCoord][2]!=symbol))
+  if((feldarray[note][yCoord][1]>0)&&(feldarray[note][yCoord][1]!=colour)&&(feldarray[note][yCoord][2]!=symbol)&&(feldarray[note][yCoord][1]!=9)&&(feldarray[note][yCoord][2]!=9))
   {
-    qDebug("stein hat die falsche farbe und das falsche symbol, links");
+    qDebug() << "Zeile: 234" << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3];
+      qDebug("stein hat die falsche farbe und das falsche symbol, links");
+    qDebug() << note << yCoord << colour << symbol << feldarray[note][yCoord][1] << feldarray[note][yCoord][2];
       return false;
   }
   note=yCoord+1;
-  if((feldarray[xCoord][note][1]>0)&&(feldarray[xCoord][note][1]!=colour)&&(feldarray[xCoord][note][2]!=symbol))
+  if((feldarray[xCoord][note][1]>0)&&(feldarray[xCoord][note][1]!=colour)&&(feldarray[xCoord][note][2]!=symbol)&&(feldarray[note][yCoord][1]!=9)&&(feldarray[note][yCoord][2]!=9))
   {
-      qDebug() << "Zeile: 241" << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3];
+      qDebug() << "Zeile: 243" << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3];
       qDebug("stein hat die falsche farbe und das falsche symbol, drüber");
+      qDebug() << note << yCoord << colour << symbol << feldarray[note][yCoord][1] << feldarray[note][yCoord][2];
     return false;
   }
   note=yCoord-1;
-  if((feldarray[xCoord][note][1]>0)&&(feldarray[xCoord][note][1]!=colour)&&(feldarray[xCoord][note][2]!=symbol))
+  if((feldarray[xCoord][note][1]!=9)&&(feldarray[xCoord][note][1]!=colour)&&(feldarray[xCoord][note][2]!=symbol))
   {
+     qDebug() << "Zeile: 251" << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3];
       qDebug("stein hat die falsche farbe und das falsche symbol, drunter");
+      qDebug() << note << yCoord << colour << symbol << feldarray[note][yCoord][1] << feldarray[note][yCoord][2];
     return false;
   }
 
@@ -260,6 +266,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
                 return false;
             }
         note=note+1;
+        qDebug() << note;
       }
         while(feldarray[note][yCoord][1]>0);
         qDebug("solange nach rechts gehen wie steine liegen");
@@ -275,7 +282,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
             }
             note=note+1;
       }
-      while(feldarray[note][yCoord][1]>0);
+      while((feldarray[note][yCoord][1]>0)&&(feldarray[note][yCoord][1]!=9));
     }
 
 
@@ -372,6 +379,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
     feldarray[xCoord][yCoord][1]=colour;
     feldarray[xCoord][yCoord][2]=symbol;
     feldarray[xCoord][yCoord][3]=1;
+    qDebug() << "Werte nach den regeln in den regeln" << colour << symbol << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][3];
     return true;
 }
 
