@@ -60,27 +60,9 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lhand->addWidget(ui->frame_2);
     */
 
-     /****************************************************************************/
-    // Benutzerhand wird initialisiert
-
-    Benutzerhand *icon1 = new Benutzerhand;
-    Benutzerhand *icon2 = new Benutzerhand;
-    Benutzerhand *icon3 = new Benutzerhand;
-    Benutzerhand *icon4 = new Benutzerhand;
-    Benutzerhand *icon5 = new Benutzerhand;
-    Benutzerhand *icon6 = new Benutzerhand;
-
-
-    ui->lhand->addWidget(icon1);
-    ui->lhand->addWidget(icon2);
-    ui->lhand->addWidget(icon3);
-    ui->lhand->addWidget(icon4);
-    ui->lhand->addWidget(icon5);
-    ui->lhand->addWidget(icon6);
-
     /****************************************************************************/
 
-    //Versuch das Holz-Hintergrundbild zu vergrößern
+    //Versuch das Hintergrundbild schöner zu machen
     ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::Highlight);
 
     // Spielfeld 108 x 108 wird aufgebaut und die kleinen Spielfelder eingefügt
@@ -120,8 +102,81 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
         }
     }
 
+    /****************************************************************************/
+    //funktion für den beutel und die benutzerhand
 
-    //feldarray wird mit den Startwerten zum Spielbeginn initialisiert
+    int r,g ;
+
+    do
+    {
+        r= randInt(0,5);
+        g= randInt(0,5);
+
+        Benutzerhand *icon1 = new Benutzerhand(ui->hand, r,g);
+        ui->lhand->addWidget(icon1);
+    }
+
+    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
+
+    do
+    {
+        r= randInt(0,5);
+        g= randInt(0,5);
+
+        Benutzerhand *icon2 = new Benutzerhand(ui->hand, r,g);
+        ui->lhand->addWidget(icon2);
+    }
+
+    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
+
+    do
+    {
+        r= randInt(0,5);
+        g= randInt(0,5);
+
+        Benutzerhand *icon3 = new Benutzerhand(ui->hand, r,g);
+        ui->lhand->addWidget(icon3);
+    }
+
+    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
+
+    do
+    {
+        r= randInt(0,5);
+        g= randInt(0,5);
+
+        Benutzerhand *icon4 = new Benutzerhand(ui->hand, r,g);
+        ui->lhand->addWidget(icon4);
+    }
+
+    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
+
+    do
+    {
+        r= randInt(0,5);
+        g= randInt(0,5);
+
+        Benutzerhand *icon5 = new Benutzerhand(ui->hand, r,g);
+        ui->lhand->addWidget(icon5);
+    }
+
+    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
+
+    do
+    {
+        r= randInt(0,5);
+        g= randInt(0,5);
+
+        Benutzerhand *icon6 = new Benutzerhand(ui->hand, r,g);
+        ui->lhand->addWidget(icon6);
+    }
+
+    while (!(beutel[r][g][0] || beutel[r][g][1] || beutel[r][g][2]));
+
+
+
+   /****************************************************************************/
+   //feldarray wird mit den Startwerten zum Spielbeginn initialisiert
     for ( int i = 0; i < 6; i++ )
     {
         for ( int j = 0; j < 6; j++)

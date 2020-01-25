@@ -20,10 +20,10 @@
 #include <QRandomGenerator>
 
 
-#include <QGlobal.h>
+#include <qglobal.h>
 #include <QTime>
 
-Benutzerhand::Benutzerhand(QWidget *parent)
+Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
     : QFrame(parent)
 {
     setMinimumSize(20, 20);
@@ -31,7 +31,7 @@ Benutzerhand::Benutzerhand(QWidget *parent)
     setAcceptDrops(true);
 
     QLabel *stein1Icon = new QLabel(this);
-    stein1Icon->setPixmap( getPixmap( randInt(0, 5), randInt(0, 5) ) );
+    stein1Icon->setPixmap( getPixmap( a, b) );
     //stein1Icon->move(2, 2);
     stein1Icon->show();
     stein1Icon->setAttribute(Qt::WA_DeleteOnClose);
