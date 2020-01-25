@@ -77,13 +77,15 @@ void Spielfeld::dropEvent(QDropEvent *event)
         QPoint offset;
         dataStream >> pixmap >> offset;
 
-        Regeln *pRegeln;
-        Game* pGame = new Game();
-        int xKoord, yKoord;
+        Regeln *pRegeln = new Regeln();
 
         // Es wird geprüft, liegt hier schon ein Stein und darf hier ein Stein legen
         // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
+        /************************************************************************************************************************************/
+        // Hab Fabian gefragt, wegen der Initialisierung der Werte aus der Klasse Regeln, wahrscheinlich funktioniert deswegen pRegeln->check() nicht
+        // oder vielleicht ist es auch was anderes.....
         if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( spalte, reihe, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+        //if ( this->childAt( 10, 10 ) != nullptr )
         {
             Game* pframe = new Game();
             QLabel *newIcon = new QLabel( );
@@ -100,16 +102,25 @@ void Spielfeld::dropEvent(QDropEvent *event)
             undoClass::undoCoordOldY.pop();
             undoClass::undoPixmap.pop();
 
+            /*************************************************************************************************************/
+            // Wenn der Stein zuvor auf einem Spielfeld lag, müssen wir das feldarray des alten Sielsteins updaten.
+            /*if(  )
+            feldarray[ undoClass::undoParent.top()->spalte][reihe][0] = 0;
+            feldarray[spalte][reihe][1] = 9;
+            feldarray[spalte][reihe][2] = 9;
+            feldarray[spalte][reihe][3] = 0;
+            feldarray[spalte][reihe][4] = 0;
+            */
             pframe->update();
             return;
         }
 
         // feldarray mit Werten initialisieren
         if ( undoClass::undoStack.empty() == true )
-            feldarray[xKoord][yKoord][0] = 1;
-        feldarray[xKoord][yKoord][1] = getFarbePixmap(pixmap);
-        feldarray[xKoord][yKoord][2] = getFormPixmap(pixmap);
-        feldarray[xKoord][yKoord][3] = 1;
+            feldarray[spalte][reihe][0] = 1;
+        feldarray[spalte][reihe][1] = getFarbePixmap(pixmap);
+        feldarray[spalte][reihe][2] = getFormPixmap(pixmap);
+        feldarray[spalte][reihe][3] = 1;
 
         QLabel *newIcon = new QLabel(this);
         newIcon->setPixmap(pixmap);
@@ -159,6 +170,13 @@ void Spielfeld::mousePressEvent(QMouseEvent *event)
     painter.end();
 
     child->setPixmap(tempPixmap);
+
+    // Feldarray aktualisieren und auf Null stellen
+    feldarray[spalte][reihe][0] = 0;
+    feldarray[spalte][reihe][1] = 9;
+    feldarray[spalte][reihe][2] = 9;
+    feldarray[spalte][reihe][3] = 0;
+    feldarray[spalte][reihe][4] = 0;
 
     undoClass::undoParent.push( this );
     undoClass::undoCoordOldX.push( child->geometry().x() );

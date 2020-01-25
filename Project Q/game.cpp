@@ -12,6 +12,7 @@
 #include "tauschen.h"
 #include "undo.h"
 #include "mainwindow.h"
+#include "einstellungen.h"
 #include "spielfeld.h"
 
 #include <QPixmap>
@@ -196,6 +197,13 @@ void Game::on_pushButton_6_clicked()
     uC.undoMove();
 }
 
+
+void Game::on_einstellungen_clicked()
+{
+    Einstellungen* pEinst = new Einstellungen();
+    pEinst->show();
+}
+
 // scrollt zur horizontalen Mitte des Spielfeldes
 void Game::scrollToHCenter(int min, int max)
 {
@@ -212,6 +220,83 @@ void Game::scrollToVCenter(int min, int max)
     if (max > scrollBarVMax)
         ui->scrollArea->verticalScrollBar()->setValue( ui->scrollArea->verticalScrollBar()->maximum() / 2 );
     scrollBarVMax = max;
+}
+
+// Abgabefunktion zum Rundenende
+void Game::on_pushButton_7_clicked()
+{
+    Punkte *points = new Punkte;
+
+    for ( int i = 0; i <108; i++)
+    {
+        for (int j = 0; j <108; j++)
+        {
+            if(feldarray[i][j][3]==1)
+                spielerpunkte = spielerpunkte + points->calc(i,j);
+        }
+    }
+
+    // Spielsteine zählen, die bewegt wurden
+    int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
+    for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
+    {
+        for( yKoordSchleife = 0; yKoordSchleife < 108; yKoordSchleife++ )
+        {
+            if( feldarray[xKoordSchleife][yKoordSchleife][3] == 1 )
+                bewegteSteine++;
+        }
+    }
+
+    // Spielsteine hinzufügen
+    int a = 0, b = 0, c = 0;
+    for( int i = 0; i < bewegteSteine; i++ )
+    {
+        {                                               // neuen Stein generieren, der noch im Beutel ist
+            a = randInt( 0, 5 );
+            b = randInt( 0, 5);
+            c = randInt( 0, 2 );
+        } while ( beutel[a][b][c] == false );
+        beutel[a][b][c] = false;
+
+        Game* pframe2 = new Game();
+        QLabel *newIcon = new QLabel( );
+
+/************************************************************************************************************************************************/
+        // undoClass::undoParent.top() == ui->hand funktioniert nicht!
+        if( undoClass::undoParent.top() == ui->hand )   // wenn der letze aus dem UndoMove aus der Benutzerhand stammt, soll der
+        {                                               // Stein auf die Koordinaten dieses UndoMove Objekts gelegt werden
+            newIcon->setParent( undoClass::undoParent.top() );
+            newIcon->setPixmap( getPixmap( a, b ) );
+            newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+            newIcon->show();
+            newIcon->setAttribute(Qt::WA_DeleteOnClose);
+
+            pframe2->updateFrames();
+
+            qDebug() << "Hallo";
+
+        }
+
+        undoClass::undoStack.pop();                     // Undo Stack um eine UndoMove Objekt kleiner machen
+        undoClass::undoParent.pop();
+        undoClass::undoCoordOldX.pop();
+        undoClass::undoCoordOldY.pop();
+        undoClass::undoCoordNewX.pop();
+        undoClass::undoCoordNewY.pop();
+        undoClass::undoPixmap.pop();
+    }
+
+    // undo Funktion zurücksetzen
+    while( undoClass::undoStack.empty() == false )
+    {
+        undoClass::undoStack.pop();
+        undoClass::undoParent.pop();
+        undoClass::undoCoordOldX.pop();
+        undoClass::undoCoordOldY.pop();
+        undoClass::undoCoordNewX.pop();
+        undoClass::undoCoordNewY.pop();
+        undoClass::undoPixmap.pop();
+    }
 }
 
 /************************************************************************************************/
@@ -334,50 +419,3 @@ void Game::error(QAbstractSocket::SocketError socketError)
     m_lastUserName.clear();
 }
 
-void Game::on_pushButton_7_clicked()
-{
-    Punkte *points = new Punkte;
-
-    for ( int i = 0; i <108; i++)
-    {
-        for (int j = 0; j <108; j++)
-        {
-            if(feldarray[i][j][3]==1)
-                spielerpunkte = spielerpunkte + points->calc(i,j);
-        }
-    }
-
-    // undo Funktion zurücksetzen
-    while( undoClass::undoStack.empty() == false )
-    {
-        undoClass::undoStack.pop();
-        undoClass::undoParent.pop();
-        undoClass::undoCoordOldX.pop();
-        undoClass::undoCoordOldY.pop();
-        undoClass::undoCoordNewX.pop();
-        undoClass::undoCoordNewY.pop();
-    }
-    // Spielsteine zählen, die bewegt wurden
-    int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
-    for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
-    {
-        for( yKoordSchleife = 0; yKoordSchleife < 108; yKoordSchleife++ )
-        {
-            if( feldarray[xKoordSchleife][yKoordSchleife][3] == 1 )
-                bewegteSteine++;
-        }
-    }
-    // Spielsteine hinzufügen
-    int a = 0, b = 0, c = 0;
-    for( int i = 0; i < bewegteSteine; i++ )
-    {
-        {
-            a = randInt( 0, 5 );
-            b = randInt( 0, 5);
-            c = randInt( 0, 2 );
-        } while ( beutel[a][b][c] == false );
-
-        Benutzerhand *icon = new Benutzerhand();
-        Game::ui->lhand->addWidget(icon);
-    }
-}

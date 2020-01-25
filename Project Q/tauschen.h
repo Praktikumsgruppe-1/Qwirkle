@@ -3,11 +3,13 @@
 
 #include <QFrame>
 
+class Game;
+
 class Tauschen : public QFrame
 {
 public:
     explicit Tauschen(QWidget *parent = nullptr);
-    void SteinTauschen();
+    void SteinTauschen( Game* pGame );
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

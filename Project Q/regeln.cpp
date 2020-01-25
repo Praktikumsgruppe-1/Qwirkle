@@ -5,6 +5,7 @@
 
 Regeln::Regeln()
 {
+    checkcounter = 0;
     /*feldarray[23][55][1]=2;
     feldarray[23][55][2]=6;
     check(24,55,2,7);
@@ -123,8 +124,6 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
     feldarray[xCoord][yCoord][2]=symbol;
     feldarray[xCoord][yCoord][3]=1;
     checkcounter=1;
-    lastx=xCoord;
-    lasty=yCoord;
     return true;
 }
 
@@ -253,8 +252,6 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol){
     feldarray[xCoord][yCoord][1]=colour;
     feldarray[xCoord][yCoord][2]=symbol;
     feldarray[xCoord][yCoord][3]=1;
-    lastx=xCoord;
-    lasty=yCoord;
     return true;
 }
 

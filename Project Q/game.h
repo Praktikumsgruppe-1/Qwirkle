@@ -48,6 +48,8 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void on_einstellungen_clicked();
+
 private:
 
     int scrollBarHMax = 0;
@@ -62,6 +64,7 @@ private:
 
     friend class MainWindow;
     friend class Spielfeld;
+    friend class Tauschen;
 };
 
 extern int feldarray [108][108][5];                                   //startwerte: 0,9,9,0,?

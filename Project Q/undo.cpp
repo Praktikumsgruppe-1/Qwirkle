@@ -48,6 +48,7 @@ void undoClass::undoMove(){
         undoClass::undoCoordOldY.pop();
         undoClass::undoCoordNewX.pop();
         undoClass::undoCoordNewY.pop();
+        undoClass::undoPixmap.pop();
 
         if ( !undoClass::undoStack.empty() ) {
             if ( undoClass::undoCoordNewX.top() == newIcon->x() && undoClass::undoCoordNewY.top() == newIcon->y() ){

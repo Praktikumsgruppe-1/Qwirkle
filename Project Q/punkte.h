@@ -9,10 +9,6 @@ public:
     int calc (int xCoord, int yCoord);
 
 private:
-    //int field[181][181][4]={};
-    int checkcounter;
-    int lastx;
-    int lasty;
 
     int note;                                                     //Zwischenspeicherplatz
     int rowcheck;

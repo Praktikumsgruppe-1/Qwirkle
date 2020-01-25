@@ -18,17 +18,31 @@ Tauschen::Tauschen(QWidget *parent)
 
 // Es wird ein Stein getauscht, indem der fallengelassene Stein gelöscht und ein neuer
 // Stein erstellt wird
-void Tauschen::SteinTauschen(){
-    Game* pframe2 = new Game();
+void Tauschen::SteinTauschen( Game* pGame){
     QLabel *newIcon = new QLabel( );
 
+    int a = 0, b = 0, c = 0;
+    {                                               // neuen Stein generieren, der noch im Beutel ist
+        a = randInt( 0, 5 );
+        b = randInt( 0, 5);
+        c = randInt( 0, 2 );
+    } while ( pGame->beutel[a][b][c] == false );
+    pGame->beutel[a][b][c] = false;
+
     newIcon->setParent( undoClass::undoParent.top() );
-    newIcon->setPixmap( getPixmap( randInt(0, 5), randInt(0, 5) ) );
+    newIcon->setPixmap( getPixmap( a, b ));
     newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
     newIcon->show();
     newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-    pframe2->updateFrames();
+    pGame->updateFrames();
+
+    undoClass::undoParent.pop();
+    undoClass::undoCoordOldX.pop();
+    undoClass::undoCoordOldY.pop();
+    undoClass::undoPixmap.pop();
+
+
 }
 
 // Das DragEnterEvent der Klasse Tauschen
@@ -52,7 +66,8 @@ void Tauschen::dropEvent(QDropEvent *event)
         QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
         QDataStream dataStream(&itemData, QIODevice::ReadOnly);
 
-        SteinTauschen();
+/**************************************************************************************************************************************/
+        //SteinTauschen( event->source() );           // wie könnten wir hier ein Game* übergeben????
 
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);

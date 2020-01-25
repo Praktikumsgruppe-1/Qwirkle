@@ -395,9 +395,6 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
       rowcounter=0;
     }
   }
-  checkcounter=0;
-  lastx=0;
-  lasty=0;
   return finalcounter;
 }
 

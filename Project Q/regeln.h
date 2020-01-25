@@ -12,10 +12,8 @@ public:
 
 private:
     // Spielfeld mit 4 Einträgen pro Feld für Farbe und Form des Steins
-    int field[108][108][4]={};
+    //int field[108][108][4]={};
     int checkcounter=0;
-    int lastx=0;
-    int lasty=0;
 
     friend class Spielfeld;
 };

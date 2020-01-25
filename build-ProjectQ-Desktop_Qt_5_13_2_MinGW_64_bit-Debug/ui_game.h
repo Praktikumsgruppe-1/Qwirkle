@@ -76,7 +76,7 @@ public:
         scrollArea->setAlignment(Qt::AlignCenter);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1462, 592));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1469, 599));
         sizePolicy.setHeightForWidth(scrollAreaWidgetContents->sizePolicy().hasHeightForWidth());
         scrollAreaWidgetContents->setSizePolicy(sizePolicy);
         gridLayoutWidget = new QWidget(scrollAreaWidgetContents);
