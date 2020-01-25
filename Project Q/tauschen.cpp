@@ -1,4 +1,4 @@
- #include "tauschen.h"
+#include "tauschen.h"
 #include "benutzerhand.h"
 #include "game.h"
 #include "undo.h"
@@ -18,7 +18,7 @@ Tauschen::Tauschen(QWidget *parent)
 
 // Es wird ein Stein getauscht, indem der fallengelassene Stein gelöscht und ein neuer
 // Stein erstellt wird
-void Tauschen::SteinTauschen( Game* pGame){
+void Tauschen::SteinTauschen(){
     QLabel *newIcon = new QLabel( );
 
     int a = 0, b = 0, c = 0;
@@ -26,8 +26,8 @@ void Tauschen::SteinTauschen( Game* pGame){
         a = randInt( 0, 5 );
         b = randInt( 0, 5);
         c = randInt( 0, 2 );
-    } while ( pGame->beutel[a][b][c] == false );
-    pGame->beutel[a][b][c] = false;
+    } while ( beutel[a][b][c] == false );
+    beutel[a][b][c] = false;
 
     newIcon->setParent( undoClass::undoParent.top() );
     newIcon->setPixmap( getPixmap( a, b ));
@@ -35,7 +35,7 @@ void Tauschen::SteinTauschen( Game* pGame){
     newIcon->show();
     newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-    pGame->updateFrames();
+    //pgame->updateFrames();
 
     undoClass::undoParent.pop();
     undoClass::undoCoordOldX.pop();
@@ -67,7 +67,7 @@ void Tauschen::dropEvent(QDropEvent *event)
         QDataStream dataStream(&itemData, QIODevice::ReadOnly);
 
 /**************************************************************************************************************************************/
-        //SteinTauschen( event->source() );           // wie könnten wir hier ein Game* übergeben????
+        SteinTauschen();           // wie könnten wir hier ein Game* übergeben????
 
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);

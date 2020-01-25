@@ -26,11 +26,9 @@ public:
     Ui::Game* getUi();
     void updateFrames();
 
-    bool beutel [6][6][3];
-    //0 : die Farbe
-    //1 : die Form
-    //2 : die Kopie
     Spielfeld *frame[108][108];
+
+    //Game( const Game &game);
 
 private slots:
     void on_pushButton_clicked();
@@ -73,5 +71,10 @@ extern int feldarray [108][108][5];                                   //startwer
 //2 : die Form
 //3 : markiert ob der Stein in der Runde des Spielers neu gelegt wurde
 //?4 : welche Kopie von dem Stein ist es (es gibt immer 3)
+
+extern bool beutel [6][6][3];
+//0 : die Farbe
+//1 : die Form
+//2 : die Kopie
 
 #endif // GAME_H

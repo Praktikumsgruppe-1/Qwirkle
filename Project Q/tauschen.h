@@ -9,7 +9,7 @@ class Tauschen : public QFrame
 {
 public:
     explicit Tauschen(QWidget *parent = nullptr);
-    void SteinTauschen( Game* pGame );
+    void SteinTauschen();
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
