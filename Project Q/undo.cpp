@@ -32,7 +32,6 @@ void undoClass::undoMove(){
 
         newIcon->setParent( undoClass::undoParent.top() );
         newIcon->setPixmap( *(undoClass::undoStack.top()->pixmap()) );
-        //newIcon->setPixmap( (undoClass::undoPixmap.top()) );
         newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);

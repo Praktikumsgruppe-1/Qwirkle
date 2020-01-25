@@ -268,6 +268,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
         note=note+1;
         qDebug() << note;
       }
+        }
         while(feldarray[note][yCoord][1]>0);
         qDebug("solange nach rechts gehen wie steine liegen");
     }

@@ -33,9 +33,25 @@ void Tauschen::SteinTauschen(){
     Game::beutelStackFarbe.pop_back();
     Game::beutelStackKopie.pop_back();
 
-    Game::beutelStackForm.push_back( getFormPixmap( undoClass::undoPixmap.top() ) );
-    Game::beutelStackFarbe.push_back( getFarbePixmap( undoClass::undoPixmap.top() ) );
-    //Game::beutelStackKopie.push_back(  );         // implementier ich sofort
+    int form = getFormPixmap( undoClass::undoPixmap.top() );
+    int farbe = getFarbePixmap( undoClass::undoPixmap.top() );
+
+    Game::beutelStackForm.push_back( form );
+    Game::beutelStackFarbe.push_back( farbe );
+
+    // freie Kopie herausfinden
+    for( int i = 0; i < 108; i++ )
+    {
+        if( Game::beutelStackForm[ i ] == form && Game::beutelStackFarbe[ i ] == farbe )
+        {
+            if( Game::beutelStackKopie[ i ] != 0 )
+                Game::beutelStackKopie.push_back( 0 );
+            else if( Game::beutelStackKopie[ i ] != 1 )
+                Game::beutelStackKopie.push_back( 1 );
+            else
+                Game::beutelStackKopie.push_back( 2 );
+        }
+    }
 
     undoClass::undoParent.pop();
     undoClass::undoCoordOldX.pop();
