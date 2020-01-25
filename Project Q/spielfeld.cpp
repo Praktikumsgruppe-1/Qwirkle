@@ -99,6 +99,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
         if ( undoClass::undoStack.empty() == true )
         {
             feldarray[reihe][spalte][0] = 1;
+            qDebug() << "test++++++++++++++";
         }
         feldarray[reihe][spalte][1] = getFarbePixmap(pixmap);
         feldarray[reihe][spalte][2] = getFormPixmap(pixmap);
