@@ -25,6 +25,7 @@
 #include <qglobal.h>
 #include <QTime>
 
+int SteinImFeld = 0;
 
 // Spielfeld ist die Klasse für ein drag widget, aber ohne das darin Steine mit drin sind, beim aufrufen
 // es ist das normale Spielfeld, aber noch nicht mit den festen Punkten
@@ -53,7 +54,7 @@ void Spielfeld::dragEnterEvent(QDragEnterEvent *event)
     }
 }
 
-void Spielfeld::dragMoveEvent(QDragMoveEvent *event)
+/*void Spielfeld::dragMoveEvent(QDragMoveEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
@@ -65,7 +66,7 @@ void Spielfeld::dragMoveEvent(QDragMoveEvent *event)
     } else {
         event->ignore();
     }
-}
+}*/
 
 void Spielfeld::dropEvent(QDropEvent *event)
 {
@@ -94,7 +95,6 @@ void Spielfeld::dropEvent(QDropEvent *event)
                     if( feldarray[i][j][1] != 9 )        // Spielstein im Spielfeld bereits drinnen
                        SteinImFeld = 1;
                 }
-                                qDebug("1.Stein_Schleife");
             }
         }
 
@@ -120,15 +120,6 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 undoClass::undoCoordOldY.pop();
                 undoClass::undoPixmap.pop();
 
-                /*************************************************************************************************************/
-                // Wenn der Stein zuvor auf einem Spielfeld lag, müssen wir das feldarray des alten Sielsteins updaten.
-                /*if(  )
-                feldarray[ undoClass::undoParent.top()->spalte][reihe][0] = 0;
-                feldarray[spalte][reihe][1] = 9;
-                feldarray[spalte][reihe][2] = 9;
-                feldarray[spalte][reihe][3] = 0;
-                feldarray[spalte][reihe][4] = 0;
-                */
                 pframe->update();                
                 return;
             }
@@ -165,7 +156,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
     }
 }
 
-void Spielfeld::mousePressEvent(QMouseEvent *event)
+/*void Spielfeld::mousePressEvent(QMouseEvent *event)
 {
     QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
     if (!child)
@@ -211,4 +202,4 @@ void Spielfeld::mousePressEvent(QMouseEvent *event)
         child->show();
         child->setPixmap(pixmap);
     }
-}
+}*/

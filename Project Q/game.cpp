@@ -1,3 +1,4 @@
+
 #include "game.h"
 #include "ui_game.h"
 #include "benutzerhand.h"
@@ -318,21 +319,13 @@ void Game::on_pushButton_7_clicked()
         Game* pframe2 = new Game();
         QLabel *newIcon = new QLabel( );
 
-/************************************************************************************************************************************************/
-        // undoClass::undoParent.top() == ui->hand funktioniert nicht!
-        if( undoClass::undoParent.top() == ui->hand )   // wenn der letze aus dem UndoMove aus der Benutzerhand stammt, soll der
-        {                                               // Stein auf die Koordinaten dieses UndoMove Objekts gelegt werden
-            newIcon->setParent( undoClass::undoParent.top() );
-            newIcon->setPixmap( getPixmap( a, b ) );
-            newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
-            newIcon->show();
-            newIcon->setAttribute(Qt::WA_DeleteOnClose);
+        newIcon->setParent( undoClass::undoParent.top() );
+        newIcon->setPixmap( getPixmap( a, b ) );
+        newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+        newIcon->show();
+        newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-            pframe2->updateFrames();
-
-            qDebug() << "Hallo";
-
-        }
+        pframe2->updateFrames();
 
         undoClass::undoStack.pop();                     // Undo Stack um eine UndoMove Objekt kleiner machen
         undoClass::undoParent.pop();
@@ -357,9 +350,9 @@ void Game::on_pushButton_7_clicked()
 
     // feldarray aktualisieren
     int i, j;
-    for ( i = 0; i < 180; i++ )
+    for ( i = 0; i < 108; i++ )
     {
-        for( j = 0; j < 180; j++ )
+        for( j = 0; j < 108; j++ )
         {
             feldarray[i][j][0] = 0;
             feldarray[i][j][3] = 0;

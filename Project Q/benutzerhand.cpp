@@ -65,7 +65,7 @@ void Benutzerhand::dragMoveEvent(QDragMoveEvent *event)
     }
 }
 
-void Benutzerhand::dropEvent(QDropEvent *event)
+/*void Benutzerhand::dropEvent(QDropEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
@@ -94,7 +94,7 @@ void Benutzerhand::dropEvent(QDropEvent *event)
     } else {
         event->ignore();
     }
-}
+}*/
 
 void Benutzerhand::mousePressEvent(QMouseEvent *event)
 {
