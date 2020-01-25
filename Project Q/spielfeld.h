@@ -16,15 +16,15 @@ public:
     explicit Spielfeld(QWidget *parent = nullptr, int spalteX = 0, int reiheY = 0 );
     int reihe;
     int spalte;
-    int SteinImFeld = 0;
+
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
-    void dragMoveEvent(QDragMoveEvent *event) override;
+    //void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
+    //void mousePressEvent(QMouseEvent *event) override;
 
     friend class Game;
 };
-
+extern int SteinImFeld;
 #endif // SPIELFELD_H

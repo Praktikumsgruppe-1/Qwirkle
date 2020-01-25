@@ -50,12 +50,6 @@ void undoClass::undoMove(){
         undoClass::undoCoordNewY.pop();
         undoClass::undoPixmap.pop();
 
-        if ( !undoClass::undoStack.empty() ) {
-            if ( undoClass::undoCoordNewX.top() == newIcon->x() && undoClass::undoCoordNewY.top() == newIcon->y() ){
-                undoClass::undoStack.pop();
-                undoClass::undoStack.push( newIcon );
-            }
-         }
     }
     return;
 }
