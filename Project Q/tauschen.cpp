@@ -21,28 +21,28 @@ Tauschen::Tauschen(QWidget *parent)
 void Tauschen::SteinTauschen(){
     QLabel *newIcon = new QLabel( );
 
-    int a = 0, b = 0, c = 0;
-    {                                               // neuen Stein generieren, der noch im Beutel ist
-        a = randInt( 0, 5 );
-        b = randInt( 0, 5);
-        c = randInt( 0, 2 );
-    } while ( beutel[a][b][c] == false );
-    beutel[a][b][c] = false;
-
     newIcon->setParent( undoClass::undoParent.top() );
-    newIcon->setPixmap( getPixmap( a, b ));
+    newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ));
     newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
     newIcon->show();
     newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
     //pgame->updateFrames();
 
+    Game::beutelStackForm.pop_back();
+    Game::beutelStackFarbe.pop_back();
+    Game::beutelStackKopie.pop_back();
+
+    /*********muss noch überarbeitet werden mit QPixmap Vergleich********************/
+    /*Game::beutelStackForm.push_back(  );
+    Game::beutelStackFarbe.push_back(  );
+    Game::beutelStackKopie.push_back(  );
+    */
+
     undoClass::undoParent.pop();
     undoClass::undoCoordOldX.pop();
     undoClass::undoCoordOldY.pop();
     undoClass::undoPixmap.pop();
-
-
 }
 
 // Das DragEnterEvent der Klasse Tauschen
