@@ -33,6 +33,7 @@ Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
     QLabel *stein1Icon = new QLabel(this);
     stein1Icon->setPixmap( getPixmap( a, b) );
     //stein1Icon->move(2, 2);
+    stein1Icon->setScaledContents(true);
     stein1Icon->show();
     stein1Icon->setAttribute(Qt::WA_DeleteOnClose);
 }
@@ -173,6 +174,7 @@ extern QPixmap getPixmap( int a, int b )
 
 extern int getFarbePixmap( QPixmap pixmap )
 {
+    qDebug("getFarbePixmap fängt an");
     QPixmap blau_eckig (QPixmap(":/images/blau_eckig2.svg"));
     QPixmap blau_kreuz (QPixmap(":/images/blau_kreuz1.svg"));
     QPixmap blau_raute (QPixmap(":/images/blau_raute1.svg"));
@@ -225,16 +227,27 @@ extern int getFarbePixmap( QPixmap pixmap )
        {rot_eckig, rot_kreuz, rot_raute, rot_rund, rot_sonne, rot_stern}
     };
 
-    int i, j;
-    for( i = 0; i < 6; i++ )
+
+    int i=0, j=0;
+    bool pixmapsgleich = true;
+    for( i = 0; ((i < 6)||(pixmapsgleich == false)); i++ )
     {
-        for( j = 0; j < 6; j++ )
+        do
         {
-            if( pixmap == stein[i][j] )
-                break;
+                for(int x = 0; x >75; x++)
+                {
+                    for(int y = 0; y >75; y++)
+                    {
+                        if ( stein[i][j].toImage().pixel(x, y) != ( pixmap.toImage().pixel(x , y) ) )
+                        {
+                            pixmapsgleich = false;
+                            return pixmapsgleich;
+                        }
+                    }
+                }
+                j++;
         }
-        if( pixmap == stein[i][j] )
-            break;
+        while( ( pixmapsgleich == true ) && (j<6));
     }
 
     return i;
@@ -242,6 +255,7 @@ extern int getFarbePixmap( QPixmap pixmap )
 
 extern int getFormPixmap( QPixmap pixmap )
 {
+    qDebug("getFormPixmap fängt an");
     QPixmap blau_eckig (QPixmap(":/images/blau_eckig2.svg"));
     QPixmap blau_kreuz (QPixmap(":/images/blau_kreuz1.svg"));
     QPixmap blau_raute (QPixmap(":/images/blau_raute1.svg"));
@@ -294,13 +308,22 @@ extern int getFormPixmap( QPixmap pixmap )
        {rot_eckig, rot_kreuz, rot_raute, rot_rund, rot_sonne, rot_stern}
     };
 
-    int i, j;
+
+    int i = 0, j = 0, k;
     for( i = 0; i < 6; i++ )
     {
         for( j = 0; j < 6; j++ )
         {
-            if( pixmap == stein[i][j] )
-                return j;
-        }            
+            for(k = 0; k < 75; k++)
+            {
+                if (stein[i][j].toImage().scanLine(k) != pixmap.toImage().scanLine(k))
+                {
+                    break;
+                }
+            }
+        }
     }
+
+    return j;
+
 }

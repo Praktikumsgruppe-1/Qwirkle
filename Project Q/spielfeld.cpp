@@ -87,25 +87,24 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 for( j = 0; j < 108; j++ )
                 {
                     if( feldarray[i][j][1] != 9 )        // Spielstein im Spielfeld bereits drinnen
-                       SteinImFeld = 1;
-                    qDebug("1. stein schleife");
+                    {
+                            SteinImFeld = 1;
+                            qDebug("1. stein schleife");
+                    }
                 }
             }
         }
-        
+         qDebug()<<"nach dem ersten stein sollte das 1 sein:" << SteinImFeld;
         // feldarray mit Werten initialisieren
         if ( undoClass::undoStack.empty() == true )
-            feldarray[spalte][reihe][0] = 1;
-        feldarray[spalte][reihe][1] = getFarbePixmap(pixmap);
-        feldarray[spalte][reihe][2] = getFormPixmap(pixmap);
-        feldarray[spalte][reihe][3] = 1;
+        {
+            feldarray[reihe][spalte][0] = 1;
+        }
+        feldarray[reihe][spalte][1] = getFarbePixmap(pixmap);
+        feldarray[reihe][spalte][2] = getFormPixmap(pixmap);
+        feldarray[reihe][spalte][3] = 1;
 
-        // feldarray mit Werten initialisieren
-        if ( undoClass::undoStack.empty() == true )
-            feldarray[spalte][reihe][0] = 1;
-        feldarray[spalte][reihe][1] = getFarbePixmap(pixmap);
-        feldarray[spalte][reihe][2] = getFormPixmap(pixmap);
-        feldarray[spalte][reihe][3] = 1;
+        qDebug() << "Feldarray vor dem Check: " << feldarray[reihe][spalte][0]<< feldarray[reihe][spalte][1] << feldarray[reihe][spalte][2] << feldarray[reihe][spalte][3] << "Koordinaten:"<< reihe << spalte;
 
         if( SteinImFeld == 1 )
         {
@@ -115,6 +114,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
             {
                 qDebug("falsch_schleife");
+                qDebug() << "Daten der falsch_Schleife" << reihe << spalte << getFarbePixmap(pixmap) << getFormPixmap(pixmap);
                 Game* pframe = new Game();
                 QLabel *newIcon = new QLabel( );
 
