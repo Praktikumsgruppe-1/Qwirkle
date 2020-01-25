@@ -33,11 +33,9 @@ void Tauschen::SteinTauschen(){
     Game::beutelStackFarbe.pop_back();
     Game::beutelStackKopie.pop_back();
 
-    /*********muss noch überarbeitet werden mit QPixmap Vergleich********************/
-    /*Game::beutelStackForm.push_back(  );
-    Game::beutelStackFarbe.push_back(  );
-    Game::beutelStackKopie.push_back(  );
-    */
+    Game::beutelStackForm.push_back( getFormPixmap( undoClass::undoPixmap.top() ) );
+    Game::beutelStackFarbe.push_back( getFarbePixmap( undoClass::undoPixmap.top() ) );
+    //Game::beutelStackKopie.push_back(  );         // implementier ich sofort
 
     undoClass::undoParent.pop();
     undoClass::undoCoordOldX.pop();

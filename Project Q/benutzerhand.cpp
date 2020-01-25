@@ -232,15 +232,14 @@ extern int getFarbePixmap( QPixmap pixmap )
     bool pixmapsgleich = true;
     for( i = 0; (i < 6); i++ )
     {
-        for( int j = 0; j < 6; j++ )
+        for( j = 0; j < 6; j++ )
         {
             for(int x = 0; x < 75; x++)
             {
                 for(int y = 0; y < 75; y++)
                 {
-                    if ( stein[i][j].toImage().pixel(x, y) != ( pixmap.toImage().pixel(x , y) ) )       // Vergleich der Pixel
+                    if ( stein[i][j].toImage().pixel(x, y) != ( pixmap.toImage().pixel(x , y) ) )
                     {
-                        //qDebug() << i << j << x << y;
                         pixmapsgleich = false;
                     }
                 }
@@ -250,7 +249,6 @@ extern int getFarbePixmap( QPixmap pixmap )
             pixmapsgleich = true;
         }
     }
-    return i;
 }
 
 extern int getFormPixmap( QPixmap pixmap )
@@ -309,21 +307,25 @@ extern int getFormPixmap( QPixmap pixmap )
     };
 
 
-    int i = 0, j = 0, k;
-    for( i = 0; i < 6; i++ )
+    int i=0, j=0;
+    bool pixmapsgleich = true;
+    for( i = 0; (i < 6); i++ )
     {
         for( j = 0; j < 6; j++ )
         {
-            for(k = 0; k < 75; k++)
+            for(int x = 0; x < 75; x++)
             {
-                if (stein[i][j].toImage().scanLine(k) != pixmap.toImage().scanLine(k))
+                for(int y = 0; y < 75; y++)
                 {
-                    break;
+                    if ( stein[i][j].toImage().pixel(x, y) != ( pixmap.toImage().pixel(x , y) ) )
+                    {
+                        pixmapsgleich = false;
+                    }
                 }
             }
+            if( pixmapsgleich == true )
+                return j;
+            pixmapsgleich = true;
         }
     }
-
-    return j;
-
 }

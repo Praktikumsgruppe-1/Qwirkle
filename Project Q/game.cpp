@@ -33,10 +33,6 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     QWidget(parent)
     , ui(new Ui::Game)
 {
-    // Test PixmapVergleich
-
-    qDebug() << "----------------" << getFarbePixmap( getPixmap( 2, 1) ) << "________________";
-
     ui->setupUi(this);
     setMinimumSize(1510,805);
 
