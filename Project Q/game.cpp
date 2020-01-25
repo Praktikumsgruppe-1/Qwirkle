@@ -175,11 +175,11 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 
 
 
-   /****************************************************************************/
-   //feldarray wird mit den Startwerten zum Spielbeginn initialisiert
-    for ( int i = 0; i < 6; i++ )
+
+    //feldarray wird mit den Startwerten zum Spielbeginn initialisiert
+    for ( int i = 0; i < 108; i++ )
     {
-        for ( int j = 0; j < 6; j++)
+        for ( int j = 0; j < 108; j++)
         {
           feldarray[i][j][0] = 0;
           feldarray[i][j][1] = 9;

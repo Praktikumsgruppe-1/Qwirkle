@@ -82,37 +82,50 @@ void Spielfeld::dropEvent(QDropEvent *event)
         // Es wird geprüft, liegt hier schon ein Stein und darf hier ein Stein legen
         // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
         /************************************************************************************************************************************/
-        // Hab Fabian gefragt, wegen der Initialisierung der Werte aus der Klasse Regeln, wahrscheinlich funktioniert deswegen pRegeln->check() nicht
-        // oder vielleicht ist es auch was anderes.....
-        if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( spalte, reihe, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
-        //if ( this->childAt( 10, 10 ) != nullptr )
+
+        // prüfen ob allererster Stein
+        int i, j, SteinImFeld = 0;
+        for( i = 0; i < 108; i++ )
         {
-            Game* pframe = new Game();
-            QLabel *newIcon = new QLabel( );
+            for( j = 0; j < 108; j++ )
+            {
+                if( feldarray[i][j][1] != 9 )        // Spielstein im Spielfeld bereits drinnen
+                   SteinImFeld = 1;
+            }
+        }
 
-            newIcon->setParent( undoClass::undoParent.top() );
-            newIcon->setPixmap( pixmap );
-            newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
-            newIcon->show();
-            newIcon->setAttribute(Qt::WA_DeleteOnClose);
+        if( SteinImFeld == 1 )
+        {
+            // soll ausgeführt werden, wenn er nicht gelegt werden darf
+            if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check( spalte, reihe, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+            {
+                Game* pframe = new Game();
+                QLabel *newIcon = new QLabel( );
 
-            /*****Stack updaten***********************************/
-            undoClass::undoParent.pop();
-            undoClass::undoCoordOldX.pop();
-            undoClass::undoCoordOldY.pop();
-            undoClass::undoPixmap.pop();
+                newIcon->setParent( undoClass::undoParent.top() );
+                newIcon->setPixmap( pixmap );
+                newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+                newIcon->show();
+                newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-            /*************************************************************************************************************/
-            // Wenn der Stein zuvor auf einem Spielfeld lag, müssen wir das feldarray des alten Sielsteins updaten.
-            /*if(  )
-            feldarray[ undoClass::undoParent.top()->spalte][reihe][0] = 0;
-            feldarray[spalte][reihe][1] = 9;
-            feldarray[spalte][reihe][2] = 9;
-            feldarray[spalte][reihe][3] = 0;
-            feldarray[spalte][reihe][4] = 0;
-            */
-            pframe->update();
-            return;
+                /*****Stack updaten***********************************/
+                undoClass::undoParent.pop();
+                undoClass::undoCoordOldX.pop();
+                undoClass::undoCoordOldY.pop();
+                undoClass::undoPixmap.pop();
+
+                /*************************************************************************************************************/
+                // Wenn der Stein zuvor auf einem Spielfeld lag, müssen wir das feldarray des alten Sielsteins updaten.
+                /*if(  )
+                feldarray[ undoClass::undoParent.top()->spalte][reihe][0] = 0;
+                feldarray[spalte][reihe][1] = 9;
+                feldarray[spalte][reihe][2] = 9;
+                feldarray[spalte][reihe][3] = 0;
+                feldarray[spalte][reihe][4] = 0;
+                */
+                pframe->update();
+                return;
+            }
         }
 
         // feldarray mit Werten initialisieren
