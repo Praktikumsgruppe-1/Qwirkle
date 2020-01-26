@@ -54,6 +54,7 @@ public:
     int bewegteSteinef();
 
     void arrayaktualisieren();
+    void feldarrayAktualisieren( int array[4] );
 
 private slots:
     void on_pushButton_clicked();

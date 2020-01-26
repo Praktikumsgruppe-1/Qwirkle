@@ -255,6 +255,7 @@ void Game::beutelMischen()
     }
 }
 
+
 bool Game::passcheck(int a)
 {
   if(a==0)
@@ -264,6 +265,7 @@ bool Game::passcheck(int a)
 
   return pass;
 };
+
 
 int Game::bewegteSteinef()
 {
@@ -280,11 +282,28 @@ int Game::bewegteSteinef()
     return bewegteSteine;
 };
 
+
 void Game::arrayaktualisieren()
 {
 
-};
+}
 
+
+void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
+{
+    // feldarray aktualisieren
+    feldarray[ array[2] ][ array[3] ][ 0 ] = 0 ;
+    feldarray[ array[2] ][ array[3] ][ 1 ] = array[0] ;
+    feldarray[ array[2] ][ array[3] ][ 2 ] = array[1] ;
+    feldarray[ array[2] ][ array[3] ][ 3 ] = 0 ;
+
+    // Spielstein erstellen im feld
+    QLabel *newIcon = new QLabel( );
+    newIcon->setPixmap( getPixmap( array[0], array[1] ) );
+    ui->lfeld->addWidget( newIcon,  array[2], array[3] );
+    newIcon->show();
+    newIcon->setAttribute(Qt::WA_DeleteOnClose);
+}
 
 /*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl
 void Game::endcheck()
