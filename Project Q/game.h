@@ -52,6 +52,7 @@ public:
     bool pass = false;
     bool passcheck(int a);
     int bewegteSteinef();
+    int bewegteSteinef(int);
 
 
     void arrayauslesen(QJsonArray);
