@@ -163,31 +163,31 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
 // Regelfunktion ab dem 2. Stein
 bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
 {
-            qDebug("2. stein regeln");
-            qDebug() << "Zeile: 162" << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3] << "Koordinanten:" << xCoord << yCoord;
+  qDebug("2. stein regeln");
+  qDebug() << "Daten von dem Feld, von dem aus geprüft wird" << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3] << "Koordinanten:" << xCoord << yCoord;
   int note, notetwo;
   if(feldarray[xCoord][yCoord][1]==7)
   {
-              qDebug("im feld liegt schon was");
+    qDebug("im feld liegt schon was");
     return false;
   }
   notetwo=0;
   note=xCoord+1;
-  while (feldarray[note][yCoord][3]==1)
+  while (feldarray[note][yCoord][2]!=9)
   {
-      qDebug() << "Zeile: 174" << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3]<< "Koordinanten:" << note << yCoord;
-      qDebug("rechts daneben liegt ein schon gelegter stein");
+    qDebug() << "Zeile: 178" << feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3]<< "Koordinanten:" << note << yCoord;
+    qDebug("rechts daneben liegt ein schon gelegter stein");
     if (feldarray[note][yCoord][0]==1)
     {
-        qDebug("der stein rechts daneben ist der 1. im zug");
+      qDebug("der stein rechts daneben ist der 1. im zug");
       notetwo=1;
     }
     note=note+1;
   }
   note=xCoord-1;
-  while (feldarray[note][yCoord][3]==1)
+  while (feldarray[note][yCoord][2]!=9)
   {
-      qDebug() << "Zeile: 186 "<< feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3]<< "Koordinanten:" << note<< yCoord;
+      qDebug() << "Zeile: 190 "<< feldarray[note][yCoord][0] << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << feldarray[note][yCoord][3]<< "Koordinanten:" << note<< yCoord;
       qDebug("der stein links daneben ist ein schon gelegter stein");
     if (feldarray[note][yCoord][0]==1)
     {
@@ -197,9 +197,9 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
     note=note-1;
   }
   note=yCoord+1;
-  while (feldarray[xCoord][note][3]==1)
+  while (feldarray[xCoord][note][2]!=9)
   {
-       qDebug() << "Zeile: 198" << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3]<< "Koordinanten:" << xCoord << note;
+      qDebug() << "Zeile: 202" << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3]<< "Koordinanten:" << xCoord << note;
       qDebug("der stein darüber ist schon gelegt worden");
     if (feldarray[xCoord][note][0]==1)
     {
@@ -209,9 +209,9 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
     note=note+1;
   }
   note=yCoord-1;
-  while (feldarray[xCoord][note][3]==1)
+  while (feldarray[xCoord][note][2]!=9)
   {
-      qDebug() << "Zeile: 210"  << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3]<< "Koordinanten:" << xCoord << note;
+      qDebug() << "Zeile: 214"  << feldarray[xCoord][note][0] << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << feldarray[xCoord][note][3]<< "Koordinanten:" << xCoord << note;
       qDebug("der stein darunter ist schon gelegt worden");
     if (feldarray[xCoord][note][0]==1)
     {
@@ -381,9 +381,11 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
         while(feldarray[xCoord][note][1]!=9);
        qDebug("solange nach unten gehen wie steine liegen");
     }
+    /*
     feldarray[xCoord][yCoord][1]=colour;
     feldarray[xCoord][yCoord][2]=symbol;
     feldarray[xCoord][yCoord][3]=1;
+    */
     qDebug() << "Werte nach den regeln in den regeln" << feldarray[xCoord][yCoord][0] << colour << symbol  << feldarray[xCoord][yCoord][3];
     return true;
 }
