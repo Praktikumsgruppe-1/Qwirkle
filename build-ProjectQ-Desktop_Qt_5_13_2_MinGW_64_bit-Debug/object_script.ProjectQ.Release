@@ -3,6 +3,7 @@ release/chatclient.o
 release/chatserver.o
 release/einstellungen.o
 release/game.o
+release/json.o
 release/main.o
 release/mainwindow.o
 release/punkte.o
@@ -10,7 +11,9 @@ release/regeln.o
 release/ruleswindow.o
 release/serverworker.o
 release/spielfeld.o
+release/stein.o
 release/tauschen.o
+release/turn.o
 release/undo.o
 release/qrc_Images.o
 release/moc_chatclient.o

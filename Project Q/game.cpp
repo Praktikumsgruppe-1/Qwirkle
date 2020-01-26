@@ -479,7 +479,8 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoCoordOldY.pop();
         undoClass::undoReihe.pop();
         undoClass::undoSpalte.pop();
-        undoClass::undoPixmap.pop();                                  // hier stürzt er ab, wenn man einen richtigen zug macht
+        if( !undoClass::undoPixmap.empty() )
+            undoClass::undoPixmap.pop();                                  // hier stürzt er ab, wenn man einen richtigen zug macht
                                                                       // dann richtige steine legt, dann einen falschen und dann abgeben will
 
     }

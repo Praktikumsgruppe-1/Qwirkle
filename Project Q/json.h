@@ -2,6 +2,7 @@
 #define JSON_H
 #include <QJsonArray>
 #include <QJsonObject>
+#include <vector>
 
 
 class json
