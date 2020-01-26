@@ -123,6 +123,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 qDebug("falsch_schleife");
                 qDebug() << "Daten der falsch_Schleife" << reihe << spalte << getFarbePixmap(pixmap) << getFormPixmap(pixmap);
                 /*** neuen Stein erstellen, der dargestellt wird in der Benutzerhand ***/
+                /*
                 Game* pframe = new Game();
                 QLabel *newIcon = new QLabel( );
 
@@ -131,7 +132,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
                 newIcon->show();
                 newIcon->setAttribute(Qt::WA_DeleteOnClose);
-
+                */
                 /***** Undo Stack updaten ***************************************/
                 undoClass::undoParent.pop();
                 undoClass::undoCoordOldX.pop();
@@ -213,6 +214,8 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
         SteinImFeld++;
         allerersterStein = 1;
+        qDebug() << "erster stein im zug:" << feldarray[reihe][spalte][0] << "Farbe:" << feldarray[reihe][spalte][1] << "Form:" << feldarray[reihe][spalte][2] << "neu gelegt:" << feldarray[reihe][spalte][3] << "Koordinaten:" << reihe << spalte;
+        qDebug() << "feldarray des ersten Feldes:" << feldarray[0][0][0] << feldarray[0][0][1] << feldarray[0][0][2] << feldarray[0][0][3];
 
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);

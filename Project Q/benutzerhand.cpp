@@ -118,8 +118,8 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
 
     else
     {
-        child->close();
-        //child->setPixmap(pixmap);
+        child->show();
+        child->setPixmap(pixmap);
         qDebug("hier bin ich, wenn ich gedroppt habe");
     }
 

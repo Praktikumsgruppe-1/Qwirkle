@@ -280,6 +280,12 @@ int Game::bewegteSteinef()
     return bewegteSteine;
 };
 
+void Game::arrayaktualisieren()
+{
+
+};
+
+
 /*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl
 void Game::endcheck()
 {
