@@ -32,4 +32,5 @@ protected:
 };
 
 extern int SteinImFeld;             // erster Stein der Zugrunde, wäre = 0
+extern int allerersterStein;
 #endif // SPIELFELD_H

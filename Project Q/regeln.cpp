@@ -26,16 +26,16 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
       return false;
   }
   note=xCoord+1;
-  if(feldarray[note][yCoord][1]==0)
+  if(feldarray[note][yCoord][1]==9)
   {        // Feld im nichts?
     note=xCoord-1;
-    if(feldarray[note][yCoord][1]==0)
+    if(feldarray[note][yCoord][1]==9)
     {
       note=yCoord+1;
-      if(feldarray[xCoord][note][1]==0)
+      if(feldarray[xCoord][note][1]==9)
       {
         note=yCoord-1;
-        if(feldarray[xCoord][note][1]==0)
+        if(feldarray[xCoord][note][1]==9)
         {
           qDebug("hier sollte er nicht sein");
             return false;
@@ -46,22 +46,26 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
   note=xCoord+1;      // Feld neben verbotenen Steinen?
   if((feldarray[note][yCoord][1]!=9)&&(feldarray[note][yCoord][1]!=colour)&&(feldarray[note][yCoord][2]!=symbol))
   {
-    return false;
+        qDebug() << "Zeile 49:" << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << colour << symbol;
+      return false;
   }
   note=xCoord-1;
   if((feldarray[note][yCoord][1]!=9)&&(feldarray[note][yCoord][1]!=colour)&&(feldarray[note][yCoord][2]!=symbol))
   {
-    return false;
+    qDebug() << "Zeile 55:" << feldarray[note][yCoord][1] << feldarray[note][yCoord][2] << colour << symbol;
+      return false;
   }
   note=yCoord+1;
   if((feldarray[xCoord][note][1]!=9)&&(feldarray[xCoord][note][1]!=colour)&&(feldarray[xCoord][note][2]!=symbol))
   {
-    return false;
+    qDebug() << "Zeile 61:" << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << colour << symbol;
+      return false;
   }
   note=yCoord-1;
   if((feldarray[xCoord][note][1]!=9)&&(feldarray[xCoord][note][1]!=colour)&&(feldarray[xCoord][note][2]!=symbol))
   {
-    return false;
+    qDebug() << "Zeile 67:" << feldarray[xCoord][note][1] << feldarray[xCoord][note][2] << colour << symbol;
+      return false;
   }
   note=xCoord+1;
     if(feldarray[note][yCoord][1]==colour)

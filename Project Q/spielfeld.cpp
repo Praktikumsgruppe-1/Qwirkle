@@ -35,6 +35,7 @@
 
 // static Variable initialisieren
 int SteinImFeld = 0;
+int allerersterStein = 0;
 
 
 // Konstruktor
@@ -94,15 +95,25 @@ void Spielfeld::dropEvent(QDropEvent *event)
         /******************************************************************************/
         // Es wird geprüft, liegt hier schon ein Stein und darf hier ein Stein legen
 
-         qDebug()<<"nach dem ersten stein sollte das 1 sein:" << SteinImFeld;
+        qDebug()<<"für den allerersten Stein sollte das 0 sein:" << allerersterStein;
+        qDebug()<<"nach dem ersten stein sollte das 1 sein:" << SteinImFeld;
         // feldarray mit Werten initialisieren
-        if ( undoClass::undoStack.empty() == true )     // wenn noch kein Stein auf das SPielfeld gelegt wurde,
+
+         if ( allerersterStein == 0 )
+         {
+             feldarray[reihe][spalte][0] = 1;
+             feldarray[reihe][spalte][1] = getFarbePixmap(pixmap);
+             feldarray[reihe][spalte][2] = getFormPixmap(pixmap);
+             feldarray[reihe][spalte][3] = 1;
+         }
+
+         if ( undoClass::undoStack.empty() == true )     // wenn noch kein Stein auf das SPielfeld gelegt wurde,
         {                                               // wird der gedroppte Stein als erstgelegter Stein markiert 
             feldarray[reihe][spalte][0] = 1;
             qDebug() << "test++++++++++++++";
         }
 
-        if( SteinImFeld == 0 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
+        if( SteinImFeld == 0 && allerersterStein != 0)                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
         {                                               // wenn noch keit Stein im Feld liegt
             qDebug("anfang_1.stein schleife");
             qDebug() << "Feldarray vor dem Check1: " << feldarray[reihe][spalte][0]<< feldarray[reihe][spalte][1] << feldarray[reihe][spalte][2] << feldarray[reihe][spalte][3] << "Koordinaten:"<< reihe << spalte;
@@ -201,6 +212,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
         qDebug() << "---Stein wurde erstellt";
 
         SteinImFeld++;
+        allerersterStein = 1;
 
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
