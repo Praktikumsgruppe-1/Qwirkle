@@ -255,6 +255,31 @@ void Game::beutelMischen()
     }
 }
 
+bool Game::passcheck(int a)
+{
+  if(a==0)
+  {
+      pass = true;
+  }
+
+  return pass;
+};
+
+int Game::bewegteSteinef()
+{
+    int x, y, bewegteSteine = 0;
+    for( x = 0; x < 108; x++ )
+    {
+        for( y = 0; y < 108; y++ )
+        {
+            if( feldarray[x][y][3] == 1 )
+                bewegteSteine++;
+        }
+    }
+
+    return bewegteSteine;
+};
+
 /*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl
 void Game::endcheck()
 {
@@ -349,7 +374,7 @@ void Game::on_pushButton_7_clicked()
     Punkte *points = new Punkte;
 
     /*********** Punkte berechnen ******************************/
-
+    // hier fehlt dann bei den Punkten noch die Unterscheidung der Spieler
     spielerpunkte = spielerpunkte + points->calc(undoClass::undoReihe.top(),undoClass::undoSpalte.top());
     qDebug("Punkte werden berechnet");
 
@@ -357,7 +382,8 @@ void Game::on_pushButton_7_clicked()
     ui->lcdNumber->display(spielerpunkte);
     ui->lcdNumber->update();
 
-    /***** Spielsteine zählen, die bewegt wurden **************/
+    /*
+    ***** Spielsteine zählen, die bewegt wurden **************
     int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
     for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
     {
@@ -367,12 +393,15 @@ void Game::on_pushButton_7_clicked()
                 bewegteSteine++;
         }
     }
-    // hier fehlt dann bei den Punkten noch die Unterscheidung der Spieler
+    */
+    qDebug() << "Anzahl der bewegten Steine:" << bewegteSteinef();
+
+
 
     //was passiert wenn die Hand nicht mehr komplett aufgefüllt werden kann?
 
     /*************** Spielsteine hinzufügen ***************************/
-    for( int i = 0; i < bewegteSteine; i++ )
+    for( int i = 0; i < bewegteSteinef(); i++ )
     {
         Game* pframe2 = new Game();
         QLabel *newIcon = new QLabel( );
@@ -392,7 +421,7 @@ void Game::on_pushButton_7_clicked()
 
         /***************kurze Prüfung für das Ende, das braucht den undo Stack*********************/
 
-        endcheck();
+        //endcheck();
 
 
         undoClass::undoStack.pop();
@@ -430,7 +459,6 @@ void Game::on_pushButton_7_clicked()
 
     SteinImFeld = 0;
     qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
-    qDebug() << "*****************************Zugende**********************************";
 
     for( int i = 0; i < 6; i++ )
     {
@@ -442,6 +470,8 @@ void Game::on_pushButton_7_clicked()
         //für den Spieler der zuletzt dran war, wird noch spielerpunkte = spielerpunkte + extrapunkte gerechnet
         //gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpunkte4);
     }
+
+    qDebug() << "*****************************Zugende**********************************";
 }
 
 /******************** Netzwerkfunktionen ****************************************************************************/

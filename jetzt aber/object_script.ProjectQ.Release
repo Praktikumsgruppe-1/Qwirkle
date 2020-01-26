@@ -2,7 +2,6 @@ release/benutzerhand.o
 release/chatclient.o
 release/chatserver.o
 release/einstellungen.o
-release/ende.o
 release/game.o
 release/main.o
 release/mainwindow.o

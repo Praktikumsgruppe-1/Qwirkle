@@ -47,8 +47,11 @@ public:
     void endcheck();
     bool spielende = false;
     int extrapunkte = 0;
-
     //gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpunkte4);   ist halt noch die frage wie das geregelt ist, wenn es weniger Spieler gibt
+
+    bool pass = false;
+    bool passcheck(int a);
+    int bewegteSteinef();
 
 private slots:
     void on_pushButton_clicked();
