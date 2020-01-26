@@ -22,6 +22,7 @@ SOURCES += \
     chatserver.cpp \
     einstellungen.cpp \
     game.cpp \
+    json.cpp \
     main.cpp \
     mainwindow.cpp \
     punkte.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     chatserver.h \
     einstellungen.h \
     game.h \
+    json.h \
     mainwindow.h \
     regeln.h \
     punkte.h \
