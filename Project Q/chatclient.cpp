@@ -44,17 +44,9 @@ void ChatClient::sendMessage(const QString &text)
     clientStream << QJsonDocument(message).toJson();
 }
 
-/*void ChatClient::sendTurn(std::vector<Stein> spielzug) {
-    QDataStream clientStream(m_clientSocket);
-    clientStream.setVersion(QDataStream::Qt_5_7);
-    QJsonArray obj = Turn::steineToJson(spielzug);
-    clientStream << QJsonDocument(obj);
-} */
 
 void ChatClient::sendTurn(QJsonArray &array)
 {
-  //  if (array.isEmpty())
-  //      return;
     QDataStream clientStream(m_clientSocket);
     clientStream.setVersion(QDataStream::Qt_5_7);
     QJsonObject turn;
@@ -73,7 +65,7 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
     const QJsonValue typeVal = docObj.value(QLatin1String("type"));
     if (typeVal.isNull() || !typeVal.isString())
         return;
-    if (typeVal.toString().compare(QLatin1String("login"), Qt::CaseInsensitive) == 0) {//login message
+    if (typeVal.toString().compare(QLatin1String("login"), Qt::CaseInsensitive) == 0) {
         if (m_loggedIn)
             return;
         const QJsonValue resultVal = docObj.value(QLatin1String("success"));
@@ -94,8 +86,16 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         if (senderVal.isNull() || !senderVal.isString())
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
-    } else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
-
+    //TODO: lokale variablen anpassen
+    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {
+        const QJsonValue textVal = docObj.value(QLatin1String("array"));
+        const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
+        if (textVal.isNull() || !textVal.isString())
+            return;
+        if (senderVal.isNull() || !senderVal.isString())
+            return;
+        emit messageReceived(senderVal.toString(), textVal.toString());
+   } else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
         const QJsonValue usernameVal = docObj.value(QLatin1String("username"));
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
@@ -105,8 +105,16 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
         emit userLeft(usernameVal.toString());
+    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {       // setzte feld auf clients nach !!!
+        const QJsonValue textVal = docObj.value(QLatin1String("text"));
+        const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
+        if (textVal.isNull() || !textVal.isString())
+            return;
+        if (senderVal.isNull() || !senderVal.isString())
+            return;
+        emit messageReceived(senderVal.toString(), textVal.toString());
+
     }
-    //TODO: Aktualisierung der lokalen Variablen: feldarray, beutel, Status
 
 }
 
