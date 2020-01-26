@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Game_t {
-    QByteArrayData data[19];
-    char stringdata0[271];
+    QByteArrayData data[20];
+    char stringdata0[296];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,28 +39,30 @@ QT_MOC_LITERAL(3, 28, 23), // "on_pushButton_2_clicked"
 QT_MOC_LITERAL(4, 52, 23), // "on_pushButton_6_clicked"
 QT_MOC_LITERAL(5, 76, 15), // "scrollToHCenter"
 QT_MOC_LITERAL(6, 92, 15), // "scrollToVCenter"
-QT_MOC_LITERAL(7, 108, 15), // "messageReceived"
-QT_MOC_LITERAL(8, 124, 6), // "sender"
-QT_MOC_LITERAL(9, 131, 4), // "text"
-QT_MOC_LITERAL(10, 136, 11), // "sendMessage"
-QT_MOC_LITERAL(11, 148, 22), // "disconnectedFromServer"
-QT_MOC_LITERAL(12, 171, 5), // "error"
-QT_MOC_LITERAL(13, 177, 28), // "QAbstractSocket::SocketError"
-QT_MOC_LITERAL(14, 206, 11), // "socketError"
-QT_MOC_LITERAL(15, 218, 10), // "userJoined"
-QT_MOC_LITERAL(16, 229, 8), // "username"
-QT_MOC_LITERAL(17, 238, 8), // "userLeft"
-QT_MOC_LITERAL(18, 247, 23) // "on_pushButton_7_clicked"
+QT_MOC_LITERAL(7, 108, 23), // "on_pushButton_7_clicked"
+QT_MOC_LITERAL(8, 132, 24), // "on_einstellungen_clicked"
+QT_MOC_LITERAL(9, 157, 15), // "messageReceived"
+QT_MOC_LITERAL(10, 173, 6), // "sender"
+QT_MOC_LITERAL(11, 180, 4), // "text"
+QT_MOC_LITERAL(12, 185, 11), // "sendMessage"
+QT_MOC_LITERAL(13, 197, 22), // "disconnectedFromServer"
+QT_MOC_LITERAL(14, 220, 5), // "error"
+QT_MOC_LITERAL(15, 226, 28), // "QAbstractSocket::SocketError"
+QT_MOC_LITERAL(16, 255, 11), // "socketError"
+QT_MOC_LITERAL(17, 267, 10), // "userJoined"
+QT_MOC_LITERAL(18, 278, 8), // "username"
+QT_MOC_LITERAL(19, 287, 8) // "userLeft"
 
     },
     "Game\0on_pushButton_clicked\0\0"
     "on_pushButton_2_clicked\0on_pushButton_6_clicked\0"
     "scrollToHCenter\0scrollToVCenter\0"
-    "messageReceived\0sender\0text\0sendMessage\0"
-    "disconnectedFromServer\0error\0"
-    "QAbstractSocket::SocketError\0socketError\0"
-    "userJoined\0username\0userLeft\0"
-    "on_pushButton_7_clicked"
+    "on_pushButton_7_clicked\0"
+    "on_einstellungen_clicked\0messageReceived\0"
+    "sender\0text\0sendMessage\0disconnectedFromServer\0"
+    "error\0QAbstractSocket::SocketError\0"
+    "socketError\0userJoined\0username\0"
+    "userLeft"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +72,7 @@ static const uint qt_meta_data_Game[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -78,18 +80,19 @@ static const uint qt_meta_data_Game[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   74,    2, 0x08 /* Private */,
-       3,    0,   75,    2, 0x08 /* Private */,
-       4,    0,   76,    2, 0x08 /* Private */,
-       5,    2,   77,    2, 0x08 /* Private */,
-       6,    2,   82,    2, 0x08 /* Private */,
-       7,    2,   87,    2, 0x08 /* Private */,
-      10,    0,   92,    2, 0x08 /* Private */,
-      11,    0,   93,    2, 0x08 /* Private */,
-      12,    1,   94,    2, 0x08 /* Private */,
-      15,    1,   97,    2, 0x08 /* Private */,
-      17,    1,  100,    2, 0x08 /* Private */,
-      18,    0,  103,    2, 0x08 /* Private */,
+       1,    0,   79,    2, 0x08 /* Private */,
+       3,    0,   80,    2, 0x08 /* Private */,
+       4,    0,   81,    2, 0x08 /* Private */,
+       5,    2,   82,    2, 0x08 /* Private */,
+       6,    2,   87,    2, 0x08 /* Private */,
+       7,    0,   92,    2, 0x08 /* Private */,
+       8,    0,   93,    2, 0x08 /* Private */,
+       9,    2,   94,    2, 0x08 /* Private */,
+      12,    0,   99,    2, 0x08 /* Private */,
+      13,    0,  100,    2, 0x08 /* Private */,
+      14,    1,  101,    2, 0x08 /* Private */,
+      17,    1,  104,    2, 0x08 /* Private */,
+      19,    1,  107,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -97,13 +100,14 @@ static const uint qt_meta_data_Game[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    2,    2,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    8,    9,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 13,   14,
-    QMetaType::Void, QMetaType::QString,   16,
-    QMetaType::Void, QMetaType::QString,   16,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   10,   11,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 15,   16,
+    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::QString,   18,
 
        0        // eod
 };
@@ -119,19 +123,20 @@ void Game::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 2: _t->on_pushButton_6_clicked(); break;
         case 3: _t->scrollToHCenter((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 4: _t->scrollToVCenter((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 5: _t->messageReceived((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
-        case 6: _t->sendMessage(); break;
-        case 7: _t->disconnectedFromServer(); break;
-        case 8: _t->error((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
-        case 9: _t->userJoined((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 10: _t->userLeft((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 11: _t->on_pushButton_7_clicked(); break;
+        case 5: _t->on_pushButton_7_clicked(); break;
+        case 6: _t->on_einstellungen_clicked(); break;
+        case 7: _t->messageReceived((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
+        case 8: _t->sendMessage(); break;
+        case 9: _t->disconnectedFromServer(); break;
+        case 10: _t->error((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
+        case 11: _t->userJoined((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 12: _t->userLeft((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 8:
+        case 10:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -171,13 +176,13 @@ int Game::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

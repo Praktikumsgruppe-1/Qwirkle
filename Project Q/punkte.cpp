@@ -17,21 +17,21 @@ Punkte::Punkte()
 // Funktion zum Berechnen der Punkte
 int Punkte::calc(int xCoord,int yCoord)                                 //der Funktion werden die x und y Koordinaten gegeben
 {
-  rowcheck=xCoord+1;                                            //es wird einen nach rechts gegangen
-
-  if(feldarray[rowcheck][yCoord][3]==1)                             //er guckt ob der Stein diese Runde gelegt wird
+  rowcheck=xCoord+1;                                                    //es wird einen nach rechts gegangen
+    qDebug() << "Punkteberechnen beginnt mit den Koordinaten:" << rowcheck << xCoord;
+  if(feldarray[rowcheck][yCoord][3]==1)                                 //er guckt ob der Stein diese Runde gelegt wird
   {
-    note=xCoord-1;                                              //er geht von x aus einen nach links
+    note=xCoord-1;                                                      //er geht von x aus einen nach links
     while(feldarray[note][yCoord][1]==feldarray[xCoord][yCoord][1])     //hier wird auf Farbe oder Form verglichen?
     {
-      rowcounter=rowcounter+1;                                  //der zeilenzähler geht eins hoch
-      note=note-1;                                              //man geht einen nach links
+      rowcounter=rowcounter+1;                                          //der zeilenzähler geht eins hoch
+      note=note-1;                                                      //man geht einen nach links
     }
-    note=xCoord+1;                                              //er geht von x aus einen nach rechts
+    note=xCoord+1;                                                      //er geht von x aus einen nach rechts
     while(feldarray[note][yCoord][1]==feldarray[xCoord][yCoord][1])     //solange wie die Farbe/Form gleich ist
     {
-      rowcounter=rowcounter+1;                                  //geht der zähler eins hoch
-      note=note+1;                                              //und einen weiter nach rechts
+      rowcounter=rowcounter+1;                                          //geht der zähler eins hoch
+      note=note+1;                                                      //und einen weiter nach rechts
     }
 
     //hier das ganze wie oben nur mit dem anderen Attribut was verglichen wird
@@ -104,7 +104,7 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
         rowcounter=0;
       }
 
-      //es wird in der Zeile einen weiter nach rechts gegangen, aber was ist mit links???
+      //es wird in der Zeile einen weiter nach rechts gegangen
       rowcheck=rowcheck+1;
     }
 

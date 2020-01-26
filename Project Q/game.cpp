@@ -316,17 +316,10 @@ void Game::on_pushButton_7_clicked()
     Punkte *points = new Punkte;
 
     /*********** Punkte berechnen ******************************/
-    for ( int i = 0; i <108; i++)
-    {
-        for (int j = 0; j <108; j++)
-        {
-            if(feldarray[i][j][3]==1)
-            {
-                spielerpunkte = spielerpunkte + points->calc(i,j);
-                qDebug("Punkte werden berechnet");
-            }
-        }
-    }
+
+    spielerpunkte = spielerpunkte + points->calc(undoClass::undoReihe.top(),undoClass::undoSpalte.top());
+    qDebug("Punkte werden berechnet");
+
     qDebug() << spielerpunkte;
     ui->lcdNumber->display(spielerpunkte);
     ui->lcdNumber->update();
@@ -395,6 +388,8 @@ void Game::on_pushButton_7_clicked()
     }
 
     SteinImFeld = 0;
+    qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
+    qDebug() << "*****************************Zugende**********************************";
 
 }
 

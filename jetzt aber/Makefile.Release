@@ -51,6 +51,7 @@ SOURCES       = "..\Project Q\benutzerhand.cpp" \
 		"..\Project Q\chatclient.cpp" \
 		"..\Project Q\chatserver.cpp" \
 		"..\Project Q\einstellungen.cpp" \
+		"..\Project Q\ende.cpp" \
 		"..\Project Q\game.cpp" \
 		"..\Project Q\main.cpp" \
 		"..\Project Q\mainwindow.cpp" \
@@ -73,6 +74,7 @@ OBJECTS       = release/benutzerhand.o \
 		release/chatclient.o \
 		release/chatserver.o \
 		release/einstellungen.o \
+		release/ende.o \
 		release/game.o \
 		release/main.o \
 		release/mainwindow.o \
@@ -109,6 +111,7 @@ DIST          =  "..\Project Q\benutzerhand.h" \
 		"..\Project Q\chatclient.cpp" \
 		"..\Project Q\chatserver.cpp" \
 		"..\Project Q\einstellungen.cpp" \
+		"..\Project Q\ende.cpp" \
 		"..\Project Q\game.cpp" \
 		"..\Project Q\main.cpp" \
 		"..\Project Q\mainwindow.cpp" \
@@ -138,10 +141,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) ProjectQ.zip $(SOURCES) $(DIST) "..\Project Q\ProjectQ.pro" C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\qdevice.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\device_config.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\sanitize.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\gcc-base.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\g++-base.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\angle.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\windows-vulkan.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\g++-win32.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\windows-desktop.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\qconfig.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_bodymovin_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_charts.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_repparser.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\toolchain.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\default_post.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qml_debug.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qt.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\resources.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\moc.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\uic.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qmake_use.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\file_copies.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\win32\windows.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\yacc.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\lex.prf "..\Project Q\ProjectQ.pro" "..\Project Q\Images.qrc" C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\Qt5Widgets.prl C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\Qt5Gui.prl C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\Qt5Network.prl C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\Qt5Core.prl C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\qtmain.prl   "..\Project Q\Images.qrc" C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\data\dummy.cpp "..\Project Q\benutzerhand.h" "..\Project Q\chatclient.h" "..\Project Q\chatserver.h" "..\Project Q\einstellungen.h" "..\Project Q\game.h" "..\Project Q\mainwindow.h" "..\Project Q\regeln.h" "..\Project Q\punkte.h" "..\Project Q\ruleswindow.h" "..\Project Q\serverworker.h" "..\Project Q\spielfeld.h" "..\Project Q\tauschen.h" "..\Project Q\undo.h"  "..\Project Q\benutzerhand.cpp" "..\Project Q\chatclient.cpp" "..\Project Q\chatserver.cpp" "..\Project Q\einstellungen.cpp" "..\Project Q\game.cpp" "..\Project Q\main.cpp" "..\Project Q\mainwindow.cpp" "..\Project Q\punkte.cpp" "..\Project Q\regeln.cpp" "..\Project Q\ruleswindow.cpp" "..\Project Q\serverworker.cpp" "..\Project Q\spielfeld.cpp" "..\Project Q\tauschen.cpp" "..\Project Q\undo.cpp" "..\Project Q\einstellungen.ui" "..\Project Q\game.ui" "..\Project Q\game.ui" "..\Project Q\mainwindow.ui" "..\Project Q\ruleswindow.ui"    
+	$(ZIP) ProjectQ.zip $(SOURCES) $(DIST) "..\Project Q\ProjectQ.pro" C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\qdevice.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\device_config.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\sanitize.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\gcc-base.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\g++-base.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\angle.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\windows-vulkan.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\g++-win32.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\common\windows-desktop.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\qconfig.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_bodymovin_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_charts.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_datavisualization.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_datavisualization_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_networkauth.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_networkauth_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_purchasing.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_purchasing_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_repparser.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\toolchain.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\default_post.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qml_debug.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qt.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\resources.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\moc.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\uic.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\qmake_use.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\file_copies.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\win32\windows.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\yacc.prf C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\lex.prf "..\Project Q\ProjectQ.pro" "..\Project Q\Images.qrc" C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\Qt5Widgets.prl C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\Qt5Gui.prl C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\Qt5Network.prl C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\Qt5Core.prl C:\Qt\Qt5.13.2\5.13.2\mingw73_32\lib\qtmain.prl   "..\Project Q\Images.qrc" C:\Qt\Qt5.13.2\5.13.2\mingw73_32\mkspecs\features\data\dummy.cpp "..\Project Q\benutzerhand.h" "..\Project Q\chatclient.h" "..\Project Q\chatserver.h" "..\Project Q\einstellungen.h" "..\Project Q\game.h" "..\Project Q\mainwindow.h" "..\Project Q\regeln.h" "..\Project Q\punkte.h" "..\Project Q\ruleswindow.h" "..\Project Q\serverworker.h" "..\Project Q\spielfeld.h" "..\Project Q\tauschen.h" "..\Project Q\undo.h"  "..\Project Q\benutzerhand.cpp" "..\Project Q\chatclient.cpp" "..\Project Q\chatserver.cpp" "..\Project Q\einstellungen.cpp" "..\Project Q\ende.cpp" "..\Project Q\game.cpp" "..\Project Q\main.cpp" "..\Project Q\mainwindow.cpp" "..\Project Q\punkte.cpp" "..\Project Q\regeln.cpp" "..\Project Q\ruleswindow.cpp" "..\Project Q\serverworker.cpp" "..\Project Q\spielfeld.cpp" "..\Project Q\tauschen.cpp" "..\Project Q\undo.cpp" "..\Project Q\einstellungen.ui" "..\Project Q\game.ui" "..\Project Q\game.ui" "..\Project Q\mainwindow.ui" "..\Project Q\ruleswindow.ui"    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\benutzerhand.o release\chatclient.o release\chatserver.o release\einstellungen.o release\game.o release\main.o release\mainwindow.o release\punkte.o release\regeln.o release\ruleswindow.o release\serverworker.o release\spielfeld.o release\tauschen.o release\undo.o release\qrc_Images.o release\moc_chatclient.o release\moc_chatserver.o release\moc_einstellungen.o release\moc_game.o release\moc_mainwindow.o release\moc_ruleswindow.o release\moc_serverworker.o release\moc_undo.o
+	-$(DEL_FILE) release\benutzerhand.o release\chatclient.o release\chatserver.o release\einstellungen.o release\ende.o release\game.o release\main.o release\mainwindow.o release\punkte.o release\regeln.o release\ruleswindow.o release\serverworker.o release\spielfeld.o release\tauschen.o release\undo.o release\qrc_Images.o release\moc_chatclient.o release\moc_chatserver.o release\moc_einstellungen.o release\moc_game.o release\moc_mainwindow.o release\moc_ruleswindow.o release\moc_serverworker.o release\moc_undo.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -1299,11 +1302,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhand.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
+release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QtWidgets \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QtWidgetsDepends \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QtCore \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QtCoreDepends \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig.h \
@@ -1325,15 +1327,11 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmutex.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnumeric.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractanimation.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
@@ -1360,63 +1358,21 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qmatrix.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurlquery.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfile.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
-		../Project\ Q/undo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QUndoCommand \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundostack.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QtWidgets \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QtWidgetsDepends \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QtCore \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QtCoreDepends \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractanimation.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstracteventdispatcher.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qeventloop.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractnativeeventfilter.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractproxymodel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractstate.h \
@@ -1434,6 +1390,8 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatetime.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcborcommon.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurlquery.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/quuid.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcbormap.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcborstream.h \
@@ -1444,10 +1402,13 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconcatenatetablesproxymodel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcryptographichash.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdeadlinetimer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qelapsedtimer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdir.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfileinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfile.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdiriterator.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qeasingcurve.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qendian.h \
@@ -1476,9 +1437,11 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlibrary.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlibraryinfo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversionnumber.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlinkedlist.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlockfile.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qloggingcategory.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmath.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmessageauthenticationcode.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmetaobject.h \
@@ -1498,6 +1461,8 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qqueue.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrandom.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qreadwritelock.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qresource.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsavefile.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qscopedvaluerollback.h \
@@ -1536,16 +1501,39 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtcoreversion.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QtGui \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QtGuiDepends \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qabstracttextdocumentlayout.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextlayout.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qmatrix.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qglyphrun.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrawfont.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontdatabase.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextcursor.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextdocument.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qaccessible.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qaccessiblebridge.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qaccessibleobject.h \
@@ -1558,10 +1546,13 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qsurface.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qsurfaceformat.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbitmap.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qclipboard.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qdesktopservices.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qdrag.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qgenericmatrix.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qgenericplugin.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qgenericpluginfactory.h \
@@ -1640,7 +1631,11 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtexttable.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvalidator.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiversion.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qstyleoption.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractspinbox.h \
@@ -1650,6 +1645,7 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qaccessiblewidget.h \
@@ -1715,6 +1711,7 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qitemeditorfactory.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qkeyeventtransition.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qkeysequenceedit.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlistview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlistwidget.h \
@@ -1765,20 +1762,26 @@ release/benutzerhand.o: ../Project\ Q/benutzerhand.cpp ../Project\ Q/benutzerhan
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtreewidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtreewidgetitemiterator.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundogroup.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundostack.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundoview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwhatsthis.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidgetaction.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwizard.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsversion.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QPushButton \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPicture \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QDrag \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QMimeData \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QMouseEvent \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QRandomGenerator \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QTime
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QTime \
+		../Project\ Q/benutzerhand.h \
+		../Project\ Q/undo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QUndoCommand
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\benutzerhand.o "..\Project Q\benutzerhand.cpp"
 
 release/chatclient.o: ../Project\ Q/chatclient.cpp ../Project\ Q/chatclient.h \
@@ -2077,10 +2080,11 @@ release/einstellungen.o: ../Project\ Q/einstellungen.cpp ../Project\ Q/einstellu
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\einstellungen.o "..\Project Q\einstellungen.cpp"
 
-release/game.o: ../Project\ Q/game.cpp ../Project\ Q/game.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+release/ende.o: ../Project\ Q/ende.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ende.o "..\Project Q\ende.cpp"
+
+release/game.o: ../Project\ Q/game.cpp C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
@@ -2104,63 +2108,66 @@ release/game.o: ../Project\ Q/game.cpp ../Project\ Q/game.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnumeric.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringlist.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlist.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qalgorithms.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiterator.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhashfunctions.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrefcount.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qarraydata.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringliteral.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringalgorithms.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlist.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qalgorithms.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiterator.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhashfunctions.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpair.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvector.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpoint.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringlist.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qregexp.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreevent.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmetatype.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qmatrix.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
@@ -2181,14 +2188,39 @@ release/game.o: ../Project\ Q/game.cpp ../Project\ Q/game.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QHBoxLayout \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qboxlayout.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlayout.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgridlayout.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QStandardItemModel \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QInputDialog \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qinputdialog.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QHostAddress \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qhostaddress.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QScrollBar \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qscrollbar.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractslider.h \
+		../Project\ Q/game.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QScrollArea \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QAbstractSocket \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h \
 		../Project\ Q/ui_game.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QVariant \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
@@ -2198,36 +2230,22 @@ release/game.o: ../Project\ Q/game.cpp ../Project\ Q/game.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qguiapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QHBoxLayout \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLCDNumber \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextcursor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextformat.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpen.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QListView \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlistview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qstyleoption.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractspinbox.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvalidator.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qregularexpression.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qslider.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractslider.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qstyle.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
@@ -2238,7 +2256,6 @@ release/game.o: ../Project\ Q/game.cpp ../Project\ Q/game.h \
 		../Project\ Q/tauschen.h \
 		../Project\ Q/benutzerhand.h \
 		../Project\ Q/spielfeld.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap \
 		../Project\ Q/mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMainWindow \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmainwindow.h \
@@ -2249,7 +2266,6 @@ release/game.o: ../Project\ Q/game.cpp ../Project\ Q/game.h \
 		../Project\ Q/chatserver.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QTcpServer \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtcpserver.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qhostaddress.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QVector \
 		../Project\ Q/serverworker.h \
 		../Project\ Q/ruleswindow.h \
@@ -2259,252 +2275,258 @@ release/game.o: ../Project\ Q/game.cpp ../Project\ Q/game.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QUndoCommand \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundostack.h \
 		../Project\ Q/einstellungen.h \
-		../Project\ Q/ui_einstellungen.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QStandardItemModel \
+		../Project\ Q/ui_einstellungen.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\game.o "..\Project Q\game.cpp"
+
+release/main.o: ../Project\ Q/main.cpp C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtcore-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsysinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlogging.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qflags.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringliteral.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringview.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlist.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qalgorithms.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiterator.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpair.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvector.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringlist.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qregexp.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmetatype.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qmatrix.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurlquery.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfile.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QTime \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatetime.h \
+		../Project\ Q/mainwindow.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QAbstractSocket \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o "..\Project Q\main.cpp"
+
+release/mainwindow.o: ../Project\ Q/mainwindow.cpp C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QStandardItemModel \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qstandarditemmodel.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtcore-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsysinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlogging.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qflags.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlist.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qalgorithms.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiterator.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringliteral.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringview.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpair.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvector.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringlist.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qregexp.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmetatype.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qmatrix.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QInputDialog \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qinputdialog.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurlquery.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfile.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMessageBox \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QHostAddress \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QScrollBar \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qscrollbar.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\game.o "..\Project Q\game.cpp"
-
-release/main.o: ../Project\ Q/main.cpp ../Project\ Q/mainwindow.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMainWindow \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmainwindow.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtcore-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsysinfo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlogging.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qflags.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmutex.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnumeric.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrefcount.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qarraydata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringliteral.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringalgorithms.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringview.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlist.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qalgorithms.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiterator.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpair.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvector.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpoint.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringlist.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qregexp.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreevent.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmetatype.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qmatrix.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurlquery.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfile.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QAbstractSocket \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qhostaddress.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QTime \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatetime.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o "..\Project Q\main.cpp"
-
-release/mainwindow.o: ../Project\ Q/mainwindow.cpp ../Project\ Q/mainwindow.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
+		../Project\ Q/mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMainWindow \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmainwindow.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtcore-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsysinfo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlogging.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qflags.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmutex.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnumeric.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrefcount.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qarraydata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringliteral.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringalgorithms.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringview.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlist.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qalgorithms.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiterator.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpair.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvector.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpoint.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringlist.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qregexp.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreevent.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmetatype.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qmatrix.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurlquery.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfile.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QAbstractSocket \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h \
 		../Project\ Q/ui_mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QVariant \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
@@ -2516,13 +2538,7 @@ release/mainwindow.o: ../Project\ Q/mainwindow.cpp ../Project\ Q/mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qinputmethod.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextcursor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextformat.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpen.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMenuBar \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmenubar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmenu.h \
@@ -2561,7 +2577,6 @@ release/mainwindow.o: ../Project\ Q/mainwindow.cpp ../Project\ Q/mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QListView \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlistview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qstyleoption.h \
@@ -2577,20 +2592,11 @@ release/mainwindow.o: ../Project\ Q/mainwindow.cpp ../Project\ Q/mainwindow.h \
 		../Project\ Q/chatserver.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QTcpServer \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtcpserver.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qhostaddress.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QVector \
 		../Project\ Q/chatclient.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QObject \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QTcpSocket \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtcpsocket.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QStandardItemModel \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qstandarditemmodel.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QInputDialog \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qinputdialog.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdialog.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QMessageBox \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmessagebox.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QHostAddress
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtcpsocket.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o "..\Project Q\mainwindow.cpp"
 
 release/punkte.o: ../Project\ Q/punkte.cpp ../Project\ Q/punkte.h \
@@ -2826,9 +2832,8 @@ release/regeln.o: ../Project\ Q/regeln.cpp ../Project\ Q/regeln.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\regeln.o "..\Project Q\regeln.cpp"
 
-release/ruleswindow.o: ../Project\ Q/ruleswindow.cpp ../Project\ Q/ruleswindow.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
+release/ruleswindow.o: ../Project\ Q/ruleswindow.cpp C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
@@ -2854,12 +2859,10 @@ release/ruleswindow.o: ../Project\ Q/ruleswindow.cpp ../Project\ Q/ruleswindow.h
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
@@ -2886,30 +2889,44 @@ release/ruleswindow.o: ../Project\ Q/ruleswindow.cpp ../Project\ Q/ruleswindow.h
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qmatrix.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgba64.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qbrush.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
@@ -2917,19 +2934,14 @@ release/ruleswindow.o: ../Project\ Q/ruleswindow.cpp ../Project\ Q/ruleswindow.h
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurl.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurlquery.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfile.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
+		../Project\ Q/ruleswindow.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
 		../Project\ Q/ui_ruleswindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QVariant \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
@@ -2939,9 +2951,6 @@ release/ruleswindow.o: ../Project\ Q/ruleswindow.cpp ../Project\ Q/ruleswindow.h
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qguiapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QPushButton \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
@@ -2953,10 +2962,7 @@ release/ruleswindow.o: ../Project\ Q/ruleswindow.cpp ../Project\ Q/ruleswindow.h
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qboxlayout.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlayout.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QGraphicsPixmapItem \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ruleswindow.o "..\Project Q\ruleswindow.cpp"
 
 release/serverworker.o: ../Project\ Q/serverworker.cpp ../Project\ Q/serverworker.h \
@@ -3039,9 +3045,8 @@ release/serverworker.o: ../Project\ Q/serverworker.cpp ../Project\ Q/serverworke
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qjsonobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\serverworker.o "..\Project Q\serverworker.cpp"
 
-release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
+release/spielfeld.o: ../Project\ Q/spielfeld.cpp C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
@@ -3067,22 +3072,20 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qarraydata.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringliteral.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringalgorithms.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlist.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qalgorithms.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiterator.h \
@@ -3100,10 +3103,16 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
@@ -3128,7 +3137,6 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
@@ -3144,30 +3152,11 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap \
-		../Project\ Q/undo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QUndoCommand \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundostack.h \
-		../Project\ Q/regeln.h \
-		../Project\ Q/benutzerhand.h \
-		../Project\ Q/game.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QScrollArea \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qscrollarea.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QAbstractSocket \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qguiapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QPushButton \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
@@ -3177,8 +3166,10 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qboxlayout.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgridlayout.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPicture \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpicture.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QDrag \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qdrag.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QMimeData \
@@ -3418,6 +3409,7 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qrubberband.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qaccessiblewidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qaction.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qactiongroup.h \
@@ -3464,6 +3456,7 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgraphicstransform.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QVector3D \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgroupbox.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qheaderview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qinputdialog.h \
@@ -3483,6 +3476,7 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qmouseeventtransition.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qopenglwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qplaintextedit.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtextedit.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qprogressbar.h \
@@ -3521,20 +3515,30 @@ release/spielfeld.o: ../Project\ Q/spielfeld.cpp ../Project\ Q/spielfeld.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtreewidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtreewidgetitemiterator.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundogroup.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundostack.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundoview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwhatsthis.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidgetaction.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwizard.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsversion.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QGlobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QTime
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QTime \
+		../Project\ Q/spielfeld.h \
+		../Project\ Q/undo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QUndoCommand \
+		../Project\ Q/regeln.h \
+		../Project\ Q/benutzerhand.h \
+		../Project\ Q/game.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QScrollArea \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QAbstractSocket \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\spielfeld.o "..\Project Q\spielfeld.cpp"
 
-release/tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/tauschen.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
+release/tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/ui_game.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QVariant \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qconfig.h \
@@ -3546,38 +3550,29 @@ release/tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/tauschen.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsysinfo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlogging.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qflags.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbasicatomic.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_bootstrap.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qgenericatomic.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_cxx11.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmutex.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnumeric.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qversiontagging.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qbytearray.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qnamespace.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qarraydata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringliteral.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringalgorithms.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringview.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringbuilder.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlist.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qalgorithms.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiterator.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringliteral.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringview.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringbuilder.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpair.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvector.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qpoint.h \
@@ -3585,16 +3580,43 @@ release/tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/tauschen.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringlist.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qregexp.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreevent.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmetatype.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qscopedpointer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmargins.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpaintdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qrect.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsize.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpalette.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcolor.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qrgb.h \
@@ -3604,61 +3626,28 @@ release/tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/tauschen.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpolygon.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qregion.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdatastream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qiodevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qline.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtransform.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainterpath.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qimage.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixelformat.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfont.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qfontinfo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qcursor.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qkeysequence.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qevent.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qvariant.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmap.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qdebug.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qtextstream.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qlocale.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qset.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcontiguouscache.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurl.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qurlquery.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfile.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qfiledevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
-		../Project\ Q/benutzerhand.h \
-		../Project\ Q/game.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QScrollArea \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qscrollarea.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QAbstractSocket \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h \
-		../Project\ Q/undo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QUndoCommand \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundostack.h \
-		../Project\ Q/ui_game.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qguiapplication.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QGridLayout \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qgridlayout.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlayout.h \
@@ -3667,6 +3656,8 @@ release/tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/tauschen.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QHBoxLayout \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLCDNumber \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlcdnumber.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLineEdit \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlineedit.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtextcursor.h \
@@ -3676,6 +3667,7 @@ release/tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/tauschen.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QListView \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlistview.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
@@ -3693,17 +3685,29 @@ release/tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/tauschen.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QPushButton \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QScrollArea \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qscrollarea.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QWidget \
+		../Project\ Q/tauschen.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QDropEvent \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QMimeData \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/qmimedata.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QDrag \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qdrag.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPainter \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainter.h
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qpainter.h \
+		../Project\ Q/benutzerhand.h \
+		../Project\ Q/game.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/QAbstractSocket \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h \
+		../Project\ Q/undo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QUndoCommand \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundostack.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tauschen.o "..\Project Q\tauschen.cpp"
 
-release/undo.o: ../Project\ Q/undo.cpp ../Project\ Q/undo.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
+release/undo.o: ../Project\ Q/undo.cpp C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtguiglobal.h \
@@ -3809,6 +3813,9 @@ release/undo.o: ../Project\ Q/undo.cpp ../Project\ Q/undo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qvector2d.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QFrame \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QTextStream \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QDebug \
+		../Project\ Q/undo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/QUndoCommand \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtWidgets/qundostack.h \
 		../Project\ Q/ui_game.h \
@@ -3866,9 +3873,7 @@ release/undo.o: ../Project\ Q/undo.cpp ../Project\ Q/undo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetworkglobal.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtNetwork/qtnetwork-config.h \
 		../Project\ Q/spielfeld.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QTextStream \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtCore/QDebug
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_32/include/QtGui/QPixmap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\undo.o "..\Project Q\undo.cpp"
 
 release/qrc_Images.o: release/qrc_Images.cpp 
