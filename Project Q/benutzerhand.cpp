@@ -107,8 +107,7 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
     undoClass::undoParent.push( this );
     undoClass::undoCoordOldX.push( child->geometry().x() );
     undoClass::undoCoordOldY.push( child->geometry().y() );
-    undoClass::undoPixmap.push( *(child->pixmap()) );
-    qDebug() << "mousepressEvent" << getFormPixmap( *(child->pixmap()) ) << getFarbePixmap( *(child->pixmap()) );
+    undoClass::undoPixmap.push( pixmap );
 
 
     if (drag->exec(Qt::MoveAction) == Qt::MoveAction)

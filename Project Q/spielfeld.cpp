@@ -122,13 +122,10 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
                 /***** Undo Stack updaten ***************************************/
-                //undoClass::undoStack.pop();
                 undoClass::undoParent.pop();
                 undoClass::undoCoordOldX.pop();
                 undoClass::undoCoordOldY.pop();
                 undoClass::undoPixmap.pop();
-                //undoClass::undoReihe.pop();
-                //undoClass::undoSpalte.pop();
 
                 feldarray[reihe][spalte][0] = 0;
                 feldarray[reihe][spalte][1] = 9;
@@ -161,18 +158,19 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 newIcon->setAttribute(Qt::WA_DeleteOnClose);
                 
                 /***** Undo Stack updaten ***************************************/
-                //undoClass::undoStack.pop();
                 undoClass::undoParent.pop();
                 undoClass::undoCoordOldX.pop();
                 undoClass::undoCoordOldY.pop();
                 undoClass::undoPixmap.pop();
-                //undoClass::undoReihe.pop();
-                //undoClass::undoSpalte.pop();
 
-                feldarray[reihe][spalte][0] = 0;
-                feldarray[reihe][spalte][1] = 9;
-                feldarray[reihe][spalte][2] = 9;
-                feldarray[reihe][spalte][3] = 0;
+                if( this->childAt( 10, 10 ) == nullptr )
+                {
+                    feldarray[reihe][spalte][0] = 0;
+                    feldarray[reihe][spalte][1] = 9;
+                    feldarray[reihe][spalte][2] = 9;
+                    feldarray[reihe][spalte][3] = 0;
+                }
+
 
                 pframe->update();
                 qDebug() << "---Stein darf nicht abgelegt werden---" << "undo Stack size:" << undoClass::undoStack.size() ;

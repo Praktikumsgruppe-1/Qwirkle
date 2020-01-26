@@ -31,5 +31,5 @@ protected:
     friend class Game;
 };
 
-extern int SteinImFeld;
+extern int SteinImFeld;             // erster Stein der Zugrunde, wäre = 0
 #endif // SPIELFELD_H

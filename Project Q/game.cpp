@@ -381,12 +381,16 @@ void Game::on_pushButton_7_clicked()
         qDebug("Punkte werden berechnet");
 
         qDebug() << spielerpunkte;
-        ui->lcdNumber->display(spielerpunkte);
-        ui->lcdNumber->update();
+
     }
 
-    /*
-    ***** Spielsteine zählen, die bewegt wurden **************
+    if( bewegteSteinef() == 1 )
+        spielerpunkte++;
+
+    ui->lcdNumber->display(spielerpunkte);
+    ui->lcdNumber->update();
+
+    /****** Spielsteine zählen, die bewegt wurden **************
     int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
     for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
     {
