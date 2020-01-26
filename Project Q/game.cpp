@@ -422,6 +422,7 @@ void Game::on_pushButton_7_clicked()
     qDebug()<< "allerersterStein:" << allerersterStein;
 
     if( bewegteSteinef() == 1 && spielerpunkte == 0 )
+    {
         spielerpunkte++;
     }
     qDebug()<< "die neuen Spielerpunkte:" << spielerpunkte;
