@@ -399,12 +399,8 @@ void Game::on_pushButton_7_clicked()
     */
     qDebug() << "Anzahl der bewegten Steine:" << bewegteSteinef();
 
-
-
-    //was passiert wenn die Hand nicht mehr komplett aufgefüllt werden kann?
-
     /*************** Spielsteine hinzufügen ***************************/
-    for( int i = 0; i < bewegteSteinef(); i++ )
+    for( int i = 0; i < bewegteSteinef() && !Game::beutelStackForm.empty(); i++ )
     {
         Game* pframe2 = new Game();
         QLabel *newIcon = new QLabel( );
