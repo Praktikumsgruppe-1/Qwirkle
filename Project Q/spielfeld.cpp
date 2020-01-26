@@ -141,9 +141,6 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
         qDebug() << "Feldarray vor dem Check: " << feldarray[reihe][spalte][0]<< feldarray[reihe][spalte][1] << feldarray[reihe][spalte][2] << feldarray[reihe][spalte][3] << "Koordinaten:"<< reihe << spalte;
 
-        /********************************************************************************/
-        // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
-
         if( SteinImFeld > 0 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
         {                                               // wenn noch keit Stein im Feld liegt
             qDebug("anfang_2.stein schleife");
@@ -176,6 +173,9 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 return;
             }
         }
+
+        /********************************************************************************/
+        // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
 
         /**** neuen Stein erstellen, der in dem Spielfeld dargestellt wird **************/
 
