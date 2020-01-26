@@ -18,7 +18,7 @@
 
 
 // static Variable initialisieren
-std::vector< int >Tauschen::getauschteSteine;
+std::vector< QFrame* >Tauschen::getauschteSteine;
 
 
 // Konstruktor
@@ -37,8 +37,12 @@ void Tauschen::SteinTauschen(){
     bool istGleich = false;                     // ist false, solange wie er noch nicht getauscht wurde
     for( int x = 0; x < 6 && !Tauschen::getauschteSteine.empty() ; x++ )
     {
-        if ( Tauschen::getauschteSteine[ x ] == undoClass::undoCoordOldX.top() )
+        if ( Tauschen::getauschteSteine[ x ] == undoClass::undoParent.top() )
+        {
             istGleich = true;
+            //qDebug() << "Stein Tauschen --------" << Tauschen::getauschteSteine[ x ] << undoClass::undoCoordOldY.top();
+        }
+
     }
 
     // wenn der Stein von einem Feld stammt, wo noch nicht getauscht wurde:
@@ -58,7 +62,6 @@ void Tauschen::SteinTauschen(){
         Game::beutelStackKopie.pop_back();
 
         /******* alten Stein in Beutel pushen **********************************/
-
         int farbe = getFormPixmap( undoClass::undoPixmap.top() );
         int form = getFarbePixmap( undoClass::undoPixmap.top() );
 
@@ -82,7 +85,7 @@ void Tauschen::SteinTauschen(){
         /****** Updates ************************************************/
         Game::beutelMischen();
 
-        Tauschen::getauschteSteine.push_back( undoClass::undoCoordOldX.top() );
+        Tauschen::getauschteSteine.push_back( undoClass::undoParent.top() );
 
         undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
@@ -96,11 +99,27 @@ void Tauschen::SteinTauschen(){
         QLabel *labelFenster = new QLabel();
         QHBoxLayout *layoutFenster = new QHBoxLayout();
 
+        errorFenster->setMinimumSize( 500, 100 );
         labelFenster->setText("Error. Du hast den Stein schonmal getauft.");
         layoutFenster->addWidget( labelFenster );
         errorFenster->setLayout( layoutFenster );
 
         errorFenster->show();
+
+        /****** Stein wieder auf Benutzehand legen ************************/
+        QLabel *newIcon = new QLabel( );
+        newIcon->setParent( undoClass::undoParent.top() );
+        newIcon->setPixmap( undoClass::undoPixmap.top() );
+        newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+        newIcon->show();
+        newIcon->setAttribute(Qt::WA_DeleteOnClose);
+
+        /****** Updates ************************************************/
+        undoClass::undoParent.pop();
+        undoClass::undoCoordOldX.pop();
+        undoClass::undoCoordOldY.pop();
+        undoClass::undoPixmap.pop();
+
     }
 }
 
