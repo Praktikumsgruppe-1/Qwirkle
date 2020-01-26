@@ -125,14 +125,14 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 /*** neuen Stein erstellen, der dargestellt wird in der Benutzerhand ***/
 
                 Game* pframe = new Game();
-                /*QLabel *newIcon = new QLabel( );
-
+                /*
+                QLabel *newIcon = new QLabel( );
                 newIcon->setParent( undoClass::undoParent.top() );
                 newIcon->setPixmap( pixmap );
                 newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
                 newIcon->show();
-
-                newIcon->setAttribute(Qt::WA_DeleteOnClose);*/
+                newIcon->setAttribute(Qt::WA_DeleteOnClose);
+                */
 
                 /***** Undo Stack updaten ***************************************/
                 undoClass::undoParent.pop();

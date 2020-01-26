@@ -15,6 +15,8 @@
 #include <QMessageBox>
 #include <QHostAddress>
 #include <QScrollBar>
+#include <QJsonArray>
+#include <QJsonObject>
 
 #include "game.h"
 #include "ui_game.h"
@@ -282,12 +284,21 @@ int Game::bewegteSteinef()
     return bewegteSteine;
 };
 
-
-void Game::arrayaktualisieren()
+void Game::arrayauslesen(QJsonArray)
 {
+   int dummyarray[4];
+   int anzahlSteine = QJsonArray().size();
 
-}
+   for (int i = 0; i < anzahlSteine; i++)
+   {
+      dummyarray[0] = QJsonArray().at(i).toArray()[0].toInt();
+      dummyarray[1] = QJsonArray().at(i).toArray()[1].toInt();
+      dummyarray[2] = QJsonArray().at(i).toArray()[2].toInt();
+      dummyarray[3] = QJsonArray().at(i).toArray()[3].toInt();
 
+      feldarrayAktualisieren(dummyarray);
+   }
+};
 
 void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
 {
