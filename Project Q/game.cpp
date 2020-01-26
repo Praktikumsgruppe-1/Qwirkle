@@ -256,6 +256,10 @@ void Game::beutelMischen()
     }
 }
 
+extern int endcheck(int pass, int hand)
+{
+    int hand = ;
+};
 
 /********** Slotfunktione ***************************************************************************/
 
