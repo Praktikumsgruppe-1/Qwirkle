@@ -49,6 +49,9 @@ void Tauschen::SteinTauschen(){
     // bzw. (Tauschen ist erlaubt)
     if( istGleich == false && !Game::beutelStackForm.empty() )
     {
+        qDebug() << "Anfang Tauschen: alter Stein  " << getFormPixmap( undoClass::undoPixmap.top() ) << getFarbePixmap( undoClass::undoPixmap.top() );
+        qDebug() << "Anfang Tauschen: neuer Stein  " << Game::beutelStackFarbe.back() << Game::beutelStackFarbe.back();
+
         /*** erstelle ein neuen Stein auf der Benutzerhand aus dem Beutel ***/
         QLabel *newIcon = new QLabel( );
         newIcon->setParent( undoClass::undoParent.top() );
@@ -92,9 +95,15 @@ void Tauschen::SteinTauschen(){
         undoClass::undoCoordOldX.pop();
         undoClass::undoCoordOldY.pop();
         undoClass::undoPixmap.pop();
+
+        //qDebug() << "Ende Tauschen: alter Stein  " << getFormPixmap( undoClass::undoPixmap.top() ) << getFarbePixmap( undoClass::undoPixmap.top() );
+        //qDebug() << "Ende Tauschen: neuer Stein  " << Game::beutelStackFarbe.back() << Game::beutelStackFarbe.back();
     }
     else            // Tauschen ist nicht erlaubt
     {
+
+        qDebug() << "Anfang Nicht Tauschen: " << getFormPixmap( undoClass::undoPixmap.top() ) << getFarbePixmap( undoClass::undoPixmap.top() );
+
         /****** Error Fenster anzeigen **********************************/
         QWidget *errorFenster = new QWidget();
         QLabel *labelFenster = new QLabel();
