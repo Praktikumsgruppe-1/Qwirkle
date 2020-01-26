@@ -53,7 +53,7 @@ public:
     bool passcheck(int a);
     int bewegteSteinef();
 
-    void arrayaktualisieren();
+    void arrayauslesen(QJsonArray);
 
 private slots:
     void on_pushButton_clicked();
