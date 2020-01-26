@@ -45,8 +45,9 @@ void Tauschen::SteinTauschen(){
 
     }
 
-    // wenn der Stein von einem Feld stammt, wo noch nicht getauscht wurde:
-    if( istGleich == false )
+    // wenn der Stein von einem Feld stammt, wo noch nicht getauscht wurde wird folgendes ausgefuehrt:
+    // bzw. (Tauschen ist erlaubt)
+    if( istGleich == false && !Game::beutelStackForm.empty() )
     {
         /*** erstelle ein neuen Stein auf der Benutzerhand aus dem Beutel ***/
         QLabel *newIcon = new QLabel( );
@@ -92,7 +93,7 @@ void Tauschen::SteinTauschen(){
         undoClass::undoCoordOldY.pop();
         undoClass::undoPixmap.pop();
     }
-    else
+    else            // Tauschen ist nicht erlaubt
     {
         /****** Error Fenster anzeigen **********************************/
         QWidget *errorFenster = new QWidget();
