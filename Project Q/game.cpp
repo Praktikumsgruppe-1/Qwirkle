@@ -264,16 +264,23 @@ bool Game::passcheck(int a)
 
   return pass;
 };
-
+// TODO: Steine ermitteln
 int Game::bewegteSteinef()
 {
+    int farbeStein;
+    int formStein;
+    Turn spielzug;
     int x, y, bewegteSteine = 0;
     for( x = 0; x < 108; x++ )
     {
         for( y = 0; y < 108; y++ )
         {
-            if( feldarray[x][y][3] == 1 )
+            if( feldarray[x][y][3] == 1 ){
+                farbeStein = feldarray[x][y][1];
+                formStein = feldarray[x][y][2];
+                spielzug.addStein(x, y, farbeStein, formStein);
                 bewegteSteine++;
+            }
         }
     }
 

@@ -29,7 +29,9 @@ SOURCES += \
     ruleswindow.cpp \
     serverworker.cpp \
     spielfeld.cpp \
+    stein.cpp \
     tauschen.cpp \
+    turn.cpp \
     undo.cpp
 
 HEADERS += \
@@ -44,7 +46,9 @@ HEADERS += \
     ruleswindow.h \
     serverworker.h \
     spielfeld.h \
+    stein.h \
     tauschen.h \
+    turn.h \
     undo.h
 
 FORMS += \
