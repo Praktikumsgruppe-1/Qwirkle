@@ -426,15 +426,19 @@ void Game::on_pushButton_7_clicked()
     // hier fehlt dann bei den Punkten noch die Unterscheidung der Spieler
     if(passcheck(bewegteSteinef())==false)
     {
+        qDebug()<< "die alten Spielerpunkte:" << spielerpunkte;
         spielerpunkte = spielerpunkte + points->calc(undoClass::undoReihe.top(),undoClass::undoSpalte.top());
         qDebug("Punkte werden berechnet");
-
-        qDebug() << spielerpunkte;
-
     }
 
-    if( bewegteSteinef() == 1 )
+
+    qDebug()<< "allerersterStein:" << allerersterStein;
+
+    if( bewegteSteinef() == 1 && spielerpunkte == 0 )
+    {
         spielerpunkte++;
+    }
+    qDebug()<< "die neuen Spielerpunkte:" << spielerpunkte;
 
     ui->lcdNumber->display(spielerpunkte);
     ui->lcdNumber->update();
@@ -448,6 +452,8 @@ void Game::on_pushButton_7_clicked()
         Game* pframe2 = new Game();
         QLabel *newIcon = new QLabel( );
 
+        //newIcon->setParent( ui->hand );
+        qDebug() << undoClass::undoParent.top() ;
         newIcon->setParent( undoClass::undoParent.top() );
         newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ) );
         newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
@@ -516,7 +522,7 @@ void Game::on_pushButton_7_clicked()
     SteinImFeld = 0;
     qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
 
-    for( int i = 0; i < 6; i++ )
+    while( !Tauschen::getauschteSteine.empty() )
     {
         Tauschen::getauschteSteine.pop_back();
     }
