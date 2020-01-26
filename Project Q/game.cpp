@@ -15,6 +15,7 @@
 #include <QMessageBox>
 #include <QHostAddress>
 #include <QScrollBar>
+#include <QJsonArray>
 
 #include "game.h"
 #include "ui_game.h"
@@ -39,6 +40,7 @@ int feldarray [108][108][5];
 std::vector< int > Game::beutelStackFarbe;
 std::vector< int > Game::beutelStackForm;
 std::vector< int > Game::beutelStackKopie;
+Turn spielzug;
 
 /****************** Konstruktor *******************************************************************/
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
@@ -269,7 +271,7 @@ int Game::bewegteSteinef()
 {
     int farbeStein;
     int formStein;
-    Turn spielzug;
+
     int x, y, bewegteSteine = 0;
     for( x = 0; x < 108; x++ )
     {
