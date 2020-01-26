@@ -102,6 +102,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
             qDebug() << "test++++++++++++++";
         }
 
+
         if( SteinImFeld == 0 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
         {                                               // wenn noch keit Stein im Feld liegt
             qDebug("anfang_1.stein schleife");

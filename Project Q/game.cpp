@@ -390,17 +390,7 @@ void Game::on_pushButton_7_clicked()
     ui->lcdNumber->display(spielerpunkte);
     ui->lcdNumber->update();
 
-    /****** Spielsteine zählen, die bewegt wurden **************
-    int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
-    for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
-    {
-        for( yKoordSchleife = 0; yKoordSchleife < 108; yKoordSchleife++ )
-        {
-            if( feldarray[xKoordSchleife][yKoordSchleife][3] == 1 )
-                bewegteSteine++;
-        }
-    }
-    */
+
     qDebug() << "Anzahl der bewegten Steine:" << bewegteSteinef();
 
     /*************** Spielsteine hinzufügen ***************************/
