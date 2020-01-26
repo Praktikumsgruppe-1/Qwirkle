@@ -8,6 +8,7 @@
 #include <QTimer>
 #include <QDebug>
 #include <QJsonArray>
+#include "game.h"
 
 ChatClient::ChatClient(QObject *parent)
     : QObject(parent)
@@ -139,7 +140,7 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         emit messageReceived(senderVal.toString(), textVal.toString());
     } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {
         const QJsonValue textVal = docObj.value(QLatin1String("array"));
-        textVal.toArray();
+        Game::arrayauslesen(textVal.toArray());
         /*QJsonArray array = docObj["array"];
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (textVal.isNull() || !textVal.isString())
@@ -148,6 +149,15 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
 */
+    } else if (typeVal.toString().compare(QLatin1String("form"), Qt::CaseInsensitive) == 0) {
+                const QJsonValue textVal = docObj.value(QLatin1String("array"));
+                Game::formAktualisieren(textVal.toArray());
+    } else if (typeVal.toString().compare(QLatin1String("farbe"), Qt::CaseInsensitive) == 0) {
+                const QJsonValue textVal = docObj.value(QLatin1String("array"));
+                Game::farbeAktualisieren(textVal.toArray());
+    } else if (typeVal.toString().compare(QLatin1String("kopie"), Qt::CaseInsensitive) == 0) {
+                const QJsonValue textVal = docObj.value(QLatin1String("array"));
+                Game::kopieAktualisieren(textVal.toArray());
    } else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
         const QJsonValue usernameVal = docObj.value(QLatin1String("username"));
         if (usernameVal.isNull() || !usernameVal.isString())

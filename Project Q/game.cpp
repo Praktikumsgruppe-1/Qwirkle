@@ -34,13 +34,15 @@
 #include "mainwindow.h"
 #include "einstellungen.h"
 #include "spielfeld.h"
-
+#include "turn.h"
+#include "json.h"
 
 // static Variablen initialisieren
 int feldarray [108][108][5];
 std::vector< int > Game::beutelStackFarbe;
 std::vector< int > Game::beutelStackForm;
 std::vector< int > Game::beutelStackKopie;
+//Turn spielzug;
 
 /****************** Konstruktor *******************************************************************/
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
@@ -269,17 +271,28 @@ bool Game::passcheck(int a)
 };
 
 
+
+
 int Game::bewegteSteinef()
 {
+    int farbeStein;
+    int formStein;
+    Turn spielzug;
     int x, y, bewegteSteine = 0;
     for( x = 0; x < 108; x++ )
     {
         for( y = 0; y < 108; y++ )
         {
-            if( feldarray[x][y][3] == 1 )
+            if( feldarray[x][y][3] == 1 ){
+                farbeStein = feldarray[x][y][1];
+                formStein = feldarray[x][y][2];
+                spielzug.addStein(x, y, farbeStein, formStein);
                 bewegteSteine++;
+            }
         }
     }
+    QJsonArray turn = spielzug.steineToJson();
+    m_chatClient->sendTurn(turn);
 
     return bewegteSteine;
 };
@@ -440,10 +453,12 @@ void Game::on_pushButton_7_clicked()
         QLabel *newIcon = new QLabel( );
 
         //newIcon->setParent( ui->hand );
-        qDebug() << undoClass::undoParent.top() ;
-        newIcon->setParent( undoClass::undoParent.top() );
+        //qDebug() << undoClass::undoParent.top() ;
+        if(undoClass::undoParent.empty()== false)
+            newIcon->setParent( undoClass::undoParent.top() );
         newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ) );
-        newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+        if ((undoClass::undoCoordOldX.empty() == false) && (undoClass::undoCoordOldY.empty() == false))
+            newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -464,7 +479,9 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoCoordOldY.pop();
         undoClass::undoReihe.pop();
         undoClass::undoSpalte.pop();
-        undoClass::undoPixmap.pop();
+        if( !undoClass::undoPixmap.empty() )
+            undoClass::undoPixmap.pop();                                  // hier stürzt er ab, wenn man einen richtigen zug macht
+                                                                      // dann richtige steine legt, dann einen falschen und dann abgeben will
 
     }
 
@@ -495,6 +512,17 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
+    //Beutel als Json speichern und versenden
+    QJsonArray form = json::toJson(beutelStackForm);
+    m_chatClient->sendForm(form);
+    QJsonArray farbe = json::toJson(beutelStackFarbe);
+    m_chatClient->sendFarbe(farbe);
+    QJsonArray kopie = json::toJson(beutelStackKopie);
+    m_chatClient->sendKopie(kopie);
+
+    //TODO: Spielerstatus deaktivieren
+    //ChatClient::sendMessage();
+
     SteinImFeld = 0;
     qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
 
@@ -502,6 +530,11 @@ void Game::on_pushButton_7_clicked()
     {
         Tauschen::getauschteSteine.pop_back();
     }
+    QJsonArray array = { 1, 2, 2.3 ,QString("test")};
+            m_chatClient->sendTurn(array);
+            QString point = QString::number(spielerpunkte);
+            m_chatClient->sendPoints(point);
+            m_chatClient->nextPlayer();
 
     if(spielende==true)
     {
