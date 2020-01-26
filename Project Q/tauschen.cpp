@@ -1,7 +1,8 @@
-#include "tauschen.h"
-#include "benutzerhand.h"
-#include "game.h"
-#include "undo.h"
+/**********************************************************************/
+// Datei: tauschen.cpp
+// Die Klasse Tauschen enthaelt eine Funktion zum Tauschen und die
+// Moeglichkeit des droppens auf dem Tauschen Feld
+/**********************************************************************/
 
 #include "ui_game.h"
 #include <QDropEvent>
@@ -10,49 +11,55 @@
 #include <QPainter>
 #include <QHBoxLayout>
 
+#include "tauschen.h"
+#include "benutzerhand.h"
+#include "game.h"
+#include "undo.h"
+
+
+// static Variable initialisieren
 std::vector< int >Tauschen::getauschteSteine;
 
-// Konstruktor der Klasse Tauschen
+
+// Konstruktor
 Tauschen::Tauschen(QWidget *parent)
     : QFrame(parent)
 {
     setAcceptDrops(true);
 }
 
+
 // Es wird ein Stein getauscht, indem der fallengelassene Stein gelöscht und ein neuer
 // Stein erstellt wird
 void Tauschen::SteinTauschen(){
-    bool istGleich = false;
+
+    //es wird geprueft ob der zu tauschende Stein von einem Feld stammt wo schon mal getauscht wurde
+    bool istGleich = false;                     // ist false, solange wie er noch nicht getauscht wurde
     for( int x = 0; x < 6 && !Tauschen::getauschteSteine.empty() ; x++ )
     {
         if ( Tauschen::getauschteSteine[ x ] == undoClass::undoCoordOldX.top() )
             istGleich = true;
     }
 
+    // wenn der Stein von einem Feld stammt, wo noch nicht getauscht wurde:
     if( istGleich == false )
     {
+        /*** erstelle ein neuen Stein auf der Benutzerhand aus dem Beutel ***/
         QLabel *newIcon = new QLabel( );
-
-        int atest = Game::beutelStackFarbe.back();
-        int btest = Game::beutelStackForm.back();
-
         newIcon->setParent( undoClass::undoParent.top() );
-        newIcon->setPixmap( getPixmap( atest, btest ));
+        newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ));
         newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-        //pgame->updateFrames();
-
+        /******* Beutel um einen Stein erleichtern *****************************/
         Game::beutelStackForm.pop_back();
         Game::beutelStackFarbe.pop_back();
         Game::beutelStackKopie.pop_back();
 
-        int form = getFormPixmap( undoClass::undoPixmap.top() );
-        int farbe = getFarbePixmap( undoClass::undoPixmap.top() );
-
-        Game::beutelStackForm.push_back( form );
-        Game::beutelStackFarbe.push_back( farbe );
+        /******* alten Stein in Beutel pushen **********************************/
+        Game::beutelStackForm.push_back( getFormPixmap( undoClass::undoPixmap.top() ) );
+        Game::beutelStackFarbe.push_back( getFarbePixmap( undoClass::undoPixmap.top() );
 
         // freie Kopie herausfinden
         for( int i = 0; i < 108; i++ )
@@ -68,6 +75,7 @@ void Tauschen::SteinTauschen(){
             }
         }
 
+        /****** Updates ************************************************/
         Game::beutelMischen();
 
         Tauschen::getauschteSteine.push_back( undoClass::undoCoordOldX.top() );
@@ -79,6 +87,7 @@ void Tauschen::SteinTauschen(){
     }
     else
     {
+        /****** Error Fenster anzeigen **********************************/
         QWidget *errorFenster = new QWidget();
         QLabel *labelFenster = new QLabel();
         QHBoxLayout *layoutFenster = new QHBoxLayout();
@@ -90,6 +99,7 @@ void Tauschen::SteinTauschen(){
         errorFenster->show();
     }
 }
+
 
 // Das DragEnterEvent der Klasse Tauschen
 void Tauschen::dragEnterEvent(QDragEnterEvent *event){
@@ -104,6 +114,7 @@ void Tauschen::dragEnterEvent(QDragEnterEvent *event){
         event->ignore();
     }
 }
+
 
 // Das Drop Event der Klasse Tauschen
 void Tauschen::dropEvent(QDropEvent *event)

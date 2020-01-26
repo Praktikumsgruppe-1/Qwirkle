@@ -1,8 +1,9 @@
-#include "spielfeld.h"
-#include "undo.h"
-#include "regeln.h"
-#include "benutzerhand.h"
-#include "game.h"
+/**********************************************************************/
+// Datei: spielfeld.h
+// Die Klasse Spielfeld enthaelt ein QFrame, mit dem die einzelnen Felder
+// auf dem Spielfeld erstellt werden, die mit Drop Funktion ausgestattet
+// sind.))
+/**********************************************************************/
 
 #include <QApplication>
 #include <QLabel>
@@ -21,15 +22,21 @@
 #include <time.h>
 #include <QRandomGenerator>
 #include <QtWidgets>
-
 #include <qglobal.h>
 #include <QTime>
 
+#include "spielfeld.h"
+#include "undo.h"
+#include "regeln.h"
+#include "benutzerhand.h"
+#include "game.h"
+
+
+// static Variable initialisieren
 int SteinImFeld = 0;
 
-// Spielfeld ist die Klasse für ein drag widget, aber ohne das darin Steine mit drin sind, beim aufrufen
-// es ist das normale Spielfeld, aber noch nicht mit den festen Punkten
 
+// Konstruktor
 Spielfeld::Spielfeld(QWidget *parent, int spalteX, int reiheY )
     : QFrame(parent), reihe( reiheY ), spalte( spalteX )
 {
@@ -40,6 +47,21 @@ Spielfeld::Spielfeld(QWidget *parent, int spalteX, int reiheY )
     setAcceptDrops(true);
 }
 
+
+// setzt das feldArray, welches in game.h als extern definiert wurde, auf Werte
+// die als nicht definiert gelten sollen
+void Spielfeld::feldArrayZuruecksetzen( )
+{
+    feldarray[spalte][reihe][0] = 0;
+    feldarray[spalte][reihe][1] = 9;
+    feldarray[spalte][reihe][2] = 9;
+    feldarray[spalte][reihe][3] = 0;
+}
+
+
+/***************** Drop Funktionen ********************************************/
+
+// dragEnterEvent
 void Spielfeld::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
@@ -54,14 +76,8 @@ void Spielfeld::dragEnterEvent(QDragEnterEvent *event)
     }
 }
 
-void Spielfeld::feldArrayZuruecksetzen( )
-{
-    feldarray[spalte][reihe][0] = 0;
-    feldarray[spalte][reihe][1] = 9;
-    feldarray[spalte][reihe][2] = 9;
-    feldarray[spalte][reihe][3] = 0;
-}
 
+// dropEvent, welches den Stein in das Spielfeld setzt und einige Werte zuordnet
 void Spielfeld::dropEvent(QDropEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
@@ -74,11 +90,10 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
         Regeln *pRegeln = new Regeln();
 
+        /******************************************************************************/
         // Es wird geprüft, liegt hier schon ein Stein und darf hier ein Stein legen
-        // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
-        /************************************************************************************************************************************/
 
-        // prüfen ob allererster Stein
+        // prüfen ob der gedroppte Stein der allererste Stein ist
         int i, j;
         if(SteinImFeld == 0)
         {
@@ -94,10 +109,11 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 }
             }
         }
+
          qDebug()<<"nach dem ersten stein sollte das 1 sein:" << SteinImFeld;
         // feldarray mit Werten initialisieren
-        if ( undoClass::undoStack.empty() == true )
-        {
+        if ( undoClass::undoStack.empty() == true )     // wenn noch kein Stein auf das SPielfeld gelegt wurde,
+        {                                               // wird der gedroppte Stein als erstgelegter Stein markiert
             feldarray[reihe][spalte][0] = 1;
             qDebug() << "test++++++++++++++";
         }
@@ -107,15 +123,18 @@ void Spielfeld::dropEvent(QDropEvent *event)
 
         qDebug() << "Feldarray vor dem Check: " << feldarray[reihe][spalte][0]<< feldarray[reihe][spalte][1] << feldarray[reihe][spalte][2] << feldarray[reihe][spalte][3] << "Koordinaten:"<< reihe << spalte;
 
-        if( SteinImFeld == 1 )
-        {
-                            qDebug("anfang_2.stein schleife");
-            // soll ausgeführt werden, wenn er nicht gelegt werden darf
-            if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check2( reihe, spalte, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+        /********************************************************************************/
+        // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
 
+        if( SteinImFeld == 1 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
+        {                                               // wenn noch keit Stein im Feld liegt
+            qDebug("anfang_2.stein schleife");
+            // soll ausgeführt werden, wenn er nicht gelegt werden darf oder bereits ein Stein drinnen liegt
+            if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check2( reihe, spalte, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
             {
                 qDebug("falsch_schleife");
                 qDebug() << "Daten der falsch_Schleife" << reihe << spalte << getFarbePixmap(pixmap) << getFormPixmap(pixmap);
+                /*** neuen Stein erstellen, der dargestellt wird in der Benutzerhand ***/
                 Game* pframe = new Game();
                 QLabel *newIcon = new QLabel( );
 
@@ -125,7 +144,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 newIcon->show();
                 newIcon->setAttribute(Qt::WA_DeleteOnClose);
                 
-                /*****Stack updaten***********************************/
+                /***** Undo Stack updaten ***************************************/
                 undoClass::undoStack.pop();
                 undoClass::undoParent.pop();
                 undoClass::undoCoordOldX.pop();
@@ -140,13 +159,15 @@ void Spielfeld::dropEvent(QDropEvent *event)
             }
         }
 
+        /**** neuen Stein erstellen, der in dem Spielfeld dargestellt wird **************/
+
         QLabel *newIcon = new QLabel(this);
         newIcon->setPixmap(pixmap);
         newIcon->move( 0, 0 );
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-        undoClass::undoStack.push( newIcon );
+        undoClass::undoStack.push( newIcon );               // Werte in den undoStack tun
         undoClass::undoReihe.push( reihe );
         undoClass::undoSpalte.push( spalte );
 

@@ -1,3 +1,8 @@
+/**********************************************************************/
+// Datei: ruleswindow.h
+// Die Klasse rulesWindow enthaelt ein QWidget um ein neues Fenster bei
+// Bedarf zu oeffnen, wo die Regeln dargestellt werden.
+/**********************************************************************/
 #ifndef RULESWINDOW_H
 #define RULESWINDOW_H
 

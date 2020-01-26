@@ -1,8 +1,13 @@
-#include "mainwindow.h"
+/**********************************************************************/
+// Datei: main.h
+// Die main Funktion startet die Anwendung.
+/**********************************************************************/
 
 #include <QApplication>
 #include <qglobal.h>
 #include <QTime>
+
+#include "mainwindow.h"
 
 
 int main(int argc, char *argv[])

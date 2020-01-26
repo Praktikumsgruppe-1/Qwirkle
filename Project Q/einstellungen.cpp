@@ -1,10 +1,12 @@
 /**********************************************************************/
-// Datei: Einstellungen.cpp
+// Datei: einstellungen.cpp
 // Die Klasse Einstellungen, beinhaltet die Inhalte für das Widget-Fenster
 // Einstellungen, wo später noch Einstelungsmöglichkeiten hinkommen.
 /**********************************************************************/
+
 #include "einstellungen.h"
 #include "ui_einstellungen.h"
+
 #include  <QLabel>
 #include <QHBoxLayout>
 

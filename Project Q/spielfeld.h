@@ -1,9 +1,14 @@
+/**********************************************************************/
+// Datei: spielfeld.h
+// Die Klasse Spielfeld enthaelt ein QFrame, mit dem die einzelnen Felder
+// auf dem Spielfeld erstellt werden, die mit Drop Funktion ausgestattet
+// sind.))
+/**********************************************************************/
 #ifndef SPIELFELD_H
 #define SPIELFELD_H
 
 #include <QFrame>
 #include <QPixmap>
-//#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 class QDragEnterEvent;

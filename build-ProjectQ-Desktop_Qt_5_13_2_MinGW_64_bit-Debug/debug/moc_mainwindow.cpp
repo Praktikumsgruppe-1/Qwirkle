@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../jetzt aber/mainwindow.h"
+#include "../../Project Q/mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -35,32 +35,32 @@ static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 21), // "on_pushButton_clicked"
 QT_MOC_LITERAL(2, 33, 0), // ""
-QT_MOC_LITERAL(3, 34, 17), // "toggleStartServer"
-QT_MOC_LITERAL(4, 52, 10), // "logMessage"
-QT_MOC_LITERAL(5, 63, 3), // "msg"
-QT_MOC_LITERAL(6, 67, 17), // "attemptConnection"
-QT_MOC_LITERAL(7, 85, 17), // "connectedToServer"
-QT_MOC_LITERAL(8, 103, 12), // "attemptLogin"
-QT_MOC_LITERAL(9, 116, 8), // "userName"
-QT_MOC_LITERAL(10, 125, 8), // "loggedIn"
-QT_MOC_LITERAL(11, 134, 11), // "loginFailed"
-QT_MOC_LITERAL(12, 146, 6), // "reason"
-QT_MOC_LITERAL(13, 153, 22), // "disconnectedFromServer"
-QT_MOC_LITERAL(14, 176, 5), // "error"
-QT_MOC_LITERAL(15, 182, 28), // "QAbstractSocket::SocketError"
-QT_MOC_LITERAL(16, 211, 11), // "socketError"
-QT_MOC_LITERAL(17, 223, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(18, 247, 26) // "on_startStopButton_clicked"
+QT_MOC_LITERAL(3, 34, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(4, 58, 26), // "on_startStopButton_clicked"
+QT_MOC_LITERAL(5, 85, 17), // "toggleStartServer"
+QT_MOC_LITERAL(6, 103, 10), // "logMessage"
+QT_MOC_LITERAL(7, 114, 3), // "msg"
+QT_MOC_LITERAL(8, 118, 17), // "attemptConnection"
+QT_MOC_LITERAL(9, 136, 17), // "connectedToServer"
+QT_MOC_LITERAL(10, 154, 12), // "attemptLogin"
+QT_MOC_LITERAL(11, 167, 8), // "userName"
+QT_MOC_LITERAL(12, 176, 8), // "loggedIn"
+QT_MOC_LITERAL(13, 185, 11), // "loginFailed"
+QT_MOC_LITERAL(14, 197, 6), // "reason"
+QT_MOC_LITERAL(15, 204, 22), // "disconnectedFromServer"
+QT_MOC_LITERAL(16, 227, 5), // "error"
+QT_MOC_LITERAL(17, 233, 28), // "QAbstractSocket::SocketError"
+QT_MOC_LITERAL(18, 262, 11) // "socketError"
 
     },
     "MainWindow\0on_pushButton_clicked\0\0"
-    "toggleStartServer\0logMessage\0msg\0"
-    "attemptConnection\0connectedToServer\0"
-    "attemptLogin\0userName\0loggedIn\0"
-    "loginFailed\0reason\0disconnectedFromServer\0"
-    "error\0QAbstractSocket::SocketError\0"
-    "socketError\0on_pushButton_3_clicked\0"
-    "on_startStopButton_clicked"
+    "on_pushButton_3_clicked\0"
+    "on_startStopButton_clicked\0toggleStartServer\0"
+    "logMessage\0msg\0attemptConnection\0"
+    "connectedToServer\0attemptLogin\0userName\0"
+    "loggedIn\0loginFailed\0reason\0"
+    "disconnectedFromServer\0error\0"
+    "QAbstractSocket::SocketError\0socketError"
 };
 #undef QT_MOC_LITERAL
 
@@ -80,30 +80,30 @@ static const uint qt_meta_data_MainWindow[] = {
  // slots: name, argc, parameters, tag, flags
        1,    0,   74,    2, 0x08 /* Private */,
        3,    0,   75,    2, 0x08 /* Private */,
-       4,    1,   76,    2, 0x08 /* Private */,
-       6,    0,   79,    2, 0x08 /* Private */,
-       7,    0,   80,    2, 0x08 /* Private */,
-       8,    1,   81,    2, 0x08 /* Private */,
-      10,    0,   84,    2, 0x08 /* Private */,
-      11,    1,   85,    2, 0x08 /* Private */,
-      13,    0,   88,    2, 0x08 /* Private */,
-      14,    1,   89,    2, 0x08 /* Private */,
-      17,    0,   92,    2, 0x08 /* Private */,
-      18,    0,   93,    2, 0x08 /* Private */,
+       4,    0,   76,    2, 0x08 /* Private */,
+       5,    0,   77,    2, 0x08 /* Private */,
+       6,    1,   78,    2, 0x08 /* Private */,
+       8,    0,   81,    2, 0x08 /* Private */,
+       9,    0,   82,    2, 0x08 /* Private */,
+      10,    1,   83,    2, 0x08 /* Private */,
+      12,    0,   86,    2, 0x08 /* Private */,
+      13,    1,   87,    2, 0x08 /* Private */,
+      15,    0,   90,    2, 0x08 /* Private */,
+      16,    1,   91,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    9,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   12,
-    QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 15,   16,
+    QMetaType::Void, QMetaType::QString,    7,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   11,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   14,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 17,   18,
 
        0        // eod
 };
@@ -115,22 +115,22 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_pushButton_clicked(); break;
-        case 1: _t->toggleStartServer(); break;
-        case 2: _t->logMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 3: _t->attemptConnection(); break;
-        case 4: _t->connectedToServer(); break;
-        case 5: _t->attemptLogin((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 6: _t->loggedIn(); break;
-        case 7: _t->loginFailed((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 8: _t->disconnectedFromServer(); break;
-        case 9: _t->error((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
-        case 10: _t->on_pushButton_3_clicked(); break;
+        case 1: _t->on_pushButton_3_clicked(); break;
+        case 3: _t->toggleStartServer(); break;
+        case 4: _t->logMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 5: _t->attemptConnection(); break;
+        case 6: _t->connectedToServer(); break;
+        case 7: _t->attemptLogin((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 8: _t->loggedIn(); break;
+        case 9: _t->loginFailed((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 10: _t->disconnectedFromServer(); break;
+        case 11: _t->error((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 9:
+        case 11:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:

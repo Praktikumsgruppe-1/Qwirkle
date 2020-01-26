@@ -1,21 +1,21 @@
+/**********************************************************************/
+// Datei: regeln.cpp
+// Die Klasse Regeln enthaelt Funktionen zum ueberpruefen ob ein Stein
+// an den gewuenschten Platz gelegt werden darf.
+/**********************************************************************/
 #include "regeln.h"
 #include "game.h"
 #include "spielfeld.h"
-//#include <studio.h>
 
+
+// Konstruktor
 Regeln::Regeln()
 {
     checkcounter = 0;
-    /*feldarray[23][55][1]=2;
-    feldarray[23][55][2]=6;
-    check(24,55,2,7);
-    check(25,55,2,4);
-    check(26,55,2,3);
-    check(26,54,2,1);
-    */
 }
 
-//Regelprüfung für 1. Stein
+
+// Regelprüfung für 1. Stein:
 // gibt true zurück, wenn man den Stein dort ablegen darf
 bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
             qDebug("1. stein regeln");
@@ -155,7 +155,8 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
     return true;
 }
 
-// Regeln ab dem 2. Stein
+
+// Regelfunktion ab dem 2. Stein
 bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
 {
             qDebug("2. stein regeln");
@@ -382,6 +383,8 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
     qDebug() << "Werte nach den regeln in den regeln" << feldarray[xCoord][yCoord][0] << colour << symbol  << feldarray[xCoord][yCoord][3];
     return true;
 }
+
+
 
 bool Regeln::check(int xCoord, int yCoord, int colour, int symbol)
 {

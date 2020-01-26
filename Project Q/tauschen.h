@@ -1,3 +1,8 @@
+/**********************************************************************/
+// Datei: tauschen.h
+// Die Klasse Tauschen enthaelt eine Funktion zum Tauschen und die
+// Moeglichkeit des droppens auf dem Tauschen Feld
+/**********************************************************************/
 #ifndef TAUSCHEN_H
 #define TAUSCHEN_H
 
@@ -12,6 +17,7 @@ public:
     void SteinTauschen();
 
     static std::vector< int >getauschteSteine;
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
     void dropEvent(QDropEvent *event) override;

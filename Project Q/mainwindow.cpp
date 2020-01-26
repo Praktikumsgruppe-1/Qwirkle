@@ -1,15 +1,26 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "game.h"
-#include "ui_game.h"
+/**********************************************************************/
+// Datei: mainwindow.cpp
+// Die Klasse MainWindow enthält das Fenster welches als allersrstes
+// geöffnet wird. Die Klasse stellt auch die Verbindung zwischen Client
+// und Server her.
+/**********************************************************************/
 
-#include "chatserver.h"
-#include "chatclient.h"
 #include <QStandardItemModel>
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QHostAddress>
 
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "game.h"
+#include "ui_game.h"
+#include "chatserver.h"
+#include "chatclient.h"
+
+
+/************ Memberfunktionen ************************************************************/
+
+// Konstruktor
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -28,10 +39,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->connectButton, &QPushButton::clicked, this, &MainWindow::attemptConnection);
 }
 
+
+// Destruktor
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
+/*************************** Slotfunktionen ************************************************/
 
 
 void MainWindow::on_pushButton_clicked()
@@ -39,11 +55,16 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
+
+// öffnet das neue Fenster in dem das Spiel stattfindet
 void MainWindow::on_pushButton_3_clicked()
 {
     Game *pGame = new Game( nullptr, this );
     pGame->show();
 }
+
+
+/************************* Netzwerkunftionen ************************************************/
 
 ChatServer* MainWindow::getServerAdress(){
     return m_chatServer;

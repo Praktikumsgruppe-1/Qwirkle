@@ -1,12 +1,20 @@
+/**********************************************************************/
+// Datei: punkte.cpp
+// Die Klasse Punkte enthält eine Funktion zum Berechnen der Punkte nach
+// Beendigung der und eigenen Zugrunde und mehrere Variablen, die dafür
+// nötig sind.
+/**********************************************************************/
 #include "punkte.h"
 #include "game.h"
 
+// Konstruktor
 Punkte::Punkte()
 {
 
 }
 
 
+// Funktion zum Berechnen der Punkte
 int Punkte::calc(int xCoord,int yCoord)                                 //der Funktion werden die x und y Koordinaten gegeben
 {
   rowcheck=xCoord+1;                                            //es wird einen nach rechts gegangen

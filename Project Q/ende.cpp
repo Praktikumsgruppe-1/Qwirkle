@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <algorithm>
 using namespace std;
 int hand; // Anzahl der Handsteine des letzten spielers
@@ -44,3 +44,4 @@ int * winner(int player1, int player2, int player3, int player4){
   sort(ergebnis, ergebnis+4);
   return ergebnis;
 }
+*/

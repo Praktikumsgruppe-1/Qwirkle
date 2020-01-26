@@ -1,3 +1,8 @@
+/**********************************************************************/
+// Datei: undo.h
+// Die Klasse undoClass enthalet mehrere Stacks zum Managen der undo
+// Funktion sowie eine Funktion die den Zug rueckgaengig macht
+/**********************************************************************/
 #ifndef UNDO_H
 #define UNDO_H
 
@@ -5,9 +10,6 @@
 #include <QLabel>
 #include <QFrame>
 #include <QUndoCommand>
-
-//class Benutzerhand : QFrame{};
-// Eine Klasse für die Verwaltung/ Funktionalität der Buttons
 
 class undoClass : QFrame
 {
@@ -17,9 +19,9 @@ public:
     ~undoClass();
 
 private:
-    static std::stack< QLabel* > undoStack;      // Stack mit Zeiger auf den Spielstein, der bewegt wird
-    static std::stack< int > undoCoordOldX;            // Stack mit Koordinaten auf die ursprüngliche Position, bevor der Stein bewegt wird
-    static std::stack< int > undoCoordOldY;            // Stack mit Koordinaten auf die ursprüngliche Position, bevor der Stein bewegt wird
+    static std::stack< QLabel* > undoStack;             // Stack mit Zeiger auf den Spielstein, der bewegt wird
+    static std::stack< int > undoCoordOldX;             // Stack mit Koordinaten auf die ursprüngliche Position, bevor der Stein bewegt wird
+    static std::stack< int > undoCoordOldY;             // Stack mit Koordinaten auf die ursprüngliche Position, bevor der Stein bewegt wird
     static std::stack< QFrame* > undoParent;
     static std::stack< QPixmap > undoPixmap;
     static std::stack< int > undoReihe;
@@ -31,7 +33,7 @@ private:
     friend class Game;
 
 public slots:
-    void undoMove();                                // macht eine Bewegung eines Spielsteins rückgängig
+    void undoMove();                                    // macht eine Bewegung eines Spielsteins rückgängig
 };
 
 #endif // UNDOMOVE_H

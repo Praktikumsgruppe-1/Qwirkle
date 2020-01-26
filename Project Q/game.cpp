@@ -1,3 +1,20 @@
+/**********************************************************************/
+// Datei: game.cpp
+// Die Klasse Game beinhaltet das QWidget um das Fenster zu öffnen, wo
+// das Spiel stattfindet. Es enthält auch die Variablen und Funktion
+// zum Managen des Beutels und einige Funktionen zum Senden und Erhalten
+// von Chatnachrichten. Sowie ein feldarray, in dem die Spielsteine, die
+// auf das Feld gelegt werden, abgespeichert werden.
+/**********************************************************************/
+
+#include <QPixmap>
+#include <QFrame>
+#include <QHBoxLayout>
+#include <QStandardItemModel>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QHostAddress>
+#include <QScrollBar>
 
 #include "game.h"
 #include "ui_game.h"
@@ -16,19 +33,15 @@
 #include "einstellungen.h"
 #include "spielfeld.h"
 
-#include <QPixmap>
-#include <QFrame>
-#include <QHBoxLayout>
-#include <QStandardItemModel>
-#include <QInputDialog>
-#include <QMessageBox>
-#include <QHostAddress>
-#include <QScrollBar>
 
-
+// static Variablen initialisieren
 int feldarray [108][108][5];
-//bool beutel [6][6][3];
+std::vector< int > Game::beutelStackFarbe;
+std::vector< int > Game::beutelStackForm;
+std::vector< int > Game::beutelStackKopie;
 
+
+/****************** Konstruktor *******************************************************************/
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     QWidget(parent)
     , ui(new Ui::Game)
@@ -36,7 +49,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->setupUi(this);
     setMinimumSize(1510,805);
 
-    //versuche das Fenster dynamisch größenanpassbar zu machen
+    // Hauptfenster des Spiels aufbauen
     QVBoxLayout *fenster = new QVBoxLayout(this);
     QFrame *unten = new QFrame;
     QHBoxLayout *lunten = new QHBoxLayout(unten);
@@ -55,12 +68,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lcdNumber->display(spielerpunkte);
     ui->lcdNumber->update();
 
-    /****************************************************************************/
-
-    //Versuch das Hintergrundbild schöner zu machen
     ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::Highlight);
-
-    // Spielfeld 108 x 108 wird aufgebaut und die kleinen Spielfelder eingefügt
 
     ui->scrollArea->setMinimumSize(20,20);
     ui->scrollArea->setMaximumSize(4000,4000);
@@ -69,6 +77,8 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     QObject::connect(ui->scrollArea->verticalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(scrollToVCenter(int,int)));
     QObject::connect(ui->scrollArea->horizontalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(scrollToHCenter(int,int)));
 
+    /*********************************************************************/
+    // Spielfeld 108 x 108 wird aufgebaut und die kleinen Spielfelder eingefügt
 
     for ( int i = 0; i < 108; i++ )
 
@@ -85,8 +95,9 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->scrollAreaWidgetContents->setLayout( ui->lfeld );
     ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
 
-    /*************Beutel erstellen***************************************/
+    /************* Beutel erstellen ***************************************/
     // folgendes nur ausführen, wenn es noch nie ausgeführt wurde
+
     if( Game::beutelStackForm.empty() )
     {
         // alle möglichen werte werden in die Beutel geschrieben
@@ -102,11 +113,10 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
                 }
             }
         }
-
-        // Beutelinhalt zufällig hineintuen
+        // Beutel mischen
         Game::beutelMischen();
 
-        /********feldarray wird mit den Startwerten zum Spielbeginn initialisiert***************/
+        /*** feldarray wird mit den Startwerten zum Spielbeginn initialisiert ***/
         for ( int i = 0; i < 108; i++ )
         {
             for ( int j = 0; j < 108; j++)
@@ -120,12 +130,9 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
         }
     }
 
-    /****************Benutzerhand initialisieren**************************************/
+    /**************** Benutzerhand initialisieren ******************************/
 
-    int a = Game::beutelStackFarbe.back();
-    int b = Game::beutelStackForm.back();
-
-    Benutzerhand *icon1 = new Benutzerhand(ui->hand, a, b);
+    Benutzerhand *icon1 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back());
     ui->lhand->addWidget(icon1);
     Game::beutelStackForm.pop_back();
     Game::beutelStackFarbe.pop_back();
@@ -161,8 +168,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     Game::beutelStackFarbe.pop_back();
     Game::beutelStackKopie.pop_back();
 
-     /****************************************************************************/
-    // Netzwerkaufbau
+     /************* Netzwerkaufbau *************************************************************/
 
     if ( beforeWindow != nullptr ){
         m_chatServer = beforeWindow->getServerAdress();
@@ -183,6 +189,10 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 
 }
 
+
+/**************** Funktionen *********************************************************************/
+
+// Destruktor
 Game::~Game()
 {
     delete ui;
@@ -195,16 +205,6 @@ Game::~Game()
 
 }
 
-void Game::on_pushButton_clicked()
-{
-    close();
-}
-
-void Game::on_pushButton_2_clicked()
-{
-    rulesWindow *pRules = new rulesWindow;
-    pRules->show();
-}
 
 // aktualisiert alle Frames in dem ui des Games
 void Game::updateFrames()
@@ -213,11 +213,68 @@ void Game::updateFrames()
     ui->hand->update();
 }
 
+
+// gibt einen Zeiger auf das ui zurück
 Ui::Game* Game::getUi()
 {
     return Game::ui;
 }
 
+
+// mischt den Beutel
+void Game::beutelMischen()
+{
+    std::vector< int > neuerBeutelStackFarbe;
+    std::vector< int > neuerBeutelStackForm;
+    std::vector< int > neuerBeutelStackKopie;
+
+    int a = 0;
+
+    // einem neuem Beutel die Sachen zufällig übergeben
+    while( !Game::beutelStackFarbe.empty() )
+    {
+        a = randInt( 0, Game::beutelStackFarbe.size() - 1 );
+        neuerBeutelStackFarbe.push_back( Game::beutelStackFarbe[a] );
+        neuerBeutelStackForm.push_back( Game::beutelStackForm[a] );
+        neuerBeutelStackKopie.push_back( Game::beutelStackKopie[a] );
+
+        Game::beutelStackForm.erase( Game::beutelStackForm.begin() + a - 1 );
+        Game::beutelStackFarbe.erase( Game::beutelStackFarbe.begin() + a - 1 );
+        Game::beutelStackKopie.erase( Game::beutelStackKopie.begin() + a - 1 );
+    }
+
+    // neuen Beutel in alten Stack kopieren
+    while( !neuerBeutelStackForm.empty() )
+    {
+        Game::beutelStackForm.push_back( neuerBeutelStackForm.back() );
+        Game::beutelStackFarbe.push_back( neuerBeutelStackFarbe.back() );
+        Game::beutelStackKopie.push_back( neuerBeutelStackKopie.back() );
+
+        neuerBeutelStackForm.pop_back();
+        neuerBeutelStackFarbe.pop_back();
+        neuerBeutelStackKopie.pop_back();
+    }
+}
+
+
+/********** Slotfunktione ***************************************************************************/
+
+// Beendet das Fenster
+void Game::on_pushButton_clicked()
+{
+    close();
+}
+
+
+// oeffnet das Fenster mit den Regeln
+void Game::on_pushButton_2_clicked()
+{
+    rulesWindow *pRules = new rulesWindow;
+    pRules->show();
+}
+
+
+// macht einen Zug rückgängig
 void Game::on_pushButton_6_clicked()
 {
     undoClass uC;
@@ -225,11 +282,13 @@ void Game::on_pushButton_6_clicked()
 }
 
 
+// oeffnet das Fenster mit den Einstellungen
 void Game::on_einstellungen_clicked()
 {
     Einstellungen* pEinst = new Einstellungen();
     pEinst->show();
 }
+
 
 // scrollt zur horizontalen Mitte des Spielfeldes
 void Game::scrollToHCenter(int min, int max)
@@ -240,6 +299,7 @@ void Game::scrollToHCenter(int min, int max)
     scrollBarHMax = max;
 }
 
+
 // scrollt zur vertikalen Mitte des Spielfeldes
 void Game::scrollToVCenter(int min, int max)
 {
@@ -249,11 +309,13 @@ void Game::scrollToVCenter(int min, int max)
     scrollBarVMax = max;
 }
 
+
 // Abgabefunktion zum Rundenende
 void Game::on_pushButton_7_clicked()
 {
     Punkte *points = new Punkte;
 
+    /*********** Punkte berechnen ******************************/
     for ( int i = 0; i <108; i++)
     {
         for (int j = 0; j <108; j++)
@@ -269,7 +331,7 @@ void Game::on_pushButton_7_clicked()
     ui->lcdNumber->display(spielerpunkte);
     ui->lcdNumber->update();
 
-    // Spielsteine zählen, die bewegt wurden
+    /***** Spielsteine zählen, die bewegt wurden **************/
     int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
     for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
     {
@@ -280,7 +342,7 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
-    /***************Spielsteine hinzufügen***************************/
+    /*************** Spielsteine hinzufügen ***************************/
     for( int i = 0; i < bewegteSteine; i++ )
     {
         Game* pframe2 = new Game();
@@ -299,7 +361,7 @@ void Game::on_pushButton_7_clicked()
         Game::beutelStackFarbe.pop_back();
         Game::beutelStackKopie.pop_back();
 
-        undoClass::undoStack.pop();                     // Undo Stack um eine UndoMove Objekt kleiner machen
+        undoClass::undoStack.pop();
         undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
         undoClass::undoCoordOldY.pop();
@@ -308,7 +370,7 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoPixmap.pop();
     }
 
-    /*************undo Funktion zurücksetzen*******************************/
+    /************* undo Funktion zurücksetzen *****************************/
     while( undoClass::undoStack.empty() == false )
     {
         undoClass::undoStack.pop();
@@ -320,7 +382,7 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoPixmap.pop();
     }
 
-    /************feldarray aktualisieren**************************************/
+    /************ feldarray aktualisieren *********************************/
     int i, j;
     for ( i = 0; i < 108; i++ )
     {
@@ -336,48 +398,9 @@ void Game::on_pushButton_7_clicked()
 
 }
 
-std::vector< int > Game::beutelStackFarbe;
-std::vector< int > Game::beutelStackForm;
-std::vector< int > Game::beutelStackKopie;
+/******************** Netzwerkfunktionen ****************************************************************************/
 
-
-void Game::beutelMischen()
-{
-    std::vector< int > neuerBeutelStackFarbe;
-    std::vector< int > neuerBeutelStackForm;
-    std::vector< int > neuerBeutelStackKopie;
-
-    int a = 0;
-
-    // neuem Beutel die Sachen zufällig übergeben
-    while( !Game::beutelStackFarbe.empty() )
-    {
-        a = randInt( 0, Game::beutelStackFarbe.size() - 1 );
-        neuerBeutelStackFarbe.push_back( Game::beutelStackFarbe[a] );
-        neuerBeutelStackForm.push_back( Game::beutelStackForm[a] );
-        neuerBeutelStackKopie.push_back( Game::beutelStackKopie[a] );
-
-        Game::beutelStackForm.erase( Game::beutelStackForm.begin() + a - 1 );
-        Game::beutelStackFarbe.erase( Game::beutelStackFarbe.begin() + a - 1 );
-        Game::beutelStackKopie.erase( Game::beutelStackKopie.begin() + a - 1 );
-    }
-
-    // in alten Stack kopieren
-    while( !neuerBeutelStackForm.empty() )
-    {
-        Game::beutelStackForm.push_back( neuerBeutelStackForm.back() );
-        Game::beutelStackFarbe.push_back( neuerBeutelStackFarbe.back() );
-        Game::beutelStackKopie.push_back( neuerBeutelStackKopie.back() );
-
-        neuerBeutelStackForm.pop_back();
-        neuerBeutelStackFarbe.pop_back();
-        neuerBeutelStackKopie.pop_back();
-    }
-}
-
-/************************************************************************************************/
-// Netzwerkfunktionen
-
+// eine Chatnachricht wird gesendet
 void Game::sendMessage()
 {
     m_chatClient->sendMessage(ui->messageEdit->text());
@@ -390,6 +413,8 @@ void Game::sendMessage()
     m_lastUserName.clear();
 }
 
+
+// eine Chatnachricht wurde empfangen
 void Game::messageReceived(const QString &sender, const QString &text)
 {
     int newRow = m_chatModel->rowCount();
@@ -410,6 +435,8 @@ void Game::messageReceived(const QString &sender, const QString &text)
     getUi()->chatView->scrollToBottom();
 }
 
+
+// Verbindung zum Server ist abgebrochen
 void Game::disconnectedFromServer()
 {
     QMessageBox::warning(this, tr("Disconnected"), tr("The host terminated the connection"));
@@ -417,6 +444,8 @@ void Game::disconnectedFromServer()
     m_lastUserName.clear();
 }
 
+
+// ein Benutzer ist dem Server dazugetreten
 void Game::userJoined(const QString &username)
 {
     const int newRow = m_chatModel->rowCount();
@@ -427,6 +456,9 @@ void Game::userJoined(const QString &username)
     ui->chatView->scrollToBottom();
     m_lastUserName.clear();
 }
+
+
+// ein Benutzer hat die Verbindung unterbrochen
 void Game::userLeft(const QString &username)
 {
     const int newRow = m_chatModel->rowCount();
@@ -438,6 +470,8 @@ void Game::userLeft(const QString &username)
     m_lastUserName.clear();
 }
 
+
+// Errormeldungen
 void Game::error(QAbstractSocket::SocketError socketError)
 {
     switch (socketError) {

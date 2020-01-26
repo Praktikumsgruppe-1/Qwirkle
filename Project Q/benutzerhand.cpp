@@ -1,5 +1,9 @@
-#include "benutzerhand.h"
-#include "undo.h"
+/**********************************************************************/
+// Datei: benutzerhand.cpp
+// Die Klasse Benutzerhand beinhaltet das QFrame, welches die kleinen
+// Spielsteine auf der Benutzerhand darstellt und die Drag and Drop
+// Funktionen enthält um sie zu bewegen
+/**********************************************************************/
 
 #include <QtWidgets>
 #include <QApplication>
@@ -18,11 +22,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <QRandomGenerator>
-
-
 #include <qglobal.h>
 #include <QTime>
 
+#include "benutzerhand.h"
+#include "undo.h"
+
+
+// Konstruktor
 Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
     : QFrame(parent)
 {
@@ -37,6 +44,9 @@ Benutzerhand::Benutzerhand(QWidget *parent, int a, int b)
     stein1Icon->show();
     stein1Icon->setAttribute(Qt::WA_DeleteOnClose);
 }
+
+
+/*********** Drag and Drop Funktionen *************************************************/
 
 void Benutzerhand::dragEnterEvent(QDragEnterEvent *event)
 {
@@ -108,6 +118,8 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
     }
 }
 
+/************ Funktionen ************************************************************/
+
 //die extern definierte Funktion zum randomizen der Stein_Zahlen für das Benutzerhand
 extern int randInt(int low, int high)
 {
@@ -115,6 +127,8 @@ extern int randInt(int low, int high)
     return qrand() % ((high + 1) - low) + low;
 }
 
+
+// liefert ein Pixmap zu zwei Indizes zurück
 extern QPixmap getPixmap( int a, int b )
 {
     QPixmap blau_eckig (QPixmap(":/images/blau_eckig2.svg"));
@@ -172,8 +186,11 @@ extern QPixmap getPixmap( int a, int b )
     return QPixmap(stein[a][b]);
 }
 
+
+// liefert ersten Indize zu einem Pixmap zurück
 extern int getFarbePixmap( QPixmap pixmap )
 {
+    // Definition der Pixmaps und zuordnung zu ihren Indizes
     qDebug("getFarbePixmap fängt an");
     QPixmap blau_eckig (QPixmap(":/images/blau_eckig2.svg"));
     QPixmap blau_kreuz (QPixmap(":/images/blau_kreuz1.svg"));
@@ -228,6 +245,7 @@ extern int getFarbePixmap( QPixmap pixmap )
     };
 
 
+    // Vergleich des übergebenen Pixmaps mit den gegebenen Pixmaps
     int i=0, j=0;
     bool pixmapsgleich = true;
     for( i = 0; (i < 6); i++ )
@@ -251,8 +269,11 @@ extern int getFarbePixmap( QPixmap pixmap )
     }
 }
 
+
+// liefert zweiten Indize zu einem Pixmap zurück
 extern int getFormPixmap( QPixmap pixmap )
 {
+    // Definition der Pixmaps und zuordnung zu ihren Indizes
     qDebug("getFormPixmap fängt an");
     QPixmap blau_eckig (QPixmap(":/images/blau_eckig2.svg"));
     QPixmap blau_kreuz (QPixmap(":/images/blau_kreuz1.svg"));
@@ -307,6 +328,7 @@ extern int getFormPixmap( QPixmap pixmap )
     };
 
 
+    // Vergleich des übergebenen Pixmaps mit den gegebenen Pixmaps
     int i=0, j=0;
     bool pixmapsgleich = true;
     for( i = 0; (i < 6); i++ )

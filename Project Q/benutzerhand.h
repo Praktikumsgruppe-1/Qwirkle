@@ -1,3 +1,9 @@
+/**********************************************************************/
+// Datei: benutzerhand.cpp
+// Die Klasse Benutzerhand beinhaltet das QFrame, welches die kleinen
+// Spielsteine auf der Benutzerhand darstellt und die Drag and Drop
+// Funktionen enthält um sie zu bewegen
+/**********************************************************************/
 #ifndef BENUTZERHAND_H
 #define BENUTZERHAND_H
 

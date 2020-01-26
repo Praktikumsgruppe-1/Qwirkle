@@ -76,7 +76,7 @@ public:
         scrollArea->setAlignment(Qt::AlignCenter);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1469, 599));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1466, 596));
         sizePolicy.setHeightForWidth(scrollAreaWidgetContents->sizePolicy().hasHeightForWidth());
         scrollAreaWidgetContents->setSizePolicy(sizePolicy);
         gridLayoutWidget = new QWidget(scrollAreaWidgetContents);
@@ -96,12 +96,12 @@ public:
         unten_links->setFrameShadow(QFrame::Raised);
         hand = new QWidget(unten_links);
         hand->setObjectName(QString::fromUtf8("hand"));
-        hand->setGeometry(QRect(10, 0, 621, 71));
+        hand->setGeometry(QRect(10, 0, 611, 71));
         hand->setAcceptDrops(true);
         hand->setToolTipDuration(-1);
         horizontalLayoutWidget = new QWidget(hand);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(0, 0, 621, 71));
+        horizontalLayoutWidget->setGeometry(QRect(0, 0, 611, 71));
         lhand = new QHBoxLayout(horizontalLayoutWidget);
         lhand->setObjectName(QString::fromUtf8("lhand"));
         lhand->setSizeConstraint(QLayout::SetMaximumSize);

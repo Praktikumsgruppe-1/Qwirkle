@@ -1,3 +1,9 @@
+/**********************************************************************/
+// Datei: mainwindow.h
+// Die Klasse MainWindow enthält das Fenster welches als allersrstes
+// geöffnet wird. Die Klasse stellt auch die Verbindung zwischen Client
+// und Server her.
+/**********************************************************************/
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -26,6 +32,8 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_3_clicked();
+    void on_startStopButton_clicked();
 
     void toggleStartServer();
     void logMessage(const QString &msg);
@@ -37,9 +45,6 @@ private slots:
     void disconnectedFromServer();
     void error(QAbstractSocket::SocketError socketError);
 
-    void on_pushButton_3_clicked();
-
-    void on_startStopButton_clicked();
 
 private:
     Ui::MainWindow *ui;

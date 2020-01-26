@@ -1,3 +1,8 @@
+/**********************************************************************/
+// Datei: regeln.h
+// Die Klasse Regeln enthaelt Funktionen zum ueberpruefen ob ein Stein
+// an den gewuenschten Platz gelegt werden darf.
+/**********************************************************************/
 #ifndef REGELN_H
 #define REGELN_H
 
@@ -11,8 +16,6 @@ public:
     bool check(int xCoord, int yCoord, int colour, int symbol);
 
 private:
-    // Spielfeld mit 4 Einträgen pro Feld für Farbe und Form des Steins
-    //int field[108][108][4]={};
     int checkcounter=0;
 
     friend class Spielfeld;
