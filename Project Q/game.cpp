@@ -420,7 +420,7 @@ void Game::on_pushButton_7_clicked()
 
     }
 
-    if( bewegteSteinef() == 1 )
+    if( bewegteSteinef() == 1 && spielerpunkte == 0 )
         spielerpunkte++;
 
     ui->lcdNumber->display(spielerpunkte);
@@ -435,6 +435,8 @@ void Game::on_pushButton_7_clicked()
         Game* pframe2 = new Game();
         QLabel *newIcon = new QLabel( );
 
+        //newIcon->setParent( ui->hand );
+        qDebug() << undoClass::undoParent.top() ;
         newIcon->setParent( undoClass::undoParent.top() );
         newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ) );
         newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
@@ -492,7 +494,7 @@ void Game::on_pushButton_7_clicked()
     SteinImFeld = 0;
     qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
 
-    for( int i = 0; i < 6; i++ )
+    while( !Tauschen::getauschteSteine.empty() )
     {
         Tauschen::getauschteSteine.pop_back();
     }
