@@ -111,12 +111,19 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
     qDebug() << "mousepressEvent" << getFormPixmap( *(child->pixmap()) ) << getFarbePixmap( *(child->pixmap()) );
 
 
-    if (drag->exec(Qt::MoveAction) == Qt::MoveAction) {
+    if (drag->exec(Qt::MoveAction) == Qt::MoveAction)
+    {
+        qDebug("hier bin ich wenn ich richtig gedroppt habe");
         child->close();
-    } else {
-        child->show();
-        child->setPixmap(pixmap);
     }
+
+    else
+    {
+        child->close();
+        //child->setPixmap(pixmap);
+        qDebug("hier bin ich, wenn ich gedroppt habe");
+    }
+
 }
 
 /************ Funktionen ************************************************************/

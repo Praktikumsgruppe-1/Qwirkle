@@ -436,7 +436,7 @@ void Game::on_pushButton_7_clicked()
 
     while( undoClass::undoStack.size() >0 )
     {
-        qDebug() << "hier sollte er nicht sein, wenn nur ein faslcher zug geamcht wurde, und dann abgegeben";
+        qDebug() << "hier sollte er nicht sein, wenn nur ein faslcher zug gemacht wurde, und dann abgegeben";
         //undoClass::undoStack.pop();
         //undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
