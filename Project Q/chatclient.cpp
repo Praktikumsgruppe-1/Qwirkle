@@ -5,6 +5,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include "turn.h"
+#include <QJsonArray>
 
 ChatClient::ChatClient(QObject *parent)
     : QObject(parent)
@@ -40,6 +42,25 @@ void ChatClient::sendMessage(const QString &text)
     message["type"] = QStringLiteral("message");
     message["text"] = text;
     clientStream << QJsonDocument(message).toJson();
+}
+
+/*void ChatClient::sendTurn(std::vector<Stein> spielzug) {
+    QDataStream clientStream(m_clientSocket);
+    clientStream.setVersion(QDataStream::Qt_5_7);
+    QJsonArray obj = Turn::steineToJson(spielzug);
+    clientStream << QJsonDocument(obj);
+} */
+
+void ChatClient::sendTurn(QJsonArray &array)
+{
+  //  if (array.isEmpty())
+  //      return;
+    QDataStream clientStream(m_clientSocket);
+    clientStream.setVersion(QDataStream::Qt_5_7);
+    QJsonObject turn;
+    turn["type"] = QStringLiteral("turn");
+    turn["array"] = array;
+    clientStream << QJsonDocument(turn).toJson();
 }
 
 void ChatClient::disconnectFromHost()
@@ -85,6 +106,8 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
             return;
         emit userLeft(usernameVal.toString());
     }
+    //TODO: Aktualisierung der lokalen Variablen: feldarray, beutel, Status
+
 }
 
 void ChatClient::connectToServer(const QHostAddress &address, quint16 port)

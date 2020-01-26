@@ -44,6 +44,8 @@ void ServerWorker::setUserName(const QString &userName)
     m_userName = userName;
 }
 
+// TODO: weiterleiten von Json type "turn"
+// TODO: naechsten Spieler "aktivieren"
 void ServerWorker::receiveJson()
 {
 

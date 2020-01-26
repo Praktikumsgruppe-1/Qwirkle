@@ -15,6 +15,7 @@
 #include <QMessageBox>
 #include <QHostAddress>
 #include <QScrollBar>
+#include <QJsonArray>
 
 #include "game.h"
 #include "ui_game.h"
@@ -32,6 +33,7 @@
 #include "mainwindow.h"
 #include "einstellungen.h"
 #include "spielfeld.h"
+#include "turn.h"
 
 
 // static Variablen initialisieren
@@ -325,12 +327,19 @@ void Game::on_pushButton_7_clicked()
     ui->lcdNumber->update();
 
     /***** Spielsteine zählen, die bewegt wurden **************/
+    int farbeStein;
+    int formStein; 
+    Turn spielzug;
     int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
     for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
     {
         for( yKoordSchleife = 0; yKoordSchleife < 108; yKoordSchleife++ )
         {
             if( feldarray[xKoordSchleife][yKoordSchleife][3] == 1 )
+                // gelegte Steine dem aktuellen Spielzug hinzufuegen
+                farbeStein = feldarray[xKoordSchleife][yKoordSchleife][1];
+                formStein = feldarray[xKoordSchleife][yKoordSchleife][2];
+                spielzug.addStein(xKoordSchleife, yKoordSchleife, farbeStein, formStein);
                 bewegteSteine++;
         }
     }
@@ -387,6 +396,14 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
+    //TODO: aktualisiertes feldarray versenden
+    QJsonArray turn = spielzug.steineToJson();
+    ChatClient::sendTurn(turn);
+    //TODO: aktuellen Beutel uebermitteln
+    //ChatClient::sendMessage();
+    //TODO: Spielerstatus deaktivieren
+    //ChatClient::sendMessage();
+
     SteinImFeld = 0;
     qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
     qDebug() << "*****************************Zugende**********************************";
@@ -398,6 +415,9 @@ void Game::on_pushButton_7_clicked()
 }
 
 /******************** Netzwerkfunktionen ****************************************************************************/
+// TODO: Turn-Nachrichten verschicken
+// TODO: Turn-Nachrcihten empfangen
+
 
 // eine Chatnachricht wird gesendet
 void Game::sendMessage()

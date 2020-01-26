@@ -68,6 +68,7 @@ private:
 
     ChatServer *m_chatServer;
     ChatClient *m_chatClient;
+    ChatClient *m_chatTurn;
     QStandardItemModel *m_chatModel;
     QString m_lastUserName;
 

@@ -29,8 +29,12 @@ SOURCES += \
     regeln.cpp \
     ruleswindow.cpp \
     serverworker.cpp \
+    spieler.cpp \
     spielfeld.cpp \
+    stein.cpp \
     tauschen.cpp \
+    turn.cpp \
+    turn_convert.cpp \
     undo.cpp
 
 HEADERS += \
@@ -44,8 +48,12 @@ HEADERS += \
     punkte.h \
     ruleswindow.h \
     serverworker.h \
+    spieler.h \
     spielfeld.h \
+    stein.h \
     tauschen.h \
+    turn.h \
+    turn_convert.h \
     undo.h
 
 FORMS += \

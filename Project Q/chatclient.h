@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QTcpSocket>
+#include "turn.h"
 class QHostAddress;
 class QJsonDocument;
 class ChatClient : public QObject
@@ -15,6 +16,7 @@ public slots:
     void connectToServer(const QHostAddress &address, quint16 port);
     void login(const QString &userName);
     void sendMessage(const QString &text);
+    static void sendTurn(QJsonArray &array);
     void disconnectFromHost();
 private slots:
     void onReadyRead();
