@@ -126,7 +126,8 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
         undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
         undoClass::undoCoordOldY.pop();
-        undoClass::undoPixmap.pop();
+        if ( !undoClass::undoPixmap.empty() )
+            undoClass::undoPixmap.pop();
     }
 
 }
