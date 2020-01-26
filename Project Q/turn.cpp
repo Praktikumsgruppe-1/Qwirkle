@@ -5,10 +5,12 @@
 Turn::Turn()
 {
     spielzug.push_back(Stein(0,0,0,0));
+    return;
 }
 
 Turn::~Turn() {
     spielzug.clear();
+    return;
 }
 
 void Turn::addStein(int pos_x, int pos_y, int farbe, int form) {

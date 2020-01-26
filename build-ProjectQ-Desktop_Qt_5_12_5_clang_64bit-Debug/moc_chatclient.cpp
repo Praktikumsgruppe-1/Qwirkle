@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ChatClient_t {
     QByteArrayData data[28];
-    char stringdata0[289];
+    char stringdata0[293];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -55,10 +55,10 @@ QT_MOC_LITERAL(20, 208, 5), // "login"
 QT_MOC_LITERAL(21, 214, 8), // "userName"
 QT_MOC_LITERAL(22, 223, 11), // "sendMessage"
 QT_MOC_LITERAL(23, 235, 8), // "sendTurn"
-QT_MOC_LITERAL(24, 244, 4), // "Turn"
-QT_MOC_LITERAL(25, 249, 8), // "spielzug"
-QT_MOC_LITERAL(26, 258, 18), // "disconnectFromHost"
-QT_MOC_LITERAL(27, 277, 11) // "onReadyRead"
+QT_MOC_LITERAL(24, 244, 11), // "QJsonArray&"
+QT_MOC_LITERAL(25, 256, 5), // "array"
+QT_MOC_LITERAL(26, 262, 18), // "disconnectFromHost"
+QT_MOC_LITERAL(27, 281, 11) // "onReadyRead"
 
     },
     "ChatClient\0connected\0\0loggedIn\0"
@@ -68,8 +68,8 @@ QT_MOC_LITERAL(27, 277, 11) // "onReadyRead"
     "userJoined\0username\0userLeft\0"
     "connectToServer\0QHostAddress\0address\0"
     "port\0login\0userName\0sendMessage\0"
-    "sendTurn\0Turn\0spielzug\0disconnectFromHost\0"
-    "onReadyRead"
+    "sendTurn\0QJsonArray&\0array\0"
+    "disconnectFromHost\0onReadyRead"
 };
 #undef QT_MOC_LITERAL
 
@@ -142,7 +142,7 @@ void ChatClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->connectToServer((*reinterpret_cast< const QHostAddress(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2]))); break;
         case 9: _t->login((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 10: _t->sendMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 11: _t->sendTurn((*reinterpret_cast< const Turn(*)>(_a[1]))); break;
+        case 11: _t->sendTurn((*reinterpret_cast< QJsonArray(*)>(_a[1]))); break;
         case 12: _t->disconnectFromHost(); break;
         case 13: _t->onReadyRead(); break;
         default: ;

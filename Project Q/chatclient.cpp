@@ -5,8 +5,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
-#include "turn.h"
-#include <QJsonArray>
+#include <QTimer>
+#include <QDebug>
 
 ChatClient::ChatClient(QObject *parent)
     : QObject(parent)
@@ -18,6 +18,9 @@ ChatClient::ChatClient(QObject *parent)
     connect(m_clientSocket, &QTcpSocket::readyRead, this, &ChatClient::onReadyRead);
     connect(m_clientSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &ChatClient::error);
     connect(m_clientSocket, &QTcpSocket::disconnected, this, [this]()->void{m_loggedIn = false;});
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()),this,SLOT(ticktock()));
+
 }
 
 void ChatClient::login(const QString &userName)
@@ -31,7 +34,29 @@ void ChatClient::login(const QString &userName)
         clientStream << QJsonDocument(message).toJson(QJsonDocument::Compact);
     }
 }
+void ChatClient::sendPoints(const QString &score)
+{
+   // if (score.isEmpty())
+    //    return;
+    QDataStream clientStream(m_clientSocket);
+    clientStream.setVersion(QDataStream::Qt_5_7);
+    QJsonObject points;
+    points["type"] = QStringLiteral("points");
+    points["score"] = score;
+    clientStream << QJsonDocument(points).toJson();
 
+}
+void ChatClient::sendTurn(QJsonArray &array)
+{
+  //  if (array.isEmpty())
+  //      return;
+    QDataStream clientStream(m_clientSocket);
+    clientStream.setVersion(QDataStream::Qt_5_7);
+    QJsonObject turn;
+    turn["type"] = QStringLiteral("turn");
+    turn["array"] = array;
+    clientStream << QJsonDocument(turn).toJson();
+}
 void ChatClient::sendMessage(const QString &text)
 {
     if (text.isEmpty())
@@ -42,17 +67,6 @@ void ChatClient::sendMessage(const QString &text)
     message["type"] = QStringLiteral("message");
     message["text"] = text;
     clientStream << QJsonDocument(message).toJson();
-}
-
-
-void ChatClient::sendTurn(QJsonArray &array)
-{
-    QDataStream clientStream(m_clientSocket);
-    clientStream.setVersion(QDataStream::Qt_5_7);
-    QJsonObject turn;
-    turn["type"] = QStringLiteral("turn");
-    turn["array"] = array;
-    clientStream << QJsonDocument(turn).toJson();
 }
 
 void ChatClient::disconnectFromHost()
@@ -86,7 +100,6 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         if (senderVal.isNull() || !senderVal.isString())
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
-    //TODO: lokale variablen anpassen
     } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {
         const QJsonValue textVal = docObj.value(QLatin1String("array"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
@@ -112,10 +125,9 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
             return;
         if (senderVal.isNull() || !senderVal.isString())
             return;
-        emit messageReceived(senderVal.toString(), textVal.toString());
+        emit messageReceived(senderVal.toString(), textVal.toString()); // score reinsetzen
 
     }
-
 }
 
 void ChatClient::connectToServer(const QHostAddress &address, quint16 port)
@@ -143,4 +155,27 @@ void ChatClient::onReadyRead()
             break;
         }
     }
+}
+void ChatClient::nextPlayer()
+{
+            // hand freischalten  fehlt
+      ticktock();
+
+
+
+
+
+            // hand sperren fehlt
+}
+
+void ChatClient::ticktock()
+{
+    int i=0;
+    qDebug() <<"turn start...";
+    timer ->start(10000); // jede sec bis x
+    i++;
+    qDebug()<< i ;
+    timer ->stop();
+    qDebug() <<"turn over...";
+
 }

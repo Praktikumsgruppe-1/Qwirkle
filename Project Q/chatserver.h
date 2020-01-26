@@ -1,32 +1,42 @@
-#ifndef CHATSERVER_H
-#define CHATSERVER_H
+#ifndef CHATCLIENT_H
+#define CHATCLIENT_H
 
-#include <QTcpServer>
-#include <QVector>
-class QThread;
-class ServerWorker;
-class ChatServer : public QTcpServer
+#include <QObject>
+#include <QTcpSocket>
+#include <QTimer>
+class QHostAddress;
+class QJsonDocument;
+class ChatClient : public QObject
 {
     Q_OBJECT
-    Q_DISABLE_COPY(ChatServer)
+    Q_DISABLE_COPY(ChatClient)
 public:
-    explicit ChatServer(QObject *parent = nullptr);
-protected:
-    void incomingConnection(qintptr socketDescriptor) override;
-signals:
-    void logMessage(const QString &msg);
+    explicit ChatClient(QObject *parent = nullptr);
 public slots:
-    void stopServer();
+    void connectToServer(const QHostAddress &address, quint16 port);
+    void login(const QString &userName);
+    void sendMessage(const QString &text);
+    void sendPoints(const QString &score);
+    void sendTurn(QJsonArray &array);
+    void disconnectFromHost();
+    void nextPlayer();
 private slots:
-    void broadcast(const QJsonObject &message, ServerWorker *exclude);
-    void jsonReceived(ServerWorker *sender, const QJsonObject &doc);
-    void userDisconnected(ServerWorker *sender);
-    void userError(ServerWorker *sender);
+    void onReadyRead();
+    void ticktock();
+signals:
+    void connected();
+    void loggedIn();
+    void loginError(const QString &reason);
+    void disconnected();
+    void messageReceived(const QString &sender, const QString &text);
+    void error(QAbstractSocket::SocketError socketError);
+    void userJoined(const QString &username);
+    void userLeft(const QString &username);
 private:
-    void jsonFromLoggedOut(ServerWorker *sender, const QJsonObject &doc);
-    void jsonFromLoggedIn(ServerWorker *sender, const QJsonObject &doc);
-    void sendJson(ServerWorker *destination, const QJsonObject &message);
-    QVector<ServerWorker *> m_clients;
+    QTcpSocket *m_clientSocket;
+    bool m_loggedIn;
+    void jsonReceived(const QJsonObject &doc);
+    QTimer *timer;
 };
 
-#endif // CHATSERVER_H
+#endif // CHATCLIENT_H

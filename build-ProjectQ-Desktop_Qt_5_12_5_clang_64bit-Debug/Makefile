@@ -69,7 +69,6 @@ SOURCES       = ../Project\ Q/benutzerhand.cpp \
 		../Project\ Q/stein.cpp \
 		../Project\ Q/tauschen.cpp \
 		../Project\ Q/turn.cpp \
-		../Project\ Q/turn_convert.cpp \
 		../Project\ Q/undo.cpp qrc_Images.cpp \
 		moc_chatclient.cpp \
 		moc_chatserver.cpp \
@@ -96,7 +95,6 @@ OBJECTS       = benutzerhand.o \
 		stein.o \
 		tauschen.o \
 		turn.o \
-		turn_convert.o \
 		undo.o \
 		qrc_Images.o \
 		moc_chatclient.o \
@@ -296,7 +294,6 @@ DIST          = ../../../../Qt2/5.12.5/clang_64/mkspecs/features/spec_pre.prf \
 		../Project\ Q/stein.h \
 		../Project\ Q/tauschen.h \
 		../Project\ Q/turn.h \
-		../Project\ Q/turn_convert.h \
 		../Project\ Q/undo.h ../Project\ Q/benutzerhand.cpp \
 		../Project\ Q/chatclient.cpp \
 		../Project\ Q/chatserver.cpp \
@@ -314,7 +311,6 @@ DIST          = ../../../../Qt2/5.12.5/clang_64/mkspecs/features/spec_pre.prf \
 		../Project\ Q/stein.cpp \
 		../Project\ Q/tauschen.cpp \
 		../Project\ Q/turn.cpp \
-		../Project\ Q/turn_convert.cpp \
 		../Project\ Q/undo.cpp
 QMAKE_TARGET  = ProjectQ
 DESTDIR       = 
@@ -730,8 +726,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Project\ Q/Images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt2/5.12.5/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project\ Q/benutzerhand.h ../Project\ Q/chatclient.h ../Project\ Q/chatserver.h ../Project\ Q/einstellungen.h ../Project\ Q/game.h ../Project\ Q/mainwindow.h ../Project\ Q/regeln.h ../Project\ Q/punkte.h ../Project\ Q/ruleswindow.h ../Project\ Q/serverworker.h ../Project\ Q/spieler.h ../Project\ Q/spielfeld.h ../Project\ Q/stein.h ../Project\ Q/tauschen.h ../Project\ Q/turn.h ../Project\ Q/turn_convert.h ../Project\ Q/undo.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project\ Q/benutzerhand.cpp ../Project\ Q/chatclient.cpp ../Project\ Q/chatserver.cpp ../Project\ Q/einstellungen.cpp ../Project\ Q/ende.cpp ../Project\ Q/game.cpp ../Project\ Q/main.cpp ../Project\ Q/mainwindow.cpp ../Project\ Q/punkte.cpp ../Project\ Q/regeln.cpp ../Project\ Q/ruleswindow.cpp ../Project\ Q/serverworker.cpp ../Project\ Q/spieler.cpp ../Project\ Q/spielfeld.cpp ../Project\ Q/stein.cpp ../Project\ Q/tauschen.cpp ../Project\ Q/turn.cpp ../Project\ Q/turn_convert.cpp ../Project\ Q/undo.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project\ Q/benutzerhand.h ../Project\ Q/chatclient.h ../Project\ Q/chatserver.h ../Project\ Q/einstellungen.h ../Project\ Q/game.h ../Project\ Q/mainwindow.h ../Project\ Q/regeln.h ../Project\ Q/punkte.h ../Project\ Q/ruleswindow.h ../Project\ Q/serverworker.h ../Project\ Q/spieler.h ../Project\ Q/spielfeld.h ../Project\ Q/stein.h ../Project\ Q/tauschen.h ../Project\ Q/turn.h ../Project\ Q/undo.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project\ Q/benutzerhand.cpp ../Project\ Q/chatclient.cpp ../Project\ Q/chatserver.cpp ../Project\ Q/einstellungen.cpp ../Project\ Q/ende.cpp ../Project\ Q/game.cpp ../Project\ Q/main.cpp ../Project\ Q/mainwindow.cpp ../Project\ Q/punkte.cpp ../Project\ Q/regeln.cpp ../Project\ Q/ruleswindow.cpp ../Project\ Q/serverworker.cpp ../Project\ Q/spieler.cpp ../Project\ Q/spielfeld.cpp ../Project\ Q/stein.cpp ../Project\ Q/tauschen.cpp ../Project\ Q/turn.cpp ../Project\ Q/undo.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Project\ Q/einstellungen.ui ../Project\ Q/game.ui ../Project\ Q/game.ui ../Project\ Q/mainwindow.ui ../Project\ Q/ruleswindow.ui $(DISTDIR)/
 
 
@@ -1144,7 +1140,9 @@ chatclient.o: ../Project\ Q/chatclient.cpp ../Project\ Q/chatclient.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonObject \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonobject.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonValue \
-		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonvalue.h
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonvalue.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonArray \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonarray.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chatclient.o ../Project\ Q/chatclient.cpp
 
 chatserver.o: ../Project\ Q/chatserver.cpp ../Project\ Q/chatserver.h \
@@ -1200,6 +1198,8 @@ game.o: ../Project\ Q/game.cpp ../../../../Qt2/5.12.5/clang_64/lib/QtGui.framewo
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/qnetworkinterface.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QScrollBar \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonArray \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonarray.h \
 		../Project\ Q/game.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1541,15 +1541,12 @@ tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/ui_game.h \
 turn.o: ../Project\ Q/turn.cpp ../Project\ Q/turn.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qobject.h \
-		../Project\ Q/stein.h
+		../Project\ Q/stein.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonArray \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonarray.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonObject \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o turn.o ../Project\ Q/turn.cpp
-
-turn_convert.o: ../Project\ Q/turn_convert.cpp ../Project\ Q/turn_convert.h \
-		../Project\ Q/turn.h \
-		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QObject \
-		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qobject.h \
-		../Project\ Q/stein.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o turn_convert.o ../Project\ Q/turn_convert.cpp
 
 undo.o: ../Project\ Q/undo.cpp ../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \

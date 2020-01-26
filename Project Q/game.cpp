@@ -398,7 +398,7 @@ void Game::on_pushButton_7_clicked()
 
     //TODO: aktualisiertes feldarray versenden
     QJsonArray turn = spielzug.steineToJson();
-    ChatClient::sendTurn(turn);
+    m_chatClient->sendTurn(turn);
     //TODO: aktuellen Beutel uebermitteln
     //ChatClient::sendMessage();
     //TODO: Spielerstatus deaktivieren
@@ -412,6 +412,11 @@ void Game::on_pushButton_7_clicked()
     {
         Tauschen::getauschteSteine.pop_back();
     }
+    QJsonArray array = { 1, 2, 2.3 ,QString("test")};
+        m_chatClient->sendTurn(array);
+        QString point = QString::number(spielerpunkte);
+        m_chatClient->sendPoints(point);
+        m_chatClient->nextPlayer();
 }
 
 /******************** Netzwerkfunktionen ****************************************************************************/

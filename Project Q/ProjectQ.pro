@@ -34,7 +34,6 @@ SOURCES += \
     stein.cpp \
     tauschen.cpp \
     turn.cpp \
-    turn_convert.cpp \
     undo.cpp
 
 HEADERS += \
@@ -53,7 +52,6 @@ HEADERS += \
     stein.h \
     tauschen.h \
     turn.h \
-    turn_convert.h \
     undo.h
 
 FORMS += \
