@@ -58,8 +58,12 @@ void Tauschen::SteinTauschen(){
         Game::beutelStackKopie.pop_back();
 
         /******* alten Stein in Beutel pushen **********************************/
-        Game::beutelStackForm.push_back( getFormPixmap( undoClass::undoPixmap.top() ) );
-        Game::beutelStackFarbe.push_back( getFarbePixmap( undoClass::undoPixmap.top() );
+
+        int farbe = getFormPixmap( undoClass::undoPixmap.top() );
+        int form = getFarbePixmap( undoClass::undoPixmap.top() );
+
+        Game::beutelStackForm.push_back( form );
+        Game::beutelStackFarbe.push_back( farbe );
 
         // freie Kopie herausfinden
         for( int i = 0; i < 108; i++ )
