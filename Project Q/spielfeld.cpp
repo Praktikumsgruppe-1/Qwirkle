@@ -105,6 +105,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
         if( SteinImFeld == 0 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
         {                                               // wenn noch keit Stein im Feld liegt
             qDebug("anfang_1.stein schleife");
+            qDebug() << "Feldarray vor dem Check1: " << feldarray[reihe][spalte][0]<< feldarray[reihe][spalte][1] << feldarray[reihe][spalte][2] << feldarray[reihe][spalte][3] << "Koordinaten:"<< reihe << spalte;
             // soll ausgeführt werden, wenn er nicht gelegt werden darf oder bereits ein Stein drinnen liegt
             if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check1( reihe, spalte, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
             {
@@ -135,20 +136,15 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 feldarray[reihe][spalte][3] = 0;
 
                 pframe->update();
-                qDebug() << "---Stein darf nich abgelegt werden---";
+                qDebug() << "---Stein darf nicht abgelegt werden---" << "undo Stack size:" << undoClass::undoStack.size() ;
                 return;
             }
         }
 
-        feldarray[reihe][spalte][1] = getFarbePixmap(pixmap);
-        feldarray[reihe][spalte][2] = getFormPixmap(pixmap);
-        feldarray[reihe][spalte][3] = 1;
-
-        qDebug() << "Feldarray vor dem Check: " << feldarray[reihe][spalte][0]<< feldarray[reihe][spalte][1] << feldarray[reihe][spalte][2] << feldarray[reihe][spalte][3] << "Koordinaten:"<< reihe << spalte;
-
         if( SteinImFeld > 0 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
         {                                               // wenn noch keit Stein im Feld liegt
             qDebug("anfang_2.stein schleife");
+            qDebug() << "Feldarray vor dem Check2: " << feldarray[reihe][spalte][0]<< feldarray[reihe][spalte][1] << feldarray[reihe][spalte][2] << feldarray[reihe][spalte][3] << "Koordinaten:"<< reihe << spalte;
             // soll ausgeführt werden, wenn er nicht gelegt werden darf oder bereits ein Stein drinnen liegt
             if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check2( reihe, spalte, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
             {
@@ -179,10 +175,15 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 feldarray[reihe][spalte][3] = 0;
 
                 pframe->update();
-                qDebug() << "---Stein darf nich abgelegt werden---";
+                qDebug() << "---Stein darf nicht abgelegt werden---" << "undo Stack size:" << undoClass::undoStack.size() ;
                 return;
             }
         }
+
+        feldarray[reihe][spalte][1] = getFarbePixmap(pixmap);
+        feldarray[reihe][spalte][2] = getFormPixmap(pixmap);
+        feldarray[reihe][spalte][3] = 1;
+
 
         /********************************************************************************/
         // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt

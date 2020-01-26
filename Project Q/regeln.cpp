@@ -22,7 +22,7 @@ bool Regeln::check1(int xCoord, int yCoord, int colour, int symbol){
   int note;
   if(feldarray[xCoord][yCoord][1]!=9)
   {     //Feld belegt?
-      qDebug("hier ist der fehler");
+      qDebug() << "hier ist der fehler" << feldarray[xCoord][yCoord][1];
       return false;
   }
   note=xCoord+1;
