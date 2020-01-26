@@ -440,10 +440,12 @@ void Game::on_pushButton_7_clicked()
         QLabel *newIcon = new QLabel( );
 
         //newIcon->setParent( ui->hand );
-        qDebug() << undoClass::undoParent.top() ;
-        newIcon->setParent( undoClass::undoParent.top() );
+        //qDebug() << undoClass::undoParent.top() ;
+        if(undoClass::undoParent.empty()== false)
+            newIcon->setParent( undoClass::undoParent.top() );
         newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ) );
-        newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+        if ((undoClass::undoCoordOldX.empty() == false) && (undoClass::undoCoordOldY.empty() == false))
+            newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -464,7 +466,8 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoCoordOldY.pop();
         undoClass::undoReihe.pop();
         undoClass::undoSpalte.pop();
-        undoClass::undoPixmap.pop();
+        undoClass::undoPixmap.pop();                                  // hier stürzt er ab, wenn man einen richtigen zug macht
+                                                                      // dann richtige steine legt, dann einen falschen und dann abgeben will
 
     }
 
