@@ -7,6 +7,7 @@
 #include <QJsonValue>
 #include <QTimer>
 #include <QDebug>
+#include <QJsonArray>
 
 ChatClient::ChatClient(QObject *parent)
     : QObject(parent)
@@ -102,6 +103,7 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         emit messageReceived(senderVal.toString(), textVal.toString());
     } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {
         const QJsonValue textVal = docObj.value(QLatin1String("array"));
+        QJsonArray array = docObj["array"].to;
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (textVal.isNull() || !textVal.isString())
             return;
