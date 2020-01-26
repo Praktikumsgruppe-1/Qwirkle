@@ -396,6 +396,10 @@ void Game::on_pushButton_7_clicked()
 
     SteinImFeld = 0;
 
+    for( int i = 0; i < 6; i++ )
+    {
+        Tauschen::getauschteSteine.pop_back();
+    }
 }
 
 /******************** Netzwerkfunktionen ****************************************************************************/

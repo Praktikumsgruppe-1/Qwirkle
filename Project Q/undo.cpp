@@ -76,8 +76,7 @@ void undoClass::undoMove(){
         undoClass::undoSpalte.pop();
 
         /*** Variable aktualisieren, wenn der erstplatzierte Stein rueckgaengig gemacht wird ***/
-        if( undoClass::undoStack.empty() )
-            SteinImFeld = 0;
+        SteinImFeld--;
     }
     return;
 }

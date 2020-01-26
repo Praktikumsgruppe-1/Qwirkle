@@ -30,6 +30,7 @@
 #include "regeln.h"
 #include "benutzerhand.h"
 #include "game.h"
+#include "tauschen.h"
 
 
 // static Variable initialisieren
@@ -52,10 +53,10 @@ Spielfeld::Spielfeld(QWidget *parent, int spalteX, int reiheY )
 // die als nicht definiert gelten sollen
 void Spielfeld::feldArrayZuruecksetzen( )
 {
-    feldarray[spalte][reihe][0] = 0;
-    feldarray[spalte][reihe][1] = 9;
-    feldarray[spalte][reihe][2] = 9;
-    feldarray[spalte][reihe][3] = 0;
+    feldarray[reihe][spalte][0] = 0;
+    feldarray[reihe][spalte][1] = 9;
+    feldarray[reihe][spalte][2] = 9;
+    feldarray[reihe][spalte][3] = 0;
 }
 
 
@@ -93,23 +94,6 @@ void Spielfeld::dropEvent(QDropEvent *event)
         /******************************************************************************/
         // Es wird geprüft, liegt hier schon ein Stein und darf hier ein Stein legen
 
-        // prüfen ob der gedroppte Stein der allererste Stein ist
-        int i, j;
-        if(SteinImFeld == 0)
-        {
-            for( i = 0; i < 108; i++ )
-            {
-                for( j = 0; j < 108; j++ )
-                {
-                    if( feldarray[i][j][1] != 9 )        // Spielstein im Spielfeld bereits drinnen
-                    {
-                         SteinImFeld = 1;
-                         qDebug("1. stein schleife");
-                    }
-                }
-            }
-        }
-
          qDebug()<<"nach dem ersten stein sollte das 1 sein:" << SteinImFeld;
         // feldarray mit Werten initialisieren
         if ( undoClass::undoStack.empty() == true )     // wenn noch kein Stein auf das SPielfeld gelegt wurde,
@@ -126,7 +110,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
         /********************************************************************************/
         // Wenn dort kein Stein liegen darf, wird der Stein zurück in die Benutzerhand gelegt
 
-        if( SteinImFeld == 1 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
+        if( SteinImFeld > 0 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
         {                                               // wenn noch keit Stein im Feld liegt
             qDebug("anfang_2.stein schleife");
             // soll ausgeführt werden, wenn er nicht gelegt werden darf oder bereits ein Stein drinnen liegt
@@ -172,6 +156,8 @@ void Spielfeld::dropEvent(QDropEvent *event)
         undoClass::undoSpalte.push( spalte );
 
         qDebug() << "---Stein wurde erstellt";
+
+        SteinImFeld++;
 
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
