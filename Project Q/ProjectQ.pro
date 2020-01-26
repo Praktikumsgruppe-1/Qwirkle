@@ -22,6 +22,7 @@ SOURCES += \
     chatserver.cpp \
     einstellungen.cpp \
     game.cpp \
+    json.cpp \
     main.cpp \
     mainwindow.cpp \
     punkte.cpp \
@@ -29,7 +30,9 @@ SOURCES += \
     ruleswindow.cpp \
     serverworker.cpp \
     spielfeld.cpp \
+    stein.cpp \
     tauschen.cpp \
+    turn.cpp \
     undo.cpp
 
 HEADERS += \
@@ -38,13 +41,16 @@ HEADERS += \
     chatserver.h \
     einstellungen.h \
     game.h \
+    json.h \
     mainwindow.h \
     regeln.h \
     punkte.h \
     ruleswindow.h \
     serverworker.h \
     spielfeld.h \
+    stein.h \
     tauschen.h \
+    turn.h \
     undo.h
 
 FORMS += \
