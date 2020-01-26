@@ -107,8 +107,7 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
     undoClass::undoParent.push( this );
     undoClass::undoCoordOldX.push( child->geometry().x() );
     undoClass::undoCoordOldY.push( child->geometry().y() );
-    undoClass::undoPixmap.push( *(child->pixmap()) );
-    qDebug() << "mousepressEvent" << getFormPixmap( *(child->pixmap()) ) << getFarbePixmap( *(child->pixmap()) );
+    undoClass::undoPixmap.push( pixmap );
 
 
     if (drag->exec(Qt::MoveAction) == Qt::MoveAction)
@@ -119,9 +118,16 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
 
     else
     {
-        child->close();
-        //child->setPixmap(pixmap);
+        child->setPixmap(pixmap);
+        //child->close();
+        event->ignore();
         qDebug("hier bin ich, wenn ich gedroppt habe");
+
+        undoClass::undoParent.pop();
+        undoClass::undoCoordOldX.pop();
+        undoClass::undoCoordOldY.pop();
+        if ( !undoClass::undoPixmap.empty() )
+            undoClass::undoPixmap.pop();
     }
 
 }

@@ -16,6 +16,7 @@
 #include <QHostAddress>
 #include <QScrollBar>
 #include <QJsonArray>
+#include <QJsonObject>
 
 #include "game.h"
 #include "ui_game.h"
@@ -258,6 +259,7 @@ void Game::beutelMischen()
     }
 }
 
+
 bool Game::passcheck(int a)
 {
   if(a==0)
@@ -267,7 +269,10 @@ bool Game::passcheck(int a)
 
   return pass;
 };
-// TODO: Steine ermitteln
+
+
+
+
 int Game::bewegteSteinef()
 {
     int farbeStein;
@@ -291,6 +296,38 @@ int Game::bewegteSteinef()
 
     return bewegteSteine;
 };
+
+void Game::arrayauslesen(QJsonArray)
+{
+   int dummyarray[4];
+   int anzahlSteine = QJsonArray().size();
+
+   for (int i = 0; i < anzahlSteine; i++)
+   {
+      dummyarray[0] = QJsonArray().at(i).toArray()[0].toInt();
+      dummyarray[1] = QJsonArray().at(i).toArray()[1].toInt();
+      dummyarray[2] = QJsonArray().at(i).toArray()[2].toInt();
+      dummyarray[3] = QJsonArray().at(i).toArray()[3].toInt();
+
+      feldarrayAktualisieren(dummyarray);
+   }
+};
+
+void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
+{
+    // feldarray aktualisieren
+    feldarray[ array[2] ][ array[3] ][ 0 ] = 0 ;
+    feldarray[ array[2] ][ array[3] ][ 1 ] = array[0] ;
+    feldarray[ array[2] ][ array[3] ][ 2 ] = array[1] ;
+    feldarray[ array[2] ][ array[3] ][ 3 ] = 0 ;
+
+    // Spielstein erstellen im feld
+    QLabel *newIcon = new QLabel( );
+    newIcon->setPixmap( getPixmap( array[0], array[1] ) );
+    ui->lfeld->addWidget( newIcon,  array[2], array[3] );
+    newIcon->show();
+    newIcon->setAttribute(Qt::WA_DeleteOnClose);
+}
 
 /*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl
 void Game::endcheck()
@@ -393,22 +430,16 @@ void Game::on_pushButton_7_clicked()
         qDebug("Punkte werden berechnet");
 
         qDebug() << spielerpunkte;
-        ui->lcdNumber->display(spielerpunkte);
-        ui->lcdNumber->update();
+
     }
 
-    /*
-    ***** Spielsteine zählen, die bewegt wurden **************
-    int xKoordSchleife, yKoordSchleife, bewegteSteine = 0;
-    for( xKoordSchleife = 0; xKoordSchleife < 108; xKoordSchleife++ )
-    {
-        for( yKoordSchleife = 0; yKoordSchleife < 108; yKoordSchleife++ )
-        {
-            if( feldarray[xKoordSchleife][yKoordSchleife][3] == 1 )
-                bewegteSteine++;
-        }
-    }
-    */
+    if( bewegteSteinef() == 1 )
+        spielerpunkte++;
+
+    ui->lcdNumber->display(spielerpunkte);
+    ui->lcdNumber->update();
+
+
     qDebug() << "Anzahl der bewegten Steine:" << bewegteSteinef();
 
     /*************** Spielsteine hinzufügen ***************************/
