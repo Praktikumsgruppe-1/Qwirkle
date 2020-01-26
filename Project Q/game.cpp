@@ -40,7 +40,6 @@ std::vector< int > Game::beutelStackFarbe;
 std::vector< int > Game::beutelStackForm;
 std::vector< int > Game::beutelStackKopie;
 
-
 /****************** Konstruktor *******************************************************************/
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     QWidget(parent)
@@ -256,12 +255,42 @@ void Game::beutelMischen()
     }
 }
 
-extern int endcheck(int pass, int hand)
+/*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl
+void Game::endcheck()
 {
-    int hand = ;
-};
+    if(Game::beutelStackFarbe.empty() && pass==spieleranzahl)                                                  // alle haben gepasst, und der beutel ist leer
+    {
+        spielende = true;
+    }
 
-/********** Slotfunktione ***************************************************************************/
+    else if(Game::beutelStackFarbe.empty() && undoClass::undoStack.size() == 6)                                // Beutel und Hand leer
+    {
+        spielende = true;
+        extrapunkte = 6;
+    }
+
+    return; // Was soll geschehen wenn das Spiel vorbei ist? Beendet sich das Fenster, oder kann man einfach nichts mehr machen, bzw ich denke es sollte bool ausgeben und eine andere Funktion guckt und sobald das true ist, triggert die den schluss
+};
+*/
+
+/*
+Game::gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpunkte4);
+{
+    int maximum;
+    if (spielerpunkte1 >= spielerpunkte2 && spielerpunkte1 >= spielerpunkte3 && spielerpunkte1 >= spielerpunkte4)
+       maximum = spielerpunkte1;
+    else if (spielerpunkte2 >= spielerpunkte1 && spielerpunkte2 >= spielerpunkte3 && spielerpunkte2 >= spielerpunkte4)
+       maximum = spielerpunkte2;
+    else if (spielerpunkte3 >= spielerpunkte1 && spielerpunkte3 >= spielerpunkte2 && spielerpunkte3 >= spielerpunkte4)
+       maximum = spielerpunkte3;
+    else
+       maximum = spielerpunkte4;
+    //hier wird das ende getriggert, wie auch immer das aussieht
+    //er müsste jetzt zum ausgeben die spielerpunkte mit dem spieler verknüpfen
+};
+*/
+
+/********** Slotfunktionen ***************************************************************************/
 
 // Beendet das Fenster
 void Game::on_pushButton_clicked()
@@ -338,6 +367,9 @@ void Game::on_pushButton_7_clicked()
                 bewegteSteine++;
         }
     }
+    // hier fehlt dann bei den Punkten noch die Unterscheidung der Spieler
+
+    //was passiert wenn die Hand nicht mehr komplett aufgefüllt werden kann?
 
     /*************** Spielsteine hinzufügen ***************************/
     for( int i = 0; i < bewegteSteine; i++ )
@@ -357,6 +389,11 @@ void Game::on_pushButton_7_clicked()
         Game::beutelStackForm.pop_back();
         Game::beutelStackFarbe.pop_back();
         Game::beutelStackKopie.pop_back();
+
+        /***************kurze Prüfung für das Ende, das braucht den undo Stack*********************/
+
+        endcheck();
+
 
         undoClass::undoStack.pop();
         undoClass::undoParent.pop();
@@ -398,6 +435,12 @@ void Game::on_pushButton_7_clicked()
     for( int i = 0; i < 6; i++ )
     {
         Tauschen::getauschteSteine.pop_back();
+    }
+
+    if(spielende==true)
+    {
+        //für den Spieler der zuletzt dran war, wird noch spielerpunkte = spielerpunkte + extrapunkte gerechnet
+        //gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpunkte4);
     }
 }
 

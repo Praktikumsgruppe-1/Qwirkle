@@ -44,6 +44,12 @@ public:
 
     static void beutelMischen();
 
+    void endcheck();
+    bool spielende = false;
+    int extrapunkte = 0;
+
+    //gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpunkte4);   ist halt noch die frage wie das geregelt ist, wenn es weniger Spieler gibt
+
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
@@ -82,8 +88,5 @@ extern int feldarray [108][108][5];                                   //startwer
 //2 : die Form
 //3 : markiert ob der Stein in der Runde des Spielers neu gelegt wurde
 //?4 : welche Kopie von dem Stein ist es (es gibt immer 3)
-
-extern int endcheck(int pass, int hand);
-
 
 #endif // GAME_H

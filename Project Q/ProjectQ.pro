@@ -21,7 +21,6 @@ SOURCES += \
     chatclient.cpp \
     chatserver.cpp \
     einstellungen.cpp \
-    ende.cpp \
     game.cpp \
     main.cpp \
     mainwindow.cpp \
