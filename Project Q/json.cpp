@@ -14,3 +14,15 @@ QJsonArray json::toJson (const std::vector <int> vec){
     }
     return erg;
 }
+
+std::vector <int> toVector(QJsonArray ar) {
+    std::vector <int> vec;
+    int anz = ar.size();
+    int tmp;
+    //ganzes QJsonArray durchgehen
+    for (int i = 0; i < anz; i++) {
+        tmp = ar[i].toInt();
+        vec.push_back(tmp);
+    }
+    return vec;
+}

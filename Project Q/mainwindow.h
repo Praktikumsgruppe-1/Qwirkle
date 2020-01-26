@@ -33,7 +33,7 @@ public:
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_3_clicked();
-    //void on_startStopButton_clicked();
+    void on_startStopButton_clicked();
 
     void toggleStartServer();
     void logMessage(const QString &msg);
