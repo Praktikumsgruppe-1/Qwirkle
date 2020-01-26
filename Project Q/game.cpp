@@ -375,12 +375,15 @@ void Game::on_pushButton_7_clicked()
 
     /*********** Punkte berechnen ******************************/
     // hier fehlt dann bei den Punkten noch die Unterscheidung der Spieler
-    spielerpunkte = spielerpunkte + points->calc(undoClass::undoReihe.top(),undoClass::undoSpalte.top());
-    qDebug("Punkte werden berechnet");
+    if(passcheck(bewegteSteinef())==false)
+    {
+        spielerpunkte = spielerpunkte + points->calc(undoClass::undoReihe.top(),undoClass::undoSpalte.top());
+        qDebug("Punkte werden berechnet");
 
-    qDebug() << spielerpunkte;
-    ui->lcdNumber->display(spielerpunkte);
-    ui->lcdNumber->update();
+        qDebug() << spielerpunkte;
+        ui->lcdNumber->display(spielerpunkte);
+        ui->lcdNumber->update();
+    }
 
     /*
     ***** Spielsteine zählen, die bewegt wurden **************
@@ -423,7 +426,6 @@ void Game::on_pushButton_7_clicked()
 
         //endcheck();
 
-
         undoClass::undoStack.pop();
         undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
@@ -431,19 +433,23 @@ void Game::on_pushButton_7_clicked()
         undoClass::undoReihe.pop();
         undoClass::undoSpalte.pop();
         undoClass::undoPixmap.pop();
+
     }
 
     /************* undo Funktion zurücksetzen *****************************/
-    while( undoClass::undoStack.empty() == false )
+
+    while( undoClass::undoStack.size() >0 )
     {
-        undoClass::undoStack.pop();
-        undoClass::undoParent.pop();
+        qDebug() << "hier sollte er nicht sein, wenn nur ein faslcher zug geamcht wurde, und dann abgegeben";
+        //undoClass::undoStack.pop();
+        //undoClass::undoParent.pop();
         undoClass::undoCoordOldX.pop();
         undoClass::undoCoordOldY.pop();
-        undoClass::undoReihe.pop();
-        undoClass::undoSpalte.pop();
-        undoClass::undoPixmap.pop();
+        //undoClass::undoReihe.pop();
+        //undoClass::undoSpalte.pop();
+        //undoClass::undoPixmap.pop();
     }
+
 
     /************ feldarray aktualisieren *********************************/
     int i, j;
@@ -470,6 +476,8 @@ void Game::on_pushButton_7_clicked()
         //für den Spieler der zuletzt dran war, wird noch spielerpunkte = spielerpunkte + extrapunkte gerechnet
         //gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpunkte4);
     }
+
+    pass = false;
 
     qDebug() << "*****************************Zugende**********************************";
 }

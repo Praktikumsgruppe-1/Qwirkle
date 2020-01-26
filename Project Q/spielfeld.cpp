@@ -121,13 +121,18 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
                 /***** Undo Stack updaten ***************************************/
-                undoClass::undoStack.pop();
+                //undoClass::undoStack.pop();
                 undoClass::undoParent.pop();
                 undoClass::undoCoordOldX.pop();
                 undoClass::undoCoordOldY.pop();
                 undoClass::undoPixmap.pop();
-                undoClass::undoReihe.pop();
-                undoClass::undoSpalte.pop();
+                //undoClass::undoReihe.pop();
+                //undoClass::undoSpalte.pop();
+
+                feldarray[reihe][spalte][0] = 0;
+                feldarray[reihe][spalte][1] = 9;
+                feldarray[reihe][spalte][2] = 9;
+                feldarray[reihe][spalte][3] = 0;
 
                 pframe->update();
                 qDebug() << "---Stein darf nich abgelegt werden---";
@@ -160,13 +165,13 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 newIcon->setAttribute(Qt::WA_DeleteOnClose);
                 
                 /***** Undo Stack updaten ***************************************/
-                undoClass::undoStack.pop();
+                //undoClass::undoStack.pop();
                 undoClass::undoParent.pop();
                 undoClass::undoCoordOldX.pop();
                 undoClass::undoCoordOldY.pop();
                 undoClass::undoPixmap.pop();
-                undoClass::undoReihe.pop();
-                undoClass::undoSpalte.pop();
+                //undoClass::undoReihe.pop();
+                //undoClass::undoSpalte.pop();
 
                 feldarray[reihe][spalte][0] = 0;
                 feldarray[reihe][spalte][1] = 9;

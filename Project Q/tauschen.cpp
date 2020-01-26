@@ -100,7 +100,7 @@ void Tauschen::SteinTauschen(){
         QHBoxLayout *layoutFenster = new QHBoxLayout();
 
         errorFenster->setMinimumSize( 500, 100 );
-        labelFenster->setText("Error. Du hast den Stein schonmal getauft.");
+        labelFenster->setText("Error. Du hast den Stein schonmal getauscht.");
         layoutFenster->addWidget( labelFenster );
         errorFenster->setLayout( layoutFenster );
 
