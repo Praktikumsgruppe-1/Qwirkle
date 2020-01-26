@@ -22,9 +22,7 @@ public:
     int reihe;
     int spalte;
 
-
     void feldArrayZuruecksetzen( );
-
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

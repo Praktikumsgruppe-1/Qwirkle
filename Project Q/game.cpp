@@ -391,6 +391,10 @@ void Game::on_pushButton_7_clicked()
     qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
     qDebug() << "*****************************Zugende**********************************";
 
+    for( int i = 0; i < 6; i++ )
+    {
+        Tauschen::getauschteSteine.pop_back();
+    }
 }
 
 /******************** Netzwerkfunktionen ****************************************************************************/
