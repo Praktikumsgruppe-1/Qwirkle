@@ -413,15 +413,18 @@ void Game::on_pushButton_7_clicked()
     // hier fehlt dann bei den Punkten noch die Unterscheidung der Spieler
     if(passcheck(bewegteSteinef())==false)
     {
+        qDebug()<< "die alten Spielerpunkte:" << spielerpunkte;
         spielerpunkte = spielerpunkte + points->calc(undoClass::undoReihe.top(),undoClass::undoSpalte.top());
         qDebug("Punkte werden berechnet");
-
-        qDebug() << spielerpunkte;
-
     }
 
-    if( bewegteSteinef() == 1 )
+    qDebug()<< "allerersterStein:" << allerersterStein;
+
+    if( spielerpunkte == 0  )
+    {
         spielerpunkte++;
+    }
+    qDebug()<< "die neuen Spielerpunkte:" << spielerpunkte;
 
     ui->lcdNumber->display(spielerpunkte);
     ui->lcdNumber->update();
