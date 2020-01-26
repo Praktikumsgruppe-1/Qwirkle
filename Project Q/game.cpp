@@ -34,13 +34,14 @@
 #include "einstellungen.h"
 #include "spielfeld.h"
 #include "turn.h"
+#include "json.h"
 
 // static Variablen initialisieren
 int feldarray [108][108][5];
 std::vector< int > Game::beutelStackFarbe;
 std::vector< int > Game::beutelStackForm;
 std::vector< int > Game::beutelStackKopie;
-Turn spielzug;
+//Turn spielzug;
 
 /****************** Konstruktor *******************************************************************/
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
@@ -271,7 +272,7 @@ int Game::bewegteSteinef()
 {
     int farbeStein;
     int formStein;
-
+    Turn spielzug;
     int x, y, bewegteSteine = 0;
     for( x = 0; x < 108; x++ )
     {
@@ -285,6 +286,8 @@ int Game::bewegteSteinef()
             }
         }
     }
+    QJsonArray turn = spielzug.steineToJson();
+    m_chatClient->sendTurn(turn);
 
     return bewegteSteine;
 };
@@ -468,11 +471,14 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
-    //TODO: aktualisiertes feldarray versenden
-    QJsonArray turn = spielzug.steineToJson();
-    m_chatClient->sendTurn(turn);
-    //TODO: aktuellen Beutel uebermitteln
-    //ChatClient::sendMessage();
+    //Beutel als Json speichern und versenden
+    QJsonArray form = json::toJson(beutelStackForm);
+    m_chatClient->sendForm(form);
+    QJsonArray farbe = json::toJson(beutelStackFarbe);
+    m_chatClient->sendFarbe(farbe);
+    QJsonArray kopie = json::toJson(beutelStackKopie);
+    m_chatClient->sendKopie(kopie);
+
     //TODO: Spielerstatus deaktivieren
     //ChatClient::sendMessage();
 

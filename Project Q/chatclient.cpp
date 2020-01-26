@@ -58,6 +58,42 @@ void ChatClient::sendTurn(QJsonArray &array)
     turn["array"] = array;
     clientStream << QJsonDocument(turn).toJson();
 }
+void ChatClient::sendFarbe(QJsonArray &array)
+{
+  //  if (array.isEmpty())
+  //      return;
+    QDataStream clientStream(m_clientSocket);
+    clientStream.setVersion(QDataStream::Qt_5_7);
+    QJsonObject turn;
+    turn["type"] = QStringLiteral("farbe");
+    turn["array"] = array;
+    clientStream << QJsonDocument(turn).toJson();
+}
+
+void ChatClient::sendForm(QJsonArray &array)
+{
+  //  if (array.isEmpty())
+  //      return;
+    QDataStream clientStream(m_clientSocket);
+    clientStream.setVersion(QDataStream::Qt_5_7);
+    QJsonObject turn;
+    turn["type"] = QStringLiteral("form");
+    turn["array"] = array;
+    clientStream << QJsonDocument(turn).toJson();
+}
+
+void ChatClient::sendKopie(QJsonArray &array)
+{
+  //  if (array.isEmpty())
+  //      return;
+    QDataStream clientStream(m_clientSocket);
+    clientStream.setVersion(QDataStream::Qt_5_7);
+    QJsonObject turn;
+    turn["type"] = QStringLiteral("kopie");
+    turn["array"] = array;
+    clientStream << QJsonDocument(turn).toJson();
+}
+
 void ChatClient::sendMessage(const QString &text)
 {
     if (text.isEmpty())
@@ -102,16 +138,16 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
     } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {
-
-        /* const QJsonValue textVal = docObj.value(QLatin1String("array"));
-        QJsonArray array = docObj["array"];
+        const QJsonValue textVal = docObj.value(QLatin1String("array"));
+        textVal.toArray();
+        /*QJsonArray array = docObj["array"];
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (textVal.isNull() || !textVal.isString())
             return;
         if (senderVal.isNull() || !senderVal.isString())
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
-        */
+*/
    } else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
         const QJsonValue usernameVal = docObj.value(QLatin1String("username"));
         if (usernameVal.isNull() || !usernameVal.isString())

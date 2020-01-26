@@ -64,7 +64,9 @@ SOURCES       = ../Project\ Q/benutzerhand.cpp \
 		../Project\ Q/ruleswindow.cpp \
 		../Project\ Q/serverworker.cpp \
 		../Project\ Q/spielfeld.cpp \
+		../Project\ Q/stein.cpp \
 		../Project\ Q/tauschen.cpp \
+		../Project\ Q/turn.cpp \
 		../Project\ Q/undo.cpp qrc_Images.cpp \
 		moc_chatclient.cpp \
 		moc_chatserver.cpp \
@@ -86,7 +88,9 @@ OBJECTS       = benutzerhand.o \
 		ruleswindow.o \
 		serverworker.o \
 		spielfeld.o \
+		stein.o \
 		tauschen.o \
+		turn.o \
 		undo.o \
 		qrc_Images.o \
 		moc_chatclient.o \
@@ -243,6 +247,7 @@ DIST          = ../../../../Qt2/5.12.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/spec_post.prf \
+		../Project Q/.qmake.stash \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/toolchain.prf \
@@ -281,7 +286,9 @@ DIST          = ../../../../Qt2/5.12.5/clang_64/mkspecs/features/spec_pre.prf \
 		../Project\ Q/ruleswindow.h \
 		../Project\ Q/serverworker.h \
 		../Project\ Q/spielfeld.h \
+		../Project\ Q/stein.h \
 		../Project\ Q/tauschen.h \
+		../Project\ Q/turn.h \
 		../Project\ Q/undo.h ../Project\ Q/benutzerhand.cpp \
 		../Project\ Q/chatclient.cpp \
 		../Project\ Q/chatserver.cpp \
@@ -294,7 +301,9 @@ DIST          = ../../../../Qt2/5.12.5/clang_64/mkspecs/features/spec_pre.prf \
 		../Project\ Q/ruleswindow.cpp \
 		../Project\ Q/serverworker.cpp \
 		../Project\ Q/spielfeld.cpp \
+		../Project\ Q/stein.cpp \
 		../Project\ Q/tauschen.cpp \
+		../Project\ Q/turn.cpp \
 		../Project\ Q/undo.cpp
 QMAKE_TARGET  = ProjectQ
 DESTDIR       = 
@@ -464,6 +473,7 @@ Makefile: ../Project\ Q/ProjectQ.pro ../../../../Qt2/5.12.5/clang_64/mkspecs/mac
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../../Qt2/5.12.5/clang_64/mkspecs/features/toolchain.prf \
@@ -644,6 +654,7 @@ Makefile: ../Project\ Q/ProjectQ.pro ../../../../Qt2/5.12.5/clang_64/mkspecs/mac
 ../../../../Qt2/5.12.5/clang_64/mkspecs/features/qt_config.prf:
 ../../../../Qt2/5.12.5/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../../Qt2/5.12.5/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt2/5.12.5/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt2/5.12.5/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../../Qt2/5.12.5/clang_64/mkspecs/features/toolchain.prf:
@@ -708,8 +719,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Project\ Q/Images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt2/5.12.5/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project\ Q/benutzerhand.h ../Project\ Q/chatclient.h ../Project\ Q/chatserver.h ../Project\ Q/einstellungen.h ../Project\ Q/game.h ../Project\ Q/mainwindow.h ../Project\ Q/regeln.h ../Project\ Q/punkte.h ../Project\ Q/ruleswindow.h ../Project\ Q/serverworker.h ../Project\ Q/spielfeld.h ../Project\ Q/tauschen.h ../Project\ Q/undo.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Project\ Q/benutzerhand.cpp ../Project\ Q/chatclient.cpp ../Project\ Q/chatserver.cpp ../Project\ Q/einstellungen.cpp ../Project\ Q/game.cpp ../Project\ Q/main.cpp ../Project\ Q/mainwindow.cpp ../Project\ Q/punkte.cpp ../Project\ Q/regeln.cpp ../Project\ Q/ruleswindow.cpp ../Project\ Q/serverworker.cpp ../Project\ Q/spielfeld.cpp ../Project\ Q/tauschen.cpp ../Project\ Q/undo.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project\ Q/benutzerhand.h ../Project\ Q/chatclient.h ../Project\ Q/chatserver.h ../Project\ Q/einstellungen.h ../Project\ Q/game.h ../Project\ Q/mainwindow.h ../Project\ Q/regeln.h ../Project\ Q/punkte.h ../Project\ Q/ruleswindow.h ../Project\ Q/serverworker.h ../Project\ Q/spielfeld.h ../Project\ Q/stein.h ../Project\ Q/tauschen.h ../Project\ Q/turn.h ../Project\ Q/undo.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Project\ Q/benutzerhand.cpp ../Project\ Q/chatclient.cpp ../Project\ Q/chatserver.cpp ../Project\ Q/einstellungen.cpp ../Project\ Q/game.cpp ../Project\ Q/main.cpp ../Project\ Q/mainwindow.cpp ../Project\ Q/punkte.cpp ../Project\ Q/regeln.cpp ../Project\ Q/ruleswindow.cpp ../Project\ Q/serverworker.cpp ../Project\ Q/spielfeld.cpp ../Project\ Q/stein.cpp ../Project\ Q/tauschen.cpp ../Project\ Q/turn.cpp ../Project\ Q/undo.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Project\ Q/einstellungen.ui ../Project\ Q/game.ui ../Project\ Q/game.ui ../Project\ Q/mainwindow.ui ../Project\ Q/ruleswindow.ui $(DISTDIR)/
 
 
@@ -720,6 +731,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r ProjectQ.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -837,6 +849,8 @@ moc_chatclient.cpp: ../Project\ Q/chatclient.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		moc_predefs.h \
 		../../../../Qt2/5.12.5/clang_64/bin/moc
 	/Users/pascaljeschke/Qt2/5.12.5/clang_64/bin/moc $(DEFINES) --include /Users/pascaljeschke/Documents/GitHub/Qwirkle/build-ProjectQ-Desktop_Qt_5_12_5_clang_64bit-Debug/moc_predefs.h -I/Users/pascaljeschke/Qt2/5.12.5/clang_64/mkspecs/macx-clang -I'/Users/pascaljeschke/Documents/GitHub/Qwirkle/Project Q' -I/Users/pascaljeschke/Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/pascaljeschke/Qt2/5.12.5/clang_64/lib/QtGui.framework/Headers -I/Users/pascaljeschke/Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers -I/Users/pascaljeschke/Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/pascaljeschke/Qt2/5.12.5/clang_64/lib ../Project\ Q/chatclient.h -o moc_chatclient.cpp
@@ -1109,6 +1123,8 @@ chatclient.o: ../Project\ Q/chatclient.cpp ../Project\ Q/chatclient.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QDataStream \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qdatastream.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonParseError \
@@ -1117,7 +1133,11 @@ chatclient.o: ../Project\ Q/chatclient.cpp ../Project\ Q/chatclient.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonObject \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonobject.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonValue \
-		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonvalue.h
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonvalue.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonArray \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonarray.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chatclient.o ../Project\ Q/chatclient.cpp
 
 chatserver.o: ../Project\ Q/chatserver.cpp ../Project\ Q/chatserver.h \
@@ -1170,6 +1190,8 @@ game.o: ../Project\ Q/game.cpp ../../../../Qt2/5.12.5/clang_64/lib/QtGui.framewo
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/qnetworkinterface.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QScrollBar \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qscrollbar.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonArray \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonarray.h \
 		../Project\ Q/game.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1189,6 +1211,8 @@ game.o: ../Project\ Q/game.cpp ../../../../Qt2/5.12.5/clang_64/lib/QtGui.framewo
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../Project\ Q/chatserver.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/QTcpServer \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/qtcpserver.h \
@@ -1204,7 +1228,9 @@ game.o: ../Project\ Q/game.cpp ../../../../Qt2/5.12.5/clang_64/lib/QtGui.framewo
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QUndoCommand \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qundostack.h \
 		../Project\ Q/einstellungen.h \
-		../Project\ Q/ui_einstellungen.h
+		../Project\ Q/ui_einstellungen.h \
+		../Project\ Q/turn.h \
+		../Project\ Q/stein.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o game.o ../Project\ Q/game.cpp
 
 main.o: ../Project\ Q/main.cpp ../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
@@ -1253,7 +1279,9 @@ mainwindow.o: ../Project\ Q/mainwindow.cpp ../../../../Qt2/5.12.5/clang_64/lib/Q
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
-		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h
+		../../../../Qt2/5.12.5/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QTimer \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qtimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Project\ Q/mainwindow.cpp
 
 punkte.o: ../Project\ Q/punkte.cpp ../Project\ Q/punkte.h \
@@ -1469,6 +1497,9 @@ spielfeld.o: ../Project\ Q/spielfeld.cpp ../../../../Qt2/5.12.5/clang_64/lib/QtW
 		../Project\ Q/tauschen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o spielfeld.o ../Project\ Q/spielfeld.cpp
 
+stein.o: ../Project\ Q/stein.cpp ../Project\ Q/stein.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o stein.o ../Project\ Q/stein.cpp
+
 tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/ui_game.h \
 		../Project\ Q/tauschen.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QFrame \
@@ -1497,6 +1528,16 @@ tauschen.o: ../Project\ Q/tauschen.cpp ../Project\ Q/ui_game.h \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QUndoCommand \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qundostack.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tauschen.o ../Project\ Q/tauschen.cpp
+
+turn.o: ../Project\ Q/turn.cpp ../Project\ Q/turn.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../Project\ Q/stein.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonArray \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonarray.h \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/QJsonObject \
+		../../../../Qt2/5.12.5/clang_64/lib/QtCore.framework/Headers/qjsonobject.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o turn.o ../Project\ Q/turn.cpp
 
 undo.o: ../Project\ Q/undo.cpp ../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QLabel \
 		../../../../Qt2/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \

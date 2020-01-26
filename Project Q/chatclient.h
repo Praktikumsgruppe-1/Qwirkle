@@ -18,6 +18,9 @@ public slots:
     void sendMessage(const QString &text);
     void sendPoints(const QString &score);
     void sendTurn(QJsonArray &array);
+    void sendFarbe(QJsonArray &array);
+    void sendForm(QJsonArray &array);
+    void sendKopie(QJsonArray &array);
     void disconnectFromHost();
     void nextPlayer();
 private slots:

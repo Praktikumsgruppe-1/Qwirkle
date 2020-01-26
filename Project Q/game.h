@@ -52,6 +52,7 @@ public:
     bool pass = false;
     bool passcheck(int a);
     int bewegteSteinef();
+    int bewegteSteinef(int);
 
 private slots:
     void on_pushButton_clicked();

@@ -4,7 +4,6 @@
 
 Turn::Turn()
 {
-    spielzug.push_back(Stein(0,0,0,0));
     return;
 }
 
@@ -14,14 +13,14 @@ Turn::~Turn() {
 }
 
 void Turn::addStein(int pos_x, int pos_y, int farbe, int form) {
-    Stein newStone = Stein(pos_x, pos_y, farbe, form);
-    spielzug.push_back(newStone);
+    Stein neuerStein = Stein(pos_x, pos_y, farbe, form);
+    spielzug.push_back(neuerStein);
     return;
 }
 
 QJsonArray Turn::steineToJson() {
     QJsonArray steineJson;
-    for (unsigned i = 0; i < this->spielzug.size(); i++) {
+    for (unsigned long i = 0; i < this->spielzug.size(); i++) {
         QJsonObject temp;
         temp.insert("pos_x", this->spielzug[i].pos_x);
         temp.insert("pos_y", this->spielzug[i].pos_y);
@@ -30,4 +29,4 @@ QJsonArray Turn::steineToJson() {
         steineJson.append(temp);
     }
     return steineJson;
- }
+}
