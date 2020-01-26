@@ -97,10 +97,44 @@ void Spielfeld::dropEvent(QDropEvent *event)
          qDebug()<<"nach dem ersten stein sollte das 1 sein:" << SteinImFeld;
         // feldarray mit Werten initialisieren
         if ( undoClass::undoStack.empty() == true )     // wenn noch kein Stein auf das SPielfeld gelegt wurde,
-        {                                               // wird der gedroppte Stein als erstgelegter Stein markiert
+        {                                               // wird der gedroppte Stein als erstgelegter Stein markiert 
             feldarray[reihe][spalte][0] = 1;
             qDebug() << "test++++++++++++++";
         }
+
+        if( SteinImFeld == 0 )                          // verhindern, dass die check Funktion von Regeln ausgeführt wird,
+        {                                               // wenn noch keit Stein im Feld liegt
+            qDebug("anfang_1.stein schleife");
+            // soll ausgeführt werden, wenn er nicht gelegt werden darf oder bereits ein Stein drinnen liegt
+            if ( this->childAt( 10, 10 ) != nullptr || pRegeln->check1( reihe, spalte, getFarbePixmap(pixmap) ,getFormPixmap(pixmap) ) == false )
+            {
+                qDebug("falsch_schleife");
+                qDebug() << "Daten der falsch_Schleife" << reihe << spalte << getFarbePixmap(pixmap) << getFormPixmap(pixmap);
+                /*** neuen Stein erstellen, der dargestellt wird in der Benutzerhand ***/
+                Game* pframe = new Game();
+                QLabel *newIcon = new QLabel( );
+
+                newIcon->setParent( undoClass::undoParent.top() );
+                newIcon->setPixmap( pixmap );
+                newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
+                newIcon->show();
+                newIcon->setAttribute(Qt::WA_DeleteOnClose);
+
+                /***** Undo Stack updaten ***************************************/
+                undoClass::undoStack.pop();
+                undoClass::undoParent.pop();
+                undoClass::undoCoordOldX.pop();
+                undoClass::undoCoordOldY.pop();
+                undoClass::undoPixmap.pop();
+                undoClass::undoReihe.pop();
+                undoClass::undoSpalte.pop();
+
+                pframe->update();
+                qDebug() << "---Stein darf nich abgelegt werden---";
+                return;
+            }
+        }
+
         feldarray[reihe][spalte][1] = getFarbePixmap(pixmap);
         feldarray[reihe][spalte][2] = getFormPixmap(pixmap);
         feldarray[reihe][spalte][3] = 1;
