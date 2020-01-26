@@ -77,6 +77,9 @@ void undoClass::undoMove(){
 
         /*** Variable aktualisieren, wenn der erstplatzierte Stein rueckgaengig gemacht wird ***/
         SteinImFeld--;
+
+        if( allerersterStein == 1 )
+            allerersterStein = 0;
     }
     return;
 }
