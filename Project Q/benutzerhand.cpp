@@ -122,14 +122,7 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
         //child->close();
         event->ignore();
         qDebug("hier bin ich, wenn ich gedroppt habe");
-
-        undoClass::undoParent.pop();
-        undoClass::undoCoordOldX.pop();
-        undoClass::undoCoordOldY.pop();
-        if ( !undoClass::undoPixmap.empty() )
-            undoClass::undoPixmap.pop();
     }
-
 }
 
 /************ Funktionen ************************************************************/

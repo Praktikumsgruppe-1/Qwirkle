@@ -452,10 +452,8 @@ void Game::on_pushButton_7_clicked()
         Game* pframe2 = new Game();
         QLabel *newIcon = new QLabel( );
 
-        //newIcon->setParent( ui->hand );
         //qDebug() << undoClass::undoParent.top() ;
-        if(undoClass::undoParent.empty()== false)
-            newIcon->setParent( undoClass::undoParent.top() );
+        newIcon->setParent( undoClass::undoParent.top() );
         newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ) );
         if ((undoClass::undoCoordOldX.empty() == false) && (undoClass::undoCoordOldY.empty() == false))
             newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
@@ -482,7 +480,6 @@ void Game::on_pushButton_7_clicked()
         if( !undoClass::undoPixmap.empty() )
             undoClass::undoPixmap.pop();                                  // hier stürzt er ab, wenn man einen richtigen zug macht
                                                                       // dann richtige steine legt, dann einen falschen und dann abgeben will
-
     }
 
     /************* undo Funktion zurücksetzen *****************************/
