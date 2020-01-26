@@ -9,6 +9,7 @@ class json
 public:
     json();
     static QJsonArray toJson(const std::vector<int>);
+    static std::vector <int> toVec(QJsonArray);
 
 };
 

@@ -329,6 +329,24 @@ void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
     newIcon->setAttribute(Qt::WA_DeleteOnClose);
 }
 
+void Game::formAktualisieren(QJsonArray ar)
+{
+    Game::beutelStackForm = json::toVec(ar);
+    return;
+}
+
+void Game::farbeAktualisieren(QJsonArray ar)
+{
+    Game::beutelStackFarbe = json::toVec(ar);
+    return;
+}
+
+void Game::kopieAktualisieren(QJsonArray ar)
+{
+    Game::beutelStackKopie = json::toVec(ar);
+    return;
+}
+
 /*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl
 void Game::endcheck()
 {
