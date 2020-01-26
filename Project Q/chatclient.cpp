@@ -141,14 +141,6 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
     } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {
         const QJsonValue textVal = docObj.value(QLatin1String("array"));
         Game::arrayauslesen(textVal.toArray());
-        /*QJsonArray array = docObj["array"];
-        const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
-        if (textVal.isNull() || !textVal.isString())
-            return;
-        if (senderVal.isNull() || !senderVal.isString())
-            return;
-        emit messageReceived(senderVal.toString(), textVal.toString());
-*/
     } else if (typeVal.toString().compare(QLatin1String("form"), Qt::CaseInsensitive) == 0) {
                 const QJsonValue textVal = docObj.value(QLatin1String("array"));
                 Game::formAktualisieren(textVal.toArray());
