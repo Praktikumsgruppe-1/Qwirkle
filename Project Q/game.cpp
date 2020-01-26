@@ -32,7 +32,7 @@
 #include "mainwindow.h"
 #include "einstellungen.h"
 #include "spielfeld.h"
-
+#include "turn.h"
 
 // static Variablen initialisieren
 int feldarray [108][108][5];
@@ -466,6 +466,14 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
+    //TODO: aktualisiertes feldarray versenden
+    QJsonArray turn = spielzug.steineToJson();
+    m_chatClient->sendTurn(turn);
+    //TODO: aktuellen Beutel uebermitteln
+    //ChatClient::sendMessage();
+    //TODO: Spielerstatus deaktivieren
+    //ChatClient::sendMessage();
+
     SteinImFeld = 0;
     qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
 
@@ -473,6 +481,11 @@ void Game::on_pushButton_7_clicked()
     {
         Tauschen::getauschteSteine.pop_back();
     }
+    QJsonArray array = { 1, 2, 2.3 ,QString("test")};
+            m_chatClient->sendTurn(array);
+            QString point = QString::number(spielerpunkte);
+            m_chatClient->sendPoints(point);
+            m_chatClient->nextPlayer();
 
     if(spielende==true)
     {
