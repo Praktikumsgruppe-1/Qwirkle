@@ -222,7 +222,7 @@ bool Regeln::check2(int xCoord, int yCoord, int colour, int symbol)
   }
   if (notetwo==0)
   {
-      qDebug()<< "Zeile: 220" << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3];
+      qDebug()<< "Zeile: 225" << feldarray[xCoord][yCoord][0] << feldarray[xCoord][yCoord][1] << feldarray[xCoord][yCoord][2] << feldarray[xCoord][yCoord][3] << "Koordinaten: " << xCoord << yCoord;
     qDebug("kein stein drumherum war der 1. im zug");
       return false;
   }

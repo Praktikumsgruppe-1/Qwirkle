@@ -121,7 +121,7 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
         child->setPixmap(pixmap);
         //child->close();
         event->ignore();
-        qDebug("hier bin ich, wenn ich gedroppt habe");
+        qDebug("hier bin ich, wenn ich falsch gedroppt habe");
     }
 }
 
@@ -274,6 +274,7 @@ extern int getFarbePixmap( QPixmap pixmap )
             pixmapsgleich = true;
         }
     }
+    return i;
 }
 
 
@@ -357,4 +358,5 @@ extern int getFormPixmap( QPixmap pixmap )
             pixmapsgleich = true;
         }
     }
+    return j;
 }
