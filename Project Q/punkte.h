@@ -11,9 +11,9 @@
 class Punkte
 {
 public:
-    Punkte();
+    Punkte( );
 
-    int calc (int xCoord, int yCoord);
+    int calc ( int xCoord, int yCoord );
 
 private:
     int note;                                                     //Zwischenspeicherplatz

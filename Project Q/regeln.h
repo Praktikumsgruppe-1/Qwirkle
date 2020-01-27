@@ -11,9 +11,9 @@ class Regeln
 public:
     Regeln();
 
-    bool check1(int xCoord, int yCoord, int colour, int symbol);
-    bool check2(int xCoord, int yCoord, int colour, int symbol);
-    bool check(int xCoord, int yCoord, int colour, int symbol);
+    bool check1( int xCoord, int yCoord, int colour, int symbol );
+    bool check2( int xCoord, int yCoord, int colour, int symbol );
+    bool check( int xCoord, int yCoord, int colour, int symbol );
 
 private:
     int checkcounter=0;

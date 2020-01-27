@@ -13,14 +13,14 @@ class Game;
 class Tauschen : public QFrame
 {
 public:
-    explicit Tauschen(QWidget *parent = nullptr);
-    void SteinTauschen();
+    explicit Tauschen( QWidget *parent = nullptr );
+    void SteinTauschen( );
 
     static std::vector< QFrame* >getauschteSteine;
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event) override;
-    void dropEvent(QDropEvent *event) override;
+    void dragEnterEvent( QDragEnterEvent *event ) override;
+    void dropEvent( QDropEvent *event ) override;
 };
 
 

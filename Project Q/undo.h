@@ -15,8 +15,8 @@ class undoClass : QFrame
 {
     Q_OBJECT
 public:
-    explicit undoClass(QWidget *parent = nullptr);
-    ~undoClass();
+    explicit undoClass( QWidget *parent = nullptr );
+    ~undoClass( );
 
 private:
     static std::stack< QLabel* > undoStack;             // Stack mit Zeiger auf den Spielstein, der bewegt wird
@@ -33,7 +33,7 @@ private:
     friend class Game;
 
 public slots:
-    void undoMove();                                    // macht eine Bewegung eines Spielsteins rückgängig
+    void undoMove( );                                    // macht eine Bewegung eines Spielsteins rückgängig
 };
 
 #endif // UNDOMOVE_H

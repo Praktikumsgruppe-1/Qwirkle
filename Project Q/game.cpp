@@ -177,7 +177,8 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
 
      /************* Netzwerkaufbau *************************************************************/
 
-    if ( beforeWindow != nullptr ){
+    if ( beforeWindow != nullptr )
+    {
         m_chatServer = beforeWindow->getServerAdress();
         m_chatClient = beforeWindow->getClientAdress();
         m_chatModel = new QStandardItemModel(this);

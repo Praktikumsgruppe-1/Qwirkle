@@ -20,7 +20,8 @@ class QStandardItemModel;
 class MainWindow;
 class Spielfeld;
 
-namespace Ui {
+namespace Ui
+{
 class Game;
 }
 
