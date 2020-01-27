@@ -16,11 +16,8 @@ public slots:
     void connectToServer(const QHostAddress &address, quint16 port);
     void login(const QString &userName);
     void sendMessage(const QString &text);
-    void sendPoints(const QString &score);
-    void sendTurn(QJsonArray &array);
-    void sendFarbe(QJsonArray &array);
-    void sendForm(QJsonArray &array);
-    void sendKopie(QJsonArray &array);
+    void sendPoints(const QString &text);
+    void sendTurn(const QJsonArray &text);
     void disconnectFromHost();
     void nextPlayer();
 private slots:

@@ -8,7 +8,6 @@ ServerWorker::ServerWorker(QObject *parent)
     : QObject(parent)
     , m_serverSocket(new QTcpSocket(this))
 {
-
     connect(m_serverSocket, &QTcpSocket::readyRead, this, &ServerWorker::receiveJson);
     connect(m_serverSocket, &QTcpSocket::disconnected, this, &ServerWorker::disconnectedFromClient);
     connect(m_serverSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &ServerWorker::error);
@@ -57,9 +56,9 @@ void ServerWorker::receiveJson()
             QJsonParseError parseError;
             const QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData, &parseError);
             if (parseError.error == QJsonParseError::NoError) {
-                if (jsonDoc.isObject())
+                if (jsonDoc.isObject()){
                     emit jsonReceived(jsonDoc.object());
-                else
+               } else
                     emit logMessage("Invalid message: " + QString::fromUtf8(jsonData));
             } else {
                 emit logMessage("Invalid message: " + QString::fromUtf8(jsonData));

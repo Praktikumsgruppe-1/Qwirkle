@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ChatClient_t {
-    QByteArrayData data[25];
-    char stringdata0[266];
+    QByteArrayData data[29];
+    char stringdata0[306];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -55,8 +55,12 @@ QT_MOC_LITERAL(19, 203, 4), // "port"
 QT_MOC_LITERAL(20, 208, 5), // "login"
 QT_MOC_LITERAL(21, 214, 8), // "userName"
 QT_MOC_LITERAL(22, 223, 11), // "sendMessage"
-QT_MOC_LITERAL(23, 235, 18), // "disconnectFromHost"
-QT_MOC_LITERAL(24, 254, 11) // "onReadyRead"
+QT_MOC_LITERAL(23, 235, 10), // "sendPoints"
+QT_MOC_LITERAL(24, 246, 8), // "sendTurn"
+QT_MOC_LITERAL(25, 255, 18), // "disconnectFromHost"
+QT_MOC_LITERAL(26, 274, 10), // "nextPlayer"
+QT_MOC_LITERAL(27, 285, 11), // "onReadyRead"
+QT_MOC_LITERAL(28, 297, 8) // "ticktock"
 
     },
     "ChatClient\0connected\0\0loggedIn\0"
@@ -66,7 +70,8 @@ QT_MOC_LITERAL(24, 254, 11) // "onReadyRead"
     "userJoined\0username\0userLeft\0"
     "connectToServer\0QHostAddress\0address\0"
     "port\0login\0userName\0sendMessage\0"
-    "disconnectFromHost\0onReadyRead"
+    "sendPoints\0sendTurn\0disconnectFromHost\0"
+    "nextPlayer\0onReadyRead\0ticktock"
 };
 #undef QT_MOC_LITERAL
 
@@ -76,7 +81,7 @@ static const uint qt_meta_data_ChatClient[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      17,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -84,21 +89,25 @@ static const uint qt_meta_data_ChatClient[] = {
        8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   79,    2, 0x06 /* Public */,
-       3,    0,   80,    2, 0x06 /* Public */,
-       4,    1,   81,    2, 0x06 /* Public */,
-       6,    0,   84,    2, 0x06 /* Public */,
-       7,    2,   85,    2, 0x06 /* Public */,
-      10,    1,   90,    2, 0x06 /* Public */,
-      13,    1,   93,    2, 0x06 /* Public */,
-      15,    1,   96,    2, 0x06 /* Public */,
+       1,    0,   99,    2, 0x06 /* Public */,
+       3,    0,  100,    2, 0x06 /* Public */,
+       4,    1,  101,    2, 0x06 /* Public */,
+       6,    0,  104,    2, 0x06 /* Public */,
+       7,    2,  105,    2, 0x06 /* Public */,
+      10,    1,  110,    2, 0x06 /* Public */,
+      13,    1,  113,    2, 0x06 /* Public */,
+      15,    1,  116,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      16,    2,   99,    2, 0x0a /* Public */,
-      20,    1,  104,    2, 0x0a /* Public */,
-      22,    1,  107,    2, 0x0a /* Public */,
-      23,    0,  110,    2, 0x0a /* Public */,
-      24,    0,  111,    2, 0x08 /* Private */,
+      16,    2,  119,    2, 0x0a /* Public */,
+      20,    1,  124,    2, 0x0a /* Public */,
+      22,    1,  127,    2, 0x0a /* Public */,
+      23,    1,  130,    2, 0x0a /* Public */,
+      24,    1,  133,    2, 0x0a /* Public */,
+      25,    0,  136,    2, 0x0a /* Public */,
+      26,    0,  137,    2, 0x0a /* Public */,
+      27,    0,  138,    2, 0x08 /* Private */,
+      28,    0,  139,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -114,6 +123,10 @@ static const uint qt_meta_data_ChatClient[] = {
     QMetaType::Void, 0x80000000 | 17, QMetaType::UShort,   18,   19,
     QMetaType::Void, QMetaType::QString,   21,
     QMetaType::Void, QMetaType::QString,    9,
+    QMetaType::Void, QMetaType::QString,    9,
+    QMetaType::Void, QMetaType::QJsonArray,    9,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -137,8 +150,12 @@ void ChatClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->connectToServer((*reinterpret_cast< const QHostAddress(*)>(_a[1])),(*reinterpret_cast< quint16(*)>(_a[2]))); break;
         case 9: _t->login((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 10: _t->sendMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 11: _t->disconnectFromHost(); break;
-        case 12: _t->onReadyRead(); break;
+        case 11: _t->sendPoints((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 12: _t->sendTurn((*reinterpret_cast< const QJsonArray(*)>(_a[1]))); break;
+        case 13: _t->disconnectFromHost(); break;
+        case 14: _t->nextPlayer(); break;
+        case 15: _t->onReadyRead(); break;
+        case 16: _t->ticktock(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -242,13 +259,13 @@ int ChatClient::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 17;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 17)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 17;
     }
     return _id;
 }

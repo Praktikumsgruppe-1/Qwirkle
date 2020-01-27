@@ -271,8 +271,6 @@ bool Game::passcheck(int a)
 };
 
 
-
-
 int Game::bewegteSteinef()
 {
     int farbeStein;
@@ -565,6 +563,12 @@ void Game::on_pushButton_7_clicked()
     qDebug() << "*****************************Zugende**********************************";
 }
 
+/*
+QString point = QString::number(spielerpunkte);
+m_chatClient->sendPoints(point);
+m_chatClient->nextPlayer();
+*/
+
 /******************** Netzwerkfunktionen ****************************************************************************/
 
 // eine Chatnachricht wird gesendet
@@ -695,4 +699,3 @@ void Game::error(QAbstractSocket::SocketError socketError)
     ui->chatView->setEnabled(false);
     m_lastUserName.clear();
 }
-

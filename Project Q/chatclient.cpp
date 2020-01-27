@@ -7,8 +7,6 @@
 #include <QJsonValue>
 #include <QTimer>
 #include <QDebug>
-#include <QJsonArray>
-#include "game.h"
 
 ChatClient::ChatClient(QObject *parent)
     : QObject(parent)
@@ -22,6 +20,8 @@ ChatClient::ChatClient(QObject *parent)
     connect(m_clientSocket, &QTcpSocket::disconnected, this, [this]()->void{m_loggedIn = false;});
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()),this,SLOT(ticktock()));
+    timer ->start(10000); // jede x/1000 sec
+
 
 }
 
@@ -36,65 +36,27 @@ void ChatClient::login(const QString &userName)
         clientStream << QJsonDocument(message).toJson(QJsonDocument::Compact);
     }
 }
-void ChatClient::sendPoints(const QString &score)
+void ChatClient::sendPoints(const QString &text)
 {
-   // if (score.isEmpty())
-    //    return;
+
     QDataStream clientStream(m_clientSocket);
     clientStream.setVersion(QDataStream::Qt_5_7);
     QJsonObject points;
     points["type"] = QStringLiteral("points");
-    points["score"] = score;
+    points["text"] = text;
     clientStream << QJsonDocument(points).toJson();
 
 }
-void ChatClient::sendTurn(QJsonArray &array)
+void ChatClient::sendTurn(const QJsonArray &text)
 {
-  //  if (array.isEmpty())
-  //      return;
+
     QDataStream clientStream(m_clientSocket);
     clientStream.setVersion(QDataStream::Qt_5_7);
     QJsonObject turn;
     turn["type"] = QStringLiteral("turn");
-    turn["array"] = array;
+    turn["array"] = text;
     clientStream << QJsonDocument(turn).toJson();
 }
-void ChatClient::sendFarbe(QJsonArray &array)
-{
-  //  if (array.isEmpty())
-  //      return;
-    QDataStream clientStream(m_clientSocket);
-    clientStream.setVersion(QDataStream::Qt_5_7);
-    QJsonObject turn;
-    turn["type"] = QStringLiteral("farbe");
-    turn["array"] = array;
-    clientStream << QJsonDocument(turn).toJson();
-}
-
-void ChatClient::sendForm(QJsonArray &array)
-{
-  //  if (array.isEmpty())
-  //      return;
-    QDataStream clientStream(m_clientSocket);
-    clientStream.setVersion(QDataStream::Qt_5_7);
-    QJsonObject turn;
-    turn["type"] = QStringLiteral("form");
-    turn["array"] = array;
-    clientStream << QJsonDocument(turn).toJson();
-}
-
-void ChatClient::sendKopie(QJsonArray &array)
-{
-  //  if (array.isEmpty())
-  //      return;
-    QDataStream clientStream(m_clientSocket);
-    clientStream.setVersion(QDataStream::Qt_5_7);
-    QJsonObject turn;
-    turn["type"] = QStringLiteral("kopie");
-    turn["array"] = array;
-    clientStream << QJsonDocument(turn).toJson();
-}
-
 void ChatClient::sendMessage(const QString &text)
 {
     if (text.isEmpty())
@@ -115,7 +77,7 @@ void ChatClient::disconnectFromHost()
 void ChatClient::jsonReceived(const QJsonObject &docObj)
 {
     const QJsonValue typeVal = docObj.value(QLatin1String("type"));
-    if (typeVal.isNull() || !typeVal.isString())
+    if (typeVal.isNull() )
         return;
     if (typeVal.toString().compare(QLatin1String("login"), Qt::CaseInsensitive) == 0) {
         if (m_loggedIn)
@@ -133,24 +95,24 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
     } else if (typeVal.toString().compare(QLatin1String("message"), Qt::CaseInsensitive) == 0) {
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
-        if (textVal.isNull() || !textVal.isString())
+        if (textVal.isNull() )
             return;
         if (senderVal.isNull() || !senderVal.isString())
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
-    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {
+    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) { //turn
         const QJsonValue textVal = docObj.value(QLatin1String("array"));
-        //Game::arrayauslesen(textVal.toArray());
-    } else if (typeVal.toString().compare(QLatin1String("form"), Qt::CaseInsensitive) == 0) {
-                const QJsonValue textVal = docObj.value(QLatin1String("array"));
-                //Game::formAktualisieren(textVal.toArray());
-    } else if (typeVal.toString().compare(QLatin1String("farbe"), Qt::CaseInsensitive) == 0) {
-                const QJsonValue textVal = docObj.value(QLatin1String("array"));
-                //Game::farbeAktualisieren(textVal.toArray());
-    } else if (typeVal.toString().compare(QLatin1String("kopie"), Qt::CaseInsensitive) == 0) {
-                const QJsonValue textVal = docObj.value(QLatin1String("array"));
-                //Game::kopieAktualisieren(textVal.toArray());
-   } else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
+        const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
+        if (senderVal.isNull() || !senderVal.isString())
+            return;
+        emit messageReceived(senderVal.toString(), textVal.toString());
+    } else if (typeVal.toString().compare(QLatin1String("points"), Qt::CaseInsensitive) == 0) { //points
+        const QJsonValue textVal = docObj.value(QLatin1String("text"));
+        const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
+        if (senderVal.isNull() || !senderVal.isString())
+            return;
+        emit messageReceived(senderVal.toString(), textVal.toString());
+}    else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
         const QJsonValue usernameVal = docObj.value(QLatin1String("username"));
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
@@ -160,16 +122,9 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
         emit userLeft(usernameVal.toString());
-    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {       // setzte feld auf clients nach !!!
-        const QJsonValue textVal = docObj.value(QLatin1String("text"));
-        const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
-        if (textVal.isNull() || !textVal.isString())
-            return;
-        if (senderVal.isNull() || !senderVal.isString())
-            return;
-        emit messageReceived(senderVal.toString(), textVal.toString()); // score reinsetzen
-
     }
+
+
 }
 
 void ChatClient::connectToServer(const QHostAddress &address, quint16 port)
@@ -201,7 +156,8 @@ void ChatClient::onReadyRead()
 void ChatClient::nextPlayer()
 {
             // hand freischalten  fehlt
-      ticktock();
+            // ticktock();
+            // spielbrett aktualisiern
 
 
 
@@ -212,12 +168,8 @@ void ChatClient::nextPlayer()
 
 void ChatClient::ticktock()
 {
-    int i=0;
-    qDebug() <<"turn start...";
-    timer ->start(10000); // jede sec bis x
-    i++;
-    qDebug()<< i ;
-    timer ->stop();
-    qDebug() <<"turn over...";
+
+    qDebug() <<"turn ";
+    timer->stop();
 
 }

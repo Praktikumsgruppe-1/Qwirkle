@@ -116,22 +116,43 @@ void ChatServer::jsonFromLoggedOut(ServerWorker *sender, const QJsonObject &docO
 void ChatServer::jsonFromLoggedIn(ServerWorker *sender, const QJsonObject &docObj)
 {
     Q_ASSERT(sender);
+    const QJsonValue textVal = docObj.value(QLatin1String("text"));
+    const QString text = textVal.toString().trimmed();
     const QJsonValue typeVal = docObj.value(QLatin1String("type"));
-    if (typeVal.isNull() || !typeVal.isString())
+    /*
+    if (typeVal.isNull())
         return;
     if (typeVal.toString().compare(QLatin1String("message"), Qt::CaseInsensitive) != 0)
         return;
-    const QJsonValue textVal = docObj.value(QLatin1String("text"));
-    if (textVal.isNull() || !textVal.isString())
+
+    if (textVal.isNull())
         return;
-    const QString text = textVal.toString().trimmed();
+
     if (text.isEmpty())
         return;
+        */
+    if (typeVal.toString().compare(QLatin1String("message"), Qt::CaseInsensitive) == 0){
     QJsonObject message;
     message["type"] = QStringLiteral("message");
     message["text"] = text;
     message["sender"] = sender->userName();
     broadcast(message, sender);
+    }
+    if (typeVal.toString().compare(QLatin1String("points"), Qt::CaseInsensitive) == 0){ //points
+    QJsonObject points;
+    points["type"] = QStringLiteral("points");
+    points["text"] = text;
+    points["sender"] = sender->userName();
+    broadcast(points, sender);
+    }
+    if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0){   //turn
+    QJsonObject turn;
+    turn["type"] = QStringLiteral("turn");
+    turn["array"] = text;
+    turn["sender"] = sender->userName();
+    broadcast(turn, sender);
+    }
+
 }
 
 
