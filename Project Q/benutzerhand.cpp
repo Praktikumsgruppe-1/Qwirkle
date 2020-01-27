@@ -122,6 +122,11 @@ void Benutzerhand::mousePressEvent(QMouseEvent *event)
         //child->close();
         event->ignore();
         qDebug("hier bin ich, wenn ich falsch gedroppt habe");
+
+        /*undoClass::undoParent.pop();
+        undoClass::undoCoordOldX.pop();
+        undoClass::undoCoordOldY.pop();
+        undoClass::undoPixmap.pop();*/
     }
 }
 
