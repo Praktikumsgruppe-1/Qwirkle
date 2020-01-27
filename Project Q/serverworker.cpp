@@ -1,7 +1,3 @@
-/**********************************************************************/
-// Datei: serverworker.cpp
-// Programmebeschreibung:
-/**********************************************************************/
 #include "serverworker.h"
 #include <QDataStream>
 #include <QJsonDocument>
@@ -24,6 +20,15 @@ bool ServerWorker::setSocketDescriptor(qintptr socketDescriptor)
 }
 
 void ServerWorker::sendJson(const QJsonObject &json)
+{
+    const QByteArray jsonData = QJsonDocument(json).toJson(QJsonDocument::Compact);
+    emit logMessage("Sending to " + userName() + " - " + QString::fromUtf8(jsonData));
+    QDataStream socketStream(m_serverSocket);
+    socketStream.setVersion(QDataStream::Qt_5_7);
+    qDebug()<<"jsonData" << jsonData;
+    socketStream << jsonData;
+}
+void ServerWorker::sendJsonArray(const QJsonArray &json)
 {
     const QByteArray jsonData = QJsonDocument(json).toJson(QJsonDocument::Compact);
     emit logMessage("Sending to " + userName() + " - " + QString::fromUtf8(jsonData));
@@ -53,28 +58,22 @@ void ServerWorker::receiveJson()
     QByteArray jsonData;
     QDataStream socketStream(m_serverSocket);
     socketStream.setVersion(QDataStream::Qt_5_7);
-    for (;;)
-    {
+    for (;;) {
         socketStream.startTransaction();
         socketStream >> jsonData;
-        if (socketStream.commitTransaction())
-        {
+        if (socketStream.commitTransaction()) {
             QJsonParseError parseError;
             const QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData, &parseError);
-            if (parseError.error == QJsonParseError::NoError)
-            {
-                if (jsonDoc.isObject())
-                {
+            if (parseError.error == QJsonParseError::NoError) {
+                if (jsonDoc.isObject()){
                     emit jsonReceived(jsonDoc.object());
-                } else
+               } else
                     emit logMessage("Invalid message: " + QString::fromUtf8(jsonData));
-            } else
-            {
+            } else {
                 emit logMessage("Invalid message: " + QString::fromUtf8(jsonData));
             }
 
-        } else
-        {
+        } else {
             break;
         }
     }
