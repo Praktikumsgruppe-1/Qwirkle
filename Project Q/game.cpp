@@ -574,6 +574,13 @@ void Game::on_pushButton_7_clicked()
 
     pass = false;
 
+    QJsonArray form = json::toJson(beutelStackForm);
+        m_chatClient->sendForm(form);
+        QJsonArray farbe = json::toJson(beutelStackFarbe);
+        m_chatClient->sendFarbe(farbe);
+        QJsonArray kopie = json::toJson(beutelStackKopie);
+        m_chatClient->sendKopie(kopie);
+
     qDebug() << "*****************************Zugende**********************************";
 }
 

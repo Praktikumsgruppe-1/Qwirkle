@@ -28,6 +28,9 @@ public slots:
     void sendTurn( const QJsonArray &text );
     void disconnectFromHost( );
     void nextPlayer( );
+    void sendFarbe(QJsonArray &array);
+    void sendForm(QJsonArray &array);
+    void sendKopie(QJsonArray &array);
 
 private slots:
     void onReadyRead( );
@@ -42,6 +45,10 @@ signals:
     void error( QAbstractSocket::SocketError socketError );
     void userJoined( const QString &username );
     void userLeft( const QString &username );
+    void formReceived(const QString &sender, const QJsonArray &text);
+    void turnReceived(const QString &sender, const QJsonArray &text);
+    void farbeReceived(const QString &sender, const QJsonArray &text);
+    void kopieReceived(const QString &sender, const QJsonArray &text);
 
 private:
     QTcpSocket *m_clientSocket;

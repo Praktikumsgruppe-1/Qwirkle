@@ -227,3 +227,5 @@ void ChatClient::sendKopie(QJsonArray &text)
     turn["text"] = text;
     clientStream << QJsonDocument(turn).toJson();
 }
+
+
