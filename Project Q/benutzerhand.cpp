@@ -190,6 +190,7 @@ extern QPixmap getPixmap( int a, int b )
        {rot_eckig, rot_kreuz, rot_raute, rot_rund, rot_sonne, rot_stern}
     };
 
+    qDebug() << "QPixmap die ausgegeben wird:" << a << b;
     return QPixmap(stein[a][b]);
 }
 

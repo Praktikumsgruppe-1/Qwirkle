@@ -118,6 +118,7 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
         }
         // Beutel mischen
         Game::beutelMischen();
+        qDebug() << "beutel gemischt im Game_Konstruktor mit " <<  Game::beutelStackFarbe.size() << "steinen im Beutel";
 
         /*** feldarray wird mit den Startwerten zum Spielbeginn initialisiert ***/
         for ( int i = 0; i < 108; i++ )
@@ -134,42 +135,45 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     }
 
     /**************** Benutzerhand initialisieren ******************************/
+    if(allerersterStein == 0)
+    {
+        Benutzerhand *icon1 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back());
+        ui->lhand->addWidget(icon1);
+        Game::beutelStackForm.pop_back();
+        Game::beutelStackFarbe.pop_back();
+        Game::beutelStackKopie.pop_back();
 
-    Benutzerhand *icon1 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back());
-    ui->lhand->addWidget(icon1);
-    Game::beutelStackForm.pop_back();
-    Game::beutelStackFarbe.pop_back();
-    Game::beutelStackKopie.pop_back();
+        Benutzerhand *icon2 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+        ui->lhand->addWidget(icon2);
+        Game::beutelStackForm.pop_back();
+        Game::beutelStackFarbe.pop_back();
+        Game::beutelStackKopie.pop_back();
 
-    Benutzerhand *icon2 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
-    ui->lhand->addWidget(icon2);
-    Game::beutelStackForm.pop_back();
-    Game::beutelStackFarbe.pop_back();
-    Game::beutelStackKopie.pop_back();
+        Benutzerhand *icon3 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+        ui->lhand->addWidget(icon3);
+        Game::beutelStackForm.pop_back();
+        Game::beutelStackFarbe.pop_back();
+        Game::beutelStackKopie.pop_back();
 
-    Benutzerhand *icon3 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
-    ui->lhand->addWidget(icon3);
-    Game::beutelStackForm.pop_back();
-    Game::beutelStackFarbe.pop_back();
-    Game::beutelStackKopie.pop_back();
+        Benutzerhand *icon4 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+        ui->lhand->addWidget(icon4);
+        Game::beutelStackForm.pop_back();
+        Game::beutelStackFarbe.pop_back();
+        Game::beutelStackKopie.pop_back();
 
-    Benutzerhand *icon4 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
-    ui->lhand->addWidget(icon4);
-    Game::beutelStackForm.pop_back();
-    Game::beutelStackFarbe.pop_back();
-    Game::beutelStackKopie.pop_back();
+        Benutzerhand *icon5 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+        ui->lhand->addWidget(icon5);
+        Game::beutelStackForm.pop_back();
+        Game::beutelStackFarbe.pop_back();
+        Game::beutelStackKopie.pop_back();
 
-    Benutzerhand *icon5 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
-    ui->lhand->addWidget(icon5);
-    Game::beutelStackForm.pop_back();
-    Game::beutelStackFarbe.pop_back();
-    Game::beutelStackKopie.pop_back();
-
-    Benutzerhand *icon6 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
-    ui->lhand->addWidget(icon6);
-    Game::beutelStackForm.pop_back();
-    Game::beutelStackFarbe.pop_back();
-    Game::beutelStackKopie.pop_back();
+        Benutzerhand *icon6 = new Benutzerhand(ui->hand, Game::beutelStackFarbe.back(), Game::beutelStackForm.back() );
+        ui->lhand->addWidget(icon6);
+        Game::beutelStackForm.pop_back();
+        Game::beutelStackFarbe.pop_back();
+        Game::beutelStackKopie.pop_back();
+        qDebug() << "Anzahl Steine im Beutel nach der benutzerhand" << Game::beutelStackFarbe.size();
+    }
 
      /************* Netzwerkaufbau *************************************************************/
 
@@ -227,9 +231,12 @@ Ui::Game* Game::getUi()
 // mischt den Beutel
 void Game::beutelMischen()
 {
+    qDebug() << "Der Beutel wird gemischt" ;
     std::vector< int > neuerBeutelStackFarbe;
     std::vector< int > neuerBeutelStackForm;
     std::vector< int > neuerBeutelStackKopie;
+
+    qDebug() << "Anzahl Steine im Beutel" << Game::beutelStackFarbe.size();
 
     int a = 0;
 
@@ -466,12 +473,17 @@ void Game::on_pushButton_7_clicked()
     /*************** Spielsteine hinzufügen ***************************/
     for( int i = 0; i < bewegteSteinef() && !Game::beutelStackForm.empty(); i++ )
     {
+        qDebug() << "Spielsteine werden hinzugefügt für:" << bewegteSteinef();
+        qDebug() << "Anzahl Steine im Beutel" << Game::beutelStackFarbe.size();
         Game* pframe2 = new Game();
+        qDebug() << "Anzahl Steine im Beutel" << Game::beutelStackFarbe.size();
+
         QLabel *newIcon = new QLabel( );
 
         //qDebug() << undoClass::undoParent.top() ;
         newIcon->setParent( undoClass::undoParent.top() );
         newIcon->setPixmap( getPixmap( Game::beutelStackFarbe.back(), Game::beutelStackForm.back() ) );
+        qDebug() << "Farbe und Form der Pixmap aus dem Beutel" << Game::beutelStackFarbe.back() << Game::beutelStackForm.back() << "Anzahl Steine im Beutel" << Game::beutelStackFarbe.size();
         if ((undoClass::undoCoordOldX.empty() == false) && (undoClass::undoCoordOldY.empty() == false))
             newIcon->move( undoClass::undoCoordOldX.top(), undoClass::undoCoordOldY.top() );
         newIcon->show();
@@ -541,6 +553,7 @@ void Game::on_pushButton_7_clicked()
 
     SteinImFeld = 0;
     qDebug() << "ZugEnde, hier sollte wieder 0 stehen: " << SteinImFeld;
+    qDebug() << "Anzahl formen im Beutel: " << Game::beutelStackForm.size() << "Anzahl farben im Beutel: " << Game::beutelStackFarbe.size();
 
     while( !Tauschen::getauschteSteine.empty() )
     {
