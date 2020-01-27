@@ -55,7 +55,7 @@ public:
     int bewegteSteinef(int);
 
 
-    static void arrayauslesen(QJsonArray);
+    void arrayauslesen(QJsonArray);
     void feldarrayAktualisieren( int array[4] );
     static void formAktualisieren(QJsonArray);
     static void farbeAktualisieren(QJsonArray);

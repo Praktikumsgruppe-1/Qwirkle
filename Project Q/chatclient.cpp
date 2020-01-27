@@ -140,16 +140,16 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         emit messageReceived(senderVal.toString(), textVal.toString());
     } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) {
         const QJsonValue textVal = docObj.value(QLatin1String("array"));
-        Game::arrayauslesen(textVal.toArray());
+        //Game::arrayauslesen(textVal.toArray());
     } else if (typeVal.toString().compare(QLatin1String("form"), Qt::CaseInsensitive) == 0) {
                 const QJsonValue textVal = docObj.value(QLatin1String("array"));
-                Game::formAktualisieren(textVal.toArray());
+                //Game::formAktualisieren(textVal.toArray());
     } else if (typeVal.toString().compare(QLatin1String("farbe"), Qt::CaseInsensitive) == 0) {
                 const QJsonValue textVal = docObj.value(QLatin1String("array"));
-                Game::farbeAktualisieren(textVal.toArray());
+                //Game::farbeAktualisieren(textVal.toArray());
     } else if (typeVal.toString().compare(QLatin1String("kopie"), Qt::CaseInsensitive) == 0) {
                 const QJsonValue textVal = docObj.value(QLatin1String("array"));
-                Game::kopieAktualisieren(textVal.toArray());
+                //Game::kopieAktualisieren(textVal.toArray());
    } else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
         const QJsonValue usernameVal = docObj.value(QLatin1String("username"));
         if (usernameVal.isNull() || !usernameVal.isString())

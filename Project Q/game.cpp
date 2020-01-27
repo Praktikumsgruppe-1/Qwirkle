@@ -277,7 +277,7 @@ int Game::bewegteSteinef()
 {
     int farbeStein;
     int formStein;
-    Turn spielzug;
+    //Turn spielzug;
     int x, y, bewegteSteine = 0;
     for( x = 0; x < 108; x++ )
     {
@@ -286,13 +286,13 @@ int Game::bewegteSteinef()
             if( feldarray[x][y][3] == 1 ){
                 farbeStein = feldarray[x][y][1];
                 formStein = feldarray[x][y][2];
-                spielzug.addStein(x, y, farbeStein, formStein);
+                //spielzug.addStein(x, y, farbeStein, formStein);
                 bewegteSteine++;
             }
         }
     }
-    QJsonArray turn = spielzug.steineToJson();
-    m_chatClient->sendTurn(turn);
+    //QJsonArray turn = spielzug.steineToJson();
+    //m_chatClient->sendTurn(turn);
 
     return bewegteSteine;
 };
@@ -329,6 +329,7 @@ void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
     newIcon->setAttribute(Qt::WA_DeleteOnClose);
 }
 
+/*
 void Game::formAktualisieren(QJsonArray ar)
 {
     Game::beutelStackForm = json::toVec(ar);
@@ -346,7 +347,7 @@ void Game::kopieAktualisieren(QJsonArray ar)
     Game::beutelStackKopie = json::toVec(ar);
     return;
 }
-
+*/
 /*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl
 void Game::endcheck()
 {
@@ -507,8 +508,8 @@ void Game::on_pushButton_7_clicked()
         qDebug() << "hier sollte er nicht sein, wenn nur ein faslcher zug gemacht wurde, und dann abgegeben";
         //undoClass::undoStack.pop();
         //undoClass::undoParent.pop();
-        undoClass::undoCoordOldX.pop();
-        undoClass::undoCoordOldY.pop();
+        //undoClass::undoCoordOldX.pop();
+        //undoClass::undoCoordOldY.pop();
         //undoClass::undoReihe.pop();
         //undoClass::undoSpalte.pop();
         //undoClass::undoPixmap.pop();
@@ -527,6 +528,7 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
+    /*
     //Beutel als Json speichern und versenden
     QJsonArray form = json::toJson(beutelStackForm);
     m_chatClient->sendForm(form);
@@ -534,6 +536,7 @@ void Game::on_pushButton_7_clicked()
     m_chatClient->sendFarbe(farbe);
     QJsonArray kopie = json::toJson(beutelStackKopie);
     m_chatClient->sendKopie(kopie);
+    */
 
     //TODO: Spielerstatus deaktivieren
     //ChatClient::sendMessage();
