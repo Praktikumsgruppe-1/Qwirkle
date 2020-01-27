@@ -249,9 +249,9 @@ void Game::beutelMischen()
         neuerBeutelStackForm.push_back( Game::beutelStackForm[a] );
         neuerBeutelStackKopie.push_back( Game::beutelStackKopie[a] );
 
-        Game::beutelStackForm.erase( Game::beutelStackForm.begin() + a - 1 );
-        Game::beutelStackFarbe.erase( Game::beutelStackFarbe.begin() + a - 1 );
-        Game::beutelStackKopie.erase( Game::beutelStackKopie.begin() + a - 1 );
+        Game::beutelStackForm.erase( Game::beutelStackForm.begin() + a );
+        Game::beutelStackFarbe.erase( Game::beutelStackFarbe.begin() + a );
+        Game::beutelStackKopie.erase( Game::beutelStackKopie.begin() + a );
     }
 
     // neuen Beutel in alten Stack kopieren

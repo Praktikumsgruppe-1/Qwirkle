@@ -55,6 +55,7 @@ int Punkte::calc(int xCoord,int yCoord)                                 //der Fu
       if(rowcounter==6)
       {
         rowcounter=12;
+        qDebug("hey du hast einen Qwirkel");
       }
       finalcounter=finalcounter+rowcounter;
       rowcounter=0;
