@@ -23,27 +23,27 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    MainWindow( QWidget *parent = nullptr );
+    ~MainWindow( );
 
-    ChatServer* getServerAdress();
-    ChatClient* getClientAdress();
-    QString getLastUserName();
+    ChatServer* getServerAdress( );
+    ChatClient* getClientAdress( );
+    QString getLastUserName( );
 
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_3_clicked();
-    void on_startStopButton_clicked();
+    void on_pushButton_clicked( );
+    void on_pushButton_3_clicked( );
+    void on_startStopButton_clicked( );
 
-    void toggleStartServer();
-    void logMessage(const QString &msg);
-    void attemptConnection();
-    void connectedToServer();
-    void attemptLogin(const QString &userName);
-    void loggedIn();
-    void loginFailed(const QString &reason);
-    void disconnectedFromServer();
-    void error(QAbstractSocket::SocketError socketError);
+    void toggleStartServer( );
+    void logMessage( const QString &msg );
+    void attemptConnection( );
+    void connectedToServer( );
+    void attemptLogin( const QString &userName );
+    void loggedIn( );
+    void loginFailed( const QString &reason );
+    void disconnectedFromServer( );
+    void error( QAbstractSocket::SocketError socketError );
 
 
 private:

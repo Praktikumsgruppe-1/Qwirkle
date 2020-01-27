@@ -8,7 +8,8 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class rulesWindow;
 }
 
@@ -17,13 +18,13 @@ class rulesWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit rulesWindow(QWidget *parent = nullptr);
-    ~rulesWindow();
+    explicit rulesWindow( QWidget *parent = nullptr );
+    ~rulesWindow( );
 
-    void showRules();
+    void showRules( );
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_clicked( );
 
 private:
     Ui::rulesWindow *ui;

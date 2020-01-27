@@ -18,15 +18,15 @@ QT_END_NAMESPACE
 class Spielfeld : public QFrame
 {
 public:
-    explicit Spielfeld(QWidget *parent = nullptr, int spalteX = 0, int reiheY = 0 );
+    explicit Spielfeld( QWidget *parent = nullptr, int spalteX = 0, int reiheY = 0 );
     int reihe;
     int spalte;
 
     void feldArrayZuruecksetzen( );
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event) override;
-    void dropEvent(QDropEvent *event) override;
+    void dragEnterEvent( QDragEnterEvent *event ) override;
+    void dropEvent( QDropEvent *event ) override;
 
     friend class Game;
 };

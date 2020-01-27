@@ -28,23 +28,25 @@ std::stack< int > undoClass::undoSpalte;
 
 
 // Konstruktor
-undoClass::undoClass( QWidget *parent ){
+undoClass::undoClass( QWidget *parent )
+{
 
 }
 
 
 // Destruktor
-undoClass::~undoClass(){
+undoClass::~undoClass()
+{
 
 }
 
 
 // macht eine Bewegung eines Spielsteins rückgängig, indem der letzte bewegte Spielstein
 // vom Spielfeld gelöscht wird und auf die Benutzerhand gelegt wird.
-void undoClass::undoMove(){
-
-    if ( !undoClass::undoStack.empty() ) {
-
+void undoClass::undoMove()
+{
+    if ( !undoClass::undoStack.empty() )
+    {
         qDebug("*******Neuen Stein erstellen und platzieren**********");
 
         /*** neuer Stein wird erstellt mit alten Werten ********/

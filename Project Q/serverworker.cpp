@@ -1,3 +1,7 @@
+/**********************************************************************/
+// Datei: serverworker.cpp
+// Programmebeschreibung:
+/**********************************************************************/
 #include "serverworker.h"
 #include <QDataStream>
 #include <QJsonDocument>
@@ -49,22 +53,28 @@ void ServerWorker::receiveJson()
     QByteArray jsonData;
     QDataStream socketStream(m_serverSocket);
     socketStream.setVersion(QDataStream::Qt_5_7);
-    for (;;) {
+    for (;;)
+    {
         socketStream.startTransaction();
         socketStream >> jsonData;
-        if (socketStream.commitTransaction()) {
+        if (socketStream.commitTransaction())
+        {
             QJsonParseError parseError;
             const QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData, &parseError);
-            if (parseError.error == QJsonParseError::NoError) {
-                if (jsonDoc.isObject()){
+            if (parseError.error == QJsonParseError::NoError)
+            {
+                if (jsonDoc.isObject())
+                {
                     emit jsonReceived(jsonDoc.object());
-               } else
+                } else
                     emit logMessage("Invalid message: " + QString::fromUtf8(jsonData));
-            } else {
+            } else
+            {
                 emit logMessage("Invalid message: " + QString::fromUtf8(jsonData));
             }
 
-        } else {
+        } else
+        {
             break;
         }
     }

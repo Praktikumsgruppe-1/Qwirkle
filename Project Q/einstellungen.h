@@ -9,11 +9,13 @@
 #include <QWidget>
 #include "ui_einstellungen.h"
 
-namespace Ui {
+namespace Ui
+{
 class Einstellungen;
 }
 
-class Einstellungen : public QWidget {
+class Einstellungen : public QWidget
+{
     Q_OBJECT
 
 public:

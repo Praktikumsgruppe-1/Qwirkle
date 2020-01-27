@@ -1,3 +1,7 @@
+/**********************************************************************/
+// Datei: chatserver.cpp
+// Programmebeschreibung:
+/**********************************************************************/
 #include "chatserver.h"
 #include "serverworker.h"
 #include <QThread>
@@ -6,6 +10,8 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QTimer>
+
+
 ChatServer::ChatServer(QObject *parent)
     : QTcpServer(parent)
 {}
@@ -13,7 +19,8 @@ ChatServer::ChatServer(QObject *parent)
 void ChatServer::incomingConnection(qintptr socketDescriptor)
 {
     ServerWorker *worker = new ServerWorker(this);
-    if (!worker->setSocketDescriptor(socketDescriptor)) {
+    if (!worker->setSocketDescriptor(socketDescriptor))
+    {
         worker->deleteLater();
         return;
     }
@@ -24,14 +31,17 @@ void ChatServer::incomingConnection(qintptr socketDescriptor)
     m_clients.append(worker);
     emit logMessage(QStringLiteral("New client Connected"));
 }
+
 void ChatServer::sendJson(ServerWorker *destination, const QJsonObject &message)
 {
     Q_ASSERT(destination);
     destination->sendJson(message);
 }
+
 void ChatServer::broadcast(const QJsonObject &message, ServerWorker *exclude)
 {
-    for (ServerWorker *worker : m_clients) {
+    for (ServerWorker *worker : m_clients)
+    {
         Q_ASSERT(worker);
         if (worker == exclude)
             continue;
@@ -52,7 +62,8 @@ void ChatServer::userDisconnected(ServerWorker *sender)
 {
     m_clients.removeAll(sender);
     const QString userName = sender->userName();
-    if (!userName.isEmpty()) {
+    if (!userName.isEmpty())
+    {
         QJsonObject disconnectedMessage;
         disconnectedMessage["type"] = QStringLiteral("userdisconnected");
         disconnectedMessage["username"] = userName;
@@ -70,7 +81,8 @@ void ChatServer::userError(ServerWorker *sender)
 
 void ChatServer::stopServer()
 {
-    for (ServerWorker *worker : m_clients) {
+    for (ServerWorker *worker : m_clients)
+    {
         worker->disconnectFromClient();
     }
     close();
@@ -90,10 +102,12 @@ void ChatServer::jsonFromLoggedOut(ServerWorker *sender, const QJsonObject &docO
     const QString newUserName = usernameVal.toString().simplified();
     if (newUserName.isEmpty())
         return;
-    for (ServerWorker *worker : qAsConst(m_clients)) {
+    for (ServerWorker *worker : qAsConst(m_clients))
+    {
         if (worker == sender)
             continue;
-        if (worker->userName().compare(newUserName, Qt::CaseInsensitive) == 0) {
+        if (worker->userName().compare(newUserName, Qt::CaseInsensitive) == 0)
+        {
             QJsonObject message;
             message["type"] = QStringLiteral("login");
             message["success"] = false;
@@ -131,21 +145,24 @@ void ChatServer::jsonFromLoggedIn(ServerWorker *sender, const QJsonObject &docOb
     if (text.isEmpty())
         return;
         */
-    if (typeVal.toString().compare(QLatin1String("message"), Qt::CaseInsensitive) == 0){
+    if (typeVal.toString().compare(QLatin1String("message"), Qt::CaseInsensitive) == 0)
+    {
     QJsonObject message;
     message["type"] = QStringLiteral("message");
     message["text"] = text;
     message["sender"] = sender->userName();
     broadcast(message, sender);
     }
-    if (typeVal.toString().compare(QLatin1String("points"), Qt::CaseInsensitive) == 0){ //points
+    if (typeVal.toString().compare(QLatin1String("points"), Qt::CaseInsensitive) == 0)//points
+    {
     QJsonObject points;
     points["type"] = QStringLiteral("points");
     points["text"] = text;
     points["sender"] = sender->userName();
     broadcast(points, sender);
     }
-    if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0){   //turn
+    if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) //turn
+    {
     QJsonObject turn;
     turn["type"] = QStringLiteral("turn");
     turn["array"] = text;

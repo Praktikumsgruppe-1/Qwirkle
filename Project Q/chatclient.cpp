@@ -1,3 +1,7 @@
+/**********************************************************************/
+// Datei: chatclient.cpp
+// Programmebeschreibung:
+/**********************************************************************/
 #include "chatclient.h"
 #include <QTcpSocket>
 #include <QDataStream>
@@ -36,6 +40,7 @@ void ChatClient::login(const QString &userName)
         clientStream << QJsonDocument(message).toJson(QJsonDocument::Compact);
     }
 }
+
 void ChatClient::sendPoints(const QString &text)
 {
 
@@ -47,6 +52,7 @@ void ChatClient::sendPoints(const QString &text)
     clientStream << QJsonDocument(points).toJson();
 
 }
+
 void ChatClient::sendTurn(const QJsonArray &text)
 {
 
@@ -57,6 +63,7 @@ void ChatClient::sendTurn(const QJsonArray &text)
     turn["array"] = text;
     clientStream << QJsonDocument(turn).toJson();
 }
+
 void ChatClient::sendMessage(const QString &text)
 {
     if (text.isEmpty())
@@ -79,20 +86,23 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
     const QJsonValue typeVal = docObj.value(QLatin1String("type"));
     if (typeVal.isNull() )
         return;
-    if (typeVal.toString().compare(QLatin1String("login"), Qt::CaseInsensitive) == 0) {
+    if (typeVal.toString().compare(QLatin1String("login"), Qt::CaseInsensitive) == 0)
+    {
         if (m_loggedIn)
             return;
         const QJsonValue resultVal = docObj.value(QLatin1String("success"));
         if (resultVal.isNull() || !resultVal.isBool())
             return;
         const bool loginSuccess = resultVal.toBool();
-        if (loginSuccess) {
+        if (loginSuccess)
+        {
             emit loggedIn();
             return;
         }
         const QJsonValue reasonVal = docObj.value(QLatin1String("reason"));
         emit loginError(reasonVal.toString());
-    } else if (typeVal.toString().compare(QLatin1String("message"), Qt::CaseInsensitive) == 0) {
+    } else if (typeVal.toString().compare(QLatin1String("message"), Qt::CaseInsensitive) == 0)
+    {
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (textVal.isNull() )
@@ -100,24 +110,28 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         if (senderVal.isNull() || !senderVal.isString())
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
-    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) { //turn
+    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) //turn
+    {
         const QJsonValue textVal = docObj.value(QLatin1String("array"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
-    } else if (typeVal.toString().compare(QLatin1String("points"), Qt::CaseInsensitive) == 0) { //points
+    } else if (typeVal.toString().compare(QLatin1String("points"), Qt::CaseInsensitive) == 0) //points
+    {
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
-}    else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
+    } else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0)
+    {
         const QJsonValue usernameVal = docObj.value(QLatin1String("username"));
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
         emit userJoined(usernameVal.toString());
-    } else if (typeVal.toString().compare(QLatin1String("userdisconnected"), Qt::CaseInsensitive) == 0) {
+    } else if (typeVal.toString().compare(QLatin1String("userdisconnected"), Qt::CaseInsensitive) == 0)
+    {
         const QJsonValue usernameVal = docObj.value(QLatin1String("username"));
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
@@ -137,22 +151,27 @@ void ChatClient::onReadyRead()
     QByteArray jsonData;
     QDataStream socketStream(m_clientSocket);
     socketStream.setVersion(QDataStream::Qt_5_7);
-    for (;;) {
+    for (;;)
+    {
         socketStream.startTransaction();
         socketStream >> jsonData;
-        if (socketStream.commitTransaction()) {
+        if (socketStream.commitTransaction())
+        {
             QJsonParseError parseError;
             const QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData, &parseError);
-            if (parseError.error == QJsonParseError::NoError) {
+            if (parseError.error == QJsonParseError::NoError)
+            {
 
                 if (jsonDoc.isObject())
                     jsonReceived(jsonDoc.object());
             }
-        } else {
+        } else
+        {
             break;
         }
     }
 }
+
 void ChatClient::nextPlayer()
 {
             // hand freischalten  fehlt

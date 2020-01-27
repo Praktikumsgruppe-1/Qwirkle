@@ -13,19 +13,22 @@
 // Konstruktor der Klasse Einstellungen
 Einstellungen::Einstellungen(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Einstellungen) {
+    ui(new Ui::Einstellungen)
+{
     ui->setupUi(this);
 }
 
 // Destruktor der Klasse Einstellungen
-Einstellungen::~Einstellungen() {
+Einstellungen::~Einstellungen()
+{
     delete ui;
 }
 
 // Wenn auf den Button "About" drauf geklickt wird, wird diese Funktion
 // aufgerufen, die bewirkt dass der bisherige Inhalt des Widgets widget
 // gelöscht wird und ein Text mit den Credits erscheint.
-void Einstellungen::on_pushButton_2_clicked() {
+void Einstellungen::on_pushButton_2_clicked()
+{
     QLabel *label = new QLabel();
     QHBoxLayout *layout = new QHBoxLayout();
 
@@ -41,7 +44,8 @@ void Einstellungen::on_pushButton_2_clicked() {
 // aufgerufen, die bewirkt dass der bisherige Inhalt des Widgets widget
 // gelöscht wird und ein Text erscheint. Hier werden später möglicherweise
 // noch Einstellungsmöglichkeiten hinzugefügt.
-void Einstellungen::on_pushButton_clicked() {
+void Einstellungen::on_pushButton_clicked()
+{
     QLabel *label = new QLabel();
     QHBoxLayout *layout = new QHBoxLayout();
 
@@ -55,6 +59,7 @@ void Einstellungen::on_pushButton_clicked() {
 
 // Wenn auf den Button "Beenden" drauf geklickt wird, wird diese Funktion
 // aufgerufen, die bewirkt dass das Fenster geschlossen wird.
-void Einstellungen::on_pushButton_3_clicked() {
+void Einstellungen::on_pushButton_3_clicked()
+{
     close();
 }
