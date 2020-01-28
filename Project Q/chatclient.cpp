@@ -1,5 +1,6 @@
 #include "chatclient.h"
 #include "game.h"
+#include "spielfeld.h"
 
 #include <QTcpSocket>
 #include <QDataStream>
@@ -104,6 +105,8 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
     } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) //turn
     {
         qDebug() << "Turn angekommen";
+        allerersterStein = 1;
+        qDebug() << "allerersterStein?" << allerersterStein;
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())

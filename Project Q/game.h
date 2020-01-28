@@ -33,7 +33,9 @@ public:
     explicit Game(QWidget *parent = nullptr, MainWindow *beforeWindow = nullptr);
     ~Game();
 
-    Ui::Game *ui;
+    static Ui::Game *ui;
+    static Game *frosch;
+
     Spielfeld *frame[108][108];
 
     static std::vector< int > beutelStackFarbe;
@@ -81,6 +83,8 @@ private slots:
     void userJoined(const QString &username);
     void userLeft(const QString &username);
 
+    void on_pushButton_3_clicked();
+
 private:
 
     int scrollBarHMax = 0;
@@ -103,4 +107,5 @@ extern int feldarray [108][108][5];                                   //startwer
 //2 : die Form
 //3 : markiert ob der Stein in der Runde des Spielers neu gelegt wurde
 //?4 : welche Kopie von dem Stein ist es (es gibt immer 3)
+
 #endif // GAME_H

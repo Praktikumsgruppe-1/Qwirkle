@@ -82,6 +82,8 @@ void Spielfeld::dragEnterEvent(QDragEnterEvent *event)
 // dropEvent, welches den Stein in das Spielfeld setzt und einige Werte zuordnet
 void Spielfeld::dropEvent(QDropEvent *event)
 {
+   qDebug() << "Drop Event beginnt";
+   qDebug() << "allerersterStein?" << allerersterStein;
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
         QDataStream dataStream(&itemData, QIODevice::ReadOnly);
@@ -125,6 +127,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 /*** neuen Stein erstellen, der dargestellt wird in der Benutzerhand ***/
 
                 Game* pframe = new Game();
+
                 /*
                 QLabel *newIcon = new QLabel( );
                 newIcon->setParent( undoClass::undoParent.top() );
@@ -210,7 +213,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
         undoClass::undoStack.push( newIcon );               // Werte in den undoStack tun
         undoClass::undoReihe.push( reihe );
         undoClass::undoSpalte.push( spalte );
-
+        qDebug() << this;
         qDebug() << "---Stein wurde erstellt";
 
         SteinImFeld++;

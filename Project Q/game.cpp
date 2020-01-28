@@ -44,13 +44,18 @@ int feldarray [108][108][5];
 std::vector< int > Game::beutelStackFarbe;
 std::vector< int > Game::beutelStackForm;
 std::vector< int > Game::beutelStackKopie;
+
+Ui::Game *Game::ui = new Ui::Game;
+Game *Game::frosch;
+
 //Turn spielzug;
 
 /****************** Konstruktor *******************************************************************/
 Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     QWidget(parent)
-    , ui(new Ui::Game)
+    //, ui(new Ui::Game)
 {
+    qDebug() << "Gamekonstruktor wird aufgerufen";
     ui->setupUi(this);
     setMinimumSize(1510,805);
 
@@ -73,8 +78,6 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     ui->lcdNumber->display(spielerpunkte);
     ui->lcdNumber->update();
 
-    ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::Highlight);
-
     ui->scrollArea->setMinimumSize(20,20);
     ui->scrollArea->setMaximumSize(4000,4000);
     ui->scrollAreaWidgetContents->setMaximumSize(8000,8000);
@@ -85,20 +88,31 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
     /*********************************************************************/
     // Spielfeld 108 x 108 wird aufgebaut und die kleinen Spielfelder eingefügt
 
-    for ( int i = 0; i < 108; i++ )
-
+    if(allerersterStein==0)
     {
-        ui->lfeld->setRowMinimumHeight( i, 75 );
-        ui->lfeld->setColumnMinimumWidth( i, 75 );
-        for ( int j = 0; j < 108; j++ )
+        for ( int i = 0; i < 108; i++ )
+
         {
-            frame[i][j] = new Spielfeld( nullptr, i, j );
-            ui->lfeld->addWidget( frame[i][j], i, j );
+            ui->lfeld->setRowMinimumHeight( i, 75 );
+            ui->lfeld->setColumnMinimumWidth( i, 75 );
+            for ( int j = 0; j < 108; j++ )
+            {
+                frame[i][j] = new Spielfeld( nullptr, i, j );
+                ui->lfeld->addWidget( frame[i][j], i, j );
+            }
         }
     }
 
     ui->scrollAreaWidgetContents->setLayout( ui->lfeld );
     ui->scrollArea->setWidget( ui->scrollAreaWidgetContents );
+    if(allerersterStein==0)
+    {
+        ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::Highlight);
+    }
+    else
+    {
+        ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::HighlightedText);
+    }
 
     /************* Beutel erstellen ***************************************/
     // folgendes nur ausführen, wenn es noch nie ausgeführt wurde
@@ -121,17 +135,21 @@ Game::Game(QWidget *parent, MainWindow *beforeWindow) :
         // Beutel mischen
         Game::beutelMischen();
         qDebug() << "beutel gemischt im Game_Konstruktor mit " <<  Game::beutelStackFarbe.size() << "steinen im Beutel";
+        qDebug() << "allerersterStein?" << allerersterStein;
 
         /*** feldarray wird mit den Startwerten zum Spielbeginn initialisiert ***/
-        for ( int i = 0; i < 108; i++ )
+        if(allerersterStein==0)
         {
-            for ( int j = 0; j < 108; j++)
+            for ( int i = 0; i < 108; i++ )
             {
-              feldarray[i][j][0] = 0;
-              feldarray[i][j][1] = 9;
-              feldarray[i][j][2] = 9;
-              feldarray[i][j][3] = 0;
-              feldarray[i][j][4] = 0;
+                for ( int j = 0; j < 108; j++)
+                {
+                  feldarray[i][j][0] = 0;
+                  feldarray[i][j][1] = 9;
+                  feldarray[i][j][2] = 9;
+                  feldarray[i][j][3] = 0;
+                  feldarray[i][j][4] = 0;
+                }
             }
         }
     }
@@ -219,8 +237,10 @@ Game::~Game()
 // aktualisiert alle Frames in dem ui des Games
 void Game::updateFrames()
 {
+    qDebug() << "frames werden geupdatet";
     ui->frame->update();
     ui->hand->update();
+    ui->lfeld->update();
 }
 
 
@@ -329,7 +349,8 @@ void Game::arrayauslesen(QJsonArray &a)
    int *dummyarray = (int *) malloc (4*sizeof (int));
    int anzahlSteine = a.size();
    qDebug() << a.size();
-   Game *pdum = new Game();
+   //Game *pdum = new Game();
+   ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::LinkVisited);
 
    for (int i = 0; i < anzahlSteine; i++)
    {
@@ -338,8 +359,8 @@ void Game::arrayauslesen(QJsonArray &a)
       dummyarray[1] = a.at(i).toObject()["form"].toInt();
       dummyarray[2] = a.at(i).toObject()["pos_x"].toInt();
       dummyarray[3] = a.at(i).toObject()["pos_y"].toInt();
-      pdum->feldarrayAktualisieren(dummyarray);
-      qDebug() << "feldarrayaktualisiert";
+      frosch->feldarrayAktualisieren(dummyarray);
+      qDebug() << "aktualisierter feldarray" << feldarray[a.at(i).toObject()["pos_x"].toInt()][a.at(i).toObject()["pos_y"].toInt()][0] << feldarray[a.at(i).toObject()["pos_x"].toInt()][a.at(i).toObject()["pos_y"].toInt()][1] << feldarray[a.at(i).toObject()["pos_x"].toInt()][a.at(i).toObject()["pos_y"].toInt()][2] << feldarray[a.at(i).toObject()["pos_x"].toInt()][a.at(i).toObject()["pos_y"].toInt()][3] << "kkordinaten: " << a.at(i).toObject()["pos_x"].toInt() << a.at(i).toObject()["pos_y"].toInt() ;
    }
 };
 
@@ -353,14 +374,20 @@ void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
     feldarray[ array[2] ][ array[3] ][ 2 ] = array[1] ;
     feldarray[ array[2] ][ array[3] ][ 3 ] = 0 ;
 
-    qDebug() << feldarray[0];
+    qDebug() << "aktualisierter feldarray" << feldarray[array[2]][array[3]][0] << feldarray[array[2]][array[3]][1] << feldarray[array[2]][array[3]][2] << feldarray[array[2]][array[3]][3] << "kkordinaten: " << array[2] << array[3];
+
+    //ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::LinkVisited);
 
     // Spielstein erstellen im feld
-    QLabel *newIcon = new QLabel( );
+    QLabel *newIcon = new QLabel( ui->lfeld->itemAtPosition( array[3], array[2] )->widget());
     newIcon->setPixmap( getPixmap( array[0], array[1] ) );
-    ui->lfeld->addWidget( newIcon,  array[2], array[3] );
+    newIcon->move(0,0);
     newIcon->show();
-    newIcon->setAttribute(Qt::WA_DeleteOnClose);
+    ui->lfeld->update();
+
+    qDebug() << ui->lfeld->itemAtPosition( array[2], array[3] )->widget() ;
+
+    //newIcon->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 
@@ -782,4 +809,9 @@ void Game::error(QAbstractSocket::SocketError socketError)
     ui->messageEdit->setEnabled(false);
     ui->chatView->setEnabled(false);
     m_lastUserName.clear();
+}
+
+void Game::on_pushButton_3_clicked()
+{
+    ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::LinkVisited);
 }

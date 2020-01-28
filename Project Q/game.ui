@@ -63,8 +63,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1466</width>
-      <height>596</height>
+      <width>1469</width>
+      <height>599</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -404,6 +404,19 @@
     </property>
     <property name="text">
      <string>Beenden</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>100</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Farbe?</string>
     </property>
    </widget>
   </widget>
