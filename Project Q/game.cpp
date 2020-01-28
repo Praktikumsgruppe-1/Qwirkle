@@ -37,6 +37,7 @@
 #include "turn.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include "json.h"
 
 // static Variablen initialisieren
 int feldarray [108][108][5];
@@ -322,24 +323,23 @@ int Game::bewegteSteinef()
     return bewegteSteine;
 };
 
-void Game::arrayauslesen(QJsonObject &a)
+void Game::arrayauslesen(QJsonArray &a)
 {
    qDebug() << "arrayauslesen" << a;
-   //int *dummyarray = (int *) malloc (4*sizeof (int));
+   int *dummyarray = (int *) malloc (4*sizeof (int));
    int anzahlSteine = a.size();
-   //Game *pdum = new Game();
+   qDebug() << a.size();
+   Game *pdum = new Game();
 
    for (int i = 0; i < anzahlSteine; i++)
    {
-       qDebug() << "bin in der for schleife vom auslesen"  << a;
-      /*
-      dummyarray[0] = a.at(i)[1].toArray()[0].toInt();
-      dummyarray[1] = a.at(i).toArray()[1].toInt();
-      dummyarray[2] = a.at(i).toArray()[2].toInt();
-      dummyarray[3] = a.at(i).toArray()[3].toInt();
+       qDebug() << "bin in der for schleife vom auslesen";
+      dummyarray[0] = a.at(i).toObject()["farbe"].toInt();
+      dummyarray[1] = a.at(i).toObject()["form"].toInt();
+      dummyarray[2] = a.at(i).toObject()["pos_x"].toInt();
+      dummyarray[3] = a.at(i).toObject()["pos_y"].toInt();
       pdum->feldarrayAktualisieren(dummyarray);
       qDebug() << "feldarrayaktualisiert";
-      */
    }
 };
 

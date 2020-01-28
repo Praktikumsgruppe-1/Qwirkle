@@ -108,7 +108,7 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
-        QJsonObject test = textVal.toObject();
+        QJsonArray test = textVal.toArray();
         qDebug() << "test" << test;
         Game::arrayauslesen(test);
         emit turnReceived(senderVal.toString(), textVal.toArray());
