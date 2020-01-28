@@ -821,5 +821,15 @@ void Game::error(QAbstractSocket::SocketError socketError)
 
 void Game::on_pushButton_3_clicked()
 {
-    ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::LinkVisited);
+    if( clickedonce==true)
+    {
+        ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::LinkVisited);
+        clickedonce = false;
+        qDebug() << clickedonce;
+    }
+    else
+    {
+        ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::Highlight);
+        clickedonce = true;
+    }
 }
