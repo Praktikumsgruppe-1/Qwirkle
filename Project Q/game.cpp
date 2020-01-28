@@ -283,7 +283,7 @@ int Game::bewegteSteinef()
 {
     int farbeStein;
     int formStein;
-    Turn spielzug;
+    //Turn spielzug;
     int x, y, bewegteSteine = 0;
     for( x = 0; x < 108; x++ )
     {
@@ -292,13 +292,13 @@ int Game::bewegteSteinef()
             if( feldarray[x][y][3] == 1 ){
                 farbeStein = feldarray[x][y][1];
                 formStein = feldarray[x][y][2];
-                spielzug.addStein(x, y, farbeStein, formStein);
+                //spielzug.addStein(x, y, farbeStein, formStein);
                 bewegteSteine++;
             }
         }
     }
-    QJsonArray turn = spielzug.steineToJson();
-    m_chatClient->sendTurn(turn);
+    //QJsonArray turn = spielzug.steineToJson();
+    //m_chatClient->sendTurn(turn);
 
     return bewegteSteine;
 };
@@ -539,10 +539,15 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
-
+    /*
     //Beutel als Json speichern und versenden
-
-
+    QJsonArray form = json::toJson(beutelStackForm);
+    m_chatClient->sendForm(form);
+    QJsonArray farbe = json::toJson(beutelStackFarbe);
+    m_chatClient->sendFarbe(farbe);
+    QJsonArray kopie = json::toJson(beutelStackKopie);
+    m_chatClient->sendKopie(kopie);
+    */
 
     //TODO: Spielerstatus deaktivieren
     //ChatClient::sendMessage();
@@ -555,8 +560,8 @@ void Game::on_pushButton_7_clicked()
     {
         Tauschen::getauschteSteine.pop_back();
     }
-    // QJsonArray array = { 1, 2, 2.3 ,QString("test")};
-    //        m_chatClient->sendTurn(array);
+    QJsonArray array = { 1, 2, 2.3 ,QString("test")};
+            m_chatClient->sendTurn(array);
             QString point = QString::number(spielerpunkte);
             m_chatClient->sendPoints(point);
             m_chatClient->nextPlayer();
@@ -570,11 +575,11 @@ void Game::on_pushButton_7_clicked()
     pass = false;
 
     QJsonArray form = json::toJson(beutelStackForm);
-    m_chatClient->sendForm(form);
-    QJsonArray farbe = json::toJson(beutelStackFarbe);
-    m_chatClient->sendFarbe(farbe);
-    QJsonArray kopie = json::toJson(beutelStackKopie);
-    m_chatClient->sendKopie(kopie);
+        m_chatClient->sendForm(form);
+        QJsonArray farbe = json::toJson(beutelStackFarbe);
+        m_chatClient->sendFarbe(farbe);
+        QJsonArray kopie = json::toJson(beutelStackKopie);
+        m_chatClient->sendKopie(kopie);
 
     qDebug() << "*****************************Zugende**********************************";
 }

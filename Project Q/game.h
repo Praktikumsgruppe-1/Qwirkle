@@ -73,8 +73,6 @@ private slots:
 
     void messageReceived(const QString &sender, const QString &text);
     void sendMessage();
-    void sendTurn();
-    void sendPoints();
     void disconnectedFromServer();
     void error(QAbstractSocket::SocketError socketError);
     void userJoined(const QString &username);
