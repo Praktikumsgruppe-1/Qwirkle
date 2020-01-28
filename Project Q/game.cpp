@@ -279,12 +279,12 @@ bool Game::passcheck(int a)
 };
 
 
-int Game::bewegteSteinef()
+void Game::bewegteSteinej()
 {
     int farbeStein;
     int formStein;
     Turn spielzug;
-    int x, y, bewegteSteine = 0;
+    int x, y;
     for( x = 0; x < 108; x++ )
     {
         for( y = 0; y < 108; y++ )
@@ -293,13 +293,27 @@ int Game::bewegteSteinef()
                 farbeStein = feldarray[x][y][1];
                 formStein = feldarray[x][y][2];
                 spielzug.addStein(x, y, farbeStein, formStein);
+            }
+        }
+    }
+
+    QJsonArray turn = spielzug.steineToJson();
+    m_chatClient->sendTurn(turn);
+};
+
+int Game::bewegteSteinef()
+{
+    int x, y, bewegteSteine = 0;
+    for( x = 0; x < 108; x++ )
+    {
+        for( y = 0; y < 108; y++ )
+        {
+            if( feldarray[x][y][3] == 1 )
+            {
                 bewegteSteine++;
             }
         }
     }
-    QJsonArray turn = spielzug.steineToJson();
-    m_chatClient->sendTurn(turn);
-
     return bewegteSteine;
 };
 
@@ -373,6 +387,22 @@ Game::gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpu
 };
 */
 
+void Game::arrayauslesen(QJsonArray &a)
+{
+   qDebug() << "arrayauslesen" << a;
+   int dummyarray[4] = {0,0,0,0};
+   int anzahlSteine = 6;
+   Game *pdum = new Game();
+
+   for (int i = 0; i < anzahlSteine; i++)
+   {
+      dummyarray[0] = a.at(i).toArray()[0].toInt();
+      dummyarray[1] = a.at(i).toArray()[1].toInt();
+      dummyarray[2] = a.at(i).toArray()[2].toInt();
+      dummyarray[3] = a.at(i).toArray()[3].toInt();
+      pdum->feldarrayAktualisieren(dummyarray);
+   }
+};
 
 /********** Slotfunktionen ***************************************************************************/
 
@@ -542,9 +572,9 @@ void Game::on_pushButton_7_clicked()
     }
     // QJsonArray array = { 1, 2, 2.3 ,QString("test")};
     //        m_chatClient->sendTurn(array);
-            QString point = QString::number(spielerpunkte);
-            m_chatClient->sendPoints(point);
-            m_chatClient->nextPlayer();
+    QString point = QString::number(spielerpunkte);
+    m_chatClient->sendPoints(point);
+    m_chatClient->nextPlayer();
 
     if(spielende==true)
     {
@@ -554,13 +584,15 @@ void Game::on_pushButton_7_clicked()
 
     pass = false;
 
+    bewegteSteinej();
+
     QJsonArray form = json::toJson(beutelStackForm);
     m_chatClient->sendForm(form);
     QJsonArray farbe = json::toJson(beutelStackFarbe);
     m_chatClient->sendFarbe(farbe);
     QJsonArray kopie = json::toJson(beutelStackKopie);
     m_chatClient->sendKopie(kopie);
-
+    //QString point = QString::number(spielerpunkte);
     qDebug() << "*****************************Zugende**********************************";
 }
 

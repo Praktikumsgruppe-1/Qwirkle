@@ -53,7 +53,9 @@ public:
     bool pass = false;
     bool passcheck(int a);
     int bewegteSteinef();
+    void bewegteSteinej();
 
+    static void arrayauslesen(QJsonArray &a);
     void feldarrayAktualisieren( int array[4] );
     static void formAktualisieren(QJsonArray);
     static void farbeAktualisieren(QJsonArray);
@@ -101,5 +103,4 @@ extern int feldarray [108][108][5];                                   //startwer
 //2 : die Form
 //3 : markiert ob der Stein in der Runde des Spielers neu gelegt wurde
 //?4 : welche Kopie von dem Stein ist es (es gibt immer 3)
-
 #endif // GAME_H

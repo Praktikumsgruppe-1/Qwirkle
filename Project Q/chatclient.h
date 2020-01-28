@@ -19,7 +19,6 @@ class ChatClient : public QObject
 
 public:
     explicit ChatClient( QObject *parent = nullptr );
-    void arrayauslesen(QJsonArray);
 
 public slots:
     void connectToServer( const QHostAddress &address, quint16 port );
