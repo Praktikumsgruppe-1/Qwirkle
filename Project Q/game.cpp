@@ -353,6 +353,8 @@ void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
     feldarray[ array[2] ][ array[3] ][ 2 ] = array[1] ;
     feldarray[ array[2] ][ array[3] ][ 3 ] = 0 ;
 
+    qDebug() << feldarray[0];
+
     // Spielstein erstellen im feld
     QLabel *newIcon = new QLabel( );
     newIcon->setPixmap( getPixmap( array[0], array[1] ) );
