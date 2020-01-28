@@ -1,4 +1,6 @@
 #include "chatclient.h"
+#include "game.h"
+
 #include <QTcpSocket>
 #include <QDataStream>
 #include <QJsonParseError>
@@ -101,13 +103,17 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         if (senderVal.isNull() || !senderVal.isString())
             return;
         emit messageReceived(senderVal.toString(), textVal.toString());
-    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) { //turn
+    } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) //turn
+    {
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
+        QJsonArray test = textVal.toArray();
+        arrayauslesen(test);
         emit turnReceived(senderVal.toString(), textVal.toArray());
-    } else if (typeVal.toString().compare(QLatin1String("points"), Qt::CaseInsensitive) == 0) { //points
+    }
+    else if (typeVal.toString().compare(QLatin1String("points"), Qt::CaseInsensitive) == 0) { //points
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
@@ -228,4 +234,18 @@ void ChatClient::sendKopie(QJsonArray &text)
     clientStream << QJsonDocument(turn).toJson();
 }
 
+void ChatClient::arrayauslesen(QJsonArray)
+{
+   int dummyarray[4];
+   int anzahlSteine = 6;
+   Game pGame;
 
+   for (int i = 0; i < anzahlSteine; i++)
+   {
+      dummyarray[0] = QJsonArray().at(i).toArray()[0].toInt();
+      dummyarray[1] = QJsonArray().at(i).toArray()[1].toInt();
+      dummyarray[2] = QJsonArray().at(i).toArray()[2].toInt();
+      dummyarray[3] = QJsonArray().at(i).toArray()[3].toInt();
+      pGame.feldarrayAktualisieren(dummyarray);
+   }
+};

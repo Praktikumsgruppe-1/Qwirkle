@@ -54,7 +54,6 @@ public:
     bool passcheck(int a);
     int bewegteSteinef();
 
-    void arrayauslesen(QJsonArray);
     void feldarrayAktualisieren( int array[4] );
     static void formAktualisieren(QJsonArray);
     static void farbeAktualisieren(QJsonArray);

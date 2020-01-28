@@ -29,7 +29,7 @@ public:
     QWidget *centralwidget;
     QPushButton *pushButton_3;
     QPlainTextEdit *logEditor;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
     QLineEdit *lineEdit;
@@ -51,13 +51,13 @@ public:
         logEditor = new QPlainTextEdit(centralwidget);
         logEditor->setObjectName(QString::fromUtf8("logEditor"));
         logEditor->setGeometry(QRect(610, 60, 231, 161));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 10, 561, 221));
-        verticalLayout_2 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 561, 221));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
         QFont font;
         font.setFamily(QString::fromUtf8("Candara Light"));
@@ -66,12 +66,12 @@ public:
 
         verticalLayout_2->addWidget(label);
 
-        lineEdit = new QLineEdit(widget);
+        lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
         verticalLayout_2->addWidget(lineEdit);
 
-        startStopButton = new QPushButton(widget);
+        startStopButton = new QPushButton(layoutWidget);
         startStopButton->setObjectName(QString::fromUtf8("startStopButton"));
         QFont font1;
         font1.setFamily(QString::fromUtf8("Candara Light"));
@@ -80,7 +80,7 @@ public:
 
         verticalLayout_2->addWidget(startStopButton);
 
-        connectButton = new QPushButton(widget);
+        connectButton = new QPushButton(layoutWidget);
         connectButton->setObjectName(QString::fromUtf8("connectButton"));
         connectButton->setFont(font1);
 
@@ -102,7 +102,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Lobby Qwirkel", nullptr));
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "Spiel beginnen", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Spielername eingeben:", nullptr));
         startStopButton->setText(QCoreApplication::translate("MainWindow", "Lobby erstellen", nullptr));

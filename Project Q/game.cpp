@@ -303,22 +303,6 @@ int Game::bewegteSteinef()
     return bewegteSteine;
 };
 
-void Game::arrayauslesen(QJsonArray)
-{
-   int dummyarray[4];
-   int anzahlSteine = QJsonArray().size();
-
-   for (int i = 0; i < anzahlSteine; i++)
-   {
-      dummyarray[0] = QJsonArray().at(i).toArray()[0].toInt();
-      dummyarray[1] = QJsonArray().at(i).toArray()[1].toInt();
-      dummyarray[2] = QJsonArray().at(i).toArray()[2].toInt();
-      dummyarray[3] = QJsonArray().at(i).toArray()[3].toInt();
-
-      feldarrayAktualisieren(dummyarray);
-   }
-};
-
 void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
 {
     // feldarray aktualisieren
@@ -388,6 +372,7 @@ Game::gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpu
     //er müsste jetzt zum ausgeben die spielerpunkte mit dem spieler verknüpfen
 };
 */
+
 
 /********** Slotfunktionen ***************************************************************************/
 
