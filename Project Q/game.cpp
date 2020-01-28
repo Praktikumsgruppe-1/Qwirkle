@@ -35,7 +35,8 @@
 #include "einstellungen.h"
 #include "spielfeld.h"
 #include "turn.h"
-#include "json.h"
+#include "stdio.h"
+#include "stdlib.h"
 
 // static Variablen initialisieren
 int feldarray [108][108][5];
@@ -281,6 +282,7 @@ bool Game::passcheck(int a)
 
 void Game::bewegteSteinej()
 {
+    qDebug() << "bewegteSteinej";
     int farbeStein;
     int formStein;
     Turn spielzug;
@@ -289,15 +291,18 @@ void Game::bewegteSteinej()
     {
         for( y = 0; y < 108; y++ )
         {
-            if( feldarray[x][y][3] == 1 ){
+            if( feldarray[x][y][3] == 1 )
+            {
                 farbeStein = feldarray[x][y][1];
                 formStein = feldarray[x][y][2];
                 spielzug.addStein(x, y, farbeStein, formStein);
+                qDebug() << "Farbe: " << feldarray[x][y][1] << "Form :" << feldarray[x][y][2] << "Koordinaten: " << x << y;
             }
         }
     }
 
     QJsonArray turn = spielzug.steineToJson();
+    qDebug() << turn;
     m_chatClient->sendTurn(turn);
 };
 
@@ -317,8 +322,31 @@ int Game::bewegteSteinef()
     return bewegteSteine;
 };
 
+void Game::arrayauslesen(QJsonObject &a)
+{
+   qDebug() << "arrayauslesen" << a;
+   //int *dummyarray = (int *) malloc (4*sizeof (int));
+   int anzahlSteine = a.size();
+   //Game *pdum = new Game();
+
+   for (int i = 0; i < anzahlSteine; i++)
+   {
+       qDebug() << "bin in der for schleife vom auslesen"  << a;
+      /*
+      dummyarray[0] = a.at(i)[1].toArray()[0].toInt();
+      dummyarray[1] = a.at(i).toArray()[1].toInt();
+      dummyarray[2] = a.at(i).toArray()[2].toInt();
+      dummyarray[3] = a.at(i).toArray()[3].toInt();
+      pdum->feldarrayAktualisieren(dummyarray);
+      qDebug() << "feldarrayaktualisiert";
+      */
+   }
+};
+
+
 void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
 {
+    qDebug() << "feladarray auslesen mit dem array:" << array[0] << array[1] << array[2] << array[3];
     // feldarray aktualisieren
     feldarray[ array[2] ][ array[3] ][ 0 ] = 0 ;
     feldarray[ array[2] ][ array[3] ][ 1 ] = array[0] ;
@@ -386,23 +414,6 @@ Game::gewinnerEnde(int spielerpunkte1, spielerpunkte2, spielerpunkte3, spielerpu
     //er müsste jetzt zum ausgeben die spielerpunkte mit dem spieler verknüpfen
 };
 */
-
-void Game::arrayauslesen(QJsonArray &a)
-{
-   qDebug() << "arrayauslesen" << a;
-   int dummyarray[4] = {0,0,0,0};
-   int anzahlSteine = 6;
-   Game *pdum = new Game();
-
-   for (int i = 0; i < anzahlSteine; i++)
-   {
-      dummyarray[0] = a.at(i).toArray()[0].toInt();
-      dummyarray[1] = a.at(i).toArray()[1].toInt();
-      dummyarray[2] = a.at(i).toArray()[2].toInt();
-      dummyarray[3] = a.at(i).toArray()[3].toInt();
-      pdum->feldarrayAktualisieren(dummyarray);
-   }
-};
 
 /********** Slotfunktionen ***************************************************************************/
 
@@ -541,6 +552,7 @@ void Game::on_pushButton_7_clicked()
         //undoClass::undoPixmap.pop();
     }
 
+    bewegteSteinej();
 
     /************ feldarray aktualisieren *********************************/
     int i, j;
@@ -584,14 +596,12 @@ void Game::on_pushButton_7_clicked()
 
     pass = false;
 
-    bewegteSteinej();
-
-    QJsonArray form = json::toJson(beutelStackForm);
-    m_chatClient->sendForm(form);
-    QJsonArray farbe = json::toJson(beutelStackFarbe);
-    m_chatClient->sendFarbe(farbe);
-    QJsonArray kopie = json::toJson(beutelStackKopie);
-    m_chatClient->sendKopie(kopie);
+    //QJsonArray form = json::toJson(beutelStackForm);
+    //m_chatClient->sendForm(form);
+    //QJsonArray farbe = json::toJson(beutelStackFarbe);
+    //m_chatClient->sendFarbe(farbe);
+    //QJsonArray kopie = json::toJson(beutelStackKopie);
+    //m_chatClient->sendKopie(kopie);
     //QString point = QString::number(spielerpunkte);
     qDebug() << "*****************************Zugende**********************************";
 }

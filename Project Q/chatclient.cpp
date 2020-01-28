@@ -105,12 +105,13 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         emit messageReceived(senderVal.toString(), textVal.toString());
     } else if (typeVal.toString().compare(QLatin1String("turn"), Qt::CaseInsensitive) == 0) //turn
     {
+        qDebug() << "Turn angekommen";
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
-        QJsonArray test = textVal.toArray();
-        qDebug() << "test" << test[0] << test[1];
+        QJsonObject test = textVal.toObject();
+        qDebug() << "test" << test;
         Game::arrayauslesen(test);
         emit turnReceived(senderVal.toString(), textVal.toArray());
     }
