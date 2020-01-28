@@ -127,18 +127,24 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
+        QJsonArray test = textVal.toArray();
+        Game::formAktualisieren( test );
         emit formReceived(senderVal.toString(), textVal.toArray());
     } else if (typeVal.toString().compare(QLatin1String("farbe"), Qt::CaseInsensitive) == 0) { //farbe
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
+        QJsonArray test = textVal.toArray();
+        Game::farbeAktualisieren( test );
         emit farbeReceived(senderVal.toString(), textVal.toArray());
     } else if (typeVal.toString().compare(QLatin1String("kopie"), Qt::CaseInsensitive) == 0) { //kopie
         const QJsonValue textVal = docObj.value(QLatin1String("text"));
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
+        QJsonArray test = textVal.toArray();
+        Game::kopieAktualisieren( test );
         emit kopieReceived(senderVal.toString(), textVal.toArray());
     } else if (typeVal.toString().compare(QLatin1String("newuser"), Qt::CaseInsensitive) == 0) {
         const QJsonValue usernameVal = docObj.value(QLatin1String("username"));

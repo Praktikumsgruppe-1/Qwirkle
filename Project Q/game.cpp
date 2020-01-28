@@ -350,7 +350,6 @@ void Game::arrayauslesen(QJsonArray &a)
    int anzahlSteine = a.size();
    qDebug() << a.size();
    //Game *pdum = new Game();
-   ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::LinkVisited);
 
    for (int i = 0; i < anzahlSteine; i++)
    {
@@ -405,7 +404,7 @@ void Game::formAktualisieren(QJsonArray ar)
     int beutelLaenge = ar.size();
     for( int i = 0; i < beutelLaenge; i++ )
     {
-        Game::beutelStackForm.push_back( ar.at(i).toInt() );
+        Game::beutelStackForm.push_back( ar.at(i).toObject()["form"].toInt() );
     }
     return;
 }
@@ -424,7 +423,7 @@ void Game::farbeAktualisieren(QJsonArray ar)
     int beutelLaenge = ar.size();
     for( int i = 0; i < beutelLaenge; i++ )
     {
-        Game::beutelStackFarbe.push_back( ar.at(i).toInt() );
+        Game::beutelStackFarbe.push_back( ar.at(i).toObject()["form"].toInt() );
     }
     return;
 }
@@ -443,9 +442,18 @@ void Game::kopieAktualisieren(QJsonArray ar)
     int beutelLaenge = ar.size();
     for( int i = 0; i < beutelLaenge; i++ )
     {
-        Game::beutelStackKopie.push_back( ar.at(i).toInt() );
+        Game::beutelStackKopie.push_back( ar.at(i).toObject()["form"].toInt() );
     }
     return;
+}
+
+// Angefangen: versendet den Beutel, ist aber nicht fertig
+void Game::beutelVersenden()
+{
+    Turn Spielzug;
+    for( int i = 0; i < 108; i++ )
+        QJsonArray form = json::toJson(beutelStackForm);
+
 }
 
 /*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl

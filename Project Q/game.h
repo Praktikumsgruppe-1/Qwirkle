@@ -56,6 +56,7 @@ public:
     bool passcheck(int a);
     int bewegteSteinef();
     void bewegteSteinej();
+    void beutelVersenden();
 
     static void arrayauslesen(QJsonArray &a);
     void feldarrayAktualisieren( int array[4] );

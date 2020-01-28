@@ -51,6 +51,7 @@ public:
     QPushButton *pushButton_7;
     QLabel *label_3;
     QPushButton *pushButton;
+    QPushButton *pushButton_3;
 
     void setupUi(QWidget *Game)
     {
@@ -76,7 +77,7 @@ public:
         scrollArea->setAlignment(Qt::AlignCenter);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1466, 596));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1469, 599));
         sizePolicy.setHeightForWidth(scrollAreaWidgetContents->sizePolicy().hasHeightForWidth());
         scrollAreaWidgetContents->setSizePolicy(sizePolicy);
         gridLayoutWidget = new QWidget(scrollAreaWidgetContents);
@@ -181,6 +182,9 @@ public:
         font3.setFamily(QString::fromUtf8("Candara Light"));
         font3.setPointSize(18);
         pushButton->setFont(font3);
+        pushButton_3 = new QPushButton(unten_rechts);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(19, 100, 111, 41));
 
         retranslateUi(Game);
 
@@ -199,6 +203,7 @@ public:
         pushButton_7->setText(QString());
         label_3->setText(QCoreApplication::translate("Game", "tauschen", nullptr));
         pushButton->setText(QCoreApplication::translate("Game", "Beenden", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("Game", "Farbe?", nullptr));
     } // retranslateUi
 
 };
