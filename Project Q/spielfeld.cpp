@@ -126,7 +126,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 qDebug() << "Daten der falsch_Schleife" << reihe << spalte << getFarbePixmap(pixmap) << getFormPixmap(pixmap);
                 /*** neuen Stein erstellen, der dargestellt wird in der Benutzerhand ***/
 
-                Game* pframe = new Game();
+                //Game* pframe = new Game();
 
                 /*
                 QLabel *newIcon = new QLabel( );
@@ -148,7 +148,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 feldarray[reihe][spalte][2] = 9;
                 feldarray[reihe][spalte][3] = 0;
 
-                pframe->update();
+                Game::frosch->update();
                 qDebug() << "---Stein darf nicht abgelegt werden---" << "undo Stack size:" << undoClass::undoStack.size() ;
                 return;
             }
@@ -164,7 +164,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 qDebug("falsch_schleife");
                 qDebug() << "Daten der falsch_Schleife" << reihe << spalte << getFarbePixmap(pixmap) << getFormPixmap(pixmap);
                 /*** neuen Stein erstellen, der dargestellt wird in der Benutzerhand ***/
-                Game* pframe = new Game();
+                //Game* pframe = new Game();
                 /*QLabel *newIcon = new QLabel( );
 
                 newIcon->setParent( undoClass::undoParent.top() );
@@ -188,7 +188,7 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 }
 
 
-                pframe->update();
+                Game::frosch->update();
                 qDebug() << "---Stein darf nicht abgelegt werden---" << "undo Stack size:" << undoClass::undoStack.size() ;
                 return;
             }

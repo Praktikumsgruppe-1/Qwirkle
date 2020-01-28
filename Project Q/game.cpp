@@ -373,20 +373,21 @@ void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
     feldarray[ array[2] ][ array[3] ][ 2 ] = array[1] ;
     feldarray[ array[2] ][ array[3] ][ 3 ] = 0 ;
 
-    qDebug() << "aktualisierter feldarray" << feldarray[array[2]][array[3]][0] << feldarray[array[2]][array[3]][1] << feldarray[array[2]][array[3]][2] << feldarray[array[2]][array[3]][3] << "kkordinaten: " << array[2] << array[3];
+    qDebug() << "aktualisierter feldarray" << feldarray[array[2]][array[3]][0] << feldarray[array[2]][array[3]][1] << feldarray[array[2]][array[3]][2] << feldarray[array[2]][array[3]][3] << "koordinaten: " << array[2] << array[3];
 
     //ui->scrollAreaWidgetContents->setBackgroundRole(QPalette::LinkVisited);
 
     // Spielstein erstellen im feld
+
+    //qDebug() << ui->lfeld->itemAtPosition( array[3], array[2] )->widget();
     QLabel *newIcon = new QLabel( ui->lfeld->itemAtPosition( array[3], array[2] )->widget());
     newIcon->setPixmap( getPixmap( array[0], array[1] ) );
     newIcon->move(0,0);
     newIcon->show();
     ui->lfeld->update();
 
-    qDebug() << ui->lfeld->itemAtPosition( array[2], array[3] )->widget() ;
-
-    //newIcon->setAttribute(Qt::WA_DeleteOnClose);
+    //qDebug() << ui->lfeld->itemAtPosition( array[2], array[3] )->widget() ;
+    newIcon->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 
@@ -578,7 +579,7 @@ void Game::on_pushButton_7_clicked()
     {
         qDebug() << "Spielsteine werden hinzugefügt für:" << bewegteSteinef();
         qDebug() << "Anzahl Steine im Beutel" << Game::beutelStackFarbe.size();
-        Game* pframe2 = new Game();
+        //Game* pframe2 = new Game();
         qDebug() << "Anzahl Steine im Beutel" << Game::beutelStackFarbe.size();
 
         QLabel *newIcon = new QLabel( );
@@ -592,7 +593,7 @@ void Game::on_pushButton_7_clicked()
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-        pframe2->updateFrames();
+        Game::frosch->updateFrames();
 
         /*******Stacks updaten***********************/
         Game::beutelStackForm.pop_back();
