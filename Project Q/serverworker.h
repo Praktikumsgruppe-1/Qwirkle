@@ -21,7 +21,6 @@ public:
     QString userName( ) const;
     void setUserName( const QString &userName );
     void sendJson( const QJsonObject &jsonData );
-    void sendJsonArray(const QJsonArray &jsonData);
 
 signals:
     void jsonReceived( const QJsonObject &jsonDoc );
