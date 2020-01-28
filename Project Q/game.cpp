@@ -361,25 +361,64 @@ void Game::feldarrayAktualisieren( int array[4] )           // Farbe, Form, x, y
     newIcon->setAttribute(Qt::WA_DeleteOnClose);
 }
 
-/*
+
 void Game::formAktualisieren(QJsonArray ar)
 {
-    Game::beutelStackForm = json::toVec(ar);
+    //Game::beutelStackForm = json::toVec(ar);
+
+    // Beutel leeren
+    while( !Game::beutelStackForm.empty() )
+    {
+        Game::beutelStackForm.pop_back();
+    }
+
+    // Beutel fuellen
+    int beutelLaenge = ar.size();
+    for( int i = 0; i < beutelLaenge; i++ )
+    {
+        Game::beutelStackForm.push_back( ar.at(i).toInt() );
+    }
     return;
 }
 
 void Game::farbeAktualisieren(QJsonArray ar)
 {
-    Game::beutelStackFarbe = json::toVec(ar);
+    //Game::beutelStackFarbe = json::toVec(ar);
+
+    // Beutel leeren
+    while( !Game::beutelStackFarbe.empty() )
+    {
+        Game::beutelStackFarbe.pop_back();
+    }
+
+    // Beutel fuellen
+    int beutelLaenge = ar.size();
+    for( int i = 0; i < beutelLaenge; i++ )
+    {
+        Game::beutelStackFarbe.push_back( ar.at(i).toInt() );
+    }
     return;
 }
 
 void Game::kopieAktualisieren(QJsonArray ar)
 {
-    Game::beutelStackKopie = json::toVec(ar);
+    //Game::beutelStackKopie = json::toVec(ar);
+
+    // Beutel leeren
+    while( !Game::beutelStackKopie.empty() )
+    {
+        Game::beutelStackKopie.pop_back();
+    }
+
+    // Beutel fuellen
+    int beutelLaenge = ar.size();
+    for( int i = 0; i < beutelLaenge; i++ )
+    {
+        Game::beutelStackKopie.push_back( ar.at(i).toInt() );
+    }
     return;
 }
-*/
+
 /*        hier fehlt noch die Übergabe der pass anzahl und der spieleranzahl
 void Game::endcheck()
 {

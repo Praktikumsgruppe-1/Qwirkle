@@ -24,8 +24,6 @@ ChatClient::ChatClient(QObject *parent)
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()),this,SLOT(ticktock()));
     timer ->start(10000); // jede x/1000 sec
-
-
 }
 
 void ChatClient::login(const QString &userName)
@@ -170,8 +168,8 @@ void ChatClient::onReadyRead()
         if (socketStream.commitTransaction()) {
             QJsonParseError parseError;
             const QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData, &parseError);
-            if (parseError.error == QJsonParseError::NoError) {
-
+            if (parseError.error == QJsonParseError::NoError)
+            {
                 if (jsonDoc.isObject())
                     jsonReceived(jsonDoc.object());
             }

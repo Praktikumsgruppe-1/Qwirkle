@@ -134,8 +134,6 @@ void Game::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 6: _t->on_einstellungen_clicked(); break;
         case 7: _t->messageReceived((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
         case 8: _t->sendMessage(); break;
-        //case 9: _t->sendTurn(); break;
-        //case 10: _t->sendPoints(); break;
         case 11: _t->disconnectedFromServer(); break;
         case 12: _t->error((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
         case 13: _t->userJoined((*reinterpret_cast< const QString(*)>(_a[1]))); break;
