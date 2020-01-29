@@ -446,14 +446,56 @@ void Game::kopieAktualisieren(QJsonArray ar)
         Game::beutelStackKopie.push_back( ar.at(i).toObject()["form"].toInt() );
     }
     return;
+
+    qDebug() << "___________________________________________";
+    qDebug() << " <<<<<< Beutel Inhalt nach Versand <<<<<<<<<<";
+    qDebug() << Game::beutelStackForm;
+    qDebug() << Game::beutelStackFarbe;
+    qDebug() << Game::beutelStackKopie;
+    qDebug() << "___________________________________________";
+
 }
 
-// Angefangen: versendet den Beutel, ist aber nicht fertig
+// versendet den Beutel
 void Game::beutelVersenden()
 {
-    Turn Spielzug;
-    for( int i = 0; i < 108; i++ )
-        QJsonArray form = json::toJson(beutelStackForm);
+    // Beutel Form
+    QJsonArray beutelJsonForm;
+    int laengeBeutel = Game::beutelStackForm.size();
+    for( int i = 0; i < laengeBeutel; i++ )
+    {
+        QJsonObject temp;
+        temp.insert( "form", Game::beutelStackForm[i] );
+        beutelJsonForm.append(temp);
+    }
+    m_chatClient->sendForm( beutelJsonForm );
+
+    // Beutel Farbe
+    QJsonArray beutelJsonFarbe;
+    for( int i = 0; i < laengeBeutel; i++ )
+    {
+        QJsonObject temp;
+        temp.insert( "farbe", Game::beutelStackFarbe[i] );
+        beutelJsonFarbe.append(temp);
+    }
+    m_chatClient->sendFarbe( beutelJsonFarbe );
+
+    // Beutel Kopie
+    QJsonArray beutelJsonKopie;
+    for( int i = 0; i < laengeBeutel; i++ )
+    {
+        QJsonObject temp;
+        temp.insert( "farbe", Game::beutelStackFarbe[i] );
+        beutelJsonKopie.append(temp);
+    }
+    m_chatClient->sendKopie( beutelJsonKopie );
+
+    qDebug() << "___________________________________________";
+    qDebug() << " <<<<<< Beutel Inhalt bei Versand <<<<<<<<<<";
+    qDebug() << Game::beutelStackForm;
+    qDebug() << Game::beutelStackFarbe;
+    qDebug() << Game::beutelStackKopie;
+    qDebug() << "___________________________________________";
 
 }
 
@@ -643,10 +685,7 @@ void Game::on_pushButton_7_clicked()
         }
     }
 
-
-    //Beutel als Json speichern und versenden
-
-
+    beutelVersenden();
 
     //TODO: Spielerstatus deaktivieren
     //ChatClient::sendMessage();
@@ -673,12 +712,6 @@ void Game::on_pushButton_7_clicked()
 
     pass = false;
 
-    //QJsonArray form = json::toJson(beutelStackForm);
-    //m_chatClient->sendForm(form);
-    //QJsonArray farbe = json::toJson(beutelStackFarbe);
-    //m_chatClient->sendFarbe(farbe);
-    //QJsonArray kopie = json::toJson(beutelStackKopie);
-    //m_chatClient->sendKopie(kopie);
     //QString point = QString::number(spielerpunkte);
     qDebug() << "*****************************Zugende**********************************";
 }

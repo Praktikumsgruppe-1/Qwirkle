@@ -127,6 +127,7 @@ void ChatClient::jsonReceived(const QJsonObject &docObj)
         const QJsonValue senderVal = docObj.value(QLatin1String("sender"));
         if (senderVal.isNull() || !senderVal.isString())
             return;
+        qDebug()  << "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< will die form auslesen";
         QJsonArray test = textVal.toArray();
         Game::formAktualisieren( test );
         emit formReceived(senderVal.toString(), textVal.toArray());
