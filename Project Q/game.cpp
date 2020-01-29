@@ -445,7 +445,6 @@ void Game::kopieAktualisieren(QJsonArray ar)
     {
         Game::beutelStackKopie.push_back( ar.at(i).toObject()["form"].toInt() );
     }
-    return;
 
     qDebug() << "___________________________________________";
     qDebug() << " <<<<<< Beutel Inhalt nach Versand <<<<<<<<<<";
@@ -454,6 +453,7 @@ void Game::kopieAktualisieren(QJsonArray ar)
     qDebug() << Game::beutelStackKopie;
     qDebug() << "___________________________________________";
 
+    return;
 }
 
 // versendet den Beutel

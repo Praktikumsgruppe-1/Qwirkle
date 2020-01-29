@@ -148,7 +148,9 @@ void Spielfeld::dropEvent(QDropEvent *event)
                 feldarray[reihe][spalte][2] = 9;
                 feldarray[reihe][spalte][3] = 0;
 
-                Game::frosch->update();
+                qDebug() << "feldarray nach falsch: " << feldarray[reihe][spalte][0] << feldarray[reihe][spalte][1] << feldarray[reihe][spalte][2] << feldarray[reihe][spalte][3];
+
+                //Game::frosch->update();
                 qDebug() << "---Stein darf nicht abgelegt werden---" << "undo Stack size:" << undoClass::undoStack.size() ;
                 return;
             }
